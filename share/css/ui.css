@@ -1,0 +1,182 @@
+@charset "euc-kr";
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+body,div, span {
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:100%;
+	font:inherit;
+	line-height:1.4em;
+	vertical-align:baseline;
+}
+
+ul {
+	list-style:none outside;
+}
+
+/*-----------------------------------*/
+/* General Styles */
+/*-----------------------------------*/
+body {
+	color:#4f5e62;
+	font-size:14px;
+	line-height:1.6em;
+	position:relative
+}
+
+/** header */
+div#header_top {
+	z-index:3000;
+	position:relative;
+	height:110px;
+	min-width:990px;
+}
+
+div#wrap_main {
+	position:absolute;
+	left:0;
+	top:532px;
+	width:100%;
+}
+
+div#wrap_main div.main_wrapper {
+	z-index:40000;
+	position:relative;
+	clear:both;
+	margin:0 auto;
+}
+
+div.header_outwrap {
+	position:absolute;
+	width:100%;
+	height:110px;
+	overflow:hidden;
+	background:url(/images/2015/main/menu_bg.png) repeat-x left top;	
+}
+
+div.header_wrap {
+	margin:0 auto;
+	position:relative;
+	padding:0;
+	height:383px;
+	overflow:hidden;
+	width:990px;
+}
+
+div.header_wrap h1 {
+	float:left;
+	position:absolute;
+	margin-top:10px;
+}
+ 
+div.header_wrap h1 a {
+	display:block;
+}
+
+
+/** header util */
+div.util_sitemap {
+	float:right;
+	position:absolute;
+	top:0;
+	right:0;
+	z-index:1;
+}
+
+div.util_sitemap a {
+	display:inline-block;
+	padding:15px 10px;
+}
+
+div.util_sitemap a.last {
+	padding-right:0;
+}
+
+/** main visual **/
+div#main_bgvisual {
+	width:100%;
+	height:246px;
+	background:#fff;
+}
+
+div#main_bgvisual div.main_bgvisual_wrapper {
+	width:100%;
+	height:100%;
+	position:relative;
+}
+
+div#main_bgvisual div.main_bgvisual_wrapper .alt {
+	color:#fff;
+}
+
+div#main_bgvisual div.visual_con {
+	float:left;
+	width:100%;
+	height:246px;
+	background-position:0px 0px;
+	background-repeat:no-repeat;
+}
+
+
+
+div#main_bgvisual_control {
+	z-index:1000;
+	position:absolute;
+	top:330px;;
+	width:100%;
+}
+
+div#main_bgvisual_control div.main_control_wrapper {
+	position:relative;
+	width:990px;
+	margin-left:50px;
+	text-align:left;
+}
+
+div#main_bgvisual_control .pause {
+	float:left;
+	display:block;
+	padding:0;
+	margin:0;
+	width:15px;
+	height:16px;
+	overflow:hidden;
+	border:none;
+	background:url(/images/main_control/control_pause.png) no-repeat left top;
+	vertical-align:top;
+	cursor:pointer;
+}
+
+div#main_bgvisual_control .pause span {
+	display:none!important;
+}
+
+div#main_bgvisual_control .play {
+	background-image:url(/images/main_control/control_play.png) 
+}
+
+div#main_bgvisual_control span.pagination {
+	float:left;
+	display:block;
+	padding:0;
+	width:auto;
+}
+
+div#main_bgvisual_control span.pagination a {
+	display:inline-block;
+	width:17px;
+	height:17px;
+	background:url(/images/main_control/navi_off.png) no-repeat left top;
+}
+
+div#main_bgvisual_control span.pagination a.selected {
+	width:33px;
+	background-image:url(/images/main_control/navi_on.png);
+}
+
+div#main_bgvisual_control span.pagination a span {
+	display:none;
+}
+

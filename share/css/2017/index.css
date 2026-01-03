@@ -1,0 +1,892 @@
+/* This code is only meant for previewing your Reflow design. */
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+.primaryContainer {
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 100%;
+	width: 100%;
+	position: relative;
+}
+
+#main {
+	float:inherit;
+	height: 480px;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: none;
+	width: 100%;
+	min-width: 0px;
+	/* background-color: rgb(30, 24, 21); */
+	background-color: rgb(244, 180, 43);
+	background-repeat:repeat-x;
+}
+
+#main_top {
+	float: none;
+	height: 40px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 940px;
+	margin-right: auto;
+}
+
+#kb_sns {
+	color: #fff;
+	font-weight: bold;
+	width: 20%;
+	float: left;
+	margin-top: 10px;
+	margin-left: 25px;
+	letter-spacing: 4px;
+}
+
+#nav_logo {
+	float: right;
+	margin-top: 10px;
+	width: 50%;
+	text-align: right;
+	margin-right: 25px;
+}
+
+#navi {
+	float: none;
+	height: 100px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 940px;
+	margin-right: auto;
+	display: block;
+}
+
+#visual {
+	float: none;
+	height: 340px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 940px;
+	margin-right: auto;
+	display: block;
+}
+
+#visual_2020 {
+	float: none;
+	height: 340px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 940px;
+	margin-right: auto;
+	display: block;
+}
+
+#visual_2021 {
+	float: none;
+	height: 340px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 940px;
+	margin-right: auto;
+	display: block;
+}
+
+#main_bg {
+	float: none;
+	height: 870px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: both;
+	width: 100%;
+	min-width: 0px;
+	display: block;
+	margin-right: auto;
+	/* background-image:url("/images/2016/new/main_contents_bg.jpg"); */
+	background-image:url("/images/2017/2nd/main_contents_bg.jpg");
+	background-attachment: scroll;
+	-webkit-background-size: auto;
+	background-size: auto;
+	background-position: 0% 0%;
+	background-repeat: repeat repeat;
+}
+
+#main_cont {
+	float: none;
+	height: 870px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 941px;
+	margin-right: auto;
+}
+
+#photozone {
+	float: none;
+	height: 350px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 100%;
+	min-width: 0px;
+	display: block;
+	margin-right: auto;
+	background-color: rgb(38, 33, 24);
+}
+
+#photozone_380 {
+	float: none;
+	height: 380px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 100%;
+	min-width: 0px;
+	display: block;
+	margin-right: auto;
+	background-color: rgb(38, 33, 24);
+}
+
+#title {
+	float: none;
+	height: 75px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 940px;
+	margin-right: auto;
+}
+
+#copyright_bg {
+	float: none;
+	height: 140px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 100%;
+	min-width: 0px;
+	display: block;
+	margin-right: auto;
+	background-color: rgb(105, 101, 89);
+}
+
+#copyright_cont {
+	float: none;
+	height: 140px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 940px;
+	margin-right: auto;
+}
+
+#photo_cont {
+	float: none;
+	height: 275px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 940px;
+	margin-right: auto;
+	display: block;
+}
+
+#copylogo {
+	float: left;
+	height: 70px;
+	margin-left: 0%;
+	margin-top: 32px;
+	clear: none;
+	width: 80px;
+}
+
+#copyright_menu {
+	float: left;
+	height: 34px;
+	margin-left: 36px;
+	margin-top: 32px;
+	clear: none;
+	width: 590px;
+	min-height: 0px;
+}
+
+#copyright_menu_dev {
+	float: left;
+	height: 34px;
+	margin-left: 36px;
+	margin-top: 32px;
+	clear: none;
+	width: 780px;
+	min-height: 0px;
+}
+
+#copyright {
+	float: left;
+	height: 36px;
+	margin-left: -590px;
+	margin-top: 66px;
+	clear: none;
+	width: 700px;
+	min-height: 0px;
+	display: block;
+	margin-right: 0%;
+}
+
+#copyright_dev {
+	margin-left: 118px;
+}
+
+#photo_1 {
+	float: left;
+	height: 155px;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: none;
+	width: 223px;
+}
+
+#photo_txt_1 {
+		float: left;
+	height: 70px;
+	margin: 17px 0% 0px;
+	clear: none;
+	width: 223px;
+	display: block;
+}
+
+#photo_txt_notice {
+	float: left;
+	clear: none;
+	width: 223px;
+	display: block;
+	font-size: 14px;
+	text-align:left;
+	font-weight: normal;
+	line-height: 1.5em;
+	color: rgb(255, 255, 255);
+}
+
+
+#photo_txt_content {
+	float: left;
+	clear: none;
+	width: 223px;
+	display: block;
+	font-size: 12px;
+	text-align:left;
+	font-weight:300;
+	line-height: 1.5em;
+	margin-top: 15px;
+	color: rgb(255, 255, 255);
+}
+
+#photo_txt_date {
+	float: left;
+	clear: none;
+	width: 223px;
+	display: block;
+	font-size: 12px;
+	text-align:left;
+	font-weight:300;
+	line-height: 1em;
+	margin-top: 15px;
+	color: rgb(255, 255, 255);
+}
+
+
+
+#photo_2 {
+	float: left;
+	height: 155px;
+	margin-left: 16px;
+	margin-top: 0px;
+	clear: none;
+	width: 223px;
+	display: block;
+	margin-right: 0%;
+}
+
+#photo_3 {
+	float: left;
+	height: 155px;
+	margin-left: 16px;
+	margin-top: 0px;
+	clear: none;
+	width: 223px;
+	display: block;
+	margin-right: 0%;
+}
+
+#photo_4 {
+	float: left;
+	height: 155px;
+	margin-left: 16px;
+	margin-top: 0px;
+	clear: none;
+	width: 223px;
+	display: block;
+	margin-right: 0%;
+}
+
+#photo_txt_2 {
+	float: left;
+	height: 70px;
+	margin: 17px 0% 0px 16.0000032px;
+	clear: none;
+	width: 223px;
+	display: block;
+}
+
+#photo_txt_3 {
+	float: left;
+	height: 70px;
+	margin: 17px 0% 0px 16px;
+	clear: none;
+	width: 223px;
+	display: block;
+}
+
+#photo_txt_4 {
+	float: left;
+	height: 70px;
+	margin: 17px 0% 0px 16px;
+	clear: none;
+	width: 223px;
+	display: block;
+}
+
+#main_left {
+	float: left;
+	height: 870px;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: none;
+	width: 470px;
+	margin-right: 0%;
+	display: block;
+}
+
+#main_right {
+	float: left;
+	height: 870px;
+	margin-left: 4.255319%;
+	margin-top: 0px;
+	clear: none;
+	width: 430px;
+	margin-right: 0%;
+	display: block;
+}
+
+#main_right_psj {
+	float: left;
+	height: 870px;
+	margin-left: 4.255319%;
+	margin-top: 0px;
+	clear: none;
+	width: 430px;
+	margin-right: 0%;
+	display: block;
+}
+
+#today_game_2018 {
+	float: left;
+	height: 245px;
+	margin-left: 0%;
+	margin-top: 35px;
+	clear: none;
+	width: 430px;
+}
+
+#today_game {
+	float: left;
+	height: 245px;
+	margin-left: 0%;
+	margin-top: 65px;
+	clear: none;
+	width: 430px;
+}
+
+#next_game {
+	float: left;
+	height: 168px;
+	margin-left: 0.2252907%;
+	margin-top: 0px;
+	clear: both;
+	width: 430px;
+	display: block;
+	margin-right: 0%;
+}
+
+#notice {
+	float: left;
+	height: 185px;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: both;
+	width: 430px;
+	display: block;
+	margin-right: 0%;
+}
+
+#main_banner {
+	float: left;
+	height: 185px;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: both;
+	width: 430px;
+	display: block;
+	margin-right: 0%;
+}
+
+#main_player {
+	float: left;
+	height: 783px;
+	margin-left: 0%;
+	margin-top: 65px;
+	clear: none;
+	width: 470px;
+	display: block;
+	margin-right: 0%;
+}
+
+#kb_logo {
+	float: left;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin-left: 811px;
+	margin-top: 10px;
+	clear: none;
+	color: rgb(0, 0, 0);
+}
+
+#Image_banner {
+	float: left;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin-left: 0.2252907%;
+	margin-top: 35px;
+	clear: none;
+	color: rgb(0, 0, 0);
+}
+
+#image {
+	float: left;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: none;
+	color: rgb(0, 0, 0);
+}
+
+#copyright_txt {
+	float: left;
+	font-size: 12px;
+	width: auto;
+	height: auto;
+	text-align: left;
+	font-weight: 600;
+	line-height: 1.3em;
+	margin-left: 0%;
+	margin-top: 10px;
+	clear: none;
+	min-height: 0px;
+	font-style: normal;
+	color: rgb(230, 230, 230);
+	margin-right: 4%;
+}
+
+#copyright_txt1 {
+	float: left;
+	font-size: 11px;
+	width: 700px;
+	height: auto;
+	text-align: left;
+	font-weight: 600;
+	line-height: 1.3em;
+	margin-left: 0%;
+	margin-top: 7px;
+	clear: none;
+	min-height: 0px;
+	font-style: normal;
+	color: rgb(47, 47, 37);
+	display: block;
+	margin-right: 0%;
+}
+
+#copyright_txt2 {
+	float: left;
+	font-size: 12px;
+	width: auto;
+	height: auto;
+	text-align: left;
+	font-weight: 600;
+	line-height: 1em;
+	margin-left: 0%;
+	margin-top: -2px;
+	clear: none;
+	min-height: 0px;
+	font-family: 'Nanum Gothic', serif;
+	font-style: normal;
+	color: rgb(230, 230, 230);
+	margin-right: 4%;
+}
+
+#title_news {
+	float: left;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin-left: 0%;
+	margin-top: 36px;
+	clear: none;
+	color: rgb(0, 0, 0);
+}
+
+#news_more {
+	float: left;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin-left: 95.851064%;
+	margin-top: -13px;
+	clear: none;
+	color: rgb(0, 0, 0);
+}
+
+#notice_title {
+	float: left;
+	height: 16px;
+	margin: 32px 0% 13px;
+	clear: none;
+	width: 430px;
+	display: block;
+}
+
+#title_notice {
+	float: left;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: none;
+	color: rgb(0, 0, 0);
+}
+
+#notice_more {
+	float: left;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin-left: 91.155523%;
+	margin-top: -16px;
+	clear: both;
+	color: rgb(0, 0, 0);
+	display: block;
+	margin-right: 0%;
+}
+
+#notice_cont {
+	float: left;
+	height: 20px;
+	margin: 0px 0% 5px 0px;
+	clear: both;
+	width: 430px;
+	display: block;
+}
+
+#n_point {
+	float: left;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin: 9px 14px 9px 8.6px;
+	clear: none;
+	color: rgb(0, 0, 0);
+}
+
+#notice_text {
+	float: left;
+	font-size: 12px;
+	width: auto;
+	height: auto;
+	text-align: left;
+	font-weight: normal;
+	line-height: 1em;
+	margin-left: 0%;
+	margin-top: 4px;
+	clear: none;
+	min-height: 0px;
+}
+
+#notice_date {
+	float: right;
+	font-size: 12px;
+	width: auto;
+	height: auto;
+	text-align: left;
+	font-weight: normal;
+	line-height: 1em;
+	margin-left: 0px;
+	margin-top: 4px;
+	clear: none;
+	min-height: 0px;
+	display: block;
+	margin-right: 0px;
+}
+
+
+
+
+
+#nextgame_title {
+	float: left;
+	height: 16px;
+	margin: 16px 0% 16px -0.2252907%;
+	clear: none;
+	width: 430px;
+	display: block;
+}
+
+#title_nextgame {
+	float: left;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: none;
+	color: rgb(0, 0, 0);
+}
+
+#gamebox {
+	float: left;
+	height: 108px;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: both;
+	width: 430px;
+	background-color: rgb(255, 255, 255);
+}
+
+
+
+#gamebox_empty {
+	width: 430px;
+	height: 108px;
+}
+
+#todaygame_title {
+	float: left;
+	height: 16px;
+	margin: 10px 0% 16px;
+	clear: none;
+	width: 430px;
+	display: block;
+}
+
+#title_todaygame {
+	float: left;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: none;
+	color: rgb(0, 0, 0);
+}
+
+#game_box {
+	float: left;
+	align-content:center;
+	height: 185px;
+	margin-left: 0%;
+	margin-top: 8px;
+	clear: both;
+	width: 430px;
+	background-image:url("/images/team_logo/main/todaygame_bg.png");
+	background-attachment: scroll;
+	-webkit-background-size: auto;
+	background-size: auto;
+	background-position: 0% 0%;
+	background-repeat: no-repeat no-repeat;
+}
+
+
+#gamebox_score {
+	float: left;
+	height: 74px;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: none;
+	width: 430px;
+}
+
+#gamebox_score2 {
+	float: left;
+	height: 34px;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: none;
+	width: 430px;
+	display: block;
+	margin-right: 0%;
+}
+
+#nextdate {
+	float: none;
+	font-size: 13px;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	font-weight: 600;
+	line-height: 1em;
+	margin-left: auto;
+	margin-top: 13px;
+	clear: none;
+	min-height: 12px;
+	margin-right: auto;
+	min-width: 0px;
+}
+
+#kb_stars_logo {
+	position:absolute;
+	float: left;
+	height: 100px;
+	margin-left: 0%;
+	margin-top: 0px;
+	width: 115px;
+	z-index:99999;
+}
+
+#navigation {
+	position:absolute;
+	float: left;
+	height: 100px;
+	margin-left: 115px;
+	margin-top: 0px;
+	clear: none;
+	width: 825px;
+	z-index:999;
+}
+
+#navigation_2021 {
+	position:absolute;
+	float: left;
+	height: 100px;
+	margin-left: 175px;
+	margin-top: 0px;
+	clear: none;
+	z-index:999;
+}
+
+
+#today_score {
+	font-size: 13px;
+	width: auto;
+	height: auto;
+	text-align: center;
+	font-weight: normal;
+	line-height: 1em;
+	clear: none;
+	min-height: 0px;
+	color: rgb(255, 255, 255);
+	display: block;
+	margin-right: 0%;
+}
+
+
+#today_score_yellow {
+	float:inherit;
+	font-size: 32px;
+	width: auto;
+	height: auto;
+	text-align:center;
+	font-weight: normal;
+	line-height: 1em;
+	clear: none;
+	min-height: 0px;
+	color: rgb(246, 180, 42);
+}
+
+
+
+#today_score_white {
+	float:inherit;
+	font-size: 32px;
+	width: auto;
+	height: auto;
+	text-align:center;
+	font-weight: normal;
+	line-height: 1em;
+	clear: none;
+	min-height: 0px;
+	color: rgb(255, 255, 255);
+}
+
+#nextdate_gameteam {
+	float: none;
+	font-size: 13px;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	font-weight: 600;
+	line-height: 1em;
+	margin-left: auto;
+	clear: none;
+	min-height: 12px;
+	margin-right: auto;
+	min-width: 0px;
+}
+
+#nonseason_history {
+	float: left;
+	height: 413px;
+	margin-left: 0%;
+	margin-top: 65px;
+	clear: none;
+	width: 431px;
+}
+
+#tdnxtgame_img {
+	float: left;
+	margin-left: 0%;
+	margin-top: 40px;
+	margin-bottom: 25px;
+	clear: none;
+	width: 431px; 
+	height: 389px;
+	 display : flex;
+	 align-items: center;
+}
+
+#nextgame_img {
+	float: left;
+	margin-left: 0%;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	clear: none;
+	width: 431px; 
+	height: 185px;
+	 display : flex;
+	 align-items: center;
+}
+
+#nextgame_psj {
+	float: left;
+	margin-left: 0%;
+	margin-top: 40px;
+	margin-bottom: 25px;
+	clear: none;
+	width: 431px; 
+	height: 389px;
+}

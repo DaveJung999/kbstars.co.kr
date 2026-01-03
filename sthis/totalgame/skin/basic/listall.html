@@ -1,0 +1,228 @@
+
+
+<style type="text/css">
+<!--
+.style1 {
+	color: #006699;
+	font-weight: bold;
+}
+.board_title {	font-size: 12px;
+	color: #333;
+	font-weight: bold;
+}
+.font_notice {	font-weight: bold;
+	color: #FFF;
+	font-size: 12px;
+}
+.gibon_font {	font-size: 12px;
+	color: #FFF;
+	font-weight: normal;
+}
+.gibon_font1 {font-size: 12px;
+}
+.schedule1 {font-weight: bold;
+	color: #FFF;
+	font-size: 12px;
+	font-family: "돋움체";
+}
+.sitemap {font-size: 12px;
+	color: #666;
+}
+-->
+</style>
+
+<script type="text/javascript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){
+	//v3.0
+	eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+	if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+
+<p id="contents_title">팀 기록실</p>
+<div id="sub_contents_main" class="clearfix">
+	<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="center">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td height="34" bgcolor="#FFA038">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="10" align="center" class="schedule1">&nbsp;</td>
+						<td width="165" align="left" class="font_notice">[{new_list.title} 팀 기록]</td>
+						<td align="left" class="gibon_font">&nbsp;</td>
+						<td width="150" align="right" class="gibon_font">
+							<span class="schedule1">
+							<!--<select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+				<option>모두보기</option>
+				</select>-->
+							</span>
+						</td>
+						<td width="12" align="center" class="gibon_font">&nbsp;</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td height="42" bgcolor="#695F58">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr class="font_notice">
+						<td width="6%" align="center" class="gibon_font">순위</td>
+						<td width="6%" align="center" class="gibon_font">게임</td>
+						<td width="8%" align="center" class="gibon_font">승/패</td>
+						<td width="8%" align="center" class="gibon_font">득점</td>
+						<td width="10%" align="center" class="gibon_font">2점</td>
+						<td width="10%" align="center" class="gibon_font">3점</td>
+						<td width="10%" align="center" class="gibon_font">자유투</td>
+						<td width="7%" align="center" class="gibon_font">리바<br />운드</td>
+						<td width="7%" align="center" class="gibon_font">어시<br />스트</td>
+						<td width="7%" align="center" class="gibon_font">스틸</td>
+						<td width="7%" align="center" class="gibon_font">블록</td>
+						<td width="7%" align="center" class="gibon_font">턴오버</td>
+						<td width="7%" align="center" class="gibon_font">파울</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table border="0" width="100%" cellspacing="1" bgcolor="#e5e5e5">
+					<tr align="center" bgcolor="#ffffff">
+						<td height="40">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="6%" align="center"> {new_list.tr_ranking}</td>
+								<td width="6%" align="center">{new_list.tr_game}</td>
+								<td width="8%" align="center" class="gibon_font1">{new_list.tr_win}/{new_list.tr_loss}</td>
+								<td width="8%" align="center" class="gibon_font1">{new_list.tr_score}</td>
+								<td width="10%" align="center" class="gibon_font1"> {new_list.tr_2p1}/{new_list.tr_2p2}</td>
+								<td width="10%" align="center" class="gibon_font1"> {new_list.tr_3p1}/{new_list.tr_3p2}</td>
+								<td width="10%"align="center" class="gibon_font1">{new_list.tr_free1}/{new_list.tr_free2}</td>
+								<td width="7%" align="center" class="gibon_font1">{new_list.tr_re}</td>
+								<td width="7%" align="center" class="gibon_font1">{new_list.tr_as}</td>
+								<td width="7%" align="center" class="gibon_font1">{new_list.tr_st}</td>
+								<td width="7%" align="center" class="gibon_font1">{new_list.tr_blk}</td>
+								<td width="7%" align="center" class="gibon_font1">{new_list.tr_to}</td>
+								<td width="7%" align="center" class="gibon_font1">{new_list.tr_po}</td>
+							</tr>
+							</table>
+						</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+
+			</table>
+			<br />
+			<br />
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td height="34" bgcolor="#FFA038">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="10" align="center" class="schedule1">&nbsp;</td>
+						<td width="165" align="left" class="font_notice">모든 시즌 기록</td>
+						<td align="left" class="gibon_font1">&nbsp;</td>
+						<td width="150" align="right" class="gibon_font1">
+							<span class="schedule1">
+							<!--<select name="jumpMenu" id="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+				<option>모두보기</option>
+				</select>-->
+							</span>
+						</td>
+						<td width="12" align="center" class="gibon_font1">&nbsp;</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td height="42" bgcolor="#695F58">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr class="font_notice">
+						<td width="10%" align="center" class="gibon_font">시즌</td>
+						<td width="4%"	align="center" class="gibon_font">순위</td>
+						<td width="5%"	align="center" class="gibon_font">게임</td>
+						<td width="6%"	align="center" class="gibon_font">승/패</td>
+						<td width="6%"	align="center" class="gibon_font">득점</td>
+						<td width="9%"	align="center" class="gibon_font">2점</td>
+						<td width="9%"	align="center" class="gibon_font">3점</td>
+						<td width="9%"	align="center" class="gibon_font">자유투</td>
+						<td width="6%"	align="center" class="gibon_font">리바<br />운드</td>
+						<td width="6%"	align="center" class="gibon_font">어시<br />스트</td>
+						<td width="6%"	align="center" class="gibon_font">스틸</td>
+						<td width="6%"	align="center" class="gibon_font">블록</td>
+						<td width="6%"	align="center" class="gibon_font">턴오버</td>
+						<td width="6%"	align="center" class="gibon_font">파울</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			{LIST}
+			<block name="list">
+			<tr>
+				<td>
+					<table border="0" width="100%" cellspacing="1" bgcolor="#e5e5e5">
+					<tr align="center" bgcolor="#ffffff">
+						<td height="40">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="10%" align="center" class="gibon_font1"><span style="word-wrap:break-word;word-break:break-all">{GO}</span></td>
+								<td width="4%"	align="center"> {list.tr_ranking}</td>
+								<td width="5%"	align="center">{list.tr_game}</td>
+								<td width="6%"	align="center" class="gibon_font1">{list.tr_win}/{list.tr_loss}</td>
+								<td width="6%"	align="center" class="gibon_font1">{list.tr_score}</td>
+								<td width="9%"	align="center" class="gibon_font1"> {list.tr_2p1}/{list.tr_2p2}</td>
+								<td width="9%"	align="center" class="gibon_font1"> {list.tr_3p1}/{list.tr_3p2}</td>
+								<td width="9%"	align="center" class="gibon_font1">{list.tr_free1}/{list.tr_free2}</td>
+								<td width="6%"	align="center" class="gibon_font1">{list.tr_re}</td>
+								<td width="6%"	align="center" class="gibon_font1">{list.tr_as}</td>
+								<td width="6%"	align="center" class="gibon_font1">{list.tr_st}</td>
+								<td width="6%"	align="center" class="gibon_font1">{list.tr_blk}</td>
+								<td width="6%"	align="center" class="gibon_font1">{list.tr_to}</td>
+								<td width="6%"	align="center" class="gibon_font1">{list.tr_po}</td>
+							</tr>
+							</table>
+						</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			</block name="list">
+			<tr>
+				<td>
+					<table border="0" width="100%" cellspacing="1" bgcolor="#e5e5e5">
+					<tr align="center" bgcolor="#efefef">
+						<td height="40">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="10%" align="center">합계</td>
+								<td width="4%"	align="center" nowrap></td>
+								<td width="5%"	align="center" nowrap>{total_result.tr_game}</td>
+								<td width="6%"	align="center" nowrap>{total_result.tr_win}/{total_result.tr_loss}</td>
+								<td width="6%"	align="center">{total_result.tr_score}</td>
+								<td width="9%"	align="center"> {total_result.tr_2p1}/{total_result.tr_2p2}</td>
+								<td width="9%"	align="center"> {total_result.tr_3p1}/{total_result.tr_3p2}</td>
+								<td width="9%"	align="center">{total_result.tr_free1}/{total_result.tr_free2}</td>
+								<td width="6%"	align="center">{total_result.tr_re}</td>
+								<td width="6%"	align="center">{total_result.tr_as}</td>
+								<td width="6%"	align="center">{total_result.tr_st}</td>
+								<td width="6%"	align="center">{total_result.tr_blk}</td>
+								<td width="6%"	align="center">{total_result.tr_to}</td>
+								<td width="6%"	align="center">{total_result.tr_po}</td>
+							</tr>
+							</table>
+						</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+	<block name="go">{list.tr_season}</block name="go">
+	<block name="nogo">{list.tr_season}</block name="nogo">
+</div>

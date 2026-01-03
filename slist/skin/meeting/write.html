@@ -1,0 +1,119 @@
+<!--<? exit; ?>-->
+<link href="images/basic.css" rel="stylesheet" type="text/css">
+
+<script LANGUAGE="JavaScript" src="/scommon/js/chkform.js" type="Text/JavaScript"></script>
+
+<table width="550" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr>
+	<td width="550" height="25" colspan="2" class="nevy_violet"><p class="bbl">제목 : {dbinfo.title}</p></td>
+</tr>
+</table>
+<form name="slistwrite" style='margin : 0px' onSubmit="return chkForm(this)" {form_default}>
+<table border="0" cellpadding="3" cellspacing="0" width="550" align="center" class="">
+<tr height="24">
+	<td height="9" colspan="5" bgcolor="#FFFFFF"><p align="center">&nbsp;</p></td>
+</tr>
+<tr bgcolor="#C6D8C5" height="24">
+	<td height="9" colspan="5">&nbsp;</td>
+</tr>
+<opt name="session.seUserid"><!--로그인 하였다면-->
+<tr class="base">
+	<td width="83" bgcolor="#E8E8E0" class="bb">&nbsp;이&nbsp;&nbsp; &nbsp; 름</td>
+	<td colspan="4" bgcolor="#E8E8E0">{list.userid}</td>
+</tr>
+</opt name="session.seUserid">
+<opt name="!session.seUserid"><!--비회원, 로그인하지 않았다면-->
+<tr class="base">
+	<td width="83" bgcolor="#E8E8E0" class="bb">&nbsp;이&nbsp;&nbsp; &nbsp; 름</td>
+	<td colspan="4" bgcolor="#E8E8E0"><input type="text" name="userid" size="20"	value="{list.userid}" hname="이름을 입력하여주세요" required></td>
+</tr>
+<tr bgcolor="#E8E8E0" class="base">
+	<td class="bb">&nbsp;패스워드</td>
+	<td colspan="4"><input name="passwd" type="password" id="passwd" size="10" hname="패스워드를 입력하여주세요" required></td>
+</tr>
+</opt name="!session.seUserid">
+<tr class="base">
+	<td width="83" bgcolor="#E8E8E0" class="bb">&nbsp;회의일시</td>
+	<td width="147" bgcolor="#E8E8E0"><input type="text" name="m_date" size="20"	value="{list.m_date}" hname=""></td>
+	<td width="5" bgcolor="#E8E8E0">&nbsp;</td>
+	<td width="67" bgcolor="#E8E8E0" class="bb">회의장소</td>
+	<td width="218" bgcolor="#E8E8E0"><input type="text" name="m_state" size="20"	value="{list.m_state}" hname="메일주소를 정확하게 입력하여주세요"></td>
+</tr>
+<tr class="base">
+	<td bgcolor="#E8E8E0" class="bb">&nbsp;회의안건</td>
+	<td colspan="4" bgcolor="#E8E8E0"><input type="text" name="m_subject" size="45"	value="{list.m_subject}" hname="회의안건을 입력하여주세요" required="required" /></td>
+</tr>
+<tr class="base">
+	<td width="83" bgcolor="#E8E8E0" class="bb">&nbsp;회의제목</td>
+	<td colspan="4" bgcolor="#E8E8E0">
+		<input type="text" name="title" size="45"	value="{list.title}" hname="회의 제목을 입력하여주세요" required>
+		<input type="checkbox" name="docu_type" value="html" {list.docu_type_checked}>
+		<font color="#000000">HTML</font>
+	</td>
+</tr>
+<tr class="base">
+	<td bgcolor="#E8E8E0" class="bb">&nbsp;회의참석자</td>
+	<td colspan="4" bgcolor="#E8E8E0"><input type="text" name="m_people" size="45"	value="{list.m_people}" hname="참석자를 입력해주세요" required="required" /></td>
+</tr>
+{UPLOAD}
+<block name=" Upload ">
+<tr class="base">
+	<td width="83" bgcolor="#E8E8E0" class="bb">&nbsp;첨부파일</td>
+	<td colspan="4" bgcolor="#E8E8E0"><input type="file" name="upfile" size="20" ></td>
+</tr>
+</block name=" Upload ">
+<tr>
+	<td width="83" bgcolor="#E8E8E0" class="bb">&nbsp;세부내용</td>
+	<td colspan="4" bgcolor="#E8E8E0"><textarea rows="15" name="content" cols="50" >{list.content}</textarea></td>
+</tr>
+<tr>
+	<td width="83" height="10" bgcolor="#E8E8E0"></td>
+	<td height="10" colspan="4" align="right" bgcolor="#E8E8E0"></td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td colspan="4" align="right">
+		<input name="image" type=image src="images/bott_save.gif" width="61" height="25">
+		&nbsp;&nbsp;<a href="{href.list}"><img src="images/bott_list.gif" width="50" height="25" border=0> </a>
+	</td>
+</tr>
+</table>
+</form>
+
+<script language="Javascript1.2">
+<!-- // load htmlarea
+function request(str){
+	QueryString=location.search.split("?");
+	Query=QueryString[1].split("&")
+	for(i=0;i<=Query.length-1;i++){
+		if(Query[i].indexOf(str)==0){
+			GetQuery=Query[i].split("=")
+			return GetQuery[1];
+		}
+	}
+}
+_editor_url = "/scommon/js/htmlarea203/"; // URL to htmlarea files
+var win_ie_ver = parseFloat(navigator.appVersion.split("MSIE")[1]);
+if (navigator.userAgent.indexOf('Mac')		>= 0) {
+	win_ie_ver = 0;
+}
+if (navigator.userAgent.indexOf('Windows CE') >= 0) {
+	win_ie_ver = 0;
+}
+if (navigator.userAgent.indexOf('Opera')		>= 0) {
+	win_ie_ver = 0;
+}
+if (win_ie_ver >= 5.5) {
+	document.write('<scr' + 'ipt src="' +_editor_url+ 'editor.js"');
+	document.write(' language="Javascript1.2"></scr' + 'ipt>');
+	//if(request('mode')!="modify") document.getElementById('docu_type').checked = 'true'; // by Sunmin Park
+}
+else {
+	document.write('<scr'+'ipt>function editor_generate() { return false; }</scr'+'ipt>');
+}
+// -->
+</script>
+
+<script language="JavaScript1.2" defer>
+if(document.getElementById('docu_type').checked) editor_generate('content');
+</script>

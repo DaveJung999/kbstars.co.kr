@@ -1,0 +1,296 @@
+
+<script LANGUAGE="JavaScript">
+
+<!--
+
+// 입력값 체크 함수
+
+function checkForm(f)
+
+{
+
+	//var f= document.board;
+
+	if( isEmpty( f.title.value )){
+
+		alert('제목을	입력하시기 바랍니다.');
+
+		f.title.focus();
+
+		return false;
+
+	}
+
+	if( isEmpty( f.content.value )){
+
+		alert('글 내용을	입력하시기 바랍니다.');
+
+		f.content.focus();
+
+		return false;
+
+	}
+
+}
+
+// 입력값 공백 체크 함수
+
+function isEmpty( data ){
+
+	for ( var i = 0 ; i < data.length ; i++ ){
+
+		if ( data.substring( i, i+1 ) != " " )
+
+			return false;
+
+	}
+
+	return true;
+
+}
+
+//-->
+
+</script>
+
+
+<script language="JavaScript" type="text/JavaScript">
+
+<!--
+
+function MM_findObj(n, d) {
+	//v4.01
+
+	var p,i,x;
+	if(!d) d=document;
+	if((p=n.indexOf("?"))>0&&parent.frames.length) {
+
+		d=parent.frames[n.substring(p+1)].document;
+		n=n.substring(0,p);
+	}
+
+	if(!(x=d[n])&&d.all) x=d.all[n];
+	for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+
+		for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+
+		if(!x && d.getElementById) x=d.getElementById(n);
+		return x;
+
+}
+
+function MM_validateForm() {
+	//v4.0
+
+	var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
+
+	for (i=0; i<(args.length-2); i+=3) {
+		test=args[i+2];
+		val=MM_findObj(args[i]);
+
+		if (val) {
+			nm=val.name;
+			if ((val=val.value)!="") {
+
+				if (test.indexOf('isEmail')!=-1) {
+					p=val.indexOf('@');
+
+					if (p<1 || p==(val.length-1)) errors+='- '+nm+' 는(은) 메일 주소를 입력바랍니다.\n';
+
+				}
+				else if (test!='R') {
+					num = parseFloat(val);
+
+					if (isNaN(val)) errors+='- '+nm+' 는(은) 숫자로만 기입하십시요.\n';
+
+					if (test.indexOf('inRange') != -1) {
+						p=test.indexOf(':');
+
+						min=test.substring(8,p);
+						max=test.substring(p+1);
+
+						if (num<min || max<num) errors+='- '+nm+'는(은) '+min+'부터'+max+'까지 숫자로 기입하십시요.\n';
+
+					}
+				}
+			}
+			else if (test.charAt(0) == 'R') errors += '- '+nm+' is required.\n';
+		}
+
+	}
+	if (errors) alert('다음 에러를 확인바랍니다.:\n'+errors);
+
+	document.MM_returnValue = (errors == '');
+
+}
+
+//-->
+
+</script>
+
+<link href="images/basic.css" rel="stylesheet" type="text/css">
+
+<form style='margin : 0px' onSubmit="return checkForm(this)" {form_write}>
+
+<table border="0" cellpadding="3" cellspacing="0" width="550" align="center" class="">
+
+<tr height="24">
+
+	<td height="9" colspan="2" bgcolor="#FFFFFF"> <p align="center">&nbsp;</p></td>
+
+</tr>
+
+<tr bgcolor="#C6D8C5" height="24">
+
+	<td height="9" colspan="2">&nbsp;</td>
+
+</tr>
+
+{USERINFO}
+
+<block name="userinfo">
+
+<tr class="base">
+
+	<td width="82" bgcolor="#E8E8E0" class="bb">&nbsp;이&nbsp;&nbsp; &nbsp; 름</td>
+
+	<td width="457" bgcolor="#E8E8E0">{list.userid} ({list.email}) </td>
+
+</tr>
+
+</block name="userinfo">
+
+<block name="nouserinfo">
+
+<tr class="base">
+
+	<td width="82" bgcolor="#E8E8E0" class="bb">&nbsp;이&nbsp;&nbsp; &nbsp; 름</td>
+
+	<td width="457" bgcolor="#E8E8E0"><input type="text" name="userid" size="20"	value="{list.userid}"></td>
+
+</tr>
+
+<tr bgcolor="#E8E8E0" class="base">
+
+	<td class="bb">&nbsp;패스워드</td>
+
+	<td><input name="passwd" type="password" id="passwd" size="10"></td>
+
+</tr>
+
+<tr class="base">
+
+	<td width="82" bgcolor="#E8E8E0" class="bb">&nbsp;메&nbsp;&nbsp; &nbsp; 일</td>
+
+	<td width="457" bgcolor="#E8E8E0"><input type="text" name="email" size="40"	value="{list.email}"></td>
+
+</tr>
+
+</block name="nouserinfo">
+
+{CATELIST}
+
+<block name="catelist">
+
+<tr class="base">
+
+	<td width="82" bgcolor="#E8E8E0" class="bb" nowrap>&nbsp;카테고리</td>
+
+	<td width="457" bgcolor="#E8E8E0">
+		<SELECT NAME="catelist">{list.catelist}</SELECT>
+
+	</tr>
+
+	</block name="catelist">
+
+	<tr class="base">
+
+		<td width="82" bgcolor="#E8E8E0" class="bb">
+			&nbsp;제&nbsp;&nbsp;&nbsp;&nbsp;
+
+			목
+		</td>
+
+		<td width="457" bgcolor="#E8E8E0">
+
+			<input type="text" name="title" size="45"	value="{list.title}">
+
+			<input type="checkbox" name="docu_type" value="html" {list.docu_type_checked}> <font color="#000000">HTML</font>
+
+			{IFWRITEINFO}
+
+			<block name="ifwriteinfo">
+
+			<input type="checkbox" name="writeinfo" value="info" {list.writeinfo_checked}>
+
+			<font color="#000000">공지</font> </block name="ifwriteinfo">
+		</td>
+
+	</tr>
+
+	{UPLOAD}
+
+	<block name=" Upload ">
+
+	<tr class="base">
+
+		<td width="82" bgcolor="#E8E8E0" class="bb">&nbsp;첨부파일</td>
+
+		<td width="457" bgcolor="#E8E8E0"> <input type="file" name="upfile" size="20" > </td>
+
+	</tr>
+
+	</block name=" Upload ">
+
+	<tr>
+
+		<td width="82" bgcolor="#E8E8E0" class="bb">&nbsp;내&nbsp; &nbsp;&nbsp; 용</td>
+
+		<td width="457" bgcolor="#E8E8E0">
+			<textarea rows="15" name="content" cols="60" >{list.content}</textarea>
+
+		</td>
+
+	</tr>
+
+	{LEVEL}
+
+	<block name="level">
+
+	<tr class="base">
+
+		<td width="82" bgcolor="#E8E8E0" class="bb" nowrap>&nbsp;읽기 레벨</td>
+
+		<td width="457" bgcolor="#E8E8E0">
+			<input name=priv_level type=text id="priv_level" onChange="MM_validateForm('priv_level','','RinRange0:255');return document.MM_returnValue" value='{list.priv_level}' size=4> * 숫자 레벨(0-255)
+
+		</tr>
+
+		</block name="level">
+
+		<tr>
+
+			<td width="82" height="10" bgcolor="#E8E8E0"></td>
+
+			<td width="457" height="10" align="right" bgcolor="#E8E8E0"></td>
+
+		</tr>
+
+		<tr>
+
+			<td>&nbsp;</td>
+
+			<td width="457" align="right">
+				<input name="image" type=image src="images/bott_save.gif" width="61" height="25">
+
+				&nbsp;&nbsp;<a href="{href.list}"><img src="images/bott_list.gif" width="50" height="25" border=0>
+
+				</a>
+			</td>
+
+		</tr>
+
+		</table>
+
+		</form>
+

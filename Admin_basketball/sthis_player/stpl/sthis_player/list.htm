@@ -1,0 +1,66 @@
+
+<style type="text/css">
+<!--
+.style1 {
+	color:#FF6600;
+	font-weight: bold;
+}
+-->
+</style>
+
+<br />
+<table width="890" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td height="40" align="center"><span class="style1">[선수 개인 정보]</span></td>
+</tr>
+<tr>
+	<td align="center">
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr>
+			<td align="center">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				{LIST}
+				<block name="list">
+				<tr align="center">{CELL}</tr>
+				<tr height="15"></tr>
+				</block name="list">
+				</table>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<table width="890" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td ><hr size="1" color="#E7E7E7"></td>
+</tr>
+</table>
+
+<table width="890" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td height="50" align="right">&nbsp;{WRITE}</td>
+</tr>
+</table>
+<block name="cell">
+<td align="center">
+	<table border="0" cellpadding="2" cellspacing="6" bgcolor="{list.color}">
+	<tr>
+		<td bgcolor="#FFFFFF">
+			<table width="80" height="115" align="center" cellpadding="0" cellspacing="0" bgcolor="#F4F4F4">
+			<tr>
+				<td height="71" align="center"><a href="{href.read}"><img src="{href.download}&amp;upfile=upfile&amp;mode=image&amp;notfound=any" width="75" border="0" height="90" /></a></td>
+			</tr>
+			<tr>
+				<td height="20" bgcolor="#E5E5E5" align="center">[{list.p_num}] {list.p_name}</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+</td>
+</block name="cell">
+<block name="nocell">
+<td>&nbsp;</td>
+</block name="nocell">
+<block name="write"><a href="{href.write}" class="base"><img src="images/button_write.gif" border="0"></a></block name="write">

@@ -1,0 +1,82 @@
+<link href="/css/basic_text.css" rel="stylesheet" type="text/css">
+<link href="/css/link01.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+<!--
+body {
+	margin-left: 5px;
+	margin-top: 15px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	background-color:F8F8EA;
+}
+-->
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr bgcolor="#D2BF7E">
+	<td height="1"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr bgcolor="C2C2C2">
+	<td height="4"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr bgcolor="F8F8EA">
+	<td height="2"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr bgcolor="D4D4D4">
+	<td height="1"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+</table>
+<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td width="16%" height="28" align="center" bgcolor="D2BF7E">이 름</td>
+	<td width="34%"> <span class="base2">&nbsp; {list.pname}</span></td>
+	<td width="16%" align="center" bgcolor="D2BF7E">시 즌</td>
+	<td width="34%"> <span class="base2">&nbsp; {list.sname}</span></td>
+</tr>
+<tr>
+	<td height="1" colspan="4"	background="images/dot_board.gif"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr>
+	<td height="28" align="center" bgcolor="D2BF7E">소속팀</td>
+	<td height="28"><font size="2"> <span class="base2">&nbsp; {list.tname}</span></font></td>
+	<td height="28" align="center" bgcolor="D2BF7E">포지션</td>
+	<td height="28"><span class="base2">&nbsp; {list.pposition}</span></td>
+</tr>
+<tr>
+	<td height="1" colspan="4"	background="images/dot_board.gif"><img src="images/spacer.gif" width="1" height="1" /></td>
+</tr>
+<tr>
+	<td height="28" align="center" bgcolor="D2BF7E">백넘버</td>
+	<td height="28"><font size="2"> <span class="base2">&nbsp; {list.pbackno}</span></font></td>
+	<td height="28" align="center" bgcolor="D2BF7E">&nbsp;</td>
+	<td height="28">&nbsp;</td>
+</tr>
+<tr>
+	<td height="1" colspan="4"	background="images/dot_board.gif"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+{UPFILES}
+<block name="upfiles">
+<tr bgcolor="#E2E2E2">
+	<td height="2" colspan="4"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+</block name="upfiles">
+</table>
+<block name="memolist"></block name="memolist">
+<table width="95%" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td height="1" bgcolor="C1C1C1"></td>
+</tr>
+<tr>
+	<td height="40" align="right"> {WRITE} {MODIFY} {DELETE} <a href="{href.list}"><img src="images/button_list.gif" width="53" height="22" border="0" align="absmiddle"></a></td>
+</tr>
+</table>
+<block name="upfile"><a href="{upfile.href}">{upfile.name}</a>(크기: {upfile.size} bytes)<br></block name="upfile">
+<block name="write"><a href="{href.write}"><img src="images/button_write.gif" width="53" height="22" border="0" align="absmiddle"></a></block name="write">
+<block name="modify"><a href="{href.modify}"><img src="images/button_modify.gif" width="53" height="22" border="0" align="absmiddle"></a></block name="modify">
+<block name="delete"><a href="{href.delete}" onclick="javascript: return confirm('정말 삭제하시겠습니다.');"><img src="images/button_del.gif" width="53" height="22" border="0" align="absmiddle"></a> </block name="delete">
+<block name="reply"><a href="{href.reply}"><img src="images/button_reply.gif" width="53" height="22" border=0 align="absmiddle"></a></block name="reply">
+<block name="highcate">&gt; <a href="{href.highcate}" class="nevy_gcyan"> {highcate.title}</a></block name="highcate">
+<block name="samecate"><opt name="samecate.selected"><b>{samecate.title}</b></opt name="samecate.selected"><opt name="!samecate.selected"><b><a href="{PHP_SELF}?db={dbinfo.db}&cateuid={samecate.uid}">{samecate.title}</a></b></opt name="!samecate.selected"></block name="samecate">
+<block name="subcate"><opt name="blockloop"> | </opt name="blockloop"><a href="{href.subcate}" class="base2"> {subcate.title}</a></block name="subcate">

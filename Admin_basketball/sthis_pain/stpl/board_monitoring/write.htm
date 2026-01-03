@@ -1,0 +1,241 @@
+
+<script src="/scommon/js/chkform.js" language="javascript"></script>
+
+<script LANGUAGE="JavaScript">
+<!--
+// 입력값 체크 함수
+function goSubmit(f)
+{
+	//var f= document.board;
+	if(chkForm(f) != false){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+//-->
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_findObj(n, d) {
+	//v4.01
+	var p,i,x;
+	if(!d) d=document;
+	if((p=n.indexOf("?"))>0&&parent.frames.length) {
+		d=parent.frames[n.substring(p+1)].document;
+		n=n.substring(0,p);
+	}
+	if(!(x=d[n])&&d.all) x=d.all[n];
+	for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+		for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+		if(!x && d.getElementById) x=d.getElementById(n);
+		return x;
+}
+function MM_validateForm() {
+	//v4.0
+	var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
+	for (i=0; i<(args.length-2); i+=3) {
+		test=args[i+2];
+		val=MM_findObj(args[i]);
+		if (val) {
+			nm=val.name;
+			if ((val=val.value)!="") {
+				if (test.indexOf('isEmail')!=-1) {
+					p=val.indexOf('@');
+					if (p<1 || p==(val.length-1)) errors+='- '+nm+' 는(은) 메일 주소를 입력바랍니다.\n';
+				}
+				else if (test!='R') {
+					num = parseFloat(val);
+					if (isNaN(val)) errors+='- '+nm+' 는(은) 숫자로만 기입하십시요.\n';
+					if (test.indexOf('inRange') != -1) {
+						p=test.indexOf(':');
+						min=test.substring(8,p);
+						max=test.substring(p+1);
+						if (num<min || max<num) errors+='- '+nm+'는(은) '+min+'부터'+max+'까지 숫자로 기입하십시요.\n';
+					}
+				}
+			}
+			else if (test.charAt(0) == 'R') errors += '- '+nm+' is required.\n';
+		}
+	}
+	if (errors) alert('다음 에러를 확인바랍니다.:\n'+errors);
+	document.MM_returnValue = (errors == '');
+}
+//-->
+</script>
+
+<link href="images/basic.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+<!--
+.style1 {color: #3399FF;
+	font-weight: bold;
+}
+-->
+</style>
+
+<br>
+<br />
+<table cellpadding="0" cellspacing="0" width="890" align="center">
+<tr>
+	<td align="center">
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr>
+			<td align="center">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				{READLIST}
+				<block name="readlist">
+				<tr align="center">{CELL}</tr>
+				<tr height="15"></tr>
+				</block name="readlist">
+				</table>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<br />
+<table width="890" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td><hr size="1" color="#E7E7E7" /></td>
+</tr>
+</table>
+<block name="cell">
+<td align="center">
+	<table border="0" cellpadding="2" cellspacing="6" bgcolor="{readlist.color}">
+	<tr>
+		<td bgcolor="#FFFFFF">
+			<table width="80" height="115" align="center" cellpadding="0" cellspacing="0" bgcolor="#F4F4F4">
+			<tr>
+				<td height="71" align="center"><a href="{href_readlist.list}"><img src="{href_readlist.download}&amp;upfile=upfile&amp;mode=image&amp;notfound=any" width="75" border="0" height="90" /></a></td>
+			</tr>
+			<tr>
+				<td height="20" bgcolor="#E5E5E5" align="center">[{readlist.p_num}] {readlist.p_name}</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+</td>
+</block name="cell">
+<br>
+<table width="890" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td height="40" align="center"><span class="style1">[{dbinfo.title}]</span></td>
+</tr>
+</table>
+<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td align="center">
+		<table width="95%" border="0" align="center" cellpadding="3" cellspacing="3">
+		<tr>
+			<td width="19%" align="center">
+				<table cellpadding="0" cellspacing="0" width="117" height="40" background="images/savers_team_bg01.gif">
+				<tr>
+					<td width="100%" valign="top" align="right">
+						<table cellpadding="0" cellspacing="0" width="116">
+						<tr>
+							<td width="36" height="40" rowspan="3" align="center">{player.numimages}</td>
+							<td width="1" height="40" rowspan="3" bgcolor="#d0d0d0"></td>
+							<td width="68" height="19">&nbsp;&nbsp;{player.name}</td>
+						</tr>
+						<tr>
+							<td width="68" height="1" background="images/savers_team_img11.gif"></td>
+						</tr>
+						<tr>
+							<td width="68" height="19">&nbsp;&nbsp;{player.p_position}</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+			<td width="81%" align="center">
+				<table cellpadding="0" cellspacing="0" width="581">
+				<tr>
+					<td width="111"><a href="/sthis/sthis_monitoring/list.php?p_uid={player.p_uid}&amp;cateuid={player.cateuid}">{list.monitoring}</a></td>
+					<td width="110"><a href="/sthis/sthis_medical/list.php?p_uid={player.p_uid}&amp;cateuid={player.cateuid}">{list.medical}</a></td>
+					<td width="110"><a href="/sthis/sthis_education/list.php?p_uid={player.p_uid}&amp;cateuid={player.cateuid}">{list.education}</a></td>
+					<td width="105"><a href="/sthis/sthis_pain/list.php?p_uid={player.p_uid}&amp;cateuid={player.cateuid}">{list.pain}</a></td>
+					<td width="122"><a href="/sthis/sthis_house/list.php?p_uid={player.p_uid}&amp;cateuid={player.cateuid}">{list.house}</a></td>
+					<td width="120"><a href="/sthis/sthis_player/read.php?uid={player.p_uid}&amp;cateuid={player.cateuid}">{list.player}</a></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+<tr>
+	<td width="20%"	height="10"></td>
+</tr>
+<tr>
+	<td>
+		<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="">
+		<form style='margin : 0px' {form_write}>
+		<input type="hidden" name="title" value="모니터링 이력">
+		<input type="hidden" name="puid" value="{list.puid}">
+		<tr height="24">
+			<td height="9" colspan="2">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="base">
+				<tr bgcolor="C2C2C2">
+					<td height="3"><img src="images/spacer.gif" width="1" height="1"></td>
+				</tr>
+				<tr bgcolor="ffffff">
+					<td height="2"><img src="images/spacer.gif" width="1" height="1"></td>
+				</tr>
+				<tr bgcolor="ffffff">
+					<td height="2"><img src="images/spacer.gif" width="1" height="1"></td>
+				</tr>
+				<tr bgcolor="D4D4D4">
+					<td height="1"><img src="images/spacer.gif" width="1" height="1"></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		<tr class="base">
+			<td height="28" align="center" bgcolor="#e6e6e6" class="base">고충 및 처리 내용 </td>
+			<td align="left">&nbsp;<textarea name="data1" cols="70" rows="3" class="styletextarea" style="width:96%">{list.data1}</textarea></td>
+		</tr>
+		<tr>
+			<td height="1" colspan="2" align="center" background="images/dot_board.gif" class="base"><img src="images/spacer.gif" width="1" height="1"></td>
+		</tr>
+		<tr class="base">
+			<td height="28" align="center" bgcolor="#e6e6e6" class="base">처리 일자 </td>
+			<td align="left">&nbsp;<textarea name="data2" cols="50" rows="3" class="styletextarea"	style="width:96%">{list.data2}</textarea></td>
+		</tr>
+		<tr>
+			<td height="1" colspan="2" align="center" background="images/dot_board.gif" class="base"><img src="images/spacer.gif" width="1" height="1"></td>
+		</tr>
+		<tr>
+			<td height="1" colspan="2" align="center" background="images/dot_board.gif" class="base"><img src="images/spacer.gif" width="1" height="1"></td>
+		</tr>
+		<tr bgcolor="ECECEC">
+			<td height="3" colspan="2"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td height="40">
+				<table width="95%"	border="0" align="center" cellpadding="0" cellspacing="0">
+				<tr>
+					<td align="right">
+						<input name="image" type=image src="images/button_save.gif" width="80" height="22" onClick="return goSubmit(this.form);">
+						<a href="{href.list}"><img src="images/button_cancile.gif" width="80" height="22" border=0></a>
+						{DELETE}								
+					</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</form>
+		</table>
+	</td>
+</tr>
+</table>
+<block name="highcate">&gt; <a href="{href.highcate}" class="nevy_gcyan"> {highcate.title}</a></block name="highcate">
+<block name="samecate"><opt name="samecate.selected"><b>{samecate.title}</b></opt name="samecate.selected"><opt name="!samecate.selected"><b><a href="{PHP_SELF}?db={dbinfo.db}&cateuid={samecate.uid}">{samecate.title}</a></b></opt name="!samecate.selected"></block name="samecate">
+<block name="subcate"><opt name="blockloop"> | </opt name="blockloop"><a href="{href.subcate}" class="base2"> {subcate.title}</a></block name="subcate">
+<block name="delete"><a href="{href.delete}" onclick="javascript: return confirm('모니터링 이력을 삭제합니다.\n정말 삭제하시겠습니다.');"><img src="images/button_del.gif" width="53" height="22" border="0" align="absmiddle"></a></block name="delete">

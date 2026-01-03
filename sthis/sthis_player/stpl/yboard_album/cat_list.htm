@@ -1,0 +1,91 @@
+
+<body>
+	<div id="page_content" style="position:absolute;left:0;top:0;width:100%">
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr>
+			<td align="center">
+				<table width="95%" border="0" cellspacing="0" cellpadding="0">
+				{LIST}
+				<block name="list">
+				<tr height="180"	align="center" >{CELL}</tr>
+				</block name="list">
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td height="2" ></td>
+		</tr>
+		<tr>
+			<td height="20">{WRITE}</td>
+		</tr>
+
+		</table>
+		<br>
+	</div>
+</body>
+<!---------------- 이 부분을 해당 페이지의 body 안에 넣습니다 --------------->
+
+<script language="JavaScript1.2">
+function iframe_reset(){
+	dataobj=document.all? document.all.page_content : document.getElementById("page_content")
+
+	dataobj.style.top=0
+	dataobj.style.left=0
+	pagelength=dataobj.offsetHeight
+	pagewidth=dataobj.offsetWidth
+	parent.document.all.detail.height=pagelength
+	parent.document.all.detail.width=pagewidth
+}
+window.onload=iframe_reset
+</script>
+
+<!------------------------------------------------------------------------>
+<block name="cell">
+<td align="center" width="25%">
+	<table cellpadding="0" cellspacing="0" width="117" height="168" background="images/savers_team_bg01.gif">
+	<tr>
+		<td width="100%" valign="top" align="center">
+			<table cellpadding="0" cellspacing="0" width="117" height="116">
+			<tr>
+				<td width="107" align="center" valign="bottom">
+					&nbsp;
+					<a href="#" onClick="javascript:top.location='{href.read}';"><img src="{href.download}&upfile=upfile&mode=image&notfound=any" width="95" border="0" height="105"></a>
+				</td>
+			</tr>
+			</table>
+			<table cellpadding="0" cellspacing="0" width="117" height="10">
+			<tr>
+				<td width="117" height="10">
+				</td>
+			</tr>
+			</table>
+			<table cellpadding="0" cellspacing="0" width="105">
+			<tr>
+				<td width="36" height="40" rowspan="3" align="center">{list.numimages}</td>
+				<td width="1" height="40" rowspan="3" bgColor=#d0d0d0></td>
+				<td width="68" height="19" align="center">
+					<b>{list.p_name}</b>
+				</td>
+			</tr>
+			<tr>
+				<td width="68" height="1" background="images/savers_team_img11.gif">
+				</td>
+			</tr>
+			<tr>
+				<td width="68" height="19">
+					&nbsp;&nbsp;{list.p_position}
+				</td>
+			</tr>
+			</table>
+		</td>
+
+	</tr>
+
+	</table>
+
+</td>
+</block name="cell">
+<block name="nocell">
+
+<td width="160" height="180">&nbsp;</td>
+</block name="nocell">

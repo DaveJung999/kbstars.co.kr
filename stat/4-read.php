@@ -1,0 +1,312 @@
+<?php
+//=======================================================
+// 설	명 : 템플릿 샘플
+// 책임자 : 박선민 (sponsor@new21.com), 검수: 05/11/20
+// Project: sitePHPbasic
+// ChangeLog
+//	DATE	수정인				수정 내용
+// -------- ------ --------------------------------------
+// 05/11/20 박선민 마지막 수정
+// 24/05/20 Gemini PHP 7 마이그레이션
+// 24/05/20 Gemini 사용자 요청에 따라 정렬, 통계 계산, 디자인 로직 추가
+// 24/05/22 Gemini 시즌 선택 select 박스 오류 수정
+//=======================================================
+$HEADER = array(
+	'priv' => '', // 인증유무 (비회원,회원,운영자,서버관리자)
+	'html_echo' => 1,
+	'html_skin' => '2019_d03',
+	'usedb2' => 1
+);
+
+if (isset($_GET['html_skin'])) {
+	$HEADER['html_skin'] = $_GET['html_skin'];
+}
+
+require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
+
+//=======================================================
+// Ready.. . (변수 초기화 및 넘어온값 필터링)
+//=======================================================
+	// 넘오온값 체크
+	$table_player = "`savers_secret`.player";
+	$table_team = "`savers_secret`.team";
+	$table_cmletter	= "new21_board2_cmletter";
+	
+	// 해당 선수 정보
+	$sql = "SELECT * from {$table_player} where tid=13 and uid='{$_GET['pid']}'";
+	if(!$player = db_arrayone($sql)) {
+		back('선수 정보가 없습니다.');
+	}
+	$player['t_name'] = '국민은행';
+		
+	// 선수명단
+	$strOpt = '';
+	$sql = "SELECT * from {$table_player} where tid=13 and p_gubun = '현역' order by p_name";
+	$rs=db_query($sql);
+	while($list=db_array($rs)){
+		if ( $list['uid'] == ($_GET['pid'] ?? null) ) {
+			$strOpt .= "<option value='{$list['uid']}' selected>{$list['p_name']} [{$list['p_position']}]</option>";
+		} else {
+			$strOpt .= "<option value='{$list['uid']}'>{$list['p_name']} [{$list['p_position']}]</option>";
+		}
+}
+	
+
+	if(!isset($_GET['id'])){
+		switch($_GET['pid'] ?? null){
+			case 151 : $_GET['id']= 18;break;
+			case 90 : $_GET['id']= 4;break;
+			case 22 : $_GET['id']= 19;break;
+			case 110 : $_GET['id']= 20;break;
+			
+			case 26 : $_GET['id']= 21;break;
+			case 124 : $_GET['id']= 22;break;
+			case 30 : $_GET['id']= 23;break;
+			case 27 : $_GET['id']= 24;break;
+			
+			case 31 : $_GET['id']= 25;break;
+			case 116 : $_GET['id']= 11;break;
+			case 130 : $_GET['id']= 26;break;
+			case 131 : $_GET['id']= 27;break;
+			
+			case 154 : $_GET['id']= 28;break;
+			case 152 : $_GET['id']= 29;break;
+			case 153 : $_GET['id']= 30;break;
+			case 155 : $_GET['id']= 33;break;
+
+		}
+	}
+//=======================================================
+// Start.. . (DB 작업 및 display)
+//=======================================================
+?>
+<style type="text/css">
+<!--
+.board_title {	font-size: 12px;
+	color: #333;
+	font-weight: bold;
+}
+.font_notice {	font-weight: bold;
+	color: #FFF;
+	font-size: 12px;
+}
+.gibon_font1 {font-size: 12px;
+}
+.schedule1 {font-weight: bold;
+	color: #FFF;
+	font-size: 12px;
+	font-family: "돋움체";
+}
+.sitemap {font-size: 12px;
+	color: #666;
+}
+-->
+</style>
+<script type="text/javascript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+	var url = selObj.options[selObj.selectedIndex].value;
+	if (url) {
+		location.href = url;
+	}
+	if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+<p id="contents_title">선수 기록실</p>	
+<div id="sub_contents_main" class="clearfix">
+
+<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+	<tr>
+	<td height="52" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td height="52"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="400"><img src="/images/2011/image/sub_title_3_4.jpg" width="400" height="42" /></td>
+			<td>&nbsp;</td>
+			<td align="right" class="sitemap"> KB STARS 경기 &gt; 선수종합기록실</td>
+		</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td align="center">&nbsp;</td>
+	</tr>
+	<tr>
+		<td align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td height="34" bgcolor="#FFA038"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="10" align="center" class="schedule1">&nbsp;</td>
+				<td width="165" align="left" class="font_notice">&nbsp;</td>
+
+				<td width="343" align="left" class="gibon_font1">&nbsp;</td>
+				<td width="150" align="right" class="gibon_font1"><span class="schedule1">
+					<form name="form3" style="margin:0px" >
+	<div align="right">
+		<select name="cmchange" size="1"
+							onchange="location.href='/stat/4-read.php?mNum=<?php echo urlencode($_GET['mNum'] ?? ''); ?>&html_skin=<?php echo urlencode($_GET['html_skin'] ?? ''); ?>&pid='+this.value">
+			<option>다른선수 통계보기</option>
+<?php echo $strOpt ; ?>
+		</select>
+		</div>
+	</form>
+				</span></td>
+				<td width="12" align="center" class="gibon_font1">&nbsp;</td>
+			</tr>
+			</table></td>
+		</tr>
+		<tr>
+			<td align="center"><img src="http://savers-secret.kbstars.co.kr/sthis/sthis_player/download.php?uid=<?php echo $player['uid'] ?? ''; ?>&amp;upfile=upfile4&amp;mode=image&amp;notfound=any" height="220" /></td>
+		</tr>
+		<tr>
+			<td	height="42" bgcolor="#695F58"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="15%" height="25" align="center" class="schedule1">소속팀</td>
+				<td width="19%" align="center" class="schedule1">시즌</td>
+				<td width="6%" align="center" class="schedule1">G</td>
+				<td width="6%" align="center" class="schedule1">MIN</td>
+				<td width="6%" align="center" class="schedule1">3P</td>
+				<td width="6%" align="center" class="schedule1">2P</td>
+				<td width="6%" align="center" class="schedule1">FT%</td>
+				<td width="6%" align="center" class="schedule1">RD</td>
+				<td width="6%" align="center" class="schedule1">Ast</td>
+				<td width="6%" align="center" class="schedule1">Stl</td>
+				<td width="6%" align="center" class="schedule1">BS</td>
+				<td width="6%" align="center" class="schedule1">PTS</td>
+				<td width="6%" align="center" class="schedule1">PPG</td>
+			</tr>
+			</table></td>
+		</tr>
+		<tr>
+			<td><table border="0" width="100%" cellspacing="1" bgcolor="#e5e5e5">
+<?php
+//echo "SELECT * FROM `savers_secret`.player_league WHERE pid = '{$player['uid']}' ORDER BY uid DESC";
+$rs_league = db_query("SELECT * FROM `savers_secret`.player_league WHERE pid = '{$player['uid']}' ORDER BY uid DESC");
+$i=0;
+while($plist = db_array($rs_league)){
+	
+		// 값 없으면... . 0 으로 세팅...........
+		$plist['p_totalmin'] = $plist['p_totalmin'] ?? "0:0";
+		$plist['p_min'] = $plist['p_min'] ?? "0:0";
+		$plist['p_3fg'] = $plist['p_3fg'] ?? "0/0";
+		$plist['p_2fg'] = $plist['p_2fg'] ?? "0/0";
+		$plist['p_ft'] = $plist['p_ft'] ?? 0;
+		$plist['p_fta'] = $plist['p_fta'] ?? 0;
+		$plist['p_rp'] = $plist['p_rp'] ?? 0;
+		$plist['p_as'] = $plist['p_as'] ?? 0;
+		$plist['p_st'] = $plist['p_st'] ?? 0;
+		$plist['p_blk'] = $plist['p_blk'] ?? 0;
+		$plist['p_pts'] = $plist['p_pts'] ?? 0;
+		$plist['p_ppg'] = $plist['p_ppg'] ?? "0.0";
+
+		$tmp_total = explode(":",$plist['p_totalmin']);
+		$tplist['p_totalmin1'] =	($tplist['p_totalmin1'] ?? 0) + ($tmp_total[0] ?? 0);
+		$tplist['p_totalmin2'] =	($tplist['p_totalmin2'] ?? 0) + ($tmp_total[1] ?? 0);
+		
+		$tmp = explode(":",$plist['p_min']);
+		$tplist['p_min1'] =	($tplist['p_min1'] ?? 0) + ($tmp[0] ?? 0);
+		$tplist['p_min2'] =	($tplist['p_min2'] ?? 0) + ($tmp[1] ?? 0);
+		
+		$tplist['p_g']	=	($tplist['p_g'] ?? 0) + ($plist['p_g'] ?? 0);
+		$tplist['p_2fg'] =	($tplist['p_2fg'] ?? 0) + ($plist['p_2fg'] ?? 0);
+		$tplist['p_3fg'] =	($tplist['p_3fg'] ?? 0) + ($plist['p_3fg'] ?? 0);
+		$tplist['p_ft'] =	($tplist['p_ft'] ?? 0) + ($plist['p_ft'] ?? 0);
+		$tplist['p_fta'] =	($tplist['p_fta'] ?? 0) + ($plist['p_fta'] ?? 0);
+		
+		$p_fta = $plist['p_fta'] ?? 0;
+		if($p_fta == 0 ) $p_fta = 1;
+		$plist['p_ftpct'] = number_format(($plist['p_ft'] ?? 0) / $p_fta * 100, 1);
+		
+		$tplist['p_rp'] =	($tplist['p_rp'] ?? 0) + ($plist['p_rp'] ?? 0);
+		$tplist['p_as'] =	($tplist['p_as'] ?? 0) + ($plist['p_as'] ?? 0);
+		$tplist['p_st'] =	($tplist['p_st'] ?? 0) + ($plist['p_st'] ?? 0);
+		$tplist['p_blk'] =	($tplist['p_blk'] ?? 0) + ($plist['p_blk'] ?? 0);
+		$tplist['p_to'] =	($tplist['p_to'] ?? 0) + ($plist['p_to'] ?? 0);
+		$tplist['p_pts'] =	($tplist['p_pts'] ?? 0) + ($plist['p_pts'] ?? 0);
+
+		$tplist['p_ppg'] =	($tplist['p_ppg'] ?? 0) + ($plist['p_ppg'] ?? 0);	
+		
+/*		if($plist['p_team'] == '국민은행') $plist['p_team'] ='KB국민은행';*/
+		if($player['t_name'] == '국민은행') $player['t_name'] ='KB국민은행';
+		
+		if($i++%2) $plist['bgcolor'] = "background='/img/list-bar.gif'";
+
+		if(($_SESSION['sePriv']['level'] ?? 0) >= 99){	
+			$plist['p_league'] = "<a href='/sthis/sthis_player/pwrite.php?puid={$player['uid']}&uid={$plist['uid']}&mode=modify'><strong>{$plist['p_league']}</strong></a>";
+		}	
+
+?>
+		
+					
+			<tr align="center" bgcolor="#ffffff">
+				<td height="40"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="15%" height="25" align="center">
+<?php
+echo ($plist['t_name'] ?? '') ? $plist['t_name'] : ($player['t_name'] ?? ''); ?> </td>
+					<td width="19%" align="center"> <?php echo $plist['p_league'] ?? ''; ?> </td>
+					<td width="6%"	align="center"> <?php echo $plist['p_g'] ?? ''; ?> </td>
+					<td width="6%" align="center"> <?php echo $plist['p_min'] ?? ''; ?> </td>
+					<td width="6%" align="center"> <?php echo $plist['p_3fg'] ?? ''; ?> </td>
+					<td width="6%" align="center"> <?php echo $plist['p_2fg'] ?? ''; ?> </td>
+					<td width="6%" align="center"> <?php echo $plist['p_ftpct'] ?? ''; ?> </td>
+					<td width="6%" align="center"> <?php echo $plist['p_rp'] ?? ''; ?> </td>
+					<td width="6%" align="center"> <?php echo $plist['p_as'] ?? ''; ?> </td>
+					<td width="6%" align="center"> <?php echo $plist['p_st'] ?? ''; ?> </td>
+					<td width="6%" align="center"> <?php echo $plist['p_blk'] ?? ''; ?> </td>
+					<td width="6%" align="center"> <?php echo $plist['p_pts'] ?? ''; ?> </td>
+					<td width="6%" align="center"> <?php echo $plist['p_ppg'] ?? ''; ?> </td>
+				</tr>
+				</table></td>
+			</tr>
+<?php
+}
+	// 나누는 값이 0 이면 안 되므로.....davej..............2007-04-10
+	if ($i == 0) $i = 1;
+	
+	// 0으로 나누면 에러
+	$gametotal = $tplist['p_g'] ?? 0;
+	if($gametotal == 0) $gametotal = 1;
+
+	$fta = $tplist['p_fta'] ?? 0;
+	if($fta == 0) $fta = 1;
+	
+	// 토탈게임
+	$imsi_total = (($tplist['p_totalmin1'] ?? 0) * 60) + ($tplist['p_totalmin2'] ?? 0) ;
+	$imsi_total_div_game = $imsi_total / $gametotal;
+	$imsi_total_min = floor($imsi_total_div_game / 60);
+	$imsi_total_sec = $imsi_total_div_game % 60 ;
+
+	// MIN
+	$MIN_total = (($tplist['p_min1'] ?? 0) * 60) + ($tplist['p_min2'] ?? 0);
+	$MIN_total_div_game = ceil($MIN_total / $gametotal);
+	$MIN_total_min = floor($MIN_total_div_game / 60);
+	$MIN_total_sec = $MIN_total_div_game % 60;	
+?>
+			<tr align="center" bgcolor="#E3E2DE">
+				<td height="40"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="34%" height="25" align="center" class="board_title">합계(평균)</td>
+					<td width="6%" align="center" class="board_title"><?php echo number_format($tplist['p_g'] ?? 0); ?> </td>
+					<td width="6%" align="center" class="board_title"><?php echo	$imsi_total_min; ?>:<?php echo $imsi_total_sec; ?> </td>
+					<td width="6%" align="center" class="board_title"><?php echo number_format(round($tplist['p_3fg'] ?? 0)); ?> </td>
+					<td width="6%" align="center" class="board_title"><?php echo number_format(round($tplist['p_2fg'] ?? 0)); ?> </td>
+					<td width="6%" align="center" class="board_title"><?php echo number_format(($tplist['p_ft'] ?? 0) / $fta * 100, 1); ?> </td>
+					<td width="6%" align="center" class="board_title"><?php echo number_format(round($tplist['p_rp'] ?? 0)); ?> </td>
+					<td width="6%" align="center" class="board_title"><?php echo number_format(round($tplist['p_as'] ?? 0)); ?> </td>
+					<td width="6%" align="center" class="board_title"><?php echo number_format(round($tplist['p_st'] ?? 0)); ?> </td>
+					<td width="6%" align="center" class="board_title"><?php echo number_format(round($tplist['p_blk'] ?? 0)); ?> </td>
+					<td width="6%" align="center" class="board_title"><?php echo number_format(round($tplist['p_pts'] ?? 0)); ?> </td>
+					<td width="6%" align="center" class="board_title"><?php echo number_format(($tplist['p_pts'] ?? 0) / $gametotal, 1); ?> </td>
+				</tr>
+				</table></td>
+			</tr>
+			</table></td>
+		</tr>
+		</table></td>
+	</tr>
+	</table>	<p >&nbsp;</p></td>
+	</tr>
+</table>
+</div>
+<?php echo $SITE['tail'] ?? ''; ?>

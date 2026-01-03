@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'KBFGDisplay-Light';
+  src: url('/fonts_bak/KBFGDisplayL.eot');
+  src: url('/fonts_bak/KBFGDisplayL.woff2') format('woff2'),
+	   url('/fonts_bak/KBFGDisplayL.woff') format('woff'),
+	   url('/fonts_bak/KBFGDisplayL.ttf') format('truetype'),
+	   url('/fonts_bak/KBFGDisplayL.eot?#iefix') format('embedded-opentype'),
+	   url("/fonts_bak/KBFGDisplayL.svg") format("svg");
+}
+
+@font-face {
+  font-family: 'KBFGDisplay-Medium';
+  src: url('/fonts_bak/KBFGDisplayM.eot');
+  src: url('/fonts_bak/KBFGDisplayM.woff2') format('woff2'),
+	   url('/fonts_bak/KBFGDisplayM.woff') format('woff'),
+	   url('/fonts_bak/KBFGDisplayM.ttf') format('truetype'),
+	   url('/fonts_bak/KBFGDisplayM.eot?#iefix') format('embedded-opentype'),
+	   url("/fonts_bak/KBFGDisplayM.svg") format("svg");
+}
+
+@font-face {
+  font-family: 'KBFGDisplay-Bold';
+  src: url('/fonts_bak/KBFGDisplayB.eot');
+  src: url('/fonts_bak/KBFGDisplayB.woff2') format('woff2'),
+	   url('/fonts_bak/KBFGDisplayB.woff') format('woff'),
+	   url('/fonts_bak/KBFGDisplayB.ttf') format('truetype'),
+	   url('/fonts_bak/KBFGDisplayB.eot?#iefix') format('embedded-opentype'),
+	   url("/fonts_bak/KBFGDisplayB.svg") format("svg");
+}
+/*
+@font-face {
+  font-family: 'KBFGText-Light';
+  src: url('/fonts_bak/KBFGTextL.eot');
+  src: url('/fonts_bak/KBFGTextL.woff2') format('woff2'),
+	   url('/fonts_bak/KBFGTextL.woff') format('woff'),
+	   url('/fonts_bak/KBFGTextL.ttf') format('truetype'),
+	   url('/fonts_bak/KBFGTextL.eot?#iefix') format('embedded-opentype'),
+	   url("/fonts_bak/KBFGTextL.svg") format("svg");
+}
+
+@font-face {
+  font-family: 'KBFGText-Medium';
+  src: url('/fonts_bak/KBFGTextM.eot');
+  src: url('/fonts_bak/KBFGTextM.woff2') format('woff2'),
+	   url('/fonts_bak/KBFGTextM.woff') format('woff'),
+	   url('/fonts_bak/KBFGTextM.ttf') format('truetype'),
+	   url('/fonts_bak/KBFGTextM.eot?#iefix') format('embedded-opentype'),
+	   url("/fonts_bak/KBFGTextM.svg") format("svg");
+}
+
+@font-face {
+  font-family: 'KBFGText-Bold';
+  src: url('/fonts_bak/KBFGTextB.eot');
+  src: url('/fonts_bak/KBFGTextB.woff2') format('woff2'),
+	   url('/fonts_bak/KBFGTextB.woff') format('woff'),
+	   url('/fonts_bak/KBFGTextB.ttf') format('truetype'),
+	   url('/fonts_bak/KBFGTextB.eot?#iefix') format('embedded-opentype'),
+	   url("/fonts_bak/KBFGTextB.svg") format("svg");
+}
+*/

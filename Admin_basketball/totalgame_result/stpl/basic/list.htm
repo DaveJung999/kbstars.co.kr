@@ -1,0 +1,113 @@
+
+<link href="/css/basic_text.css" rel="stylesheet" type="text/css">
+<link href="/css/link01.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+<!--
+body {
+	margin-left: 5px;
+	margin-top: 15px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	background-color:F8F8EA;
+}
+-->
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+<tr bgcolor="#F8F8EA">
+	<td>
+		<table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
+		<tr>
+			<td width="22"><img src="/images/admin/tbox_l.gif" width="22" height="22"></td>
+			<td background="/images/admin/tbox_bg.gif"><strong>KB국민은행 종합기록 </strong></td>
+			<td align="right" width="5"><img src="/images/admin/tbox_r.gif" width="5" height="22"></td>
+		</tr>
+		</table>
+		<br>
+		<table width="97%" border="0" align="center">
+			<tr align="right">
+				<td height="40"><input name="back4" type="button" class="CCbox04" id="back4" onclick="location.href='{href.write}'" value=" 기록등록 "/></td>
+			</tr>
+		</table>
+		<table width="97%" border="0" align="center" cellpadding="6" cellspacing="1" bgcolor="#666666" style="line-height:100%; margin-top:0; margin-bottom:0;">
+			<tr>
+			<td height="30" bgcolor="#D2BF7E"><p align="center"><strong><span style="font-size:9pt;">시즌</span></strong></p></td>
+			<td bgcolor="#D2BF7E"><p align="center"><strong><span style="font-size:9pt;">순위</span></strong></p></td>
+			<td bgcolor="#D2BF7E"><p align="center"><strong><span style="font-size:9pt;">게임</span></strong></p></td>
+			<td bgcolor="#D2BF7E"><p align="center"><strong><span style="font-size:9pt;">승/패</span></strong></p></td>
+			<td bgcolor="#D2BF7E"><p align="center"><strong><span style="font-size:9pt;">득점</span></strong></p></td>
+			<td bgcolor="#D2BF7E"><p align="center"><strong><span style="font-size:9pt;">2점</span></strong></p></td>
+			<td bgcolor="#D2BF7E"><p align="center"><strong><span style="font-size:9pt;">3점</span></strong></p></td>
+			<td bgcolor="#D2BF7E"><p align="center"><strong><span style="font-size:9pt;">자유투</span></strong></p></td>
+			<td bgcolor="#D2BF7E">
+				<p align="center"><strong><span style="font-size:9pt;">리바<br />
+				운드</span></strong></p>
+			</td>
+			<td bgcolor="#D2BF7E">
+				<p align="center"><strong><span style="font-size:9pt;">어시<br />
+				스트</span></strong></p>
+			</td>
+			<td bgcolor="#D2BF7E"><p align="center"><strong><span style="font-size:9pt;">스틸</span></strong></p></td>
+			<td bgcolor="#D2BF7E"><p align="center"><strong><span style="font-size:9pt;">블록</span></strong></p></td>
+			<td bgcolor="#D2BF7E"><p align="center"><strong><span style="font-size:9pt;">턴오버</span></strong></p></td>
+			<td bgcolor="#D2BF7E"><p align="center"><strong><span style="font-size:9pt;">파울</span></strong></p></td>
+			<td align="center" bgcolor="#D2BF7E"><strong>수정</strong></td>
+			<td align="center" bgcolor="#D2BF7E"><strong>삭제 </strong>
+			</td>
+		</tr>
+		{LIST}
+		<block name="list">
+		<tr align="center" bgcolor="#F8F8EA" onMouseOver="this.style.backgroundColor='#C6E2F9'" onMouseOut="this.style.backgroundColor=''">
+			<td height="30" align="center"><strong>{list.tr_season}</strong></td>
+			<td	align="center" nowrap> {list.tr_ranking}</td>
+			<td align="center" nowrap>{list.tr_game}</td>
+			<td align="center" nowrap>{list.tr_win}/{list.tr_loss}</td>
+			<td align="center">{list.tr_score}</td>
+			<td align="center"> {list.tr_2p1}/{list.tr_2p2}</td>
+			<td align="center"> {list.tr_3p1}/{list.tr_3p2}</td>
+			<td align="center">{list.tr_free1}/{list.tr_free2}</td>
+			<td align="center">{list.tr_re}</td>
+			<td align="center">{list.tr_as}</td>
+			<td align="center">{list.tr_st}</td>
+			<td align="center">{list.tr_blk}</td>
+			<td align="center">{list.tr_to}</td>
+			<td align="center">{list.tr_po}</td>
+			<td align="center"><input name="back" type="button" class="CCboxw" id="back" onclick="location.href='{href.modify}'" value=" 수정 "/></td>
+			<td align="center"><input name="back2" type="button" class="CCboxw" id="back2" onclick="if(confirm('자료를 삭제하시겠습니까?'))  location.href='{href.delete}'; " value=" 삭제 "/></td>
+		</tr>
+		</block name="list">
+		<block name="nolist">
+		<tr bgcolor="#F8F8EA">
+			<td height="45" colspan="16" align="center">경기종합기록이 없습니다. </td>
+		</tr>
+		</block name="nolist">
+		<block name="total">
+		<tr bgcolor="#F8F8EA">
+			<td height="30" colspan="2"	align="center" bgcolor="#D2BF7E"><strong>합계</strong></td>
+			<td	align="center" nowrap bgcolor="#F0EBD6">{total_result.tr_game}</td>
+			<td	align="center" nowrap bgcolor="#F0EBD6">{total_result.tr_win}/{total_result.tr_loss}</td>
+			<td	align="center" bgcolor="#F0EBD6">{total_result.tr_score}</td>
+			<td	align="center" bgcolor="#F0EBD6"> {total_result.tr_2p1}/{total_result.tr_2p2}</td>
+			<td	align="center" bgcolor="#F0EBD6"> {total_result.tr_3p1}/{total_result.tr_3p2}</td>
+			<td	align="center" bgcolor="#F0EBD6">{total_result.tr_free1}/{total_result.tr_free2}</td>
+			<td	align="center" bgcolor="#F0EBD6">{total_result.tr_re}</td>
+			<td	align="center" bgcolor="#F0EBD6">{total_result.tr_as}</td>
+			<td	align="center" bgcolor="#F0EBD6">{total_result.tr_st}</td>
+			<td	align="center" bgcolor="#F0EBD6">{total_result.tr_blk}</td>
+			<td	align="center" bgcolor="#F0EBD6">{total_result.tr_to}</td>
+			<td	align="center" bgcolor="#F0EBD6">{total_result.tr_po}</td>
+			<td	align="center" bgcolor="#F0EBD6">&nbsp;</td>
+			<td	align="center" bgcolor="#F0EBD6">&nbsp;</td>
+		</tr>
+		</block name="total">		
+	</table>
+		<table width="97%" border="0" align="center">
+			<tr align="right">
+				<td height="40"><input name="back3" type="button" class="CCbox04" id="back3" onclick="location.href='{href.write}'" value=" 기록등록 "/></td>
+			</tr>
+		</table>
+	</td>
+</tr>
+</table>

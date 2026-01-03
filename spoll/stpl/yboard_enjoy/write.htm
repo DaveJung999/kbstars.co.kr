@@ -1,0 +1,227 @@
+
+<script LANGUAGE="JavaScript">
+<!--
+// 입력값 체크 함수
+function checkForm(f)
+{
+	//var f= document.board;
+	if( isEmpty( f.title.value )){
+		alert('제목을	입력하시기 바랍니다.');
+		f.title.focus();
+		return false;
+	}
+	if( isEmpty( f.content.value )){
+		alert('글 내용을	입력하시기 바랍니다.');
+		f.content.focus();
+		return false;
+	}
+}
+// 입력값 공백 체크 함수
+function isEmpty( data ){
+	for ( var i = 0 ; i < data.length ; i++ ){
+		if ( data.substring( i, i+1 ) != " " )
+			return false;
+	}
+	return true;
+}
+//-->
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_findObj(n, d) {
+	//v4.01
+	var p,i,x;
+	if(!d) d=document;
+	if((p=n.indexOf("?"))>0&&parent.frames.length) {
+		d=parent.frames[n.substring(p+1)].document;
+		n=n.substring(0,p);
+	}
+	if(!(x=d[n])&&d.all) x=d.all[n];
+	for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+		for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+		if(!x && d.getElementById) x=d.getElementById(n);
+		return x;
+}
+function MM_validateForm() {
+	//v4.0
+	var i,p,q,nm,test,num,min,max,errors='',args=MM_validateForm.arguments;
+	for (i=0; i<(args.length-2); i+=3) {
+		test=args[i+2];
+		val=MM_findObj(args[i]);
+		if (val) {
+			nm=val.name;
+			if ((val=val.value)!="") {
+				if (test.indexOf('isEmail')!=-1) {
+					p=val.indexOf('@');
+					if (p<1 || p==(val.length-1)) errors+='- '+nm+' 는(은) 메일 주소를 입력바랍니다.\n';
+				}
+				else if (test!='R') {
+					num = parseFloat(val);
+					if (isNaN(val)) errors+='- '+nm+' 는(은) 숫자로만 기입하십시요.\n';
+					if (test.indexOf('inRange') != -1) {
+						p=test.indexOf(':');
+						min=test.substring(8,p);
+						max=test.substring(p+1);
+						if (num<min || max<num) errors+='- '+nm+'는(은) '+min+'부터'+max+'까지 숫자로 기입하십시요.\n';
+					}
+				}
+			}
+			else if (test.charAt(0) == 'R') errors += '- '+nm+' is required.\n';
+		}
+	}
+	if (errors) alert('다음 에러를 확인바랍니다.:\n'+errors);
+	document.MM_returnValue = (errors == '');
+}
+//-->
+</script>
+
+<link href="/ycommon/ycommon_1201.css" rel="stylesheet" type="text/css">
+<table cellpadding="0" cellspacing="0" width="100%" height="21" bgcolor="#CE966B">
+<tr>
+	<td width="98%" align="right"><font color="white"><a href="/"	class="white">HOME</a>&gt;&gt;커뮤니티 &gt;&gt; <a href="/d05_supporters/poll.php" class="white">설문조사</a></font></td>
+	<td width="2%">&nbsp;</td>
+</tr>
+</table>
+<form style='margin : 0px' onSubmit="return checkForm(this)" {form_write}>
+<table cellpadding="0" cellspacing="0" width="89%" height="21" bgcolor="#CE966B">
+<tr>
+	<td width="98%">
+		<p align="right" class="base"><font color="white"><a href="/"	class="white">HOME</a>
+		&gt;&gt; {list.sub_title} {list.m_title}</font></p>
+	</td>
+	<td width="2%">
+		<p>&nbsp;</p>
+	</td>
+</tr>
+</table>
+<br>
+<table border="0" cellpadding="0" cellspacing="0" width="550" align="center" class="">
+<tr height="24">
+	<td height="9" colspan="2">
+		<table width="550" border="0" cellpadding="0" cellspacing="0" class="base">
+		<tr bgcolor="C2C2C2">
+			<td height="3"><img src="images/spacer.gif" width="1" height="1"></td>
+		</tr>
+		<tr bgcolor="ffffff">
+			<td height="2"><img src="images/spacer.gif" width="1" height="1"></td>
+		</tr>
+		<tr valign="middle" bgcolor="F4F4F4" class="bw" height="24">
+			<td height="23" align="center" class="base">
+				<span class="bbl">{dbinfo.title}
+				{cateinfo.title}</span>
+			</td>
+		</tr>
+		<tr bgcolor="ffffff">
+			<td height="2"><img src="images/spacer.gif" width="1" height="1"></td>
+		</tr>
+		<tr bgcolor="D4D4D4">
+			<td height="1"><img src="images/spacer.gif" width="1" height="1"></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+
+{USERINFO}
+<block name="userinfo">
+<tr class="base">
+	<td width="85" height="28" align="center" bgcolor="#F9F9F9" class="base">&nbsp;이&nbsp;&nbsp; &nbsp; 름</td>
+	<td width="465">{list.userid} ({list.email}) </td>
+</tr>
+<tr>
+	<td height="1" colspan="2" align="center" background="images/dot_board.gif" class="base"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+</block name="userinfo">
+<block name="nouserinfo">
+<tr class="base">
+	<td width="85" height="28" align="center" bgcolor="#F9F9F9" class="base">&nbsp;이&nbsp;&nbsp; &nbsp; 름</td>
+	<td width="465"><input type="text" name="userid" size="20"	value="{list.userid}"></td>
+</tr>
+<tr>
+	<td height="1" colspan="2" align="center" background="images/dot_board.gif" class="base"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr class="base">
+	<td height="28" align="center" bgcolor="#F9F9F9" class="base">&nbsp;패스워드</td>
+	<td><input name="passwd" type="password" id="passwd" size="10"></td>
+</tr>
+<tr>
+	<td height="1" colspan="2" align="center" background="images/dot_board.gif" class="base"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr class="base">
+	<td width="85" height="28" align="center" bgcolor="#F9F9F9" class="base">&nbsp;메&nbsp;&nbsp; &nbsp; 일</td>
+	<td width="465"><input type="text" name="email" size="40"	value="{list.email}"></td>
+</tr>
+<tr>
+	<td height="1" colspan="2" align="center" background="images/dot_board.gif" class="base"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+</block name="nouserinfo">
+{CATELIST}
+<block name="catelist">
+<tr class="base">
+	<td width="85" height="28" align="center" nowrap bgcolor="#F9F9F9" class="base">&nbsp;카테고리</td>
+	<td width="465">
+		<SELECT NAME="catelist">{list.catelist}</SELECT>	
+	</tr>
+	<tr>
+		<td height="1" colspan="2" align="center" background="images/dot_board.gif" class="base"><img src="images/spacer.gif" width="1" height="1"></td>
+	</tr>
+	</block name="catelist">
+	<tr class="base">
+		<td width="85" height="28" align="center" bgcolor="#F9F9F9" class="base">
+			&nbsp;제&nbsp;&nbsp;&nbsp;&nbsp;
+			목
+		</td>
+		<td width="465" class="base">
+			<input type="text" name="title" size="30"	value="{list.title}">
+			<input type="checkbox" name="docu_type" value="html" {list.docu_type_checked}> HTML{IFWRITEINFO}		<block name="ifwriteinfo">
+			<input type="checkbox" name="writeinfo" value="info" {list.writeinfo_checked}>
+			<font color="#000000">공지</font>
+			</block name="ifwriteinfo">
+		</td>
+	</tr>
+	<tr>
+		<td height="1" colspan="2" align="center" background="images/dot_board.gif" class="base"><img src="images/spacer.gif" width="1" height="1"></td>
+	</tr>
+	{UPLOAD}
+	<block name=" Upload ">
+	<tr class="base">
+		<td width="85" height="28" align="center" bgcolor="#F9F9F9" class="base">&nbsp;첨부파일</td>
+		<td width="465"> <input type="file" name="upfile" size="20" > </td>
+	</tr>
+	<tr>
+		<td height="1" colspan="2" background="images/dot_board.gif" class="base"><img src="images/spacer.gif" width="1" height="1"></td>
+	</tr>
+	</block name=" Upload ">
+	<tr>
+		<td width="85" align="center" bgcolor="#F9F9F9" class="base">내&nbsp; &nbsp;&nbsp; 용</td>
+		<td width="465">
+			<br>		<textarea rows="15" name="content" cols="60" >{list.content}</textarea>
+			<br>
+			<br>
+		</td>
+	</tr>
+	{LEVEL}
+	<block name="level">
+	<tr class="base">
+		<td width="85" class="bb" nowrap>&nbsp;읽기 레벨</td>
+		<td width="465">
+			<input name=priv_level type=text id="priv_level" onChange="MM_validateForm('priv_level','','RinRange0:255');return document.MM_returnValue" value='{list.priv_level}' size=4> * 숫자 레벨(0-255)	
+		</tr>
+		</block name="level">
+		<tr bgcolor="ECECEC">
+			<td height="3" colspan="2"></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td width="465" height="40" align="right">
+				<input name="image" type=image src="images/button_save.gif" width="80" height="22">
+				&nbsp;&nbsp;<a href="{href.list}"><img src="images/button_cancile.gif" width="80" height="22" border=0></a>&nbsp; 
+			</td>
+		</tr>
+		</table>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		</form>
+		<block name="highcate">&gt; <a href="{href.highcate}" class="nevy_gcyan"> {highcate.title}</a></block name="highcate">
+		<block name="samecate"><opt name="samecate.selected"><b>{samecate.title}</b></opt name="samecate.selected"><opt name="!samecate.selected"><b><a href="{PHP_SELF}?db={dbinfo.db}&cateuid={samecate.uid}">{samecate.title}</a></b></opt name="!samecate.selected">&nbsp;</block name="samecate">
+		<block name="subcate"><opt name="blockloop"> | </opt name="blockloop"><a href="{href.subcate}" class="base2"> {subcate.title}</a></block name="subcate">

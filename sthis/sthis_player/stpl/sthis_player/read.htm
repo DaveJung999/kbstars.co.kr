@@ -1,0 +1,305 @@
+
+<style type="text/css">
+<!--
+.style1 {
+	color:#FF6600;
+	font-weight: bold;
+}
+-->
+</style>
+
+<script>
+function pop_Player_teamhistory(uid, pname){
+	window.open('/sthis/sthis_player_teamhistory/list.php?pid='+uid+'&pname='+pname, 'player_teamhistory', 'status=no,menubar=no,width=600,height=500');
+}
+</script>
+
+<br>
+<table cellpadding="0" cellspacing="0" width="890" align="center">
+<tr>
+	<td align="center">&nbsp;</td>
+</tr>
+<tr>
+	<td align="center">
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr>
+			<td align="center">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				{READLIST}
+				<block name="readlist">
+				<tr align="center">{CELL}</tr>
+				<tr height="15"></tr>
+				</block name="readlist">
+				</table>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<br>
+<table width="890" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td><hr size="1" color="#E7E7E7"></td>
+</tr>
+</table>
+
+<block name="cell">
+<td align="center">
+	<table border="0" cellpadding="2" cellspacing="6" bgcolor="{readlist.color}">
+	<tr>
+		<td bgcolor="#FFFFFF">
+			<table width="80" height="115" align="center" cellpadding="0" cellspacing="0" bgcolor="#F4F4F4">
+			<tr>
+				<td height="71" align="center"><a href="{href.read}"><img src="{href.download}&amp;upfile=upfile&amp;mode=image&amp;notfound=any" width="75" border="0" height="90" /></a></td>
+			</tr>
+			<tr>
+				<td height="20" bgcolor="#E5E5E5" align="center">[{readlist.p_num}] {readlist.p_name}</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+</td>
+</block name="cell">
+<br>
+<table width="90%" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td align="right"><img src="/images/bar_player1.gif" width="580" height="30" border="0"></td>
+</tr>
+</table>
+<br>
+<table cellpadding="0" cellspacing="0" width="90%" align="center">
+<tr>
+	<td width="28%" valign="top">
+		<table width="117" height="168" align="center" cellpadding="0" cellspacing="0" background="images/savers_team_bg01.gif">
+		<tr>
+			<td width="100%" valign="top" align="center">
+				<table cellpadding="0" cellspacing="0" width="117" height="116">
+				<tr>
+					<td width="117" align="center" valign="bottom"><img src="{href.download}&amp;upfile=upfile&amp;mode=image&amp;notfound=any" width="90" border="0" height="110" /></td>
+				</tr>
+				</table>
+				<table cellpadding="0" cellspacing="0" width="117" height="10">
+				<tr>
+					<td width="117" height="10"></td>
+				</tr>
+				</table>
+				<table cellpadding="0" cellspacing="0" width="105">
+				<tr>
+					<td width="36" height="40" rowspan="3" align="center">{list.numimages}</td>
+					<td width="1" height="40" rowspan="3" bgcolor="#d0d0d0"></td>
+					<td width="68" height="19">&nbsp;&nbsp;{list.p_name}</td>
+				</tr>
+				<tr>
+					<td width="68" height="1" background="images/savers_team_img11.gif"></td>
+				</tr>
+				<tr>
+					<td width="68" height="19">&nbsp;&nbsp;{list.p_position}</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+	</td>
+	<td width="72%" valign="top">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td>
+				<table cellpadding="0" cellspacing="0" width="100%">
+				<tr>
+					<td colspan='4' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td colspan='4' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="19%" height="25" align="left"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;생년월일</font></td>
+					<td width="50%">&nbsp;{list.p_bdate}</td>
+					<td width="12%"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;프로경력</font></td>
+					<td width="19%">&nbsp;{list.p_pro}</td>
+				</tr>
+				<tr>
+					<td colspan='4' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="19%" height="25" align="left"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;포지션</font></td>
+					<td width="50%">&nbsp;{list.p_position} </td>
+					<td height="25"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;신장</font></td>
+					<td height="25">&nbsp;{list.p_height}</td>
+				</tr>
+				<tr>
+					<td colspan='4' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td height="25"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;졸업년도</font></td>
+					<td height="25">&nbsp;{list.p_ddate}년</td>
+					<td height="25"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;신발크기</font></td>
+					<td height="25">&nbsp;{list.p_sin}</td>
+				</tr>
+				<tr>
+					<td colspan='4' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td height="25"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;핼액형</font></td>
+					<td height="25">&nbsp;{list.p_oab} 형</td>
+					<td height="25">&nbsp;</td>
+					<td height="25">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan='4' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td height="25"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;출신학교</font></td>
+					<td height="25" colspan="3" >&nbsp;{list.p_school}</td>
+				</tr>
+				<tr>
+					<td colspan='4' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td height="25"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;이메일</font></td>
+					<td height="25" colspan="3" >&nbsp;<a href="mailto:{list.p_email}">{list.p_email}</a></td>
+				</tr>
+				<tr>
+					<td colspan='4' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="19%" height="25"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;홈페이지(까페)</font></td>
+					<td height="25" colspan="5" >&nbsp;<a href="{list.p_homepage}"	target="_blank">{list.p_homepage}</a></td>
+				</tr>
+				<tr>
+					<td colspan='4' background='images/bu_dotline.gif'></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>
+				<table cellpadding="0" cellspacing="0" bgcolor="#FFFBFF" width="100%">
+				<tr>
+					<td colspan='2' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="37%" height="30"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;가족관계 및 결혼여부</font></td>
+					<td width="63%" height="30">{list.p_family}</td>
+				</tr>
+				<tr>
+					<td colspan='2' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="37%" height="30"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;별명</font></td>
+					<td width="63%" height="30">{list.p_nickname}</td>
+				</tr>
+				<tr>
+					<td colspan='2' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="37%" height="30"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;나의 이상형</font></td>
+					<td width="63%" height="30">{list.p_lee}</td>
+				</tr>
+				<tr>
+					<td colspan='2' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="37%" height="30"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;평소 취미 활동</font></td>
+					<td width="63%" height="30">{list.p_hobby}</td>
+				</tr>
+				<tr>
+					<td colspan='2' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="37%" height="30"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;스트레스 해소법</font></td>
+					<td width="63%" height="30">{list.p_stress}</td>
+				</tr>
+				<tr>
+					<td colspan='2' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="37%" height="30"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;좋아하는 가수 및 음악 장르</font></td>
+					<td width="63%" height="30">{list.p_music}</td>
+				</tr>
+				<tr>
+					<td colspan='2' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="37%" height="30"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;좋아하는 음식</font></td>
+					<td width="63%" height="30">{list.p_food}</td>
+				</tr>
+				<tr>
+					<td colspan='2' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="37%" height="30"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;좋아하는 스포츠 종목</font></td>
+					<td width="63%" height="30">{list.p_spo}</td>
+				</tr>
+				<tr>
+					<td colspan='2' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="37%" height="30"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;농구시작은 언제</font></td>
+					<td width="63%" height="30">{list.p_start}</td>
+				</tr>
+				<tr>
+					<td colspan='2' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="37%" height="30"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;플레이가 가장 마음에 드는 선수</font></td>
+					<td width="63%" height="30">{list.p_mplayer}</td>
+				</tr>
+				<tr>
+					<td colspan='2' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="37%" height="30"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;소속팀 변경(트레이드 경력)</font></td>
+					<td width="63%" height="30"><input name="player_teamhistory" type="image" id="player_teamhistory"	onclick="pop_Player_teamhistory('{list.uid}', '{list.p_name}')" src="images/btn_player_teamhistory.gif" align="middle" /></td>
+				</tr>
+				<tr>
+					<td colspan='2' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td width="37%" height="30"><img src="images/icon_bluejum.gif" /><font color="#840000">&nbsp;은퇴후 계획</font></td>
+					<td width="63%" height="30">{list.p_end}</td>
+				</tr>
+				<tr>
+					<td colspan='2' background='images/bu_dotline.gif'></td>
+				</tr>
+				<tr>
+					<td colspan='2' background='images/bu_dotline.gif'></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<br>
+<table width="90%"	border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td align="right">&nbsp;</td>
+</tr>
+</table>
+<br>
+<table width="90%" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td align="right">
+		<table cellpadding="0" cellspacing="0" width="581">
+		<tr>
+			<td width="111"><a href="/sthis/sthis_monitoring/list.php?p_uid={list.uid}&cateuid={list.cateuid}">{list.monitoring}</a></td>
+			<td width="110"><a href="/sthis/sthis_medical/list.php?p_uid={list.uid}&cateuid={list.cateuid}">{list.medical}</a></td>
+			<td width="110"><a href="/sthis/sthis_education/list.php?p_uid={list.uid}&cateuid={list.cateuid}">{list.education}</a></td>
+			<td width="105"><a href="/sthis/sthis_pain/list.php?p_uid={list.uid}&cateuid={list.cateuid}">{list.pain}</a></td>
+			<td width="122"><a href="/sthis/sthis_house/list.php?p_uid={list.uid}&cateuid={list.cateuid}">{list.house}</a></td>
+			<td width="120"><a href="/sthis/sthis_player/read.php?uid={list.uid}&cateuid={list.cateuid}">{list.player}</a></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<block name="modify"><a href="{href.modify}"><img src="images/button_modify.gif" width="90" height="22" border="0" align="absmiddle"></a></block name="modify">
+<block name="delete"><a href="{href.delete}" onclick="javascript: return confirm('선수 정보를 정말로 삭제하시겠습니까?');"><img src="images/button_del.gif" width="90" height="22" border="0" align="absmiddle"></a> </block name="delete">
+<br>
+<br>

@@ -1,0 +1,371 @@
+/* This code is only meant for previewing your Reflow design. */
+.primaryContainer {
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 100%;
+	width: 100%;
+	position: relative;
+}
+
+#sub {
+	float: left;
+	height: 360px;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: none;
+	width: 100%;
+	min-width: 0px;
+	/* background-color: rgb(30, 24, 21); */
+	background-color: rgb(244, 180, 43);
+}
+
+#main_top {
+	float: none;
+	height: 40px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 940px;
+	margin-right: auto;
+}
+
+#navi {
+	float: none;
+	height: 100px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 940px;
+	margin-right: auto;
+	display: block;
+}
+
+#sub_visual_2020 {
+	float: none;
+	height: 220px;
+	margin-left: auto;
+	margin-top: -10px;
+	clear: none;
+	width: 940px;
+	display: block;
+	margin-right: auto;
+	position:relative
+}
+
+#sub_visual_2021 {
+	float: none;
+	height: 220px;
+	margin-left: auto;
+	margin-top: -10px;
+	clear: none;
+	width: 940px;
+	display: block;
+	margin-right: auto;
+	position:relative
+}
+
+#sub_visual {
+	float: none;
+	height: 220px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 940px;
+	display: block;
+	margin-right: auto;
+	position:relative
+}
+
+#sub_menu_bg {
+	float: none;
+	height: 40px;
+	margin-left: auto;
+	margin-top: 360px;
+	clear: none;
+	width: 100%;
+	min-width: 0px;
+	display: block;
+	margin-right: auto;
+	background-color: rgb(152, 143, 136);
+}
+
+#sub_menu {
+	float: none;
+	height: 40px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 990px;
+	margin-right: auto;
+	background-color: rgb(75, 60, 53);
+}
+
+#copyright_bg {
+	float: none;
+	height: 140px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 100%;
+	min-width: 0px;
+	display: block;
+	margin-right: auto;
+	/*background-color: rgb(105, 101, 89);*/
+}
+
+#copyright_cont {
+	float: none;
+	height: 140px;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 940px;
+	margin-right: auto;
+}
+
+#copylogo {
+	float: left;
+	height: 70px;
+	margin-left: 0%;
+	margin-top: 32px;
+	clear: none;
+	width: 80px;
+}
+
+#copyright_menu {
+	float: left;
+	height: 34px;
+	margin-left: 36px;
+	margin-top: 32px;
+	clear: none;
+	width: 590px;
+	min-height: 0px;
+}
+
+#copyright {
+	float: left;
+	height: 36px;
+	margin-left: -590px;
+	margin-top: 66px;
+	clear: none;
+	width: auto;
+	min-height: 0px;
+	display: block;
+	margin-right: 0%;
+}
+
+#kb_logo {
+	float: left;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin-left: 811px;
+	margin-top: 10px;
+	clear: none;
+	color: rgb(0, 0, 0);
+}
+
+#image {
+	float: left;
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: none;
+	color: rgb(0, 0, 0);
+}
+
+
+
+#sub_contents_bg {
+	float: none;
+	height: auto;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 100%;
+	min-width: 0px;
+	display: block;
+	margin-right: auto;
+	background-color: rgb(229, 226, 217);
+}
+
+#sub_contents {
+	float: none;
+	height: auto;
+	margin-left: auto;
+	margin-top: 0px;
+	clear: none;
+	width: 990px;
+	margin-right: auto;
+	padding-bottom: 25px;
+	background-color: rgb(255, 255, 255);
+}
+
+#sub_contents_main {
+	float: left;
+	height: auto;
+	margin-left: 0%;
+	margin-top: 0px;
+	clear: both;
+	width: 100%;
+	align-content:center;
+}
+
+
+#copyright_txt {
+	float: left;
+	font-size: 12px;
+	width: auto;
+	height: auto;
+	text-align: left;
+	font-weight: 600;
+	line-height: 1.3em;
+	margin-left: 0%;
+	margin-top: 10px;
+	clear: none;
+	min-height: 0px;
+	font-style: normal;
+	color: rgb(230, 230, 230);
+	margin-right: 4%;
+}
+
+#copyright_txt1 {
+	float: left;
+	font-size: 11px;
+	width: 700px;
+	height: auto;
+	text-align: left;
+	font-weight: 600;
+	line-height: 1.3em;
+	margin-left: 0%;
+	margin-top: 7px;
+	clear: none;
+	min-height: 0px;
+	font-style: normal;
+	color: rgb(47, 47, 37);
+	display: block;
+	margin-right: 0%;
+}
+
+#copyright_txt2 {
+	float: left;
+	font-size: 12px;
+	width: auto;
+	height: auto;
+	text-align: left;
+	font-weight: 600;
+	line-height: 1em;
+	margin-left: 0%;
+	margin-top: -2px;
+	clear: none;
+	min-height: 0px;
+	font-family: 'Nanum Gothic', serif;
+	font-style: normal;
+	color: rgb(230, 230, 230);
+	margin-right: 4%;
+}
+
+#subtitle_txt {
+	float: left;
+	font-size: 28px;
+	width: auto;
+	height: auto;
+	text-align: left;
+	font-weight: normal;
+	line-height: 1em;
+	margin-left: 0px;
+	margin-top: 80px;
+	clear: none;
+	min-height: 0px;
+	color: rgb(255, 255, 255);
+}
+
+
+#sub_menu_text1 {
+	float: left;
+	font-size: 15px;
+	width: auto;
+	height: auto;
+	text-align: left;
+	font-weight: 600;
+	line-height: 1em;
+	margin-left: 25px;
+	margin-top: 14px;
+	clear: none;
+	min-height: 0px;
+	color: rgb(246, 180, 42);
+	margin-right: 15px;
+}
+
+#sub_menu_text2 {
+	float: left;
+	font-size: 15px;
+	width: auto;
+	height: auto;
+	text-align: left;
+	font-weight: 600;
+	line-height: 1em;
+	margin-left: 25px;
+	margin-top: 14px;
+	clear: none;
+	min-height: 0px;
+	color: rgb(196, 193, 191);
+	margin-right: 15px;
+	display: block;
+}
+
+#contents_title {
+	float: left;
+	font-size: 23px;
+	width: auto;
+	height: auto;
+	text-align: left;
+	font-weight: 600;
+	line-height: 1em;
+	margin: 60px 0px 20px 25px;
+	clear: none;
+	min-height: 0px;
+	color: rgb(0, 0, 0);
+	display: block;
+}
+
+
+#kb_stars_logo {
+	position:absolute;
+	float: left;
+	height: 100px;
+	margin-left: 0%;
+	margin-top: 0px;
+	width: 115px;
+	z-index:99999;
+}
+
+#navigation {
+	position:absolute;
+	float: left;
+	height: 100px;
+	margin-left: 115px;
+	margin-top: 0px;
+	clear: none;
+	width: 825px;
+	z-index:999;
+	/*border:1;
+	border-style:solid;
+	border-color:#fff;*/
+}
+
+#navigation_2021 {
+	position:absolute;
+	float: left;
+	height: 100px;
+	margin-left: 175px;
+	margin-top: 0px;
+	clear: none;
+	z-index:999;
+	/*border:1;
+	border-style:solid;
+	border-color:#fff;*/
+}

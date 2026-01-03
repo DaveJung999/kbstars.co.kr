@@ -1,0 +1,262 @@
+
+<script LANGUAGE="JavaScript">
+<!--
+// 입력값 체크 함수
+function checkForm(f)
+{
+	//var f= document.board;
+	if( isEmpty( f.title.value )){
+		alert('제목을	입력하시기 바랍니다.');
+		f.title.focus();
+		return false;
+	}
+	if( isEmpty( f.content.value )){
+		alert('글 내용을	입력하시기 바랍니다.');
+		f.content.focus();
+		return false;
+	}
+}
+// 입력값 공백 체크 함수
+function isEmpty( data ){
+	for ( var i = 0 ; i < data.length ; i++ ){
+		if ( data.substring( i, i+1 ) != " " )
+			return false;
+	}
+	return true;
+}
+//-->
+</script>
+
+<link href="images/basic.css" rel="stylesheet" type="text/css">
+<link href="/ycommon/ycommon_1201.css" rel="stylesheet" type="text/css">
+<br>
+<form style='margin : 0px' onSubmit="return checkForm(this)" {form_write}>
+
+<table width="90%" border="1" align="center" cellpadding="0" bordercolor="cdcdcd" style="border-collapse:collapse;">
+<tr>
+	<td>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >
+				&nbsp;이&nbsp;&nbsp;
+				&nbsp; 름
+			</td>
+
+			<td width="80%"><input name="p_name" type="text" id="p_name"	value="{list.p_name}" size="40"></td>
+		</tr>
+		</table>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >등 번 호</td>
+
+			<td width="80%"><input type="text" name="p_num" size="40"	value="{list.p_num}"></td>
+		</tr>
+		</table>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >포 지 션</td>
+			<td width="80%">
+				<select name="cateuid">
+				<option value="53">가드</option>
+				<option value="54">포워드</option>
+				<option value="55">센터</option>
+				</select>
+			</td>
+		</tr>
+		</table>
+
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >생년월일</td>
+			<td width="80%"><input type="text" name="p_bdate" size="40"	value="{list.p_bdate}"></td>
+		</tr>
+		</table>
+
+
+	</td>
+</tr>
+<tr>
+	<td>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >졸업년도</td>
+			<td width="80%">
+				<input type="text" name="p_ddate" size="45"	value="{list.p_ddate}">
+			</td>
+		</tr>
+		</table>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >출신학교</td>
+			<td width="80%">
+				<input type="text" name="p_school" size="45"	value="{list.p_school}">
+			</td>
+		</tr>
+		</table>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >프로경력</td>
+			<td width="80%">
+				<input type="text" name="p_pro" size="45"	value="{list.p_pro}">
+			</td>
+		</tr>
+		</table>
+
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+			<td align="center" bgcolor="E4D3F2" >신장</td>
+			<td>
+				<input type="text" name="p_height" size="45"	value="{list.p_height}">
+			</td>
+		</tr>
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >혈핵형</td>
+			<td width="80%">
+				<input type="text" name="p_oab" size="45"	value="{list.p_oab}">
+			</td>
+		</tr>
+		</table>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+
+			<td width="20%" align="center" bgcolor="E4D3F2" >신발크기</td>
+			<td width="80%">
+				<input type="text" name="p_sin" size="45"	value="{list.p_sin}">
+			</td>
+		</tr>
+		</table>
+
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+			<td align="center" bgcolor="E4D3F2" >이메일</td>
+			<td>
+				<input type="text" name="p_email" size="45"	value="{list.p_email}">
+			</td>
+		</tr>
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >홈페이지(까페)</td>
+			<td width="80%">
+				<input type="text" name="p_homepage" size="45"	value="{list.p_homepage}">
+			</td>
+		</tr>
+		</table>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >가족관계</td>
+			<td width="80%">
+				<input type="text" name="p_family" size="45"	value="{list.p_family}">
+			</td>
+		</tr>
+		</table>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+
+			<td width="20%" align="center" bgcolor="E4D3F2" >별명</td>
+			<td width="80%">
+				<input type="text" name="p_nickname" size="45"	value="{list.p_nickname}">
+			</td>
+		</tr>
+		</table>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+
+			<td width="20%" height="16" align="center" bgcolor="E4D3F2" >나의 이상형</td>
+			<td width="80%">
+				<input type="text" name="p_lee" size="45"	value="{list.p_lee}">
+			</td>
+		</tr>
+		</table>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+
+			<td width="20%" align="center" bgcolor="E4D3F2" >평소 취미 활동</td>
+			<td width="80%">
+				<input type="text" name="p_hobby" size="45"	value="{list.p_hobby}">
+			</td>
+		</tr>
+		</table>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >스트레스 해소법</td>
+			<td width="80%">
+				<input type="text" name="p_stress" size="45"	value="{list.p_stress}">
+			</td>
+		</tr>
+		</table>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+
+			<td width="20%" align="center" bgcolor="E4D3F2" >가수 및 음악장르</td>
+			<td width="80%">
+				<input type="text" name="p_music" size="45"	value="{list.p_music}">
+			</td>
+		</tr>
+		</table>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >좋아하는 음식</td>
+			<td width="80%">
+				<input type="text" name="p_food" size="45"	value="{list.p_food}">
+			</td>
+		</tr>
+		</table>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+
+			<td width="20%" align="center" bgcolor="E4D3F2" >좋아하는 스포츠 </td>
+			<td width="80%">
+				<input type="text" name="p_spo" size="45"	value="{list.p_spo}">
+			</td>
+		</tr>
+		</table>
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >농구시작은 언제</td>
+			<td width="80%">
+				<input type="text" name="p_start" size="45"	value="{list.p_start}">
+			</td>
+		</tr>
+		</table>
+
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+			<td align="center" bgcolor="E4D3F2" >마음에 드는 선수</td>
+			<td>
+				<input type="text" name="p_mplayer" size="45"	value="{list.p_mplayer}">
+			</td>
+		</tr>
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >소속팀 변경</td>
+			<td width="80%"> <textarea name="p_trade" cols="50" rows="7">{list.p_trade}</textarea></td>
+		</tr>
+		</table>
+
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr class="base">
+			<td align="center" bgcolor="E4D3F2" >은퇴후 계획</td>
+			<td>
+				<input type="text" name="p_end" size="45"	value="{list.p_end}">
+			</td>
+		</tr>
+		<tr class="base">
+			<td width="20%" align="center" bgcolor="E4D3F2" >선수사진</td>
+			<td width="80%"> <input type="file" name="upfile" size="20" > </td>
+		</tr>
+		</table>
+	</td>
+</tr>
+
+</table>
+<br>
+<table width="522" align="center" cellpadding="0" style="border-collapse:collapse;">
+<tr>
+	<td width="547" height="30" align="center">
+		<input name="imageField" type="image" src="images/botton_ok.gif" width="46" height="20" border="0">
+		<a href="#" onClick="javascript:history.go(-1);"><img src="images/botton_no.gif" width="46" height="20" border="0" > </a>
+	</td>
+</tr>
+</table>
+</form>

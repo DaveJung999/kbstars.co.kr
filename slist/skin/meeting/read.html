@@ -1,0 +1,84 @@
+<!--<? exit; ?>-->
+<link href="images/basic.css" rel="stylesheet" type="text/css">
+<table width="550" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr>
+	<td width="550" height="25" colspan="2" class="nevy_violet"><p class="bbl">제목 : <a href="list.php?db={dbinfo.db}">{dbinfo.title}</a></p></td>
+</tr>
+</table>
+<table border="0" cellpadding="3" cellspacing="0" width="550" align="center">
+<tr height="24">
+	<td height="15" colspan="8" bgcolor="#FFFFFF"></td>
+</tr>
+<tr height="24">
+	<td height="25" colspan="8" bgcolor="#87AD85"><p align="center" class="bw"><font size=2><b>{list.title}</b></font></td>
+</tr>
+<tr>
+	<td height="20" align="center" bgcolor="#F2F2EE" class="bb">회의일시</td>
+	<td bgcolor="#F2F2EE">:</td>
+	<td width="192" bgcolor="#F2F2EE">{list.rdate_date}</td>
+	<td width="59" bgcolor="#F2F2EE" class="bb">회의장소</td>
+	<td width="7" bgcolor="#F2F2EE">:</td>
+	<td width="166" bgcolor="#F2F2EE">{list.m_state}</td>
+</tr>
+<tr>
+	<td height="20" align="center" bgcolor="#F2F2EE" class="bb">회의제목</td>
+	<td bgcolor="#F2F2EE">:</td>
+	<td colspan="4" bgcolor="#F2F2EE">{list.title}</td>
+</tr>
+<tr>
+	<td height="20" align="center" bgcolor="#F2F2EE" class="bb">회의안건</td>
+	<td bgcolor="#F2F2EE">:</td>
+	<td colspan="4" bgcolor="#F2F2EE">{list.m_subject}</td>
+</tr>
+<tr bgcolor="#F5F5F5" height=200>
+	<td width="80" align="center" valign="top" class="bb">세부내용</td>
+	<td width="10" valign="top"><font size="2">&nbsp;</font></td>
+	<td colspan="4" valign="top">{list.content}</td>
+</tr>
+<tr>
+	<td width="80" height="20" align="center" bgcolor="#F2F2EE" class="bb">참석자</td>
+	<td width="10" bgcolor="#F2F2EE"><font size="2">:</font></td>
+	<td colspan="4" bgcolor="#F2F2EE">{list.m_people}</td>
+</tr>
+<tr bgcolor="#87AD85">
+	<td width="80" height="3"></td>
+	<td width="10" height="3"></td>
+	<td height="3" colspan="4" ></td>
+</tr>
+{UPFILES}
+<block name="upfiles">
+<tr bgcolor="#F5F5F5">
+	<td align="center" valign="top" class="bb"><font size="2">첨부파일</font></td>
+	<td valign="top"><font size="2">:</font></td>
+	<td colspan="4" valign="top"><font size="2">{UPFILE}</font></td>
+</tr>
+</block name="upfiles">
+<tr bgcolor="#F5F5F5">
+	<td width="80" rowspan="3" align="center" valign="top" class="bb">확&nbsp;&nbsp;&nbsp; 인</td>
+	<td colspan="5" valign="top">
+		<p>이상과 같이 회의록을 제출합니다.</p>
+		<p align="center">{list.rdate_date} </p>
+	</td>
+</tr>
+<tr bgcolor="#F5F5F5">
+	<td colspan="2" valign="top">작성자 : {list.userid} </td>
+	<td valign="top">확인자</td>
+	<td valign="top">:</td>
+	<td valign="top">&nbsp;</td>
+</tr>
+<tr bgcolor="#F5F5F5">
+	<td colspan="5" valign="top">담당자 : </td>
+</tr>
+<tr>
+	<td width="80" bgcolor="#FFFFFF">&nbsp;</td>
+	<td width="10" bgcolor="#FFFFFF">&nbsp;</td>
+	<td colspan="4" align="right" bgcolor="#FFFFFF" class="base"> {WRITE} {MODIFY} {DELETE} <a href="{href.list}"><img src="images/bott_list.gif" width="50" height="25" border=0></a> </td>
+</tr>
+</table>
+<br>
+<br>
+<block name="upfile"><a href="{upfile.href}&mode=download">{upfile.name}</a>(크기: {upfile.size} bytes)<br>
+</block name="upfile">
+<block name="write"><a href="{href.write}"><img src="images/bott_write.gif" width="45" height="25" border="0"></a></block name="write">
+<block name="modify"><a href="{href.modify}"><img src="images/bott_modify.gif" width="69" height="25" border="0"></a></block name="modify">
+<block name="delete"><a href="{href.delete}" onclick="javascript: return confirm('답변이 있다면 답변글까지 모두 삭제됩니다.\n정말 삭제하시겠습니다.');"><img src="images/bott_delete.gif" width="61" height="25" border="0"></a></block name="delete">

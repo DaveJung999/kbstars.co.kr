@@ -1,0 +1,152 @@
+
+<link href="/css/basic_text.css" rel="stylesheet" type="text/css">
+<link href="/css/link01.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+<!--
+body {
+	margin-left: 5px;
+	margin-top: 15px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	background-color:F8F8EA;
+}
+-->
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script LANGUAGE="JavaScript" src="/scommon/js/chkform.js" type="Text/JavaScript"></script>
+
+<script>
+function set_sname(f, sname){
+	f.title.value = sname;
+	f.title.focus();
+}
+</script>
+
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td>
+		<table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
+		<tr>
+			<td width="22"><img src="/images/admin/tbox_l.gif" width="22" height="22"></td>
+			<td background="/images/admin/tbox_bg.gif"><strong>KB국민은행 종합기록 </strong></td>
+			<td align="right" width="5"><img src="/images/admin/tbox_r.gif" width="5" height="22"></td>
+		</tr>
+		</table>
+		<br>
+		<form style='margin : 0px' onSubmit="return chkForm(this)" {form_write}>
+		<table width="97%" border="0" align="center" cellpadding="6" cellspacing="1" bgcolor="#666666" class="">
+		<tr>
+			<td width="179" height="30" align="center" bgcolor="#D2BF7E">
+				<p><strong>리그<br>
+				</strong></p>
+			</td>
+			<td height="30" bgcolor="#F8F8EA">
+				<select name="sid" onchange="set_sname(this.form, this.options[selectedIndex].text)">
+				<option value="">▒ 시즌정보 선택 ▒</option>
+
+				{sselect}
+				</select>
+				<input name="title" type="text" id="title"	value="{list.title}" size="40" required hname="타이틀을 입력 해 주세요.">
+			</td>
+		</tr>
+		<tr class="base">
+			<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>시즌 축약어 </strong></td>
+			<td bgcolor="#F8F8EA" class="base"><input name="tr_season" type="text" id="tr_season"	value="{list.tr_season}" size="40" required hname="시즌 축약어를 입력 해 주세요."></td>
+		</tr>
+		<!--tr class="base"> <!--davej...........시즌순 정렬때문에	바꿈.... -- >
+		<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>시즌</strong></td>
+		<td bgcolor="#F8F8EA" class="base">		<input name="data1" type="text" value="{list.data1}" size="6" maxlength="4"	required hname="시즌 년도를 입력 해 주세요.">
+		(년도4자리)
+			<input name="data2" type="radio" value="겨울" {data2_겨울}>
+		겨울
+		<input name="data2" type="radio" value="여름" {data2_여름}>
+		여름
+		<input name="data2" type="radio" value="FL" {data2_FL}>
+		FL</td>
+	</tr > <!--davej...........시즌순 정렬때문에	바꿈.... -->
+		<tr class="base">
+			<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>순위</strong></td>
+			<td bgcolor="#F8F8EA" class="base"> <input name="tr_ranking" type="text" id="tr_ranking"	value="{list.tr_ranking}" size="30"></td>
+		</tr>
+		<tr class="base">
+			<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>게임</strong></td>
+			<td bgcolor="#F8F8EA" class="base"> <input name="tr_game" type="text" id="tr_game"	value="{list.tr_game}" size="30"></td>
+		</tr>
+		<tr class="base">
+			<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>승/패</strong></td>
+			<td bgcolor="#F8F8EA" class="base">
+				<input name="tr_win" type="text" id="tr_win"	value="{list.tr_win}" size="14">
+				/
+				<input name="tr_loss" type="text" id="tr_loss"	value="{list.tr_loss}" size="14">
+			</td>
+		</tr>
+		<tr class="base">
+			<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>득점</strong></td>
+			<td bgcolor="#F8F8EA" class="base"><input name="tr_score" type="text" id="tr_score"	value="{list.tr_score}" size="30"></td>
+		</tr>
+		<tr class="base">
+			<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>2점</strong></td>
+			<td bgcolor="#F8F8EA" class="base">
+				<input name="tr_2p1" type="text" id="tr_2p1"	value="{list.tr_2p1}" size="14">
+				/
+				<input name="tr_2p2" type="text" id="tr_2p2"	value="{list.tr_2p2}" size="14">
+			</td>
+		</tr>
+		<tr class="base">
+			<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>3점</strong></td>
+			<td bgcolor="#F8F8EA" class="base">
+				<input name="tr_3p1" type="text" id="tr_3p1"	value="{list.tr_3p1}" size="14">
+				/
+				<input name="tr_3p2" type="text" id="tr_3p2"	value="{list.tr_3p2}" size="14">
+			</td>
+		</tr>
+		<tr class="base">
+			<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>자유투</strong></td>
+			<td bgcolor="#F8F8EA" class="base">
+				<input name=" tr_free1" type="text" id=" tr_free1"	value="{list.tr_free1}" size="14">
+				/
+				<input name="tr_free2" type="text" id="tr_free2"	value="{list.tr_free2}" size="14">
+			</td>
+		</tr>
+		<tr class="base">
+			<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>리바운드</strong></td>
+			<td bgcolor="#F8F8EA" class="base"> <input name="tr_re" type="text" id="tr_re"	value="{list.tr_re}" size="30"></td>
+		</tr>
+		<tr class="base">
+			<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>어시스트</strong></td>
+			<td bgcolor="#F8F8EA" class="base"> <input name="tr_as" type="text" id="tr_as"	value="{list.tr_as}" size="30"></td>
+		</tr>
+		<tr class="base">
+			<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>스틸</strong></td>
+			<td bgcolor="#F8F8EA" class="base"> <input name="tr_st" type="text" id="tr_st"	value="{list.tr_st}" size="30"></td>
+		</tr>
+		<tr class="base">
+			<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>블록</strong></td>
+			<td bgcolor="#F8F8EA" class="base"> <input name="tr_blk" type="text" id="tr_blk"	value="{list.tr_blk}" size="30"></td>
+		</tr>
+		<tr class="base">
+			<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>턴오버</strong></td>
+			<td bgcolor="#F8F8EA" class="base"> <input name="tr_to" type="text" id="tr_to"	value="{list.tr_to}" size="30"></td>
+		</tr>
+		<tr class="base">
+			<td height="30" align="center" bgcolor="#D2BF7E" class="base"><strong>파울</strong></td>
+			<td bgcolor="#F8F8EA" class="base"> <input name="tr_po" type="text" id="tr_po"	value="{list.tr_po}" size="30"></td>
+		</tr>
+		</table>
+		<table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
+		<tr>
+			<td height="45" align="center">
+				<input name="submit" type="submit" class="CCbox03" value=" 저장 " />
+				&nbsp;&nbsp;<input name="back" type="button" class="CCbox03" id="back" onclick="location.href='{href.list}'" value=" 목록 "/>
+				&nbsp; 
+			</td>
+		</tr>
+		</table>
+		</form>
+	</td>
+</tr>
+</table>
+

@@ -1,0 +1,40 @@
+# 운영 환경 설정 파일 (민감한 정보 포함)
+sinc/config.php
+sjoin_/config.php
+Admin/config/dbinfo.php
+Admin/member/dbinfo.php
+nalog504/nalog_connect.php
+smember/sitebank/config.php
+sthis/totalgame/config.php
+sthis/player/config.php
+
+# 업로드 파일 및 임시 파일
+upload/
+temp/
+*.tmp
+*.log
+
+# 에디터 설정
+.cursor/
+.ai/
+
+# OS 파일
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE 설정
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 백업 파일
+*.bak
+*.backup
+*_backup/
+*_backup_*/
+
+# 캐시 파일
+*.cache

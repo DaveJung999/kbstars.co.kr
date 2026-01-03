@@ -1,0 +1,46 @@
+<table cellpadding="0" cellspacing="0" width="870" align="center">
+<tr>
+	<td width="870">&nbsp;</td>
+</tr>
+<tr>
+	<td width="870" align="center">
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr>
+			<td align="center">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				{LIST}
+				<block name="list">
+				<tr align="center">{CELL}</tr>
+				<tr height="15"></tr>
+				</block name="list">
+				</table>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<table cellpadding="0" cellspacing="0" width="870">
+<tr>
+	<td width="870"><hr size="1" color="#E7E7E7"></td>
+</tr>
+</table>
+
+<block name="cell">
+<td align="center">
+	<table cellpadding="0" cellspacing="0" width="60" bgcolor="#F4F4F4" align="center">
+	<tr>
+		<td width="60" align="center"><a href="#" onClick="javascript:top.location='{href.read}';"><img src="{href.download}&upfile=upfile&mode=image&notfound=any" width="55" border="0" height="60"></td>
+	</tr>
+	<tr>
+		<td width="57" height="20" bgcolor="#E5E5E5" align="center">{list.p_name}</td>
+	</tr>
+	<tr>
+		<td width="65">{list.enable_new}</td>
+	</tr>
+	</table>
+</td>
+</block name="cell">
+<block name="nocell">
+<td>&nbsp;</td>
+</block name="nocell">

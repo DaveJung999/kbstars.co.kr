@@ -1,0 +1,60 @@
+<link href="images/ycommon_1201.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+<!--
+body {
+	background-color: #f4f4f4;
+}
+-->
+</style>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+	<table cellpadding="0" cellspacing="0" width="248">
+	<tr>
+
+		<td width="248" height="23" background="images/top1.gif">&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#014097">{list.wdat}</font></b></td>
+	</tr>
+	<tr>
+		<td width="248" height="22"><img src="images/top2.gif" width="248" height="22" border="0"></td>
+	</tr>
+	<tr>
+		<td width="248">
+			{LIST}
+		</td>
+	</tr>
+	<tr>
+		<td width="248" height="2" bgcolor="#CCCCCC">
+		</td>
+	</tr>
+	</table>
+	<table cellpadding="0" cellspacing="0" width="248">
+	<tr>
+		<td width="248" height="35" ><div align="right"><a href="/d03_infogame/ranking.php"><img src="images/view.gif" border="0"></a></div></td>
+	</tr>
+	</table>
+	<block name="list">
+	<table width="248" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+	<tr>
+		<td width="27" height="30" align="center">
+			<font color="{list.color}">{list.win_go}</font>
+		</td>
+		<td width="1" background="images/dot.gif">
+		</td>
+		<td width="127">
+			<font color="{list.color}">&nbsp;{list.cut_title}</font>
+		</td>
+		<td width="1" background="images/dot.gif"></td>
+		<td width="31" align="center">
+			<font color="{list.color}">{list.win}</font>
+		</td>
+		<td width="1" background="images/dot.gif"></td>
+		<td width="30" align="center">
+			<font color="{list.color}">{list.loss}</font>
+		</td>
+		<td width="1" background="images/dot.gif"></td>
+		<td width="30" align="center">
+			<font color="{list.color}">{list.win_loss}</font>
+		</td>
+	</tr>
+	</table>
+	</block name="list">

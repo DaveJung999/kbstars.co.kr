@@ -1,0 +1,125 @@
+<link href="/ycommon/ycommon_1201.css" rel="stylesheet" type="text/css">
+<table cellpadding="0" cellspacing="0" width="100%" height="21" bgcolor="#CE966B">
+<tr>
+	<td width="98%" align="right"><font color="white"><a href="/"	class="white">HOME</a>&gt;&gt;커뮤니티 &gt;&gt; <a href="/d05_supporters/poll.php" class="white">설문조사</a></font></td>
+	<td width="2%">&nbsp;</td>
+</tr>
+</table>
+<br>
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr bgcolor="#EFEFEF">
+	<td height="1"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr bgcolor="C2C2C2">
+	<td height="4"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr bgcolor="ffffff">
+	<td height="2"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr bgcolor="D4D4D4">
+	<td height="1"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+</table>
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td height="1" colspan="2"	background="images/dot_board.gif"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr>
+	<td width="75" height="28" align="center" bgcolor="F9F9F9">등록일</td>
+	<td width="475" height="28"><font size="2">&nbsp; <span class="base2">{list.rdate}</span></font></td>
+</tr>
+<tr>
+	<td height="1" colspan="2"	background="images/dot_board.gif"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr>
+	<td height="28" colspan="2">&nbsp;&nbsp;&nbsp; <img src="images/icon_cicle.gif" width="6" height="6"> <span class="base_gray_bold"><font size=2><b> {list.title}</b></font></span></td>
+</tr>
+<tr bgcolor="#E2E2E2">
+	<td height="2" colspan="2"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr>
+	<td height="100%" colspan="2">
+		<table width="90%"	border="0" align="center" cellpadding="0" cellspacing="0">
+		<tr>
+			<td><br><iframe name="detail1" width="100%" height="100%" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" src="/spoll/poll_result.php?db={list.db}"><br></iframe></td>
+		</tr>
+		</table>
+	</td>
+</tr>
+{UPFILES}
+<block name="upfiles">
+<tr>
+	<td height="1" colspan="2"	background="images/dot_board.gif"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr>
+	<td height="28" align="center" bgcolor="F9F9F9">파일</td>
+	<td><font size="2">{UPFILE}</font></td>
+</tr>
+</block name="upfiles">
+
+<tr bgcolor="#E2E2E2">
+	<td height="2" colspan="2"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+</table>
+<br>
+{MEMO} <block name="memo">
+<table width="98%" height="90" border="1" align="center" cellpadding="0" cellspacing="5" bordercolor="E1E1E1" style="border-collapse:collapse;">
+<tr>
+	<td>
+		{MEMOLIST}
+		<table width="100%" height="80" border="0" cellpadding="0" cellspacing="0">
+		<form style='margin : 0px' {form_memo}>
+		<tr>
+			<td width="100" align="center" valign="middle" bgcolor="E6E6E6"><img src="images/botton_reply.gif" width="72" height="40"></td>
+			<td width="3">&nbsp;</td>
+			<td bgcolor="F6F6F6">
+				&nbsp;&nbsp;&nbsp; <textarea name="title" cols="40" rows="3" ></textarea>
+				<input type="image" border="0" name="imageField2" img src="images/botton_record.gif" width="54" height="42">
+				<br> <span class="base2">&nbsp; &nbsp;&nbsp; 한글150자, 영문 300자 입력 가능합니다.</span>
+			</td>
+		</tr>
+		</form>
+		</table>
+	</td>
+</tr>
+</table>
+</block name="memo">
+<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td height="5"><img src="/sboard/stpl/yboard_mulkang1/images/spacer.gif" width="1" height="1"></td>
+</tr>
+</table>
+<table width="98%" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td height="8"><img src="/sboard/stpl/yboard_mulkag2/images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr>
+	<td height="1" bgcolor="C1C1C1"><img src="/sboard/stpl/yboard_mulkag2/images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr>
+	<td height="40" align="right">{WRITE} {MODIFY}{DELETE} <a href="{href.list}"><img src="images/button_list.gif" width="53" height="22" border="0" align="absmiddle"></a>&nbsp;&nbsp; </td>
+</tr>
+</table>
+<block name="upfile"><a href="{upfile.href}">{upfile.name}</a>(크기: {upfile.size} bytes)<br></block name="upfile">
+<block name="write"><a href="{href.write}"><img src="images/button_write.gif" width="53" height="22" border="0"></a></block name="write">
+<block name="modify"><a href="{href.modify}"><img src="images/button_modify.gif" width="53" height="22" border="0" align="absmiddle"></a></block name="modify">
+<block name="delete"><a href="{href.delete}" onclick="javascript: return confirm('답변이 있다면 답변글까지 모두 삭제됩니다.\n정말 삭제하시겠습니다.');"><img src="images/button_del.gif" width="53" height="22" border="0" align="absmiddle"></a> </block name="delete">
+<block name="memolist">
+<table width="550" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td width="100" align="center" class="base_green">{memolist.userid}</td>
+	<td style="LINE-HEIGHT:20px;">{memolist.title}</td>
+	<td width="100"><font size="2" color="#909790">{memolist.rdate}</font></td>
+	<td width="12"><a href="{href.memodelete}"><img src="images/icon_cancile.gif" width="12" height="13" border="0"></a></td>
+</tr>
+<tr>
+	<td height="1" colspan="4" background="images/dot_width.gif"><img src="images/dot_width.gif" width="3" height="1"></td>
+</tr>
+<tr>
+	<td height="5" colspan="4"><img src="/sboard/stpl/yboard_mulkang1/images/spacer.gif" width="1" height="1"></td>
+</tr>
+</table>
+</block name="memolist">
+<block name="highcate">&gt; <a href="{href.highcate}" class="nevy_gcyan"> {highcate.title}</a></block name="highcate">
+<block name="samecate"><opt name="samecate.selected"><b>{samecate.title}</b></opt name="samecate.selected"><opt name="!samecate.selected"><b><a href="{PHP_SELF}?db={dbinfo.db}&cateuid={samecate.uid}">{samecate.title}</a></b></opt name="!samecate.selected">&nbsp;</block name="samecate">
+<block name="subcate"><opt name="blockloop"> | </opt name="blockloop"><a href="{href.subcate}" class="base2"> {subcate.title}</a></block name="subcate">

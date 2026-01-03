@@ -1,0 +1,90 @@
+<link href="images/ycommon_1201.css" rel="stylesheet" type="text/css">
+<table width="571" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+<tr>
+	<td height="22">
+		&nbsp; <img src="/yimages/icon/arrow.gif" width="9" height="9">
+		<a href="/" class="nevy_gcyan">홈</a><span class="nevy_gcyan"> &gt;&gt; {list.sub_title}
+		{dbinfo.title}</span> {HIGHCATE}<opt name="cateinfo.title">&gt; <span class="nevy_gcyan_bold">{cateinfo.title}</span></opt name="cateinfo.title">
+	</td>
+</tr>
+<tr>
+	<td height="1" bgcolor="#999999"><img src="/scommon/spacer.gif" width="1" height="1"></td>
+</tr>
+</table>
+<opt name="SAMECATE"> </opt name="SAMECATE"> <br>
+<table border="0" cellpadding="0" cellspacing="0" width="550" align="center" class="base">
+<tr>
+	<td width="934">
+		<table border="0" cellpadding="0" cellspacing="0" width="550" class="base">
+		<tr bgcolor="EFEFEF">
+			<td height="1" colspan="11"><img src="images/spacer.gif" width="1" height="1"></td>
+		</tr>
+		<tr bgcolor="C2C2C2">
+			<td height="3" colspan="11"><img src="images/spacer.gif" width="1" height="1"></td>
+		</tr>
+		<tr bgcolor="ffffff">
+			<td height="2" colspan="11"><img src="images/spacer.gif" width="1" height="1"></td>
+		</tr>
+		<tr valign="middle" bgcolor="F4F4F4" class="bw" height="24">
+			<td width="45" height="23" align="center" class="base">순위</td>
+			<td width="1" height="23" align="center" class="base"><img src="images/line_1.gif" width="1" height="23"></td>
+			<td width="227" height="23"> <p align="center" class="base">팀</p></td>
+			<td width="1" height="23" align="right"><img src="images/line_1.gif" width="1" height="23"></td>
+			<td width="75"><p align="center" class="base">승</p></td>
+			<td width="1" height="23" align="right"><img src="images/line_1.gif" width="1" height="23"></td>
+			<td width="79" height="23"> <p align="center" class="base">패</p></td>
+			<td width="1" height="23" align="right"><img src="images/line_1.gif" width="1" height="23"></td>
+			<td width="70" height="23"> <p align="center" class="base">승률</p></td>
+			<td width="1" height="23" align="right"><img src="images/line_1.gif" width="1" height="23"></td>
+			<td height="23"> <p align="center" class="base">승차</p></td>
+		</tr>
+		<tr bgcolor="ffffff">
+			<td height="2" colspan="11"><img src="images/spacer.gif" width="1" height="1"></td>
+		</tr>
+		<tr bgcolor="D4D4D4">
+			<td height="1" colspan="11"><img src="images/spacer.gif" width="1" height="1"></td>
+		</tr>
+		<tr bgcolor="EFEFEF">
+			<td height="1" colspan="11"><img src="images/spacer.gif" width="1" height="1"></td>
+		</tr>
+		{INFO} <block name="info">
+		<tr height="3" background="images/dot_board.gif">
+			<td height="1" colspan="10"></td>
+		</tr>
+		</block name="info"> {LIST} <block name="list"> <opt name="blockloop">
+		<tr height="1">
+			<td height="1" colspan="11" background="images/dot_board.gif"> <img src="images/spacer.gif" width="1" height="1"></td>
+		</tr>
+		</opt name="blockloop">
+		<tr height="20">
+			<td height="25" colspan="2" align="center" bgcolor="{list.color}" class="base"> {list.win_go}</td>
+			<td height="25"	colspan="2"	align="left" nowrap bgcolor="{list.color}"> <p>{GO}{NOGO}<opt name="list.enable_new"></opt name="list.enable_new"></p></td>
+			<td height="25"	colspan="2"	align="center" bgcolor="{list.color}" class="base2">{list.win}</td>
+			<td height="25" colspan="2" align="center" bgcolor="{list.color}" class="base2"> {list.loss}</td>
+			<td height="25" colspan="2" align="center" bgcolor="{list.color}" class="base2"> {list.win_ok}</td>
+			<td width="49" height="25" align="center" bgcolor="{list.color}" class="base2"> {list.win_loss}</td>
+		</tr>
+		</block name="list"> 
+		</table>
+	</td>
+</tr>
+<tr bgcolor="ECECEC">
+	<td height="3"><img src="images/spacer.gif" width="1" height="1"></td>
+</tr>
+<tr>
+	<td width="571">
+		<table border="0" cellpadding="0" cellspacing="0" width="547" class="base">
+		<tr>
+			<td width="479" rowspan="2"></td>
+			<td width="68" height="35" align="center">{WRITE}</td>
+		</tr>
+		<tr>
+			<td width="68">&nbsp;</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<block name="write"><a href="{href.write}" class="base"><img src="images/button_write.gif" width="53" height="22" border="0"></a></block name="write">
+<block name="go"><a href="{href.go}" class="base">{list.cut_title}</a></block name="go">
+<block name="nogo">{list.cut_title}</block name="nogo">

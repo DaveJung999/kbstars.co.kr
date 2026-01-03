@@ -1,0 +1,569 @@
+<STYLE type=text/css>
+
+ img {border: none; max-width:650px; width: expression(this.width > 650 ? 650: true); height: auto;}
+
+
+.BodyBg01 {background-repeat:repeat-x;background-color:#FFFBF2;}
+.BodyBg0101 {background-repeat:repeat-x;background-color:#BDE721;}
+.BodyBg0102 {background-repeat:repeat-x;background-color:#21E7AE;}
+.BodyBg0103 {background-repeat:repeat-x;background-color:#D3B134;}
+.BodyBg0104 {background-repeat:repeat-x;background-color:#C5272D;}
+
+.space1 {font-size: 4pt}
+.bank {font-size: 9pt; color: #005952; }
+
+
+/*Form*/
+input {font-family:Dotum;font-size:12px;color:#4F4F4F;padding:2 5 0 5;}
+.input01 {border-width:1; border-color:rgb(140,98,57); border-style:solid;}
+
+.check01 {width:14px;height:14px;}
+.radio01 {width:14px;height:14px;}
+
+select {font-family:Dotum;font-size:12px;color:#4F4F4F;}
+.select01 {font-family:Tahoma;font-size:9px;color:#000000;background-color:#D5C8AF;}
+
+textfd {font-family:Dotum;font-size:12px;color:#4F4F4F;}
+.textfd01 {font-family:Dotum;font-size:12px;color:#AA9166;background-color:#FFFFE7;}
+
+.textarea {
+	scrollbar-face-color:#FFFFFF;
+	scrollbar-shadow-color:#E6DECC;
+	scrollbar-highlight-color:#FFFFFF;
+	scrollbar-3dlight-color:#E6DECC;
+	scrollbar-darkshadow-color:#FFFFFF;
+	scrollbar-track-color:#FFFFFF;
+	scrollbar-arrow-color:#98856F;
+	overflow-y:auto;
+	font-family:Dotum;font-size:12px;color:#4F4F4F;
+	border:1px solid #D4D0C8;
+	background-color:#FFFFFF;
+	padding:12 15 12 15;
+	width:599px;height:235px; /*_*/
+}
+.textarea01 {
+	scrollbar-face-color:#FFFFFF;
+	scrollbar-shadow-color:#E6DECC;
+	scrollbar-highlight-color:#FFFFFF;
+	scrollbar-3dlight-color:#E6DECC;
+	scrollbar-darkshadow-color:#FFFFFF;
+	scrollbar-track-color:#FFFFFF;
+	scrollbar-arrow-color:#98856F;
+	overflow-y:auto;
+	font-family:Dotum;font-size:12px;color:#4F4F4F;
+	border-width:1; border-color:rgb(140,98,57); border-style:solid;
+
+	background-color:#FFFFFF;
+	padding:12 15 12 15;
+	width:100%; /*_*/
+}
+
+.textarea02 {
+	scrollbar-face-color:#FFFFFF;
+	scrollbar-shadow-color:#cccccc;
+	scrollbar-highlight-color:#FFFFFF;
+	scrollbar-3dlight-color:#cccccc;
+	scrollbar-darkshadow-color:#FFFFFF;
+	scrollbar-track-color:#FFFFFF;
+	scrollbar-arrow-color:#AEABAB;
+	overflow-y:auto;
+	font-family:Dotum;font-size:12px;color:#4F4F4F;
+	border:1px solid #cccccc;
+	background-color:#FFFFFF;
+	padding:10 5 10 5;
+	width:100%;height:120px; /*Board01_ */
+}
+
+.textarea03 {
+	scrollbar-face-color:#FFFFFF;
+	scrollbar-shadow-color:#BDBDBD;
+	scrollbar-highlight-color:#FFFFFF;
+	scrollbar-3dlight-color:#BDBDBD;
+	scrollbar-darkshadow-color:#FFFFFF;
+	scrollbar-track-color:#FFFFFF;
+	scrollbar-arrow-color:#AEABAB;
+	overflow-y:auto;
+	border:none;
+	font-family:Dotum;font-size:12px;color:#4F4F4F;
+	width:100%;height:200px; /*Board02*/
+}
+
+.textarea04 {
+	scrollbar-face-color:#FFFFFF;
+	scrollbar-shadow-color:#BDBDBD;
+	scrollbar-highlight-color:#FFFFFF;
+	scrollbar-3dlight-color:#BDBDBD;
+	scrollbar-darkshadow-color:#FFFFFF;
+	scrollbar-track-color:#FFFFFF;
+	scrollbar-arrow-color:#AEABAB;
+	overflow-y:auto;
+	border:none;
+	font-family:Dotum;font-size:12px;color:#4F4F4F;
+	width:100%;height:100px; /*Board02*/
+}
+
+.textareadcrc {
+	scrollbar-face-color:#FFFFFF;
+	scrollbar-shadow-color:#BDBDBD;
+	scrollbar-highlight-color:#FFFFFF;
+	scrollbar-3dlight-color:#BDBDBD;
+	scrollbar-darkshadow-color:#FFFFFF;
+	scrollbar-track-color:#F8F8EA;
+	scrollbar-arrow-color:#AEABAB;
+	overflow-y:yes;
+	border:none;
+	background-color:#F8F8EA;
+	font-family:Dotum;font-size:12px;color:#4F4F4F;
+	width:100%;height:100px; /*Board02*/
+}
+
+.div01 {
+	scrollbar-face-color:#FFFFFF;
+	scrollbar-shadow-color:rgb(140,98,57);
+	scrollbar-highlight-color:#FFFFFF;
+	scrollbar-3dlight-color:rgb(140,98,57);
+	scrollbar-darkshadow-color:#FFFFFF;
+	scrollbar-track-color:#dddddd;
+	scrollbar-arrow-color:#98856F;
+	overflow-y:auto;
+	background-color:#F8F8EA;
+	border-color:rgb(140,98,57); 
+	border-style:solid;
+	border-width:1;
+	padding:5 5 5 5;
+	width:100%;height:250; /*  */
+}
+
+.div02 {
+	scrollbar-face-color: #ffffff; 
+	scrollbar-shadow-color: #E6DECC; 
+	scrollbar-highlight-color: #FFFFFF; 
+	scrollbar-3dlight-color: #E6DECC; 
+	scrollbar-darkshadow-color: #FFFFFF; 
+	scrollbar-track-color: #f7f7f7; 
+	scrollbar-arrow-color: #98856f;
+	overflow:auto;
+	padding:0 5 0 0;
+	width:100%;height:100%; /*  */
+}
+
+
+.div03 {
+	scrollbar-face-color: #ffffff; 
+	scrollbar-shadow-color: #E6DECC; 
+	scrollbar-highlight-color: #FFFFFF; 
+	scrollbar-3dlight-color: #E6DECC; 
+	scrollbar-darkshadow-color: #FFFFFF; 
+	scrollbar-track-color: #f7f7f7; 
+	scrollbar-arrow-color: #98856f;
+	overflow:auto;
+	margin-top:7px;
+	width:96%;height:90%; /*  */
+}
+
+
+.textdomain {
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #444444;
+	text-decoration: none;
+}
+.maintext {
+	font-family: "굴림", "굴림체", "돋움", "돋움체", "바탕";
+	font-size: 12px;
+	line-height: 150%;
+	color: #333333;
+}
+.box {
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 18px;
+	color: #FFFFFF;
+	text-decoration: none;
+	border: 1px solid #FFFFFF;
+	background-image: url(../images/b/r_bg01.gif);
+}
+.lpaddind {
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #444444;
+	text-decoration: none;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+
+}
+.padding {
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	padding: 7px;
+}
+.wtext {
+	font-family: "굴림", "굴림체", "돋움", "돋움체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.t01 {
+	font-family: "돋움", "돋움체", "굴림", "굴림체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #EB7000;
+	text-decoration: none;
+}
+
+.t02 {
+	font-family: "돋움", "돋움체", "굴림", "굴림체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #007900;
+	text-decoration: none;
+}
+
+.t03 {
+	font-family: "돋움", "돋움체", "굴림", "굴림체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #649D69;
+	text-decoration: none;
+}
+
+.t04 {
+	font-family: "돋움", "돋움체", "굴림", "굴림체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #649D69;
+	text-decoration: none;
+}
+
+.t06 {
+	font-family: "돋움", "돋움체", "굴림", "굴림체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #9D8F64;
+	text-decoration: none;
+}
+
+td {
+	font-family: "굴림", "굴림체", "돋움", "돋움체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #444444;
+	text-decoration: none;
+}
+.rpadding {
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	padding-top: 0px;
+	padding-right: 10px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+.droptext {
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 1A6277;
+	text-decoration: none;
+	border: 1px solid #ffffff;
+	background-color: D5F8F6;
+}
+.droptext02 {
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	color: #444444;
+	text-decoration: none;
+	background-color: efefef;
+}
+.15padding {
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	padding: 15px;
+}
+.10padding {
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	padding: 10px;
+}
+
+.CCboxw {
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	color: #75365D;
+	text-decoration: none;
+	border: 1px solid #ffffff;
+	background-color: D196BC;
+}
+.wbox {
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	color: 444444;
+	text-decoration: none;
+	border: 1px solid #ffffff;
+}
+.CCbox {
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	color: 444444;
+	text-decoration: none;
+	border-width:1; 
+	border-color:#999; 
+	border-style:solid;
+}
+.CCbox02 {
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #FFFFFF;
+	text-decoration: none;
+	border: 1px solid #d2a0c4;
+	background-color: D2A0C4;
+}
+.CCbox03 {
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #FFFFFF;
+	text-decoration: none;
+	border: 1px solid #5676BA;
+	background-color: #5676BA;
+}
+.CCbox04 {
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #FFFFFF;
+	text-decoration: none;
+	border: 1px solid #9869C4;
+	background-color: #9869C4;
+}
+.5padding {
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	padding: 5px;
+}
+.bgbox {
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #FFFFFF;
+	text-decoration: none;
+	border: 1px solid #CCCCCC;
+	background-color: #666666;
+
+}
+.button {
+	font-family: "굴림", "굴림체", "굵은굴림체", "굵은바탕한체";
+	font-size: 11px;
+	color: ffffff;
+	text-decoration: none;
+	background-color: #999999;
+	height: 21px;
+	border: 0px;
+}
+.3padding {
+
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	padding: 3px;
+}
+.wbox {
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	border: 1px solid #FFFFFF;
+}
+.bbox {
+
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+
+	text-decoration: none;
+	border: 1px solid #74A1A0;
+}
+.colorbox {
+
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	border: 1px solid B6D9C5;
+}
+.tlr10padding {
+
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	padding: 10px 10px 0px;
+}
+.blr10padding {
+
+
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	padding: 0px 10px 10px;
+}
+.50padding {
+
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	padding: 10px 30px;
+}
+.30tlrpadding {
+
+
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	padding: 10px 28px;
+}
+.30blrpaddingCopy {
+
+
+
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	padding: 0px 30px 10px;
+}
+.bbutton02 {
+
+	font-family: "굴림", "굴림체", "굵은굴림체", "굵은바탕한체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #FFFFFF;
+	text-decoration: none;
+	background-color: #333333;
+	padding: 1px 2px;
+	border: 0px none;
+}
+.t10padding {
+
+
+
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	padding: 10px 0px 0px;
+}
+.px11 {
+
+	font-family: "굴림", "굴림체", "돋움", "돋움체";
+	font-size: 11px;
+	line-height: 150%;
+	color: #666666;
+	text-decoration: none;
+}
+
+.px12w {
+
+	font-family: "굴림", "굴림체", "돋움", "돋움체";
+	font-size: 12px;
+	line-height: 18px;
+	color: #9A8023;
+	text-decoration: none;
+}
+
+.px11w {
+
+	font-family: "굴림", "굴림체", "돋움", "돋움체";
+	font-size: 11px;
+	line-height: 150%;
+	color: #B46A00;
+	text-decoration: none;
+}
+
+.pagecolortext {
+
+	font-family: "굴림", "굴림체", "돋움", "돋움체";
+	font-size: 12px;
+	line-height: 150%;
+	color: #11678A;
+	text-decoration: none;
+}
+
+.wepx11 {
+
+	font-family: "굴림", "굴림체", "돋움", "돋움체";
+	font-size: 11px;
+	line-height: 150%;
+	color: #FFD140;
+	text-decoration: none;
+}
+.colorbox02 {
+
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	border: 1px solid #CCCCCC;
+}
+
+.10tbpadding {
+
+	font-family: "굴림", "굴림체", "궁서", "궁서체", "돋움", "돋움체", "바탕", "바탕체";
+	font-size: 12px;
+	line-height: 150%;
+	color: 444444;
+	text-decoration: none;
+	padding: 10px 0px;
+}
+
+</STYLE>

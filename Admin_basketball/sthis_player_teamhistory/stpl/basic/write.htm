@@ -1,0 +1,93 @@
+<link href="/css/basic_text.css" rel="stylesheet" type="text/css">
+<link href="/css/link01.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+<!--
+body {
+	margin-left: 5px;
+	margin-top: 15px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	background-color:F8F8EA;
+}
+-->
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script LANGUAGE="JavaScript" src="/scommon/js/chkform.js" type="Text/JavaScript"></script>
+
+
+<script>
+function set_sname(f, sname){
+	f.sname.value = sname;
+}
+function set_tname(f, tname){
+	f.tname.value = tname;
+}
+</script>
+
+<br>
+<form style='margin : 0px' onSubmit="return chkForm(this)" {form_write}>
+<input type="hidden" name="sname" value="{list.sname}" required hname="시즌정보를 입력 해 주세요." />
+<input type="hidden" name="tname" value="{list.tname}" required hname="소속팀 정보를 입력 해 주세요." />
+<table width="90%"	border="0" align="center" cellpadding="2" cellspacing="1" bordercolorlight="#cccccc" bgcolor="#666666">
+<tr>
+	<td width="20%" height="22" align="center" bgcolor="#D2BF7E"><font color="#666666"> 이 름 </font></td>
+	<td width="80%" bgcolor="#F8F8EA">
+		&nbsp;&nbsp;
+		<input name="pname" type="text" size="10" value="{dbinfo.pname}" required hname="이름을 입력 해 주세요." readonly/>
+	</td>
+</tr>
+<tr>
+	<td height="22" align="center" bgcolor="#D2BF7E"><font color="#666666">시 즌 </font></td>
+	<td bgcolor="#F8F8EA">
+		&nbsp;&nbsp;
+		<select name="sid"	onchange="set_sname(this.form, this.options[selectedIndex].text)" required hname="시즌 정보를 선택 해 주세요.">
+		<option value="">▒ 시즌 선택 ▒</option>
+		{sname}
+		</select>
+	</td>
+</tr>
+<tr>
+	<td height="22" align="center" bgcolor="#D2BF7E"><font color="#666666">소 속 팀</font></td>
+	<td bgcolor="#F8F8EA">
+		&nbsp;&nbsp;
+		<select name="tid" onchange="set_tname(this.form, this.options[selectedIndex].text)" required hname="소속팀을 선택 해 주세요.">
+		<option value="">▒ 소속팀 선택 ▒</option>
+
+		{tselect}
+
+		</select>
+	</td>
+</tr>
+<tr>
+	<td height="22" align="center" bgcolor="#D2BF7E"><font color="#666666">포 지 션</font></td>
+	<td bgcolor="#F8F8EA">
+		&nbsp;&nbsp;
+		<select name="pposition">
+		<option value="G" {G_selected}>가드</option>
+		<option value="F" {F_selected}>포워드</option>
+		<option value="C" {C_selected}>센터</option>
+		</select>
+	</td>
+</tr>
+<tr>
+	<td height="22" align="center" bgcolor="#D2BF7E"><font color="#666666">백 넘 버</font></td>
+	<td bgcolor="#F8F8EA">
+		&nbsp;&nbsp;
+		<input name="pbackno" type="text" size="3" maxlength="3" value="{list.pbackno}" required hname="백넘버를 입력 해 주세요."/>
+	</td>
+</tr>
+</table>
+
+<br>
+<table width="522" align="center" cellpadding="0" style="border-collapse:collapse;">
+<tr>
+	<td width="547" height="30" align="center">
+		<input name="imageField" type="image" src="images/button_save.gif" border="0">
+		&nbsp; <a href="#" onClick="javascript:history.go(-1);"><img src="images/button_cancile.gif" width="80" height="22" border="0" > </a>
+	</td>
+</tr>
+</table>
+</form>

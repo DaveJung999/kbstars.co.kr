@@ -1,0 +1,256 @@
+
+<style type="text/css">
+<!--
+.style1 {
+	color: #3399FF;
+	font-weight: bold;
+}
+-->
+</style>
+
+<link href="/scommon/basic.css" rel="stylesheet" type="text/css">
+<br>
+<br />
+<table cellpadding="0" cellspacing="0" width="890" align="center">
+<tr>
+	<td align="center">
+		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bordercolor="cdcdcd" style="border-collapse:collapse;">
+		<tr>
+			<td align="center">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				{READLIST}
+				<block name="readlist">
+				<tr align="center">{CELL}</tr>
+				<tr height="15"></tr>
+				</block name="readlist">
+				</table>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<br>
+<table cellpadding="0" cellspacing="0" width="890" align="center">
+<tr>
+	<td><hr size="1" color="#E7E7E7"></td>
+</tr>
+</table>
+
+<block name="cell">
+<td align="center">
+	<table border="0" cellpadding="2" cellspacing="6" bgcolor="{readlist.color}">
+	<tr>
+		<td bgcolor="#FFFFFF">
+			<table width="80" height="115" align="center" cellpadding="0" cellspacing="0" bgcolor="#F4F4F4">
+			<tr>
+				<td height="71" align="center"><a href="{href_readlist.list}"><img src="{href_readlist.download}&amp;upfile=upfile&amp;mode=image&amp;notfound=any" width="75" border="0" height="90" /></a></td>
+			</tr>
+			<tr>
+				<td height="20" bgcolor="#E5E5E5" align="center">[{readlist.p_num}] {readlist.p_name}</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+</td>
+</block name="cell">
+<br>
+<table width="890" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td height="40" align="center"><span class="style1">[{dbinfo.title}]</span></td>
+</tr>
+</table>
+<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+	<td align="center">
+		<table width="95%" border="0" align="center" cellpadding="3" cellspacing="3">
+		<tr>
+			<td width="19%" align="center">
+				<table cellpadding="0" cellspacing="0" width="117" height="40" background="images/savers_team_bg01.gif">
+				<tr>
+					<td width="100%" valign="top" align="right">
+						<table cellpadding="0" cellspacing="0" width="116">
+						<tr>
+							<td width="36" height="40" rowspan="3" align="center">{player.numimages}</td>
+							<td width="1" height="40" rowspan="3" bgcolor="#d0d0d0"></td>
+							<td width="68" height="19">&nbsp;&nbsp;{player.name}</td>
+						</tr>
+						<tr>
+							<td width="68" height="1" background="images/savers_team_img11.gif"></td>
+						</tr>
+						<tr>
+							<td width="68" height="19">&nbsp;&nbsp;{player.p_position}</td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</table>
+			</td>
+			<td width="81%" align="center">
+				<table cellpadding="0" cellspacing="0" width="581">
+				<tr>
+					<td width="111"><a href="/sthis/sthis_monitoring/list.php?p_uid={list.pid}&amp;cateuid={list.cateuid}">{list.monitoring}</a></td>
+					<td width="110"><a href="/sthis/sthis_medical/list.php?p_uid={list.pid}&amp;cateuid={list.cateuid}">{list.medical}</a></td>
+					<td width="110"><a href="/sthis/sthis_education/list.php?p_uid={list.pid}&amp;cateuid={list.cateuid}">{list.education}</a></td>
+					<td width="105"><a href="/sthis/sthis_pain/list.php?p_uid={list.pid}&amp;cateuid={list.cateuid}">{list.pain}</a></td>
+					<td width="122"><a href="/sthis/sthis_house/list.php?p_uid={list.pid}&amp;cateuid={list.cateuid}">{list.house}</a></td>
+					<td width="120"><a href="/sthis/sthis_player/read.php?uid={list.pid}&amp;cateuid={list.cateuid}">{list.player}</a></td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+<tr>
+	<td width="20%"	height="10"></td>
+</tr>
+<tr>
+	<td>
+		<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr align="center" valign="middle" height="3">
+					<td height="3" colspan="9" width="100%">
+						<table width="100%"	border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="3" height="3"><img src="images/left_top.gif" width="3" height="3" /></td>
+							<td height="3" width="100%"background="images/bg_top.gif"></td>
+							<td width="3" height="3"><img src="images/right_top.gif" width="3" height="3" /></td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				<tr align="center" valign="middle" height="27">
+					<td width="5%" height="27" background="images/bg_menu_top.gif">
+						<table width="100%"	border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="99%" align="center"><font color="#FFFFFF">번호</font></td>
+							<td align="right"><img src="images/bar_menu_top.gif" width="1" height="27" /></td>
+						</tr>
+						</table>
+					</td>
+					<td width="30%" height="27" background="images/bg_menu_top.gif">
+						<table width="100%"	border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="99%" align="center"><font color="#FFFFFF">기간</font></td>
+							<td align="right"><img src="images/bar_menu_top.gif" width="1" height="27" /></td>
+						</tr>
+						</table>
+					</td>
+					<td width="35%" height="27" background="images/bg_menu_top.gif">
+						<table width="100%"	border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="99%" align="center"><font color="#FFFFFF">내용</font></td>
+							<td align="right"><img src="images/bar_menu_top.gif" width="1" height="27" /></td>
+						</tr>
+						</table>
+					</td>
+					<td width="30%" height="27" background="images/bg_menu_top.gif">
+						<table width="100%"	border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="99%" align="center"><font color="#FFFFFF">비고</font></td>
+							<td align="right"><img src="images/bar_menu_top.gif" width="1" height="27" /></td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				{LIST}
+				<block name="list">
+				<opt name="blockloop">
+				<tr height="1">
+					<td height="1" colspan="9" background="images/dot_board.gif"><img src="images/spacer.gif" width="1" height="1" /></td>
+				</tr>
+				</opt name="blockloop">
+				<tr height="20" onmouseover="this.style.backgroundColor='#F6F6F6'" onmouseout="this.style.backgroundColor=''">
+					<td height="25" align="left" width="10%">
+						<table width="100%"	border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="99%" align="center">{list.no}</td>
+							<td align="right"><img src="images/bg_bar_list.gif" width="1" height="27" /></td>
+						</tr>
+						</table>
+					</td>
+					<td height="25" align="left" width="10%">
+						<table width="100%"	border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="99%" align="center">
+								<a href="{href.modify}" class="gray"><strong>{list.data1}</strong></a>
+							</td>
+							<td align="right"><img src="images/bg_bar_list.gif" width="1" height="27" /></td>
+						</tr>
+						</table>
+					</td>
+					<td height="25" align="left">
+						<table width="100%"	border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="99%">{list.data2}</td>
+							<td align="right"><img src="images/bg_bar_list.gif" width="1" height="27" /></td>
+						</tr>
+						</table>
+					</td>
+					<td height="25" align="left">
+						<table width="100%"	border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="99%">{list.data3}</td>
+							<td align="right"><img src="images/bg_bar_list.gif" width="1" height="27" /></td>
+						</tr>
+						</table>
+					</td>
+				</tr>
+				</block name="list">
+				<block name="nolist">
+				<tr align="center" height="20">
+					<td height="28" colspan="9"> 등록된 자료가 없습니다</td>
+				</tr>
+				</block name="nolist">
+				<block name="nosearch">
+				<tr height="20">
+					<td height="28" colspan="9" align="center"> '{sc_string}'가 포함된 자료가 없습니다 </td>
+				</tr>
+				<tr height="1">
+					<td colspan="9" background="images/dot_board.gif"></td>
+				</tr>
+				</block name="nosearch">
+				</table>
+			</td>
+		</tr>
+		<tr bgcolor="#000000">
+			<td height="3" colspan="2"><img src="images/spacer.gif" width="1" height="3" /></td>
+		</tr>
+		<tr bgcolor="#FFFFFF">
+			<td height="3" colspan="2"><img src="images/spacer.gif" width="1" height="3" /></td>
+		</tr>
+		<tr>
+			<td colspan="2" background="images/bg_buttom.gif">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="10%"></td>
+					<td width="78%" height="25" align="center"></td>
+					<td width="12%" align="center">{WRITE}</td>
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<br>
+<block name="firstpage"><a href="{href.firstpage}"><img src="images/font_first.gif" alt="link_firstpage.gif" width="27" height="15" border="0" align="absmiddle"></a></block name="firstpage">
+<block name="nofirstpage"><img src="images/font_nofirst.gif" alt="link_firstpage.gif" width="27" height="15" border="0" align="absmiddle"></block name="nofirstpage">
+<block name="prevblock"><a href='{href.prevblock}'>◀</a></block name="prevblock">
+<block name="noprevblock"> <span class="base2_lightgray">◀</span></block name="noprevblock">
+<block name="block"><a href='{href.blockcount}'>[{blockcount}]</a></block name="block">
+<block name="noblock"><b>[{blockcount}]</b></block name="noblock">
+<block name="nextblock"><a href='{href.nextblock}'>▶</a></block name="nextblock">
+<block name="nonextblock"> <span class="base2_lightgray">▶</span></block name="nonextblock">
+<block name="lastpage"><a href="{href.lastpage}"><img src="images/font_end.gif" alt="link_lastpage.gif" width="27" height="15" border="0" align="absmiddle"></a></block name="lastpage">
+<block name="nolastpage"><img src="images/font_noend.gif" alt="link_lastpage.gif" width="27" height="15" border="0" align="absmiddle"></block name="nolastpage">
+<block name="write"><a href="{href.write}"><img src="images/new_button_write.gif" width="77" height="22" border="0"></a></block name="write">
+<block name="highcate"> <a href="{href.highcate}" class="nevy_gcyan"> {highcate.title}</a></block name="highcate">
+<block name="samecate">
+<div style="float: left; width: 150px; height: 20px"><opt name="samecate.selected"><b><img src="images/cat_arrow.gif" width="9" height="9"><span>{samecate.title}</span></b></opt name="samecate.selected"><opt name="!samecate.selected"><b><img src="images/cat_arrow.gif" width="9" height="9" border="0"><a href="{PHP_SELF}?db={dbinfo.db}&cateuid={samecate.uid}"><span>{samecate.title}</span></a></b></opt name="!samecate.selected"></div></block name="samecate">
+<block name="subcate"><opt name="blockloop"> | </opt name="blockloop"><a href="{href.subcate}"> {subcate.title}</a></block name="subcate">

@@ -1,0 +1,22 @@
+<!-- /* n@log 5 繁體中文語系樣式表 */
+
+a,a:link  { font-family: 'Tahoma','Verdana','Arial'; color: #18B5FF; text-decoration: none; }
+a:visited { font-family: 'Tahoma','Verdana','Arial'; color: #18B5FF; text-decoration: none; }
+a:active  { font-family: 'Tahoma','Verdana','Arial'; color: #008CD6; text-decoration: none; }
+a:hover   { font-family: 'Tahoma','Verdana','Arial'; color: #008CD6; text-decoration: underline; }
+
+body,td,select,input,div,form,textarea,center,option,pre,br {
+            font-family: 'Tahoma','Verdana','Arial'; font-size: 9pt; color: #008CD6; }
+
+body      { margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
+
+.button   { font-family: 'Tahoma','Verdana','Arial'; background-color: white; height: 20px;
+                border-width: 1px; border-style: solid; border-color: #008CD6; }
+.input    { font-family: 'Tahoma','Verdana','Arial'; background-color: white;
+                border-width: 1px; border-style: solid; border-color: #008CD6; }
+
+/* n@log 5 繁體中文語系的專屬樣式設定 */
+.minichi  { font-family: '新細明體','PMingLiU'; font-size: 8pt; } /* ８點中文字型，請以 <span lang=zh-tw> 語法一起使用 */
+select    { font-family: '新細明體','PMingLiU'; } /* 下拉選單使用新細明體中文字型，這是為兼容舊版本 Windows 而加上去的 */
+
+//-->
