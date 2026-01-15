@@ -1,18 +1,18 @@
 <!-- /* Custom Style Sheet (Japanese) for n@log 5 */
 
-a,a:link  { font-family: 'Tahoma','MS PGothic', 'MS PƒSƒVƒbƒN'; color: #18B5FF; text-decoration: none; }
-a:visited { font-family: 'Tahoma','MS PGothic', 'MS PƒSƒVƒbƒN'; color: #18B5FF; text-decoration: none; }
-a:active  { font-family: 'Tahoma','MS PGothic', 'MS PƒSƒVƒbƒN'; color: #008CD6; text-decoration: none; }
-a:hover   { font-family: 'Tahoma','MS PGothic', 'MS PƒSƒVƒbƒN'; color: #008CD6; text-decoration: underline; }
+a,a:link  { font-family: 'Tahoma','MS PGothic', 'MS Pê¸•ê¸˜ê¸žê¸'; color: #18B5FF; text-decoration: none; }
+a:visited { font-family: 'Tahoma','MS PGothic', 'MS Pê¸•ê¸˜ê¸žê¸'; color: #18B5FF; text-decoration: none; }
+a:active  { font-family: 'Tahoma','MS PGothic', 'MS Pê¸•ê¸˜ê¸žê¸'; color: #008CD6; text-decoration: none; }
+a:hover   { font-family: 'Tahoma','MS PGothic', 'MS Pê¸•ê¸˜ê¸žê¸'; color: #008CD6; text-decoration: underline; }
 
 body,td,select,input,div,form,textarea,center,option,pre,br {
-            font-family: 'Tahoma','MS PGothic', 'MS PƒSƒVƒbƒN'; font-size: 9pt; color: #008CD6; }
+            font-family: 'Tahoma','MS PGothic', 'MS Pê¸•ê¸˜ê¸žê¸'; font-size: 9pt; color: #008CD6; }
 
 body      { margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; }
 
-.button   { font-family: 'Tahoma','MS PGothic', 'MS PƒSƒVƒbƒN'; background-color: white; height: 20px;
+.button   { font-family: 'Tahoma','MS PGothic', 'MS Pê¸•ê¸˜ê¸žê¸'; background-color: white; height: 20px;
                 border-width: 1px; border-style: solid; border-color: #008CD6; }
-.input    { font-family: 'Tahoma','MS PGothic', 'MS PƒSƒVƒbƒN'; background-color: white;
+.input    { font-family: 'Tahoma','MS PGothic', 'MS Pê¸•ê¸˜ê¸žê¸'; background-color: white;
                 border-width: 1px; border-style: solid; border-color: #008CD6; }
 
 //-->
