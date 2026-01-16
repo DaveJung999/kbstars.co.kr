@@ -6,6 +6,7 @@
 // ChangeLog
 //   DATE   수정인			 수정 내용
 // -------- ------ --------------------------------------
+// 25/01/XX Auto $PHP_SELF → $_SERVER['PHP_SELF'], 단축 태그 <?= → <?php echo 변경
 // 02/11/26 박선민 마지막 수정
 // 02/12/25 박선민 마지막 수정
 // 03/06/16 박선민 serialize 추가
@@ -161,8 +162,7 @@ switch($mode) {
 		break;
 } // end switch
 ?>
-<form method=post action=<?=$PHP_SELF
-?>>
+<form method=post action="<?php echo $_SERVER['PHP_SELF']; ?>">
 <input type=hidden name=mode value=ok>
 <input type="radio" name="mode" value="gotourl" <?phpif(!$mode || $mode=="gotourl") echo "checked"
 ?>>
@@ -183,8 +183,7 @@ switch($mode) {
 ?>>unserialize
 <br>
 <br>
-<textarea name="url" rows="10" cols="60"><?=$url ? htmlspecialchars($url,ENT_QUOTES) : "phpinfo.php?name=kim&age=10"
-?></textarea>
+<textarea name="url" rows="10" cols="60"><?php echo $url ? htmlspecialchars($url,ENT_QUOTES) : "phpinfo.php?name=kim&age=10"; ?></textarea>
 <input type=submit value="GO->">
 </form>
 <hr>

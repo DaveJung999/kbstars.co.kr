@@ -6,6 +6,7 @@
 // ChangeLog
 //	DATE	수정인			 수정 내용
 // -------- ------ --------------------------------------
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 // 03/10/14 박선민 마지막 수정
 //=======================================================	
 $HEADER=array(
@@ -58,21 +59,21 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 	<tr bgcolor='#FBFCEF'>
 		<td width="542" height="14"	align=center>
 		<font size=2>
-			입금기간 <INPUT TYPE=text name="startdate" id="startdate" ONCLICK="Calendar(this);" VALUE="<?=$_GET['startdate']?>" size='10' readonly> ~ 
-			<INPUT TYPE=text name="enddate" id="enddate" ONCLICK="Calendar(this);" VALUE="<?=$_GET['enddate']?>" size='10' readonly><br>
+			입금기간 <INPUT TYPE=text name="startdate" id="startdate" ONCLICK="Calendar(this);" VALUE="<?php echo $_GET['startdate']; ?>" size='10' readonly> ~ 
+			<INPUT TYPE=text name="enddate" id="enddate" ONCLICK="Calendar(this);" VALUE="<?php echo $_GET['enddate']; ?>" size='10' readonly><br>
 			<select size="1" name="sc_column">
-				<option value="bank" <?=$sc_column_s['bank']?>>입금방법</option>
-				<option value="uid" <?=$sc_column_s['uid']?>>주문고유번호</option>
-				<option value="bid" <?=$sc_column_s['bid']?>>회원고유번호</option>
-				<option value="userid" <?=$sc_column_s['userid']?>>userid</option>
-				<option value="ordertable" <?=$sc_column_s['ordertable']?>>ordertable</option>
-				<option value="title" <?=$sc_column_s['title']?>>title</option>
-				<option value="re_name" <?=$sc_column_s['re_name']?>>re_name</option>
-				<option value="re_tel" <?=$sc_column_s['re_tel']?>>re_tel</option>
-				<option value="re_address" <?=$sc_column_s['re_address']?>>re_address</option>
-				<option value="comment" <?=$sc_column_s['comment']?>>comment</option>
+				<option value="bank" <?php echo $sc_column_s['bank']; ?>>입금방법</option>
+				<option value="uid" <?php echo $sc_column_s['uid']; ?>>주문고유번호</option>
+				<option value="bid" <?php echo $sc_column_s['bid']; ?>>회원고유번호</option>
+				<option value="userid" <?php echo $sc_column_s['userid']; ?>>userid</option>
+				<option value="ordertable" <?php echo $sc_column_s['ordertable']; ?>>ordertable</option>
+				<option value="title" <?php echo $sc_column_s['title']; ?>>title</option>
+				<option value="re_name" <?php echo $sc_column_s['re_name']; ?>>re_name</option>
+				<option value="re_tel" <?php echo $sc_column_s['re_tel']; ?>>re_tel</option>
+				<option value="re_address" <?php echo $sc_column_s['re_address']; ?>>re_address</option>
+				<option value="comment" <?php echo $sc_column_s['comment']; ?>>comment</option>
 			</select>
-			검색단어<input type=text name='sc_string' value="<?=$_GET['sc_string']?>" size=15>
+			검색단어<input type=text name='sc_string' value="<?php echo $_GET['sc_string']; ?>" size=15>
 			<input type="submit" value="조회">(와이드카드 % 사용가능)
 		</font>
 		</td> 

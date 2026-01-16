@@ -6,6 +6,7 @@
 // ChangeLog
 //	DATE	수정인			 수정 내용
 // -------- ------ --------------------------------------
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 // 02/10/09 박선민 마지막 수정
 //=======================================================
 $HEADER=array(
@@ -50,8 +51,7 @@ while($rows=db_array($result2)) {
 ?>
 <html>
 <head>
-<?=$pageinfo['html_header']
-?>
+<?php echo $pageinfo['html_header']; ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>

@@ -7,6 +7,7 @@ set_time_limit(0);
 // ChangeLog
 //   DATE   수정인			 수정 내용
 // -------- ------ --------------------------------------
+// 25/01/XX Auto $PHP_SELF → $_SERVER['PHP_SELF'], 단축 태그 <?= → <?php echo 변경 (form action, textarea)
 // 02/10/31 박선민 마지막 수정
 //=======================================================
 
@@ -40,8 +41,7 @@ switch($mode) {
 		break;			
 } // end switch
 ?>
-<form method=post action=<?=$PHP_SELF
-?>>
+<form method=post action="<?php echo $_SERVER['PHP_SELF']; ?>">
  <input type="radio" name="mode" value="directory" <?phpif($mode=="" or $mode=="directory") echo "checked"
 ?>>
   드렉토리서치
@@ -49,8 +49,7 @@ switch($mode) {
 ?>>전화번호서치결과(&BA=0&DL=100&end=1000)
 <br>
 <br>
-<textarea name="url" rows="10" cols="60"><?=$url ? htmlspecialchars($url,ENT_QUOTES) : "http://dir.hanmir.com/비즈니스,경제/업종별_회사/광고,마케팅/광고/판촉물,기념품/index.html"
-?></textarea>
+<textarea name="url" rows="10" cols="60"><?php echo $url ? htmlspecialchars($url,ENT_QUOTES) : "http://dir.hanmir.com/비즈니스,경제/업종별_회사/광고,마케팅/광고/판촉물,기념품/index.html"; ?></textarea>
 <input type=submit value="GO->">
 </form>
 <hr>

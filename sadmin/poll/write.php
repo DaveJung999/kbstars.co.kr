@@ -119,7 +119,7 @@ if ($mode == "modify" && $uid) {
 			<td bgcolor="#f6f6f6" width="86%" height="31">
 			<?php if($mode == "write"): ?>
 				<input type="text" name="db" size="16" value="<?php echo $list['db'] ?? ''; ?>">
-				<font size="2"> (<?=$SITE['th']?>poll_??? 이렇게 생성이 됩니다.) </font>
+				<font size="2"> (<?php echo $SITE['th']; ?>poll_??? 이렇게 생성이 됩니다.) </font>
 			<?php else: ?>
 				<font size="2"><?php echo $list['db'] ?? ''; ?> (변경불가)</font>
 			<?php endif; ?>

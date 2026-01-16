@@ -41,25 +41,25 @@
 	</table>
 	<br>
 	<span style='font-family:MS PGothic,MS P긕긘긞긏'>
-		&lt;img src="<b>똮쁇</b>/nalogd.php?counter=<b>긇긂깛?뼹</b>&url=&lt;?=$HTTP_SERVER_VARS[HTTP_REFERER]?&gt;" width=0 height=0>
+		&lt;img src="<b>똮쁇</b>/nalogd.php?counter=<b>긇긂깛?뼹</b>&url=&lt;?=$_SERVER[HTTP_REFERER]?&gt;" width=0 height=0>
 	</span>
 	<br><br>
 	귖궢갂뙸띪궻먠믦궳귝궚귢궽갂렅궻귽긽?긙?긐귩궩궻귏귏긓긯?궢궲럊궯궲돷궠궋갃<br><br>
 
 <textarea class=input cols=80 rows=2 onclick=select() readonly style='font-family:MS PGothic,MS P긕긘긞긏'>
-&lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/nalogd.php",$HTTP_SERVER_VARS[PHP_SELF]); ?>?counter=<?=$counter?>&url=&lt;?=$HTTP_SERVER_VARS[HTTP_REFERER]?&gt;" width=0 height=0></textarea>
+&lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/nalogd.php', $_SERVER['PHP_SELF']); ?>?counter=<?=$counter?>&url=<?=$_SERVER['HTTP_REFERER']?>" width=0 height=0></textarea>
 
 	<br><br>
 	뤵딯궻?긐귩럊궎궴갂긇긂깛?궻귒띿벍궢갂됪뽋뤵궸궼뢯쀍궢귏궧귪갃<br>
 	됪뽋뤵궸?딯궠궧귡궸궼갂렅궻?긐귩럊궯궲돷궠궋갃<br><br>
 
 <textarea class=input cols=80 rows=6 onclick=select() readonly style='font-family:MS PGothic,MS P긕긘긞긏'>
-뜞볷궻뻂뽦롌 &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_today.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-랅볷궻뻂뽦롌 &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_yester.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-뜃똶뻂뽦롌 &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_total.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-뙸띪먝뫏롌 &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_now.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-띍묈벏렄먝뫏롌 &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_peak.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-띍묈뻂뽦롌 &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_day_peak.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>"></textarea>
+뜞볷궻뻂뽦롌 &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_today.jpg', $_SERVER['PHP_SELF']); ?>">
+랅볷궻뻂뽦롌 &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_yester.jpg', $_SERVER['PHP_SELF']); ?>">
+뜃똶뻂뽦롌 &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_total.jpg', $_SERVER['PHP_SELF']); ?>">
+뙸띪먝뫏롌 &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_now.jpg', $_SERVER['PHP_SELF']); ?>">
+띍묈벏렄먝뫏롌 &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_peak.jpg', $_SERVER['PHP_SELF']); ?>">
+띍묈뻂뽦롌 &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_day_peak.jpg', $_SERVER['PHP_SELF']); ?>"></textarea>
 
 	<br><br>
 	뭾댰) GD귩뿕뾭궢궫귽긽?긙귩밙뾭궥귡궸궼갂skin궻귽긽?긙긲?귽깑?렜궕jpg궳궶궋궴궋궚귏궧귪갃<br><br>

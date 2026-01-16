@@ -6,6 +6,7 @@
 // ChangeLog
 //   DATE   수정인			 수정 내용
 // -------- ------ --------------------------------------
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 // 03/10/08 박선민 처음제작
 // 03/11/10 박선민 수정
 // 03/12/26 박선민 'f_필드'를 '필드'로
@@ -36,8 +37,8 @@ if(!$_GET['key']) $_GET['key']="uid";
 ?>
 <form method=get action="<?php echo $_SERVER['PHP_SELF'];?>">
 <input type=hidden name=mode value='ok'>
-테이블이름:<select name=table><?=$tablelist?></select><br>
-PRIMARY KEY:<input type=text size=20 name=key value="<?=$_GET['key']?>">
+테이블이름:<select name=table><?php echo $tablelist; ?></select><br>
+PRIMARY KEY:<input type=text size=20 name=key value="<?php echo $_GET['key']; ?>">
 <input type=submit value="자동코딩">
 </form>
 <hr>
@@ -68,16 +69,14 @@ function ok_php() {
 &lt;?
 //=======================================================
 // 설  명 : 처리(ok.php)
-// 책임자 : 박선민 (sponsor@new21.com), 검수: <?=$nowdate
+// 책임자 : 박선민 (sponsor@new21.com), 검수: <?php echo $nowdate;
 ?> 
 // Project: sitePHPbasic
 // ChangeLog
 //   DATE   수정인			 수정 내용
 // -------- ------ --------------------------------------
-// <?=$nowdate
-?> 박선민 처음제작
-// <?=$nowdate
-?> 박선민 마지막수정
+// <?php echo $nowdate; ?> 박선민 처음제작
+// <?php echo $nowdate; ?> 박선민 마지막수정
 //=======================================================
 $HEADER=array(
 		auth	=>0, // 인증유무 (0:모두에게 허용)
@@ -101,7 +100,7 @@ page_security("", $_SERVER['HTTP_HOST']);
 
 	// dbinfo 설정
 	$dbinfo=array(
-				table		=> '<?=$_GET['table']?>',
+				table		=> $_GET['table'],
 				priv_write	=> 1,
 				priv_delete	=> 99
 			);
@@ -277,16 +276,14 @@ function write_php() {
 &lt;?
 //=======================================================
 // 설  명 : 쓰기(write.php)
-// 책임자 : 박선민 (sponsor@new21.com), 검수: <?=$nowdate
+// 책임자 : 박선민 (sponsor@new21.com), 검수: <?php echo $nowdate;
 ?> 
 // Project: sitePHPbasic
 // ChangeLog
 //   DATE   수정인			 수정 내용
 // -------- ------ --------------------------------------
-// <?=$nowdate
-?> 박선민 처음제작
-// <?=$nowdate
-?> 박선민 마지막수정
+// <?php echo $nowdate; ?> 박선민 처음제작
+// <?php echo $nowdate; ?> 박선민 마지막수정
 //=======================================================
 $HEADER=array(
 		auth	=>0, // 인증유무 (0:모두에게 허용)
@@ -309,7 +306,7 @@ page_security("", $_SERVER['HTTP_HOST']);
 
 	// dbinfo 설정
 	$dbinfo=array(
-				table		=> '<?=$_GET['table']?>',
+				table		=> $_GET['table'],
 				priv_write	=> 1,
 				priv_delete	=> 99
 			);

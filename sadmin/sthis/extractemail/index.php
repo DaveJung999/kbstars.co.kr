@@ -6,6 +6,7 @@
 // ChangeLog
 //	DATE	수정인			 수정 내용
 // -------- ------ --------------------------------------
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 // 02/03/20 김평수 자체 개발 완료
 // 02/11/14 박선민 마지막 수정
 //=======================================================
@@ -55,35 +56,24 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 //=======================================================
 ?>
 <html>
-<?=$pageinfo['html_header']
-?>
+<?php echo $pageinfo['html_header']; ?>
 <body>
 <form name="form1" method="post" action="">
 <input type="hidden" name="mode" value="extract">
-<table border=0 cellspacing='<?=$pageinfo['table_cellspacing']
-?>' cellpadding='<?=$pageinfo['table_cellpadding']
-?>' bgcolor='<?=$pageinfo['table_linecolor']
-?>'>
-	<tr bgcolor='<?=$pageinfo['table_thcolor']
-?>'>
+<table border=0 cellspacing='<?php echo $pageinfo['table_cellspacing']; ?>' cellpadding='<?php echo $pageinfo['table_cellpadding']; ?>' bgcolor='<?php echo $pageinfo['table_linecolor']; ?>'>
+	<tr bgcolor='<?php echo $pageinfo['table_thcolor']; ?>'>
 		<td width="466"> <font size="2"> 
-		URL : <input type="text" name="url" size="40" value="<?=htmlspecialchars(stripslashes($url),ENT_QUOTES)
-?>"></font></td>
+		URL : <input type="text" name="url" size="40" value="<?php echo htmlspecialchars(stripslashes($url),ENT_QUOTES); ?>"></font></td>
 	</tr>
-	<tr bgcolor='<?=$pageinfo['table_tdcolor']
-?>'>
+	<tr bgcolor='<?php echo $pageinfo['table_tdcolor']; ?>'>
 		<td height="28" width="466"> <font size="2"> 
-		<input type="text" name="page" size="6" value="<?=$page
-?>">(게시판 서브쿼리 예를 들어 page...) 
-		<input type="text" name="start_num" size="2" value="<?=$start_num
-?>">
+		<input type="text" name="page" size="6" value="<?php echo $page; ?>">(게시판 서브쿼리 예를 들어 page...) 
+		<input type="text" name="start_num" size="2" value="<?php echo $start_num; ?>">
 		~ 
-		<input type="text" name="end_num" size="2" value="<?=$end_num
-?>">
+		<input type="text" name="end_num" size="2" value="<?php echo $end_num; ?>">
 		뽑고 싶은 페이지 수</font></td>
 	</tr>
-	<tr bgcolor='<?=$pageinfo['table_thcolor']
-?>'>
+	<tr bgcolor='<?php echo $pageinfo['table_thcolor']; ?>'>
 		<td width="466"> <font size="2"> 
 		<input type="submit" name="Submit" value=" 이메일 추출하기 ">
 		</font></td>
@@ -93,16 +83,11 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 
 
 
-<table border=0 cellspacing='<?=$pageinfo['table_cellspacing']
-?>' cellpadding='<?=$pageinfo['table_cellpadding']
-?>' bgcolor='<?=$pageinfo['table_linecolor']
-?>'>
-	<tr bgcolor='<?=$pageinfo['table_thcolor']
-?>'>
+<table border=0 cellspacing='<?php echo $pageinfo['table_cellspacing']; ?>' cellpadding='<?php echo $pageinfo['table_cellpadding']; ?>' bgcolor='<?php echo $pageinfo['table_linecolor']; ?>'>
+	<tr bgcolor='<?php echo $pageinfo['table_thcolor']; ?>'>
 	<td colspan="4"><font size="2"><b>[DB에 쌓인 DATA]</b></font></td>
 	</tr>
-	<tr bgcolor='<?=$pageinfo['table_thcolor']
-?>'>
+	<tr bgcolor='<?php echo $pageinfo['table_thcolor']; ?>'>
 	<td> 
 		<div align="center"><font size="2">추출한관리자</font></div>
 	</td>
@@ -127,8 +112,7 @@ for($i=0; $i<$total; $i++){
 	$total_email += $list['num'];
 	
 ?>
-		<tr bgcolor='<?=$pageinfo['table_tdcolor']
-?>'>
+		<tr bgcolor='<?php echo $pageinfo['table_tdcolor']; ?>'>
 		<td height="23"> 
 			<div align="center"><font size="2"> 
 <?php 
@@ -161,8 +145,7 @@ echo date('Y.m.d', $list['rdate']);
 <?php
 } // end for	
 ?>
-	<tr bgcolor='<?=$pageinfo['table_tdcolor']
-?>'>
+	<tr bgcolor='<?php echo $pageinfo['table_tdcolor']; ?>'>
 	<td colspan="4"> 
 		<div align="right"><font size="2">이메일 총수량 : <b><?php 
 echo $total_email; 
@@ -226,18 +209,13 @@ echo $all_email;
 ?>">
 
 		
-<table border=0 cellspacing='<?=$pageinfo['table_cellspacing']
-?>' cellpadding='<?=$pageinfo['table_cellpadding']
-?>' bgcolor='<?=$pageinfo['table_linecolor']
-?>'>
-	<tr bgcolor='<?=$pageinfo['table_thcolor']
-?>'>
+<table border=0 cellspacing='<?php echo $pageinfo['table_cellspacing']; ?>' cellpadding='<?php echo $pageinfo['table_cellpadding']; ?>' bgcolor='<?php echo $pageinfo['table_linecolor']; ?>'>
+	<tr bgcolor='<?php echo $pageinfo['table_thcolor']; ?>'>
 		<td width="183" height="20"><font size="2"><b>[이메일 추출]</b></font></td>
 		<td width="210" height="20"><font size="2"></font></td>
 	</tr>
 	
-	<tr bgcolor='<?=$pageinfo['table_tdcolor']
-?>'>
+	<tr bgcolor='<?php echo $pageinfo['table_tdcolor']; ?>'>
 		<td colspan="2" height="20"><font size="2">이메일을 추출한 사이트 : <b> 
 <?php 
 echo $first_url 
@@ -249,21 +227,16 @@ echo sizeof($all_email_arr) -1 ;
 ?>
 		<font color="#000000">개</font></font></font></td>
 	</tr>
-	<tr bgcolor='<?=$pageinfo['table_tdcolor']
-?>'>
+	<tr bgcolor='<?php echo $pageinfo['table_tdcolor']; ?>'>
 		<td width="183"> 
-		<table border=0 cellspacing='<?=$pageinfo['table_cellspacing']
-?>' cellpadding='<?=$pageinfo['table_cellpadding']
-?>' bgcolor='<?=$pageinfo['table_linecolor']
-?>'>
+		<table border=0 cellspacing='<?php echo $pageinfo['table_cellspacing']; ?>' cellpadding='<?php echo $pageinfo['table_cellpadding']; ?>' bgcolor='<?php echo $pageinfo['table_linecolor']; ?>'>
 
 <?php
 	// 추출한 메일을 출력해주는 부분
 	for($i=1; $i <= sizeof($all_email_arr); $i++ ){	
 	
 ?>
-			<tr bgcolor='<?=$pageinfo['table_tdcolor']
-?>'> 
+			<tr bgcolor='<?php echo $pageinfo['table_tdcolor']; ?>'> 
 			<td><font size="2"> 
 				<?php 
 echo $all_email_arr[$i] 
@@ -277,13 +250,9 @@ echo $all_email_arr[$i]
 		</table>
 		</td>
 		<td valign="bottom" width="210"> <font size="2"> </font> 
-		<table border=0 cellspacing='<?=$pageinfo['table_cellspacing']
-?>' cellpadding='<?=$pageinfo['table_cellpadding']
-?>' bgcolor='<?=$pageinfo['table_linecolor']
-?>'>
+		<table border=0 cellspacing='<?php echo $pageinfo['table_cellspacing']; ?>' cellpadding='<?php echo $pageinfo['table_cellpadding']; ?>' bgcolor='<?php echo $pageinfo['table_linecolor']; ?>'>
 
-		 <tr bgcolor='<?=$pageinfo['table_tdcolor']
-?>'>
+		 <tr bgcolor='<?php echo $pageinfo['table_tdcolor']; ?>'>
 			<td valign="top"><font size="2" color="#3F7058">본 이메일 추출은 악의성<br>
 				없이 내부적으로 사용할 <br>
 				것을 굳게 다짐합니다.<br>
@@ -293,8 +262,7 @@ echo $all_email_arr[$i]
 				중복된 이메일은 DB에서<br>
 				제외됩니다.</font></td>
 			</tr>
-		 <tr bgcolor='<?=$pageinfo['table_tdcolor']
-?>'>
+		 <tr bgcolor='<?php echo $pageinfo['table_tdcolor']; ?>'>
 			<td valign="bottom"><font size="2"> 
 				<select name="category">
 				<option>신문사</option>
@@ -304,16 +272,14 @@ echo $all_email_arr[$i]
 				</select>
 				</font></td>
 			</tr>
-		<tr bgcolor='<?=$pageinfo['table_tdcolor']
-?>'>
+		<tr bgcolor='<?php echo $pageinfo['table_tdcolor']; ?>'>
 			<td valign="bottom" height="41"><font size="2"> 
 				<input type="text" name="direct_cartegory">
 				<input type="checkbox" name="direct_check" value="1">
 				<br>
 				(직접 분류를 원할땐 체크)</font></td>
 			</tr>
-		 <tr bgcolor='<?=$pageinfo['table_tdcolor']
-?>'>
+		 <tr bgcolor='<?php echo $pageinfo['table_tdcolor']; ?>'>
 			<td valign="bottom"><font size="2"> 
 				<input type="submit" name="Submit2" value=" DB에 입력하기 ">
 				</font></td>

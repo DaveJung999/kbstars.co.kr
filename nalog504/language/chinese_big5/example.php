@@ -41,25 +41,25 @@
 	</table>
 	<br>
 	<span style='font-family:꾄ⁿ톱,MingLiU'>
-		&lt;img src="<b>n@log?─몰?</b>/nalogd.php?counter=<b>춑셕씁쫁붙</b>&url=&lt;?=$HTTP_SERVER_VARS[HTTP_REFERER]?&gt;" width=0 height=0>
+		&lt;img src="<b>n@log?─몰?</b>/nalogd.php?counter=<b>춑셕씁쫁붙</b>&url=&lt;?=$_SERVER[HTTP_REFERER]?&gt;" width=0 height=0>
 	</span>
 	<br><br>
 	?쫇㏀?뮐먼갱덜콄ず n@log ?쯹?좥킡メ쫇짾?ずㅵ쫞?맸켔 IMG 퍈챞펓쩧ⓖ좥퉈콄ㄳΞ앵ㅯ퍈챞머ョ샀펓좧쫜찱콄?О쿽㉶퍈챞끽?폯킠?ず멎좥콄첢쩳쩑⑾ㅯ켔쿽㉶퍈챞싣퍀メ턐쨁콄ず??맸좧<br><br>
 
 <textarea class=input cols=80 rows=3 onclick=select() readonly style='font-family:꾄ⁿ톱,MingLiU;padding:4px'>
-&lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/nalogd.php",$HTTP_SERVER_VARS[PHP_SELF]); ?>?counter=<?=$counter?>&url=&lt;?=$HTTP_SERVER_VARS[HTTP_REFERER]?&gt;" width=0 height=0></textarea>
+&lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/nalogd.php', $_SERVER['PHP_SELF']); ?>?counter=<?=$counter?>&url=<?=$_SERVER['HTTP_REFERER']?>" width=0 height=0></textarea>
 
 	<br><br>
 	쫜찱콄쫇??ⓒΞ짦쿽?퍈챞좥룻??뫘짫?좥춑셕씁첢???툫?좥?촑춑셕씁?Þ촑즛쩠?ⓖず좧<br>
 	콄쩳쩑ⓒΞ짾쪪ず퍈챞ⓖ톈?콄텿춏ず춑셕씁믿읠좬<br><br>
 
 <textarea class=input cols=80 rows=7 onclick=select() readonly style='font-family:꾄ⁿ톱,MingLiU;padding:4px'>
-ㅅㅡ혉퀸짩┯ &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_today.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-촓ㅡ혉퀸짩┯ &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_yester.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-?춑혉퀸짩┯ &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_total.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-Ω첿퐑쨁짩셕 &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_now.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-쪷?쫇퐑값췴 &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_peak.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-ㅹ혉퀸짩┯값췴 &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_day_peak.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>"></textarea>
+ㅅㅡ혉퀸짩┯ &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_today.jpg', $_SERVER['PHP_SELF']); ?>">
+촓ㅡ혉퀸짩┯ &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_yester.jpg', $_SERVER['PHP_SELF']); ?>">
+?춑혉퀸짩┯ &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_total.jpg', $_SERVER['PHP_SELF']); ?>">
+Ω첿퐑쨁짩셕 &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_now.jpg', $_SERVER['PHP_SELF']); ?>">
+쪷?쫇퐑값췴 &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_peak.jpg', $_SERVER['PHP_SELF']); ?>">
+ㅹ혉퀸짩┯값췴 &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_day_peak.jpg', $_SERVER['PHP_SELF']); ?>"></textarea>
 
 	<br><br>
 	?텻좬⒡┳쬞Ξ GD 소꾐╀걺ヘ?ず춑셕씁믿읠끽촑 JPEG ?─ (걱읠쫁О .jpg) ず좧<br><br>

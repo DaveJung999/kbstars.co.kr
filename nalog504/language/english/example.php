@@ -42,26 +42,26 @@
 	</table>
 	<br>
 	<span style='font-family:Courier New;font-size:9pt'>
-		&lt;img src="<b>n@log_path</b>/nalogd.php?counter=<b>counter_name</b>&url=&lt;?=$HTTP_SERVER_VARS[HTTP_REFERER]?&gt;" width=0 height=0>
+		&lt;img src="<b>n@log_path</b>/nalogd.php?counter=<b>counter_name</b>&url=&lt;?=$_SERVER[HTTP_REFERER]?&gt;" width=0 height=0>
 	</span>
 	<br><br>
 	In the following text boxes, I will try to determine your n@log configuration and write down the IMG tags for you.<br>
 	If you think that they seems to be correct, just copy and paste into your source code.<br><br>
 
 <textarea class=input cols=80 rows=2 onclick=select() readonly style='font-family:Courier New;font-size:9pt'>
-&lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/nalogd.php",$HTTP_SERVER_VARS[PHP_SELF]); ?>?counter=<?=$counter?>&url=&lt;?=$HTTP_SERVER_VARS[HTTP_REFERER]?&gt;" width=0 height=0></textarea>
+&lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/nalogd.php', $_SERVER['PHP_SELF']); ?>?counter=<?=$counter?>&url=<?=$_SERVER['HTTP_REFERER']?>" width=0 height=0></textarea>
 
 	<br><br>
 	If you use the above IMG tag, it will be counted when the page is loading. But the counter is hidden.<br>
 	You can use the following tags to show your counter images:<br><br>
 
 <textarea class=input cols=80 rows=6 onclick=select() readonly style='font-family:Courier New;font-size:9pt'>
-TODAY &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_today.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-YESTERDAY &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_yester.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-TOTAL &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_total.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-NOW &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_now.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-ONLINE PEAK &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_peak.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>">
-DAY PEAK &lt;img src="http://<?php echo $HTTP_SERVER_VARS[HTTP_HOST].eregi_replace("/example.php$","/".$counter."_day_peak.jpg",$HTTP_SERVER_VARS[PHP_SELF]); ?>"></textarea>
+TODAY &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_today.jpg', $_SERVER['PHP_SELF']); ?>">
+YESTERDAY &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_yester.jpg', $_SERVER['PHP_SELF']); ?>">
+TOTAL &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_total.jpg', $_SERVER['PHP_SELF']); ?>">
+NOW &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_now.jpg', $_SERVER['PHP_SELF']); ?>">
+ONLINE PEAK &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_peak.jpg', $_SERVER['PHP_SELF']); ?>">
+DAY PEAK &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/example\.php$/i', '/' . $counter . '_day_peak.jpg', $_SERVER['PHP_SELF']); ?>"></textarea>
 
 	<br><br>
 	Note: The counter images created by GD module are in JPEG format. (with .jpg extensions)<br><br>

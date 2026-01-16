@@ -6,6 +6,7 @@
 // ChangeLog
 //   DATE   수정인			 수정 내용
 // -------- ------ --------------------------------------
+// 25/01/XX Auto $PHP_SELF → $_SERVER['PHP_SELF'], 단축 태그 <?= → <?php echo 변경
 // 06/05/26 박선민 수정
 //=======================================================
 $HEADER=array(
@@ -39,12 +40,9 @@ foreach($tables as $value) {
 }
 if(!$_REQUEST['key']) $_REQUEST['key']="uid";
 ?>
-<form method=post action=<?=$PHP_SELF
-?>>
-테이블이름:<select name=table><?=$tablelist
-?></select><br>
-PRIMARY KEY:<input type=text size=20 name=key value="<?=$_REQUEST['key']
-?>">
+<form method=post action="<?php echo $_SERVER['PHP_SELF']; ?>">
+테이블이름:<select name=table><?php echo $tablelist; ?></select><br>
+PRIMARY KEY:<input type=text size=20 name=key value="<?php echo $_REQUEST['key']; ?>">
 <input type=submit value="자동코딩">
 <br>
 <input type="radio" name="mode" value="ok" <?php 
@@ -60,8 +58,7 @@ if($_REQUEST['mode']=='sql_list') echo "checked='checked'";
 if($_REQUEST['mode']=='sql_key') echo "checked='checked'";
 ?>>
 SQL문($
-<input type=text size=5 name=sql_key_value value="<?=$_REQUEST['sql_key_value']
-?>">
+<input type=text size=5 name=sql_key_value value="<?php echo $_REQUEST['sql_key_value']; ?>">
 )<br>
 <table border="1">
 <tr>
@@ -81,50 +78,38 @@ if($_REQUEST['table']) {
 		
 ?>
 		<tr><td>
-		<input type="checkbox" name="fields[]" value="<?=$value
-?>" <?php 
+		<input type="checkbox" name="fields[]" value="<?php echo $value; ?>" <?php 
 if(is_array($_REQUEST['fields']) and in_array($value,$_REQUEST['fields'])) echo "checked='checked'";
-?>><?=$value
-?> 
+?>><?php echo $value; ?> 
 		</td><td>
-		<input type="checkbox" name="fields_null[]" value="<?=$value
-?>" <?php 
+		<input type="checkbox" name="fields_null[]" value="<?php echo $value; ?>" <?php 
 if(is_array($_REQUEST['fields_null']) and in_array($value,$_REQUEST['fields_null'])) echo "checked='checked'";
 ?>>
-		<input type="text" size="15" name="fields_null_msg[<?=$value
-?>]" value="<?=$_REQUEST['fields_null_msg'][$value]
-?>" >
+		<input type="text" size="15" name="fields_null_msg[<?php echo $value; ?>]" value="<?php echo $_REQUEST['fields_null_msg'][$value]; ?>" >
 		</td><td>
-		<input type="checkbox" name="fields_notnull[]" value="<?=$value
-?>" <?php 
+		<input type="checkbox" name="fields_notnull[]" value="<?php echo $value; ?>" <?php 
 if(is_array($_REQUEST['fields_notnull']) and in_array($value,$_REQUEST['fields_notnull'])) echo "checked='checked'";
 ?>>
-		<input type="text" size="15" name="fields_notnull_msg[<?=$value
-?>]" value="<?=$_REQUEST['fields_notnull_msg'][$value]
+		<input type="text" size="15" name="fields_notnull_msg[<?php echo $value; ?>]" value="<?php echo $_REQUEST['fields_notnull_msg'][$value];
 ?>" >
 		</td><td>
-		<input type="checkbox" name="fields_checkNumber[]" value="<?=$value
-?>" <?php 
+		<input type="checkbox" name="fields_checkNumber[]" value="<?php echo $value; ?>" <?php 
 if(is_array($_REQUEST['fields_checkNumber']) and in_array($value,$_REQUEST['fields_checkNumber'])) echo "checked='checked'";
 ?>>
 		</td><td>
-		<input type="checkbox" name="fields_checkAlphabet[]" value="<?=$value
-?>" <?php 
+		<input type="checkbox" name="fields_checkAlphabet[]" value="<?php echo $value; ?>" <?php 
 if(is_array($_REQUEST['fields_checkAlphabet']) and in_array($value,$_REQUEST['fields_checkAlphabet'])) echo "checked='checked'";
 ?>>
 		</td><td>
-		<input type="checkbox" name="fields_checkNumberAlphabet[]" value="<?=$value
-?>" <?php 
+		<input type="checkbox" name="fields_checkNumberAlphabet[]" value="<?php echo $value; ?>" <?php 
 if(is_array($_REQUEST['fields_checkNumberAlphabet']) and in_array($value,$_REQUEST['fields_checkNumberAlphabet'])) echo "checked='checked'";
 ?>>
 		</td><td>
-		<input type="checkbox" name="fields_checkEmail[]" value="<?=$value
-?>" <?php 
+		<input type="checkbox" name="fields_checkEmail[]" value="<?php echo $value; ?>" <?php 
 if(is_array($_REQUEST['fields_checkEmail']) and in_array($value,$_REQUEST['fields_checkEmail'])) echo "checked='checked'";
 ?>>
 		</td><td>
-		<input type="checkbox" name="fields_checkUrl[]" value="<?=$value
-?>" <?php 
+		<input type="checkbox" name="fields_checkUrl[]" value="<?php echo $value; ?>" <?php 
 if(is_array($_REQUEST['fields_checkUrl']) and in_array($value,$_REQUEST['fields_checkUrl'])) echo "checked='checked'";
 ?>>
 		</td><?php
@@ -244,15 +229,15 @@ function ok_php() {
 &lt;?
 //=======================================================
 // 설  명 : 처리(ok.php)
-// 책임자 : 박선민 (sponsor@new21.com), 검수: <?=$nowdate
+// 책임자 : 박선민 (sponsor@new21.com), 검수: <?php echo $nowdate;
 ?> 
 // Project: sitePHPbasic
 // ChangeLog
 //   DATE   수정인			 수정 내용
 // -------- ------ --------------------------------------
-// <?=$nowdate
+// <?php echo $nowdate;
 ?> 박선민 처음제작
-// <?=$nowdate
+// <?php echo $nowdate;
 ?> 박선민 마지막수정
 //=======================================================
 $HEADER=array(
@@ -270,8 +255,7 @@ page_security("", $_SERVER['HTTP_HOST']);
 	// 기본 URL QueryString
 	$qs_basic = "";
 
-	$table		= $SITE['th'] . "<?=$_REQUEST['table']
-?>";
+	$table		= $SITE['th'] . $_REQUEST['table'];
 
 	// dbinfo 설정
 	$dbinfo=array(
@@ -338,13 +322,11 @@ switch($_REQUEST['mode']) {
 		go_url($_REQUEST['goto'] ? $_REQUEST['goto'] : "read.php?" . href_qs("uid={$uid}",$qs_basic));
 		break;
 	case 'modify':
-		modify_ok($table,$qs,"<?=$_REQUEST['key']
-?>");
+		modify_ok($table,$qs,$_REQUEST['key']);
 		go_url($_REQUEST['goto'] ? $_REQUEST['goto'] : "read.php?" . href_qs("uid={$_REQUEST['uid']}",$qs_basic));
 		break;
 	case 'delete':
-		delete_ok($table,"<?=$_REQUEST['key']
-?>");
+		delete_ok($table,$_REQUEST['key']);
 		go_url($_REQUEST['goto'] ? $_REQUEST['goto'] : "./list.php?" . href_qs("",$qs_basic));
 		break;	
 	default :
@@ -479,15 +461,15 @@ function write_php() {
 &lt;?
 //=======================================================
 // 설  명 : 처리(ok.php)
-// 책임자 : 박선민 (sponsor@new21.com), 검수: <?=$nowdate
+// 책임자 : 박선민 (sponsor@new21.com), 검수: <?php echo $nowdate;
 ?> 
 // Project: sitePHPbasic
 // ChangeLog
 //   DATE   수정인			 수정 내용
 // -------- ------ --------------------------------------
-// <?=$nowdate
+// <?php echo $nowdate;
 ?> 박선민 처음제작
-// <?=$nowdate
+// <?php echo $nowdate;
 ?> 박선민 마지막수정
 //=======================================================
 $HEADER=array(

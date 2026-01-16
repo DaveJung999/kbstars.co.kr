@@ -6,6 +6,7 @@
 // ChangeLog
 //   DATE   수정인			 수정 내용
 // -------- ------ --------------------------------------
+// 25/01/XX Auto $PHP_SELF → $_SERVER['PHP_SELF'], 단축 태그 <?= → <?php echo 변경
 // 03/10/08 박선민 처음제작
 // 03/12/26 박선민 수정
 //=======================================================
@@ -32,13 +33,10 @@ foreach($tables as $value) {
 }
 if(!$_GET['key']) $_GET['key']="uid";
 ?>
-<form method=get action=<?=$PHP_SELF
-?>>
+<form method=get action="<?php echo $_SERVER['PHP_SELF']; ?>">
 <input type=hidden name=mode value='ok'>
-테이블이름:<select name=table><?=$tablelist
-?></select><br>
-PRIMARY KEY:<input type=text size=20 name=key value="<?=$_GET['key']
-?>">
+테이블이름:<select name=table><?php echo $tablelist; ?></select><br>
+PRIMARY KEY:<input type=text size=20 name=key value="<?php echo $_GET['key']; ?>">
 <input type=submit value="자동코딩">
 </form>
 <hr>
@@ -69,16 +67,13 @@ function ok_php() {
 &lt;?
 //=======================================================
 // 설  명 : 처리(ok.php)
-// 책임자 : 박선민 (sponsor@new21.com), 검수: <?=$nowdate
-?> 
+// 책임자 : 박선민 (sponsor@new21.com), 검수: <?php echo $nowdate; ?> 
 // Project: sitePHPbasic
 // ChangeLog
 //   DATE   수정인			 수정 내용
 // -------- ------ --------------------------------------
-// <?=$nowdate
-?> 박선민 처음제작
-// <?=$nowdate
-?> 박선민 마지막수정
+// <?php echo $nowdate; ?> 박선민 처음제작
+// <?php echo $nowdate; ?> 박선민 마지막수정
 //=======================================================
 $HEADER=array(
 		auth	=>0, // 인증유무 (0:모두에게 허용)
@@ -96,7 +91,7 @@ page_security("", $_SERVER['HTTP_HOST']);
 	// 기본 URL QueryString
 	$qs_basic = "";
 
-	$table		= $SITE['th'] . "<?=$_GET['table']?>";
+	$table		= $SITE['th'] . $_GET['table'];
 
 	// dbinfo 설정
 	$dbinfo=array(
@@ -141,11 +136,11 @@ switch($_REQUEST['mode']) {
 		go_url($_REQUEST['goto'] ? $_REQUEST['goto'] : "read.php?" . href_qs("uid={$uid}",$qs_basic));
 		break;
 	case 'modify':
-		modify_ok($table,$qs,"<?=$_GET['key']?>");
+		modify_ok($table,$qs,$_GET['key']);
 		go_url($_REQUEST['goto'] ? $_REQUEST['goto'] : "read.php?" . href_qs("uid={$_REQUEST['uid']}",$qs_basic));
 		break;
 	case 'delete':
-		delete_ok($table,"<?=$_GET['key']?>");
+		delete_ok($table,$_GET['key']);
 		go_url($_REQUEST['goto'] ? $_REQUEST['goto'] : "./list.php?" . href_qs("",$qs_basic));
 		break;	
 	default :
@@ -284,16 +279,13 @@ function write_php() {
 &lt;?
 //=======================================================
 // 설  명 : 처리(ok.php)
-// 책임자 : 박선민 (sponsor@new21.com), 검수: <?=$nowdate
-?> 
+// 책임자 : 박선민 (sponsor@new21.com), 검수: <?php echo $nowdate; ?> 
 // Project: sitePHPbasic
 // ChangeLog
 //   DATE   수정인			 수정 내용
 // -------- ------ --------------------------------------
-// <?=$nowdate
-?> 박선민 처음제작
-// <?=$nowdate
-?> 박선민 마지막수정
+// <?php echo $nowdate; ?> 박선민 처음제작
+// <?php echo $nowdate; ?> 박선민 마지막수정
 //=======================================================
 $HEADER=array(
 		auth	=>0, // 인증유무 (0:모두에게 허용)

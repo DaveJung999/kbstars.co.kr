@@ -7,6 +7,7 @@
 //	DATE	수정인				수정 내용
 // -------- ------ --------------------------------------
 // 05/01/25 박선민 마지막 수정
+// 25/01/XX Auto	mysql_escape_string() → db_escape() 변경
 //=======================================================
 $HEADER=array(
 		'priv' => '운영자', // 인증유무 (비회원,회원,운영자,서버관리자)
@@ -109,7 +110,7 @@ else {
 		unset($upfiles);
 		
 		foreach($from as $k =>	$v){
-			$from[$k] = mysql_escape_string($v);
+			$from[$k] = db_escape($v);
 		}
 	
 		// num값
@@ -155,7 +156,7 @@ else {
 				$rs_memo = db_query($sql);
 				while($frommemo = db_array($rs_memo)){
 					foreach($frommemo as $k =>	$v){
-						$frommemo[$k] = mysql_escape_string($v);
+						$frommemo[$k] = db_escape($v);
 					}
 				
 					$sql = "INSERT INTO {$dbinfo_to['table']}_memo SET

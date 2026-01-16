@@ -8,5 +8,5 @@ require 'class.mysql.status.php';
 $status = new mysql_status;
 $status->tohtml();
 
-mysql_close();
+// 25/01/XX Auto mysql_close() 제거 (연결이 없으므로 불필요)
 ?>
