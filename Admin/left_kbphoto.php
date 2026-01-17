@@ -48,7 +48,7 @@ body {
 	<td height="5"></td>
 	</tr>
 	<tr>
-	<td align="center"><strong><?=$_SESSION['seNickname'];?></strong>님 반갑습니다.</td>
+	<td align="center"><strong><?php echo $_SESSION['seNickname']; ?></strong>님 반갑습니다.</td>
 	</tr>
 	<tr>
 	<td height="40" align="center"><a href="/sjoin/logout.php" target="_top"><img src="images/logout.gif" width="73" height="22" border="0"></a></td>

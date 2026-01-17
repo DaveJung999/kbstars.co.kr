@@ -738,13 +738,19 @@ class mysql_status
 /*** example
 require 'class.mysql.status.php';
 
-mysql_connect('localhost','mysql','');
-mysql_select_db('board');
+// PHP 7+에서는 mysql_* 함수가 제거되었으므로 db_* 함수 또는 mysqli_* 함수 사용
+// db_connect('localhost','mysql','');
+// db_select('board');
+// 또는
+// $db_conn = mysqli_connect('localhost','mysql','');
+// mysqli_select_db($db_conn, 'board');
 
 $status = new mysql_status;
 $status->tohtml();
 
-mysql_close();
+// db_close();
+// 또는
+// mysqli_close($db_conn);
 ***/
 ?>
 

@@ -8,6 +8,7 @@
 // -------- ------ --------------------------------------
 // 02/08/10 박선민 마지막 수정
 // 03/12/16 박선민 소스 개선
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 // 2025-01-XX PHP 업그레이드: $PHP_SELF, $QUERY_STRING를 $_SERVER 변수로 교체
 //=======================================================
 $HEADER=array(
@@ -114,25 +115,25 @@ input, textarea, select
 </STYLE>
 <body bgcolor="white" background="">
 <form name="form1" method="post" action="cateok.php">
-	<input type="hidden" name="mode" value="<?=$mode?>">
+	<input type="hidden" name="mode" value="<?php echo $mode; ?>">
 	<input type="hidden" name="db" value="<?php echo $db; ?>">
-	<input type="hidden" name="cateuid" value="<?=$cateuid?>">
+	<input type="hidden" name="cateuid" value="<?php echo $cateuid; ?>">
 
 	<table border=0 cellspacing='1' cellpadding='3' bgcolor='black'>
 		<tr> 
-			<td bgcolor='#CCFFCC' colspan=2>메뉴 <?=$html['submitvalue']?></td>
+			<td bgcolor='#CCFFCC' colspan=2>메뉴 <?php echo $html['submitvalue']; ?></td>
 		</tr>
 		<tr> 
 			<td bgcolor='#CCFFCC'>메뉴 이름</td>
 			<td bgcolor='#EDFEE'>
-				<?=$cate_nevi?>
-			<input type="text" name="title" value="<?=htmlspecialchars($list['title'],ENT_QUOTES) ?>">
+				<?php echo $cate_nevi; ?>
+			<input type="text" name="title" value="<?php echo htmlspecialchars($list['title'],ENT_QUOTES); ?>">
 			</td>
 		</tr>
 		<tr>
 			<td bgcolor='#CCFFCC'>&nbsp;</td>
 			<td bgcolor='#EDFEE'>
-			<input type="submit" name="Submit" value=" 메뉴 <?=$html['submitvalue']?> ">
+			<input type="submit" name="Submit" value=" 메뉴 <?php echo $html['submitvalue']; ?> ">
 			</td>
 		</tr>
 		</table>
@@ -178,21 +179,21 @@ for($i=0; $i<$total; $i++){
 ?>
 	<tr bgcolor='#EDFEE'> 
 		<TD align="center" nowrap > 
-		<?=$list['uid']?>
+		<?php echo $list['uid']; ?>
 		</TD>
 		<TD align="center" nowrap > 
-		<?=$list['rede'] ? "" : $list['num']?>
+		<?php echo $list['rede'] ? "" : $list['num']; ?>
 		</TD>
 		<TD nowrap> 
-		<?=$list['title']?>(<?=$list['re']?>) - [<a href="<?=$href["list"]?>" target=_blank>보기</a>]
+		<?php echo $list['title']; ?>(<?php echo $list['re']; ?>) - [<a href="<?php echo $href["list"]; ?>" target=_blank>보기</a>]
 		</TD>
-		<td nowrap> <div align="center"><a href="javascript: return false" onClick="window.open('<?={$href['catesort']}?>','_blank','toolbar=no,location=no,status=no,menubar=no,scrollbars=auto,resizable=no,width=350,height=100,top=30 left=30')">순서변경</a></div></td>
-		<td align="center" nowrap><a href="<?=$href['catereply']?>">서브추가</a></td>
-		<td align="center" nowrap> <a href="<?=$href['catemodify']?>">수정</a> </td>
-		<td align=center nowrap> <a href="<?=$href['catedelete']?>" onclick="return confirm('서브카테고리있다면 서비카테고리까지 삭제됩니다.\n정말 삭제 하시겠습니까?')">삭제</a> 
+		<td nowrap> <div align="center"><a href="javascript: return false" onClick="window.open('<?php echo $href['catesort']; ?>','_blank','toolbar=no,location=no,status=no,menubar=no,scrollbars=auto,resizable=no,width=350,height=100,top=30 left=30')">순서변경</a></div></td>
+		<td align="center" nowrap><a href="<?php echo $href['catereply']; ?>">서브추가</a></td>
+		<td align="center" nowrap> <a href="<?php echo $href['catemodify']; ?>">수정</a> </td>
+		<td align=center nowrap> <a href="<?php echo $href['catedelete']; ?>" onclick="return confirm('서브카테고리있다면 서비카테고리까지 삭제됩니다.\n정말 삭제 하시겠습니까?')">삭제</a> 
 		</td>
 		<td align="center" nowrap> 
-		<?=$menucount?>
+		<?php echo $menucount; ?>
 		</td>
 	</tr>
 <?php

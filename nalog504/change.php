@@ -1,4 +1,10 @@
 <?php
+//=======================================================
+// ChangeLog
+//	DATE	수정인			 수정 내용
+// -------- ------ --------------------------------------
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
+//=======================================================
 ####################################################################################
 //					준비
 ####################################################################################
@@ -45,7 +51,7 @@ function chk(){
 	<tr><td colspan="2" height="5"></td></tr>
 	<tr>
 		<td align="right"><font color="#008CD6"><?php echo $lang['change_admin_id']; ?>&nbsp;&nbsp;</font></td>
-		<td><input type="text" class="input" name="admin_idx" size="15" value="<?=htmlspecialchars($admin_id ?? '')?>"></td>
+		<td><input type="text" class="input" name="admin_idx" size="15" value="<?php echo htmlspecialchars($admin_id ?? ''); ?>"></td>
 	</tr>
 	<tr>
 		<td align="right"><font color="#008CD6"><?php echo $lang['change_admin_pass']; ?>&nbsp;&nbsp;</font></td>

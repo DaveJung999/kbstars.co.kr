@@ -23,14 +23,14 @@ foreach ($params as $param) {
 
 ?>
 <FORM ACTION="ok.php" method=POST name=myform>
-	<input type=hidden name="db" value="<?=$db?>">
+	<input type=hidden name="db" value="<?php echo $db; ?>">
 	<input type=hidden name="mode" value="delete">
-	<input type=hidden name="cateuid" value="<?=$cateuid?>">
-	<input type=hidden name="pern" value="<?=$pern?>">
-	<input type=hidden name="sc_column" value="<?=$sc_column?>">
-	<input type=hidden name="sc_string" value="<?=$sc_string?>">
-	<input type=hidden name="page" value="<?=$page?>">
-	<input type=hidden name="uid" value="<?=$uid?>">
+	<input type=hidden name="cateuid" value="<?php echo $cateuid; ?>">
+	<input type=hidden name="pern" value="<?php echo $pern; ?>">
+	<input type=hidden name="sc_column" value="<?php echo $sc_column; ?>">
+	<input type=hidden name="sc_string" value="<?php echo $sc_string; ?>">
+	<input type=hidden name="page" value="<?php echo $page; ?>">
+	<input type=hidden name="uid" value="<?php echo $uid; ?>">
 </FORM>
 </BODY>
 </HTML>

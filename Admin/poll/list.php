@@ -8,6 +8,7 @@
 // -------- ------ --------------------------------------
 // 03/08/25 박선민 마지막 수정
 // 2025-01-XX PHP 업그레이드: $DOCUMENT_ROOT를 $_SERVER['DOCUMENT_ROOT']로 교체
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 //=======================================================
 $HEADER=array(
 		'priv'	 => 1, // 인증유무 (0:모두에게 허용)
@@ -165,9 +166,9 @@ for($i=0; $i<$total; $i++){
 ?>
 				<tr>
 					<td width="73" align="center" bgcolor="#F8F8EA" style="border-bottom : 1px solid #b4b4b4">
-					<?=$list['startdate'];?><br>~<br><?=$list['enddate'];?></td>
+					<?php echo $list['startdate']; ?><br>~<br><?php echo $list['enddate']; ?></td>
 					<td width="120" valign="top" bgcolor="#F8F8EA" style="border-bottom : 1px solid #b4b4b4">
-						<a href="<?=$href['poll'];?>" target=_blank><?=$list['title'];?></a></td>
+						<a href="<?php echo $href['poll']; ?>" target=_blank><?php echo $list['title']; ?></a></td>
 					<td width="243" bgcolor="#F8F8EA" style="border-bottom : 1px solid #b4b4b4"><table width="100%" cellspacing="0" cellpadding="0" height="100%">
 <?php
 			$rs_poll = db_query("SELECT value, count(value) as count FROM {$list['table']} GROUP BY value");
@@ -192,8 +193,8 @@ for($i=0; $i<$total; $i++){
 					<td width="38" align="center" bgcolor="#F8F8EA" style="border-bottom : 1px solid #b4b4b4"><?php echo $list['sex'] ?> </td>
 					<td width="111" align="center" bgcolor="#F8F8EA" style="border-bottom : 1px solid #b4b4b4"><?php echo $list['age']; ?> </td>
 					<td width="87" align="center" bgcolor="#F8F8EA" style="border-bottom : 1px solid #b4b4b4"><?php echo $list['member'] ?> </td>
-					<td width="66" align="center" bgcolor="#F8F8EA" style="border-bottom : 1px solid #b4b4b4"><a href="./write.php?mode=modify&uid=<?=$list['uid'] ?>">수정</a></td>
-					<td width="42" align="center" bgcolor="#F8F8EA" style="border-bottom : 1px solid #b4b4b4"><a href="./ok.php?mode=delete&uid=<?=$list['uid'] ?>" onClick="javascript: return confirm('정말 삭제하시겠습니다.');">삭제</a></td>
+					<td width="66" align="center" bgcolor="#F8F8EA" style="border-bottom : 1px solid #b4b4b4"><a href="./write.php?mode=modify&uid=<?php echo $list['uid']; ?>">수정</a></td>
+					<td width="42" align="center" bgcolor="#F8F8EA" style="border-bottom : 1px solid #b4b4b4"><a href="./ok.php?mode=delete&uid=<?php echo $list['uid']; ?>" onClick="javascript: return confirm('정말 삭제하시겠습니다.');">삭제</a></td>
 				</tr>
 <?php
  

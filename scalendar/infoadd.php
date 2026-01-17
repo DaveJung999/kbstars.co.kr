@@ -7,6 +7,7 @@
 //   DATE   수정인			 수정 내용
 // -------- ------ --------------------------------------
 // 03/09/16 박선민 마지막 수정
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 //=======================================================
 $HEADER = array(
 	'priv'		=>'', // 인증유무 (비회원,회원,운영자,서버관리자)
@@ -92,53 +93,53 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 	<tr>
 		<td>
 			<table bgcolor=#E3F1FF border="1" width="590" cellspacing="0" cellpadding="0" bordercolor="#ffffff" bordercolorlight="#000000">
-		<form onsubmit="return chkForm(this)" <?=$form_input?>>
+		<form onsubmit="return chkForm(this)" <?php echo $form_input; ?>>
 		  <tr> 
 			<td nowrap> <font color=#333399><span style="font-size: 9pt"><b>일정 URL</b></font> 
 			</td>
-			<td> <span style="font-size: 9pt"><b> <?=$href['list']?></b>
+			<td> <span style="font-size: 9pt"><b> <?php echo $href['list']; ?></b>
 			</td>
 		  </tr>
 		  <tr> 
 			<td nowrap> <font color=#333399><span style="font-size: 9pt"><b>제목</b></font> 
 			</td>
-			<td> <input type=text name=title size=40 value="<?= $list['title']?>" hname="일정칼렌더 제목을 입력하여 주시기 바랍니다" required> 
+			<td> <input type=text name=title size=40 value="<?php echo $list['title']; ?>" hname="일정칼렌더 제목을 입력하여 주시기 바랍니다" required> 
 			</td>
 		  </tr>
 		  <tr> 
 			<td nowrap> <font color=#333399><span style="font-size: 9pt"><b>달력에서제목길이</b></font> 
 			</td>
-			<td> <input type=text name=cut_length size=10 value="<?= $list['cut_length']?>" hname="숫자로 입력하여 주시기 바랍니다" required option="regNum"> 
+			<td> <input type=text name=cut_length size=10 value="<?php echo $list['cut_length']; ?>" hname="숫자로 입력하여 주시기 바랍니다" required option="regNum"> 
 			</td>
 		  </tr>
 		  <tr> 
 			<td nowrap> <font color=#333399><span style="font-size: 9pt"><b>달력에서본문길이</b></font> 
 			</td>
-			<td> <input type=text name=cut_content size=10 value="<?= $list['cut_content']?>" hname="숫자로 입력하여 주시기 바랍니다" required option="regNum"> 
+			<td> <input type=text name=cut_content size=10 value="<?php echo $list['cut_content']; ?>" hname="숫자로 입력하여 주시기 바랍니다" required option="regNum"> 
 			</td>
 		  </tr>
 		  <tr> 
 			<td nowrap> <font color=#333399><span style="font-size: 9pt"><b>권한-달력보기</b></font> 
 			</td>
-			<td> <input type=text name=priv_list size=10 value="<?= $list['priv_list']?>" hname="숫자로 입력하여 주시기 바랍니다" required option="regNum"> 
+			<td> <input type=text name=priv_list size=10 value="<?php echo $list['priv_list']; ?>" hname="숫자로 입력하여 주시기 바랍니다" required option="regNum"> 
 			</td>
 		  </tr>
 		  <tr> 
 			<td nowrap> <font color=#333399><span style="font-size: 9pt"><b>권한-일정추가</b></font> 
 			</td>
-			<td> <input type=text name=priv_write size=10 value="<?= $list['priv_write']?>" hname="숫자로 입력하여 주시기 바랍니다" required option="regNum"> 
+			<td> <input type=text name=priv_write size=10 value="<?php echo $list['priv_write']; ?>" hname="숫자로 입력하여 주시기 바랍니다" required option="regNum"> 
 			</td>
 		  </tr>
 		  <tr> 
 			<td nowrap> <font color=#333399><span style="font-size: 9pt"><b>권한-세부일정보기</b></font> 
 			</td>
-			<td> <input type=text name=priv_read size=10 value="<?= $list['priv_read']?>" hname="숫자로 입력하여 주시기 바랍니다" required option="regNum"> 
+			<td> <input type=text name=priv_read size=10 value="<?php echo $list['priv_read']; ?>" hname="숫자로 입력하여 주시기 바랍니다" required option="regNum"> 
 			</td>
 		  </tr>
 		  <tr> 
 			<td nowrap> <font color=#333399><span style="font-size: 9pt"><b>권한-삭제권한</b></font> 
 			</td>
-			<td> <input type=text name=priv_delete size=10 value="<?= $list['priv_delete']?>" hname="숫자로 입력하여 주시기 바랍니다" required option="regNum"> 
+			<td> <input type=text name=priv_delete size=10 value="<?php echo $list['priv_delete']; ?>" hname="숫자로 입력하여 주시기 바랍니다" required option="regNum"> 
 			</td>
 		  </tr>
 		  <tr> 
@@ -146,23 +147,23 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 			</td>
 			<td> <font> 
 			  <select name="html_headpattern">
-				<option value="N" <?=$list['html_headpattern_s'][N]?>>사이트스킨삽입하지 않음</option>
-				<option value="ht" <?=$list['html_headpattern_s'][ht]?>>사이트스킨 삽입</option>
-				<option value="h" <?=$list['html_headpattern_s'][h]?>>사이트스킨 해더만삽입</option>
-				<option value="t" <?=$list['html_headpattern_s'][t]?>>사이트스킨 테이만삽입</option>
+				<option value="N" <?php echo $list['html_headpattern_s'][N]; ?>>사이트스킨삽입하지 않음</option>
+				<option value="ht" <?php echo $list['html_headpattern_s'][ht]; ?>>사이트스킨 삽입</option>
+				<option value="h" <?php echo $list['html_headpattern_s'][h]; ?>>사이트스킨 해더만삽입</option>
+				<option value="t" <?php echo $list['html_headpattern_s'][t]; ?>>사이트스킨 테이만삽입</option>
 			  </select>
-			  </font> <font> <span style="font-size: 9pt">스킨명:</span></font> <input type=text name="html_headtpl" value='<?=$list['html_headtpl']?>' size=20></td>
+			  </font> <font> <span style="font-size: 9pt">스킨명:</span></font> <input type=text name="html_headtpl" value='<?php echo $list['html_headtpl']; ?>' size=20></td>
 		  </tr>
 		  <tr> 
 			<td nowrap> <font color=#333399><span style="font-size: 9pt"><b>해더 
 			  HTML</b></font> </td>
-			<td> <textarea name="html_head" cols="60" rows="8" hname="숫자로 입력하여 주시기 바랍니다" required="required" option="regNum"><?= $list['html_head']?></textarea> 
+			<td> <textarea name="html_head" cols="60" rows="8" hname="숫자로 입력하여 주시기 바랍니다" required="required" option="regNum"><?php echo $list['html_head']; ?></textarea> 
 			</td>
 		  </tr>
 		  <tr> 
 			<td nowrap> <font color=#333399><span style="font-size: 9pt"><b>테일 
 			  HTML</b></font> </td>
-			<td> <textarea name="html_tail" cols="60" rows="8" hname="숫자로 입력하여 주시기 바랍니다" required="required" option="regNum"><?= $list['html_tail']?></textarea> 
+			<td> <textarea name="html_tail" cols="60" rows="8" hname="숫자로 입력하여 주시기 바랍니다" required="required" option="regNum"><?php echo $list['html_tail']; ?></textarea> 
 			</td>
 		  </tr>
 		  <tr> 

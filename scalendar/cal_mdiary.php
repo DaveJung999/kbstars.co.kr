@@ -1,4 +1,10 @@
 <?php
+//=======================================================
+// ChangeLog
+//	DATE	수정인			 수정 내용
+// -------- ------ --------------------------------------
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
+//=======================================================
 $HEADER=array(
 		header	=>1, // html header, tail 삽입(tail은 파일 마지막에 echo $SITE['tail'])
 		html	=>"schedule" // html header 파일(/stpl/basic/index_$HEADER['html'].php 파일을 읽음)
@@ -17,8 +23,7 @@ require("{$_SERVER['DOCUMENT_ROOT']}/sin/header.php");
 				<tr height=25>
 					<td bgcolor=FFC125>
 						<font face=굴림><span style='font-size:9pt'>
-						&nbsp;<?=$intThisMonth
-?>월중 일정
+						&nbsp;<?php echo $intThisMonth; ?>월중 일정
 						</span></font>
 					</td>
 				</tr>
@@ -92,5 +97,4 @@ require("{$_SERVER['DOCUMENT_ROOT']}/sin/header.php");
 </table>
 
 
-<?=$SITE['tail']
-?>
+<?php echo $SITE['tail']; ?>

@@ -7,6 +7,7 @@
 //   DATE   수정인			 수정 내용
 // -------- ------ --------------------------------------
 // 03/09/16 박선민 마지막 수정
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 //=======================================================
 
 //=======================================================
@@ -52,13 +53,13 @@
 	<tr>
 		<td>
 			<table bgcolor=#E3F1FF border="1" width="590" cellspacing="0" cellpadding="0" bordercolor="#ffffff" bordercolorlight="#000000">
-			<form onsubmit="return chkForm(this)" <?=$form_input?>>
+			<form onsubmit="return chkForm(this)" <?php echo $form_input; ?>>
 			<tr>
 				<td width=100 height=30>
 					<font color=#333399><span style="font-size: 9pt"><b>제목:</b></font>
 				</td>
 				<td valign="top">
-					<input type=text name=title size=40 maxlength=40 value="<?= $list['title']?>" hname="일정 제목을 입력하여 주세요." required></font>
+					<input type=text name=title size=40 maxlength=40 value="<?php echo $list['title']; ?>" hname="일정 제목을 입력하여 주세요." required></font>
 				</td>
 			</tr>
 			<tr>
@@ -66,7 +67,7 @@
 					<font color=#333399><span style="font-size: 9pt"><b>장소:</b></font>
 				</td>
 				<td>
-					<font><input type=text name=place maxlength=40 value="<?= $list['place']?>"></font>
+					<font><input type=text name=place maxlength=40 value="<?php echo $list['place']; ?>"></font>
 				</td>
 			</tr>
 
@@ -90,7 +91,7 @@
 						<option value="휴가"<?<?php if ($list['kind'] =="휴가" ) echo "selected" ?>>휴가</option>
 						<option value="휴식"<?<?php if ($list['kind'] =="휴식" ) echo "selected" ?>>휴식</option>
 					</select></font>					
-					<font><input type=text name="priv_level" value='<?=(int)$list['priv_level'] ?>' size=4><span style="font-size: 9pt">레벨 이상(0:모두에게공개)</span></font>					
+					<font><input type=text name="priv_level" value='<?php echo (int)$list['priv_level']; ?>' size=4><span style="font-size: 9pt">레벨 이상(0:모두에게공개)</span></font>					
 					
 				</td>
 			</tr>
@@ -99,7 +100,7 @@
 					<font color=#333399><span style="font-size: 9pt"><b>일자:</b></font>
 				</td>
 				<td>
-					<INPUT name="startdate" TYPE=text id="startdate" ONCLICK="Calendar(this);" VALUE="<?=$list['startdate'] ?>" size='10' readonly>
+					<INPUT name="startdate" TYPE=text id="startdate" ONCLICK="Calendar(this);" VALUE="<?php echo $list['startdate']; ?>" size='10' readonly>
 				</td>
 			</tr>
 			<tr>
@@ -119,7 +120,7 @@
 					<font color=#333399><span style="font-size: 9pt"><b>내용:</b></font>
 				</td>
 				<td bgcolor=#E3e1FF>
-					<font><textarea name="content" rows=5 cols=50 wrap=soft hname="일정 내용을 입력하여 주세요." required><?= $list['content'] ?></textarea></font>
+					<font><textarea name="content" rows=5 cols=50 wrap=soft hname="일정 내용을 입력하여 주세요." required><?php echo $list['content']; ?></textarea></font>
 				</td>
 			</tr>
 
@@ -264,7 +265,7 @@
 			<tr>
 				<td bgcolor=#E3e1FF height=50>
 					<span style="font-size: 9pt">입력한 반복 일정의 종료 기간을 선택합니다.<br>
-					<INPUT name="enddate" TYPE=text id="enddate" ONCLICK="Calendar(this);" VALUE="<?=$list['enddate'] ?>" size='10' readonly>
+					<INPUT name="enddate" TYPE=text id="enddate" ONCLICK="Calendar(this);" VALUE="<?php echo $list['enddate']; ?>" size='10' readonly>
 					<span style="font-size: 9pt"><b>까지 </b>
 				</td>
 			</tr>

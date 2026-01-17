@@ -1,4 +1,10 @@
 <?php
+//=======================================================
+// ChangeLog
+//	DATE	수정인			 수정 내용
+// -------- ------ --------------------------------------
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
+//=======================================================
 ####################################################################################
 //					준비
 ####################################################################################
@@ -170,12 +176,12 @@ if(!chk.new_board.value){alert('n@log error : \n\n<?php echo $lang['counter_mana
 		<table align=center width=98% cellpadding=2 cellspacing=0 border=0 bordercolor=white bgcolor=#C9F0FF>
 		<tr>	
 		<td>
-		<input type=hidden name=pagenum value=<?=$pagenum?>>
-		<input type=input class=input name=new_board size=20 value='<?=$word?>' onclick=select()> <input type=submit value="<?=$lang['counter_manager_create_button']?>" class=button>  </td></tr>
+		<input type=hidden name=pagenum value=<?php echo $pagenum; ?>>
+		<input type=input class=input name=new_board size=20 value='<?php echo $word; ?>' onclick=select()> <input type=submit value="<?php echo $lang['counter_manager_create_button']; ?>" class=button>  </td></tr>
 		</table>
 	</td></tr></form>
 	<tr><td colspan=2 height=3 bgcolor=#2CBBFF></td></tr>
-	<tr><td bgcolor=white><a href=admin.php>List</a></td><td bgcolor=white align=right><?=$lang['copy']?></td></tr> </table>
+	<tr><td bgcolor=white><a href=admin.php>List</a></td><td bgcolor=white align=right><?php echo $lang['copy']; ?></td></tr> </table>
 </td></tr>
 </table>
 </body>

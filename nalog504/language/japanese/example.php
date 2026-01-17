@@ -6,7 +6,7 @@
 	</tr>
 	<tr>
 	<td>
-		<font size=3><b>n@log analyzer <?php echo $nalog_info[version]; ?>긇긂깛??긖깛긵깑 : <?php echo $counter; ?></b></font>
+		<font size=3><b>n@log analyzer <?php echo $nalog_info['version']; ?>긇긂깛??긖깛긵깑 : <?php echo $counter; ?></b></font>
 	</td>
 	<td align=right>
 		written by <a href="http://navyism.com" target=_blank>navyism</a>
@@ -148,7 +148,7 @@
 
 <table width=600 cellpadding=0 cellspacing=0 border=0 align=center>
 	<tr>
-	<td><font size=1><?php echo $lang[copy]; ?></td>
+	<td><font size=1><?php echo $lang['copy']; ?></td>
 	<td align=right>
 		<span style='font-size:6pt'>&nbsp;&nbsp;</span>
 		<a href="http://navyism.com" target=_blank>렲뽦 땩귂 듫쁀럱뿿</a>

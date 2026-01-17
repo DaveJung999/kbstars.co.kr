@@ -217,7 +217,7 @@ body {
 				<td height="25"><?php echo $glist['g_away'] ; ?></td>
 				<td height="25"><?php echo $glist['g_ground'] ; ?></td>
 				<td height="25"><?php echo $score[$i] ; ?></td>
-				<td height="25"><input name="write" type="button" class="CCboxw" style="cursor: pointer" value=" 등록 " onClick="javascript:location.href='write.php?mode=write&amp;gid=<?php echo $glist['gid'] ; ?>&season=<?=$season?>&tid=<?=$tid?>'" /></td>
+				<td height="25"><input name="write" type="button" class="CCboxw" style="cursor: pointer" value=" 등록 " onClick="javascript:location.href='write.php?mode=write&amp;gid=<?php echo $glist['gid'] ; ?>&season=<?php echo $season; ?>&tid=<?php echo $tid; ?>'" /></td>
 			</tr>
 <?php
 		}

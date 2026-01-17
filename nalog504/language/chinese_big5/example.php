@@ -6,7 +6,7 @@
 	</tr>
 	<tr>
 	<td>
-		<span style='font-size:12pt'><b>n@log analyzer <?php echo $nalog_info[version]; ?> 춑셕씁ⓒΞㅸ챞폻ⓕ</b></span>
+		<span style='font-size:12pt'><b>n@log analyzer <?php echo $nalog_info['version']; ?> 춑셕씁ⓒΞㅸ챞폻ⓕ</b></span>
 	</td>
 	<td align=right>
 		ㅵ?쩍캘좬<a href="http://kiddiken.net" target=_blank>톡そ(kiddiken)</a>
@@ -20,7 +20,7 @@
 <table width=600 cellpadding=3 cellspacing=0 border=0 align=center>
 	<tr>
 	<td colspan=2>
-		콄쨢퇱┬?쫆ヘ?㉲귑Ξ짦??쫁쩾 <b><?php echo $counter; ?></b> ず춑셕씁좧<br>
+		콄쨢퇱┬?쫆헤?㉲귑Ξ짦??쫁쩾 <b><?php echo $counter; ?></b> ず춑셕씁좧<br>
 		빨ⁿㅵ??쩑쿽?춑셕씁ず?쯹ⓖ쪿콄먈컥춑셕씁ずⓒΞㅸ챞폻ⓕ좧<br><br>
 	</td>
 	</tr>
@@ -142,7 +142,7 @@
 
 <table width=600 cellpadding=0 cellspacing=0 border=0 align=center>
 	<tr>
-	<td><font size=1><?php echo $lang[copy]; ?></td>
+	<td><font size=1><?php echo $lang['copy']; ?></td>
 	<td align=right>
 		<span style='font-size:6pt'>&#9654;</span>
 		?쫐멸캴⒝㎌쿙ㅴ누 [ <a href="http://kiddiken.net" target=_blank>햎톱ㄴㅵ</a> |

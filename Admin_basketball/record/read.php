@@ -1,5 +1,11 @@
 
 <?php
+//=======================================================
+// ChangeLog
+//	DATE	수정인			 수정 내용
+// -------- ------ --------------------------------------
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
+//=======================================================
 $HEADER=array(
 		'priv' => "운영자,뉴스관리자,사진관리자", // 인증유무 (0:모두에게 허용, 숫자가 logon테이블 Level)
 		'usedb2' => 1, // DB 커넥션 사용 (0:미사용, 1:사용)
@@ -547,8 +553,8 @@ body {
 				<td><?php echo $home_pldf[$i] ; ?></td>
 				<td><?php echo $home_ptf[$i] ; ?></td>
 				<td><?php echo $home_pcontri[$i] ; ?></td>
-				<td><input name="modify" type="button" class="CCboxw" id="modify" style="cursor: pointer" value="M" onclick="javascript:location.href='modify.php?mode=modify&rid=<?php echo $home_rid[$i] ; ?>&gid=<?php echo $home_gid[$i] ; ?>&pid=<?php echo $home_ppid[$i] ; ?>&s_id=<?php echo $tlist['s_id'] ; ?>&season=<?=$season?>&tid=<?=$tid?>';" />
-					<input name="delete" type="button" class="CCboxw" id="delete" style="cursor: pointer" value="D" onclick="javascript:if (confirm('정말 삭제 할까요?')) location.href='ok.php?mode=delete&rid=<?php echo $home_rid[$i] ; ?>&gid=<?php echo $home_gid[$i] ; ?>&pid=<?php echo $home_ppid[$i] ; ?>&s_id=<?php echo $tlist['s_id'] ; ?>&season=<?=$season?>&tid=<?=$tid?>';" /></td>
+				<td><input name="modify" type="button" class="CCboxw" id="modify" style="cursor: pointer" value="M" onclick="javascript:location.href='modify.php?mode=modify&rid=<?php echo $home_rid[$i] ; ?>&gid=<?php echo $home_gid[$i] ; ?>&pid=<?php echo $home_ppid[$i] ; ?>&s_id=<?php echo $tlist['s_id'] ; ?>&season=<?php echo $season; ?>&tid=<?php echo $tid; ?>';" />
+					<input name="delete" type="button" class="CCboxw" id="delete" style="cursor: pointer" value="D" onclick="javascript:if (confirm('정말 삭제 할까요?')) location.href='ok.php?mode=delete&rid=<?php echo $home_rid[$i] ; ?>&gid=<?php echo $home_gid[$i] ; ?>&pid=<?php echo $home_ppid[$i] ; ?>&s_id=<?php echo $tlist['s_id'] ; ?>&season=<?php echo $season; ?>&tid=<?php echo $tid; ?>';" /></td>
 			</tr>
 <?php
 		} 
@@ -678,8 +684,8 @@ body {
 				<td><?php echo $away_pldf[$i] ; ?></td>
 				<td><?php echo $away_ptf[$i] ; ?></td>
 				<td><?php echo $away_pcontri[$i] ; ?></td>
-				<td><input name="modify2" type="button" class="CCboxw" id="modify" value="M" onclick="javascript:location.href='modify.php?mode=modify&rid=<?php echo $away_rid[$i] ; ?>&gid=<?php echo $away_gid[$i] ; ?>&pid=<?php echo $away_ppid[$i] ; ?>&s_id=<?php echo $tlist['s_id'] ; ?>&season=<?=$season?>&tid=<?=$tid?>';" />
-					<input name="delete" type="button" class="CCboxw" id="delete" value="D" onclick="javascript:if (confirm('정말 삭제 할까요?')) location.href='ok.php?mode=delete&rid=<?php echo $away_rid[$i] ; ?>&gid=<?php echo $away_gid[$i] ; ?>&pid=<?php echo $away_ppid[$i] ; ?>&s_id=<?php echo $tlist['s_id'] ; ?>&season=<?=$season?>&tid=<?=$tid?>';" /></td>
+				<td><input name="modify2" type="button" class="CCboxw" id="modify" value="M" onclick="javascript:location.href='modify.php?mode=modify&rid=<?php echo $away_rid[$i] ; ?>&gid=<?php echo $away_gid[$i] ; ?>&pid=<?php echo $away_ppid[$i] ; ?>&s_id=<?php echo $tlist['s_id'] ; ?>&season=<?php echo $season; ?>&tid=<?php echo $tid; ?>';" />
+					<input name="delete" type="button" class="CCboxw" id="delete" value="D" onclick="javascript:if (confirm('정말 삭제 할까요?')) location.href='ok.php?mode=delete&rid=<?php echo $away_rid[$i] ; ?>&gid=<?php echo $away_gid[$i] ; ?>&pid=<?php echo $away_ppid[$i] ; ?>&s_id=<?php echo $tlist['s_id'] ; ?>&season=<?php echo $season; ?>&tid=<?php echo $tid; ?>';" /></td>
 			</tr>
 <?php
 		} 
@@ -723,7 +729,7 @@ body {
 		<table width="97%"	border="0" align="center" cellpadding="0" cellspacing="0">
 			<tr>
 			<td align="center">&nbsp;
-				<input name="Submit2" type="button" class="CCbox04" style="cursor: pointer" value=" 경기목록 " onclick="javascript:location.href='list.php?gid=<?=$gid;?>&season=<?=$season?>&tid=<?=$tid?>';" /></td>
+				<input name="Submit2" type="button" class="CCbox04" style="cursor: pointer" value=" 경기목록 " onclick="javascript:location.href='list.php?gid=<?php echo $gid; ?>&season=<?php echo $season; ?>&tid=<?php echo $tid; ?>';" /></td>
 			</tr>
 		</table></td>
 	</tr>

@@ -7,6 +7,7 @@
 //	DATE	수정인				수정 내용
 // -------- ------ --------------------------------------
 // 05/11/20 박선민 마지막 수정
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 //=======================================================
 $HEADER = array(
 	'priv'		=>'', // 인증유무 (비회원,회원,운영자,서버관리자)
@@ -60,8 +61,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 						<tr>
 							<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
 							<tr>
-								<td width="450" align="center" valign="top"><img src="http://savers-secret.kbstars.co.kr/sthis/sthis_player/download.php?uid=<?=$player['uid']
-?>&amp;upfile=upfile1&amp;mode=image&amp;notfound=any" width="420" height="690" /></td>
+								<td width="450" align="center" valign="top"><img src="http://savers-secret.kbstars.co.kr/sthis/sthis_player/download.php?uid=<?php echo $player['uid']; ?>&amp;upfile=upfile1&amp;mode=image&amp;notfound=any" width="420" height="690" /></td>
 								<td align="right" valign="top"><table width="500" border="0" cellspacing="0" cellpadding="0">
 								<tr>
 									<td><img src="/images/2016/new/sub_player/gray_top.jpg" width="500" height="16" /></td>
@@ -75,8 +75,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 											<tr>
 												<td width="11">&nbsp;</td>
 												<td width="69" align="left"><strong>생년월일</strong></td>
-												<td width="250"><?=$player['p_bdate']
-?></td>
+												<td width="250"><?php echo $player['p_bdate']; ?></td>
 											</tr>
 											</table></td>
 										</tr>
@@ -85,8 +84,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 											<tr>
 												<td width="11">&nbsp;</td>
 												<td width="69" align="left"><strong>포지션</strong></td>
-												<td width="250"><?=$player['p_position']
-?></td>
+												<td width="250"><?php echo $player['p_position']; ?></td>
 											</tr>
 											</table></td>
 										</tr>
@@ -95,8 +93,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 											<tr>
 												<td width="11">&nbsp;</td>
 												<td width="69" align="left"><strong>신장</strong></td>
-												<td width="250"><?=$player['p_height']
-?>
+												<td width="250"><?php echo $player['p_height']; ?>
 												cm</td>
 											</tr>
 											</table></td>
@@ -106,8 +103,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 											<tr>
 												<td width="11">&nbsp;</td>
 												<td width="69" align="left"><strong>출신학교</strong></td>
-												<td width="250"><?=$player['p_school']
-?></td>
+												<td width="250"><?php echo $player['p_school']; ?></td>
 											</tr>
 											</table></td>
 										</tr>
@@ -116,8 +112,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 											<tr>
 												<td width="11">&nbsp;</td>
 												<td width="69" align="left"><strong>별명</strong></td>
-												<td width="250"><?=$player['p_nickname']
-?></td>
+												<td width="250"><?php echo $player['p_nickname']; ?></td>
 											</tr>
 											</table></td>
 										</tr>
@@ -132,8 +127,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 								<tr>
 									<td align="center" background="/images/2011/image/gray_midlle2.jpg"><table width="450" height="40" border="0" cellspacing="0" cellpadding="0">
 									<tr>
-										<td><?=$player['p_life'];
-?></td>
+										<td><?php echo $player['p_life']; ?></td>
 									</tr>
 									</table></td>
 								</tr>

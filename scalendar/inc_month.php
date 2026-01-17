@@ -7,6 +7,7 @@
 //   DATE   수정인			 수정 내용
 // -------- ------ --------------------------------------
 // 03/09/20 박선민 마지막 수정
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 //=======================================================
 
 //=======================================================
@@ -185,9 +186,7 @@
 												echo date("Y년 m월",$intThisTimestamp);
 											*/
 											
-?><script src="/img/kb_calender_date.php?date_y=<?=date("Y",$intThisTimestamp); 
-?>&date_m=<?=date("m",$intThisTimestamp); 
-?>"></script></font></p>											</td>
+?><script src="/img/kb_calender_date.php?date_y=<?php echo date("Y",$intThisTimestamp); ?>&date_m=<?php echo date("m",$intThisTimestamp); ?>"></script></font></p>											</td>
 											<td width="45%"><table width="100%" border="0" align="right" cellpadding="0" cellspacing="0">
 											  <tr>
 												<td align="center">

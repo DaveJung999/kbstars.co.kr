@@ -1,4 +1,10 @@
 <?php
+//=======================================================
+// ChangeLog
+//	DATE	수정인			 수정 내용
+// -------- ------ --------------------------------------
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
+//=======================================================
 function go1(){
 ?>
 	<table width="97%"	border="0" align="center" cellpadding="6" cellspacing="1" bgcolor="#666666">
@@ -40,21 +46,21 @@ function go1(){
 			$list_view_a['ast3'] = number_format($list_view_a['ast'] - $list_view_a['ast2'],1);
 ?>
 		<tr align="center" bgcolor="#F8F8EA" onMouseOver="this.style.backgroundColor='#C6E2F9'" onMouseOut="this.style.backgroundColor=''">
-			<td height="30" align="center"><?=$i?></td>
-			<td align="center"><?=$list_view_a['t_name']?></td>
-			<td align="center"><?=$list_view_a['gnum']?></td>
-			<td align="center"><?=$list_view_a['score']?></td>
-			<td align="center"><?=$list_view_a['score2']?></td>
-			<td align="center"><?=$list_view_a['score3']?></td>
-			<td align="center"><?=$list_view_a['p2']?></td>
-			<td align="center"><?=$list_view_a['p22']?></td>
-			<td align="center"><?=$list_view_a['p3']?></td>
-			<td align="center"><?=$list_view_a['p32']?></td>
-			<td align="center"><?=$list_view_a['fp']?></td>
-			<td align="center"><?=$list_view_a['fp2']?></td>
-			<td align="center"><?=$list_view_a['ast']?></td>
-			<td align="center"><?=$list_view_a['ast2']?></td>
-			<td align="center"><?=$list_view_a['ast3']?></td>
+			<td height="30" align="center"><?php echo $i; ?></td>
+			<td align="center"><?php echo $list_view_a['t_name']; ?></td>
+			<td align="center"><?php echo $list_view_a['gnum']; ?></td>
+			<td align="center"><?php echo $list_view_a['score']; ?></td>
+			<td align="center"><?php echo $list_view_a['score2']; ?></td>
+			<td align="center"><?php echo $list_view_a['score3']; ?></td>
+			<td align="center"><?php echo $list_view_a['p2']; ?></td>
+			<td align="center"><?php echo $list_view_a['p22']; ?></td>
+			<td align="center"><?php echo $list_view_a['p3']; ?></td>
+			<td align="center"><?php echo $list_view_a['p32']; ?></td>
+			<td align="center"><?php echo $list_view_a['fp']; ?></td>
+			<td align="center"><?php echo $list_view_a['fp2']; ?></td>
+			<td align="center"><?php echo $list_view_a['ast']; ?></td>
+			<td align="center"><?php echo $list_view_a['ast2']; ?></td>
+			<td align="center"><?php echo $list_view_a['ast3']; ?></td>
 		</tr>
 <?php
 	}
@@ -105,18 +111,18 @@ function go2(){
 			$list_view_a['stl3'] = number_format($list_view_a['stl'] - $list_view_a['stl2'],1);
 ?>
 		<tr align="center" bgcolor="#F8F8EA" onMouseOver="this.style.backgroundColor='#C6E2F9'" onMouseOut="this.style.backgroundColor=''">
-			<td height="30" align="center"><?=$i?></td>
-			<td align="center"><?=$list_view_a['t_name']?></td>
-			<td align="center"><?=$list_view_a['gnum']?></td>
-			<td align="center"><?=$list_view_a['rea']?></td>
-			<td align="center"><?=$list_view_a['rea2']?></td>
-			<td align="center"><?=$list_view_a['rea3']?></td>
-			<td align="center"><?=$list_view_a['bs']?></td>
-			<td align="center"><?=$list_view_a['bs2']?></td>
-			<td align="center"><?=$list_view_a['bs3']?></td>
-			<td align="center"><?=$list_view_a['stl']?></td>
-			<td align="center"><?=$list_view_a['stl2']?></td>
-			<td align="center"><?=$list_view_a['stl3']?></td>
+			<td height="30" align="center"><?php echo $i; ?></td>
+			<td align="center"><?php echo $list_view_a['t_name']; ?></td>
+			<td align="center"><?php echo $list_view_a['gnum']; ?></td>
+			<td align="center"><?php echo $list_view_a['rea']; ?></td>
+			<td align="center"><?php echo $list_view_a['rea2']; ?></td>
+			<td align="center"><?php echo $list_view_a['rea3']; ?></td>
+			<td align="center"><?php echo $list_view_a['bs']; ?></td>
+			<td align="center"><?php echo $list_view_a['bs2']; ?></td>
+			<td align="center"><?php echo $list_view_a['bs3']; ?></td>
+			<td align="center"><?php echo $list_view_a['stl']; ?></td>
+			<td align="center"><?php echo $list_view_a['stl2']; ?></td>
+			<td align="center"><?php echo $list_view_a['stl3']; ?></td>
 		</tr>
 <?php
 	}
@@ -161,15 +167,15 @@ function go3(){
 			$list_view_a['tov3'] = number_format($list_view_a['tov'] - $list_view_a['tov2'],1);
 ?>
 		<tr align="center" bgcolor="#F8F8EA" onMouseOver="this.style.backgroundColor='#C6E2F9'" onMouseOut="this.style.backgroundColor=''">
-			<td height="30" align="center"><?=$i?></td>
-			<td align="center"><?=$list_view_a['t_name']?></td>
-			<td align="center"><?=$list_view_a['gnum']?></td>
-			<td align="center"><?=$list_view_a['tov']?></td>
-			<td align="center"><?=$list_view_a['tov2']?></td>
-			<td align="center"><?=$list_view_a['tov3']?></td>
-			<td align="center"><?=$list_view_a['pf']?></td>
-			<td align="center"><?=$list_view_a['pf2']?></td>
-			<td align="center"><?=$list_view_a['pf3']?></td>
+			<td height="30" align="center"><?php echo $i; ?></td>
+			<td align="center"><?php echo $list_view_a['t_name']; ?></td>
+			<td align="center"><?php echo $list_view_a['gnum']; ?></td>
+			<td align="center"><?php echo $list_view_a['tov']; ?></td>
+			<td align="center"><?php echo $list_view_a['tov2']; ?></td>
+			<td align="center"><?php echo $list_view_a['tov3']; ?></td>
+			<td align="center"><?php echo $list_view_a['pf']; ?></td>
+			<td align="center"><?php echo $list_view_a['pf2']; ?></td>
+			<td align="center"><?php echo $list_view_a['pf3']; ?></td>
 		</tr>
 <?php
 	}	
@@ -214,15 +220,15 @@ function go4(){
 			$list_view_a['tov3'] = number_format($list_view_a['tov'] - $list_view_a['tov2'],1);
 ?>
 		<tr align="center" bgcolor="#F8F8EA" onMouseOver="this.style.backgroundColor='#C6E2F9'" onMouseOut="this.style.backgroundColor=''">
-			<td height="30" align="center"><?=$i?></td>
-			<td align="center"><?=$list_view_a['t_name']?></td>
-			<td align="center"><?=$list_view_a['gnum']?></td>
-			<td align="center"><?=$list_view_a['tov']?></td>
-			<td align="center"><?=$list_view_a['tov2']?></td>
-			<td align="center"><?=$list_view_a['tov3']?></td>
-			<td align="center"><?=$list_view_a['pf']?></td>
-			<td align="center"><?=$list_view_a['pf2']?></td>
-			<td align="center"><?=$list_view_a['pf3']?></td>
+			<td height="30" align="center"><?php echo $i; ?></td>
+			<td align="center"><?php echo $list_view_a['t_name']; ?></td>
+			<td align="center"><?php echo $list_view_a['gnum']; ?></td>
+			<td align="center"><?php echo $list_view_a['tov']; ?></td>
+			<td align="center"><?php echo $list_view_a['tov2']; ?></td>
+			<td align="center"><?php echo $list_view_a['tov3']; ?></td>
+			<td align="center"><?php echo $list_view_a['pf']; ?></td>
+			<td align="center"><?php echo $list_view_a['pf2']; ?></td>
+			<td align="center"><?php echo $list_view_a['pf3']; ?></td>
 		</tr>
 <?php
 	}

@@ -32,7 +32,7 @@ $list = db_arrayone($sql);
 
 				<p id="contents_title">저작권관련안내</p> 
 				<div id="sub_contents_main" class="clearfix" style="text-align:left;">
-				<?=$list['content']; ?>
+				<?php echo $list['content']; ?>
 				</div>
 
 <?php

@@ -184,7 +184,7 @@ body {
 			<tr>
 				<td colspan="4" align="center"><input name="submit" type="submit" class="CCbox03" value=" 입 력 " />
 				&nbsp;
-				<input name="back" type="button" class="CCbox03" id="back" onclick="javascript:location.href='list.php?season=<?=$season;?>'" value=" 뒤 로 " /></td>
+				<input name="back" type="button" class="CCbox03" id="back" onclick="javascript:location.href='list.php?season=<?php echo $season; ?>'" value=" 뒤 로 " /></td>
 			</tr>
 			</table>
 	</form></td>

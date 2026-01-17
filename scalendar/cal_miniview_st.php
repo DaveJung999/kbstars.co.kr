@@ -1,4 +1,10 @@
 <?php
+//=======================================================
+// ChangeLog
+//	DATE	수정인			 수정 내용
+// -------- ------ --------------------------------------
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
+//=======================================================
 	include("../global/dbconn.inc");
 	include("../lib/func_date.inc");
 ?>
@@ -9,19 +15,14 @@
 
 <!-- 역서부터-->		
 <center>
-<font size=3 color=red><b><?=$intThisYear
-?>년 <?=$intThisMonth
-?>월 <?=$intThisDay
-?>일</font></b><br>
+<font size=3 color=red><b><?php echo $intThisYear; ?>년 <?php echo $intThisMonth; ?>월 <?php echo $intThisDay; ?>일</font></b><br>
 <table border=0 width=130>
 	<tr>
 		<td align=left>
-			<a href=diary.php?d=m&F_Year=<?=$intPrevYear."&F_Month=".$intPrevMonth."&F_Day=1"
-?>><font color=navy size=2>&lt;&lt;</font></a>
+			<a href=diary.php?d=m&F_Year=<?php echo $intPrevYear."&F_Month=".$intPrevMonth."&F_Day=1"; ?>><font color=navy size=2>&lt;&lt;</font></a>
 		</td>
 		<td align=right>
-			<a href=diary.php?d=m&F_Year=<?=$intNextYear."&F_Month=".$intNextMonth."&F_Day=1"
-?>><font color=navy size=2>&gt;&gt;</font></a>
+			<a href=diary.php?d=m&F_Year=<?php echo $intNextYear."&F_Month=".$intNextMonth."&F_Day=1"; ?>><font color=navy size=2>&gt;&gt;</font></a>
 		</td>
 	</tr>
 </table>

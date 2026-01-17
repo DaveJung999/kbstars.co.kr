@@ -8,6 +8,7 @@
 // -------- ------ --------------------------------------
 // 03/09/16 박선민 마지막 수정
 // 03/10/06 박선민 버그 수정
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 //=======================================================
 $HEADER = array(
 	'priv'		=>'', // 인증유무 (비회원,회원,운영자,서버관리자)
@@ -152,15 +153,10 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 						</b></span></p>
 
 						<p align=right>
-						<a href='<?=$href['today']
-?>'><font color=red>▒ </font> 오늘일정(<?=date("m월 d일")
-?>) </a>   : 
-						<a href='<?=$href['day']
-?>'><font color=red>▒ </font> 일별일정 </a>   : 
-						<a href='<?=$href['week']
-?>'><font color=red>▒ </font>  주별일정 </a> : 
-						<a href='<?=$href['month']
-?>'><font color=red>▒ </font>  월별일정  </a>
+						<a href='<?php echo $href['today']; ?>'><font color=red>▒ </font> 오늘일정(<?php echo date("m월 d일"); ?>) </a>   : 
+						<a href='<?php echo $href['day']; ?>'><font color=red>▒ </font> 일별일정 </a>   : 
+						<a href='<?php echo $href['week']; ?>'><font color=red>▒ </font>  주별일정 </a> : 
+						<a href='<?php echo $href['month']; ?>'><font color=red>▒ </font>  월별일정  </a>
 						</p>
 					</td>
 				</tr>
@@ -186,5 +182,4 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 		</td>
 	</tr>
 </table>
-<?=$SITE['tail'];
-?>
+<?php echo $SITE['tail']; ?>

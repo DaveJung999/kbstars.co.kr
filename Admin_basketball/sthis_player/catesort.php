@@ -189,10 +189,10 @@ $cateinfo	= db_arrayone($sql) or back_close("카테고리가 선택되지 않았
 
 // 상위메뉴 순서 변경
 ?>
-	<form name="form1" method="post" action="<?=$_SERVER['PHP_SELF']?>" style="margin:0px">
-	<input type="hidden" name="db" value="<?=$_GET['db']?>">
+	<form name="form1" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" style="margin:0px">
+	<input type="hidden" name="db" value="<?php echo $_GET['db']; ?>">
 	<input type="hidden" name="mode" value="change">
-	<input type="hidden" name="srcuid" value="<?=$cateinfo['uid'] ?>">
+	<input type="hidden" name="srcuid" value="<?php echo $cateinfo['uid']; ?>">
 	<table border=0 cellspacing='1' cellpadding='3' bgcolor='black' width=350 height=100>
 		<tr>
 			<td bgcolor='#CCFFCC' ><b>메뉴순서변경</b></td>

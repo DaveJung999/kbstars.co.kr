@@ -8,6 +8,7 @@
 // -------- ------ --------------------------------------
 // 03/09/16 박선민 마지막 수정
 // 03/11/14 박선민 버그수정
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 //=======================================================
 
 //=======================================================
@@ -51,7 +52,7 @@
 				</td>
 				<td>
 					<font color=#8B4500><span style="font-size: 9pt"><b>
-					<?=$list['title']?></b>
+					<?php echo $list['title']; ?></b>
 					</span></font>
 				</td>
 			</tr>
@@ -61,7 +62,7 @@
 				</td>
 				<td height=25>
 					<font color=#8B4500><span style="font-size: 9pt"><b>
-					<?=$list['place']?></b>&nbsp;
+					<?php echo $list['place']; ?></b>&nbsp;
 					</span></font>
 				</td>
 			</tr>
@@ -72,7 +73,7 @@
 				</td>
 				<td>
 					<font color=#8B4500><span style="font-size: 9pt"><b>
-					<?=(int)$list['priv_level']?> 레벨이상
+					<?php echo (int)$list['priv_level']; ?> 레벨이상
 					</b></font>					
 					
 				</td>
@@ -141,7 +142,7 @@
 				</td>
 				<td>
 				<font color=#8B4500><span style="font-size: 9pt"><b>
-					<?=$list['content']; ?>
+					<?php echo $list['content']; ?>
 					</b></font>
 				</td>
 			</tr>
@@ -149,11 +150,9 @@
 				<td width="100" bgcolor=#efefef height=40>&nbsp;
 				</td>
 				<td bgcolor=#efefef>&nbsp;
-					<a href='<?=$href['edit']
-?>'>
+					<a href='<?php echo $href['edit']; ?>'>
 					<img src="images/modi.gif" width="43" height="22" border="0" ></a>&nbsp;
-					<a href='<?=$href['delete']
-?>' onClick="javascript: return confirm('해당 일정을 정말로 삭제하시겠습니까?');">
+					<a href='<?php echo $href['delete']; ?>' onClick="javascript: return confirm('해당 일정을 정말로 삭제하시겠습니까?');">
 					<img src="images/del.gif" width=43 height=22 border=0>
 					</a>&nbsp;
 					<a href='javascript:history.back(-1)'>

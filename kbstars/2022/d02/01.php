@@ -32,7 +32,7 @@ $list = db_arrayone($sql);
 
 				<p id="contents_title">코칭스탭</p> 
 				<div id="sub_contents_main" class="clearfix">
-				<?=$list['content']; ?>
+				<?php echo $list['content']; ?>
 				</div>
 		
 <?php

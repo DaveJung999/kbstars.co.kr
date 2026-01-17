@@ -308,7 +308,7 @@ function redirect(x){
 			<td align="center">&nbsp;
 				<input name="submit" type="submit" class="CCbox04" value=" 기록입력 " />
 				&nbsp;
-				<input name="Submit2" type="button" class="CCbox04" value=" 목록" onclick="javascript:location.href='read.php?gid=<?=$gid;?>&season=<?=$season?>&tid=<?=$tid?>'" /></td>
+				<input name="Submit2" type="button" class="CCbox04" value=" 목록" onclick="javascript:location.href='read.php?gid=<?php echo $gid; ?>&season=<?php echo $season; ?>&tid=<?php echo $tid; ?>'" /></td>
 			</tr>
 		</table>
 		</form></td>

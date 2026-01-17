@@ -7,6 +7,7 @@
 //	DATE	수정인				수정 내용
 // -------- ------ --------------------------------------
 // 05/11/20 박선민 마지막 수정
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 //=======================================================
 $HEADER = array(
 	'priv'		=>'', // 인증유무 (비회원,회원,운영자,서버관리자)
@@ -32,7 +33,7 @@ $list = db_arrayone($sql);
 
 				<p id="contents_title">구단주 인사말</p> 
 				<div id="sub_contents_main" class="clearfix">
-				<?=$list['content']; ?>
+				<?php echo $list['content']; ?>
 				</div>
 
 <?php

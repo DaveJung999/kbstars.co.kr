@@ -6,7 +6,7 @@
 	</tr>
 	<tr>
 	<td>
-		<span style='font-size:11pt'><b>n@log analyzer <?php echo $nalog_info[version]; ?>
+		<span style='font-size:11pt'><b>n@log analyzer <?php echo $nalog_info['version']; ?>
 		Usage example of counter: <?php echo $counter; ?></b></span>
 	</td>
 	<td align=right>
@@ -144,7 +144,7 @@ DAY PEAK &lt;img src="http://<?php echo $_SERVER['HTTP_HOST'] . preg_replace('/e
 
 <table width="95%" cellpadding=0 cellspacing=0 border=0 align=center>
 	<tr>
-	<td><font size=1><?php echo $lang[copy]; ?></td>
+	<td><font size=1><?php echo $lang['copy']; ?></td>
 	<td align=right>
 		<span style='font-size:6pt'>&#9654;</span>
 		More information or support [ <a href="http://english.navyism.com" target=_blank>English</a> |

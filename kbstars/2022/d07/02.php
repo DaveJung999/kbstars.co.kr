@@ -32,7 +32,7 @@ $list = db_arrayone($sql);
 
 				<p id="contents_title">개인정보처리방침</p> 
 				<div id="sub_contents_main" class="clearfix" style="text-align:left;">
-				<?=$list['content']; ?>
+				<?php echo $list['content']; ?>
 				</div>
 
 <?php

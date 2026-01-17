@@ -7,6 +7,7 @@
 // DATE 수정인			 수정 내용
 // -------- ------ --------------------------------------
 // 03/10/10 박선민 마지막 수정
+// 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 //=======================================================
 /*
 function minical() {
@@ -284,7 +285,7 @@ require("{$_SERVER['DOCUMENT_ROOT']}/sinc/header.php");
 	</tr>
 	<tr>
 		<td width="159">
-		<p align="center"><a href="<?=$href['month']?>"><img src="<?=$thisUrl?>/images/month_<?=$intThisMonth?>.gif" width="156" height="57" border="0"></a></p>
+		<p align="center"><a href="<?php echo $href['month']; ?>"><img src="<?php echo $thisUrl; ?>/images/month_<?php echo $intThisMonth; ?>.gif" width="156" height="57" border="0"></a></p>
 		</td>
 	</tr>
 	<tr>
@@ -295,7 +296,7 @@ require("{$_SERVER['DOCUMENT_ROOT']}/sinc/header.php");
 <table width="100%" cellspacing="0" cellpadding="0" height="100%" align="center">
 	<tr valign="top">
 		<td height="22" colspan="7">
-			<IMG height=25 src="<?=$thisUrl?>/images/month_title.gif" width="156">
+			<IMG height=25 src="<?php echo $thisUrl; ?>/images/month_title.gif" width="156">
 		</td>
 	</tr>
 <?php

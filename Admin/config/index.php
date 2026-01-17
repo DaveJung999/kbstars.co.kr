@@ -100,7 +100,7 @@ $dbinfo['color_current_list'] ="#F1F1FF";
 </style>
 <table width="100%" border="0" align="center" cellpadding="1" cellspacing="1" bgcolor="#bbbbbb">
 	<tr>
-		<td height="23" bgcolor="<?= htmlspecialchars($dbinfo['color_main_title'] ?? '', ENT_QUOTES, 'UTF-8') ?>"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+		<td height="23" bgcolor="<?php echo htmlspecialchars($dbinfo['color_main_title'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
 				<tr>
 					<td><img src="/sboard4/stpl/a_class/images/company.gif" width="16" height="15" border="0" align="absmiddle"> <strong>환경설정</strong>&nbsp;&nbsp;&nbsp; <img src="/sboard4/stpl/a_class/images/bar_menu.gif" width="3" height="16" border="0" align="absmiddle">&nbsp; <a href="./index.php" onFocus="this.blur();"><img src="/sboard4/stpl/a_class/images/btm_system_0.gif" width="80" height="18" border="0" align="absmiddle" OnMouseDown = "onDown(this);" OnMouseOver = "onOver(this);" OnMouseOut = "onOut(this);"></a> <img src="/sboard4/stpl/a_class/images/bar.gif" width="1" height="16" border="0" align="absmiddle"> <a href="./popup.php" onFocus="this.blur();"><img src="/sboard4/stpl/a_class/images/btm_popupad_0.gif" width="70" height="18" border="0" align="absmiddle" OnMouseDown = "onDown(this);" OnMouseOver = "onOver(this);" OnMouseOut = "onOut(this);"></a> <img src="/sboard4/stpl/a_class/images/bar.gif" width="1" height="16" border="0" align="absmiddle"> <a href="./mailmessage.php" onFocus="this.blur();"><img src="/sboard4/stpl/a_class/images/btm_mailmsg_0.gif" width="100" height="18" border="0" align="absmiddle" OnMouseDown = "onDown(this);" OnMouseOver = "onOver(this);" OnMouseOut = "onOut(this);"></a> <img src="/sboard4/stpl/a_class/images/bar.gif" width="1" height="16" border="0" align="absmiddle"> <a href="./bank.php" onFocus="this.blur();"><img src="/sboard4/stpl/a_class/images/btm_bankadmin_0.gif" width="90" height="18" border="0" align="absmiddle" OnMouseDown = "onDown(this);" OnMouseOver = "onOver(this);" OnMouseOut = "onOut(this);"></a> <img src="/sboard4/stpl/a_class/images/bar.gif" width="1" height="16" border="0" align="absmiddle"> <a href="./logo.php" onFocus="this.blur();"><img src="/sboard4/stpl/a_class/images/btm_adjlogo_0.gif" width="90" height="18" border="0" align="absmiddle" OnMouseDown = "onDown(this);" OnMouseOver = "onOver(this);" OnMouseOut = "onOut(this);"></a></td>
 				</tr>
@@ -128,52 +128,52 @@ $dbinfo['color_current_list'] ="#F1F1FF";
 	</tr>
 	<tr>
 		<td width="17%" bgcolor="#E6E6E6">&nbsp; 사이트명</td>
-		<td width="83%" bgcolor="#FFFFFF"><input type="text" name="site_name" style="width:95%" class="styleinput" value="<?= htmlspecialchars($list['site_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></td>
+		<td width="83%" bgcolor="#FFFFFF"><input type="text" name="site_name" style="width:95%" class="styleinput" value="<?php echo htmlspecialchars($list['site_name'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"></td>
 	</tr>
 	<tr>
 		<td bgcolor="#E6E6E6">&nbsp; 홈페이지</td>
-		<td bgcolor="#FFFFFF"><input type="text" name="homepage" style="width:95%" class="styleinput" value="<?= htmlspecialchars($list['homepage'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></td>
+		<td bgcolor="#FFFFFF"><input type="text" name="homepage" style="width:95%" class="styleinput" value="<?php echo htmlspecialchars($list['homepage'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"></td>
 	</tr>
 	<tr>
 		<td bgcolor="#E6E6E6">&nbsp; 회사명</td>
-		<td bgcolor="#FFFFFF"><input type="text" name="c_name" size="20" class="styleinput" value="<?= htmlspecialchars($list['c_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></td>
+		<td bgcolor="#FFFFFF"><input type="text" name="c_name" size="20" class="styleinput" value="<?php echo htmlspecialchars($list['c_name'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"></td>
 	<tr>
 		<td bgcolor="#E6E6E6">&nbsp; 대표</td>
-		<td bgcolor="#FFFFFF"><input type="text" name="ceo_name" size="20" class="styleinput" value="<?= htmlspecialchars($list['ceo_name'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></td>
+		<td bgcolor="#FFFFFF"><input type="text" name="ceo_name" size="20" class="styleinput" value="<?php echo htmlspecialchars($list['ceo_name'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"></td>
 	</tr>
 	<tr>
 		<td bgcolor="#E6E6E6">&nbsp; 업태</td>
-		<td bgcolor="#FFFFFF"><input type="text" name="b_conditions" size="20" class="styleinput" value="<?= htmlspecialchars($list['b_conditions'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></td>
+		<td bgcolor="#FFFFFF"><input type="text" name="b_conditions" size="20" class="styleinput" value="<?php echo htmlspecialchars($list['b_conditions'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"></td>
 	</tr>
 	<tr>
 		<td bgcolor="#E6E6E6">&nbsp; 종목</td>
-		<td bgcolor="#FFFFFF"><input type="text" name="b_item" size="20" class="styleinput" value="<?= htmlspecialchars($list['b_item'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></td>
+		<td bgcolor="#FFFFFF"><input type="text" name="b_item" size="20" class="styleinput" value="<?php echo htmlspecialchars($list['b_item'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"></td>
 	</tr>
 	<tr>
 		<td bgcolor="#E6E6E6">&nbsp; Tel 1</td>
-		<td bgcolor="#FFFFFF"><input type="text" name="c_tel1" size="20" class="styleinput" value="<?= htmlspecialchars($list['c_tel1'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></td>
+		<td bgcolor="#FFFFFF"><input type="text" name="c_tel1" size="20" class="styleinput" value="<?php echo htmlspecialchars($list['c_tel1'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"></td>
 	</tr>
 	<tr>
 		<td bgcolor="#E6E6E6">&nbsp; Tel 2</td>
-		<td bgcolor="#FFFFFF"><input type="text" name="c_tel2" size="20" class="styleinput" value="<?= htmlspecialchars($list['c_tel2'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></td>
+		<td bgcolor="#FFFFFF"><input type="text" name="c_tel2" size="20" class="styleinput" value="<?php echo htmlspecialchars($list['c_tel2'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"></td>
 	</tr>
 	<tr>
 		<td bgcolor="#E6E6E6">&nbsp; Fax</td>
-		<td bgcolor="#FFFFFF"><input type="text" name="c_fax" size="20" class="styleinput" value="<?= htmlspecialchars($list['c_fax'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></td>
+		<td bgcolor="#FFFFFF"><input type="text" name="c_fax" size="20" class="styleinput" value="<?php echo htmlspecialchars($list['c_fax'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"></td>
 	</tr>
 	<tr>
 		<td bgcolor="#E6E6E6">&nbsp; 대표 E-Mail</td>
-		<td bgcolor="#FFFFFF"><input type="text" name="c_email" size="30" class="styleinput" value="<?= htmlspecialchars($list['c_email'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></td>
+		<td bgcolor="#FFFFFF"><input type="text" name="c_email" size="30" class="styleinput" value="<?php echo htmlspecialchars($list['c_email'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"></td>
 	</tr>
 	<tr>
 		<td bgcolor="#E6E6E6">&nbsp; 사업자<br>&nbsp; 등록번호</td>
-		<td bgcolor="#FFFFFF"><input type="text" name="c_biznum" size="30" class="styleinput" value="<?= htmlspecialchars($list['c_biznum'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></td>
+		<td bgcolor="#FFFFFF"><input type="text" name="c_biznum" size="30" class="styleinput" value="<?php echo htmlspecialchars($list['c_biznum'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"></td>
 	</tr>
 	<tr>
 		<td bgcolor="#E6E6E6">&nbsp; 센터 주소</td>
-		<td bgcolor="#FFFFFF"><input name="c_zipcode" type="text" class="styleinput" id="c_zipcode" value="<?= htmlspecialchars($list['c_zipcode'] ?? '', ENT_QUOTES, 'UTF-8') ?>" size="7">
+		<td bgcolor="#FFFFFF"><input name="c_zipcode" type="text" class="styleinput" id="c_zipcode" value="<?php echo htmlspecialchars($list['c_zipcode'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" size="7">
 				<br>
-				<input type="text" name="c_addr" size="60" class="styleinput" value="<?= htmlspecialchars($list['c_addr'] ?? '', ENT_QUOTES, 'UTF-8') ?>"></td>
+				<input type="text" name="c_addr" size="60" class="styleinput" value="<?php echo htmlspecialchars($list['c_addr'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"></td>
 	</tr>
 	</form>
 </table>
