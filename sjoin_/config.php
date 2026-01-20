@@ -14,7 +14,7 @@ $dbinfo	= array(
 			
 			'skin'		=>'basic',
 //			'html_type'	=>'ht', 
-			'html_type'	=>'ht', 
-			'html_skin'	=>'2015_d12'
+			'html_type'	=>'', 
+			'html_skin'	=>''
 		);
 ?>

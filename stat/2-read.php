@@ -123,6 +123,13 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 		if($atct)	{
 			$atlist = db_array( $atrs );
 		}
+	} else {
+		back('경기 정보를 찾을 수 없습니다.');
+	}
+	
+	// 팀 정보가 없으면 오류 처리
+	if(!isset($htlist) || !isset($htlist['tid']) || !isset($atlist) || !isset($atlist['tid'])) {
+		back('팀 정보를 찾을 수 없습니다.');
 	}
 	
 	// 어큐뮬레이터 변수 초기화
