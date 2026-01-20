@@ -114,7 +114,7 @@ function userinfoModify($dbinfo){
 		$list_logon['priv'] .=",서포터즈";
 	
 	//시즌정보
-	$sql_season = " SELECT *, sid as s_id FROM `savers_secret`.season WHERE pnt_race = 1 AND kpoint_hide = 0 ORDER BY s_start DESC Limit 1 ";
+	$sql_season = " SELECT *, sid as s_id FROM season WHERE pnt_race = 1 AND kpoint_hide = 0 ORDER BY s_start DESC Limit 1 ";
 	$result_season = db_query($sql_season);
 	$list_season = $result_season ? db_array($result_season) : null;
 	if(!$list_season) back("시즌 정보를 찾을 수 없습니다.");

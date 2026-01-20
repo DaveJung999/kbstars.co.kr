@@ -41,7 +41,7 @@ foreach ($params as $param) {
 
 	
 if($_GET['mode'] == "modify" ){
-	$psql = "SELECT * FROM `savers_secret`.player_league WHERE uid = '{$uid}' ORDER BY pid DESC";
+	$psql = "SELECT * FROM player_league WHERE uid = '{$uid}' ORDER BY pid DESC";
 	$prs_list = db_query($psql);
 	$list = db_array($prs_list);
 	
@@ -56,7 +56,7 @@ $form_write = " method='post' action='{$thisUrl}/pok.php' ENCTYPE='multipart/for
 $form_write .= substr(href_qs("mode={$_GET['mode']}&uid={$uid}&pid={$pid}",$qs_basic,1),0,-1);
 
 // 선수정보 가져오기
-$p_rs = db_query("SELECT * FROM `savers_secret`.player where tid = 13 and p_gubun = '현역' order by p_name, p_num ");
+$p_rs = db_query("SELECT * FROM player where tid = 13 and p_gubun = '현역' order by p_name, p_num ");
 $cnt = db_count($p_rs);
 if($cnt){
 	for($i = 0 ; $i < $cnt ; $i++)	{
@@ -72,7 +72,7 @@ if($cnt){
 	}
 }
 //팀명, 팀아이디 가져오기
-$tsql = " SELECT * FROM `savers_secret`.team ORDER BY tid ASC ";
+$tsql = " SELECT * FROM team ORDER BY tid ASC ";
 $trs = db_query($tsql);
 $tcnt = db_count($trs);
 
@@ -92,7 +92,7 @@ if($tcnt){
 }
 
 // 시즌정보 가져오기
-$s_rs = db_query("SELECT * FROM `savers_secret`.season order by s_start desc, s_end desc");
+$s_rs = db_query("SELECT * FROM season order by s_start desc, s_end desc");
 $cnt = db_count($s_rs);
 if($cnt){
 	for($i = 0 ; $i < $cnt ; $i++)	{

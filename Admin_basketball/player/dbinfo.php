@@ -1,10 +1,10 @@
 <?php
 // 데이터베이스 테이블 설정
-$table = "`savers_secret`.player"; 
+$table = "player"; 
 
 // dbinfo 배열 정의
 $dbinfo = array(
-	"table" => "`savers_secret`.player",
+	"table" => "player",
 	"title" => "선수 기본 정보",
 	"skin" => "sthis_player",
 	"pern" => 40,

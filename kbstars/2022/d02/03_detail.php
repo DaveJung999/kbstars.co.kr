@@ -32,7 +32,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 // Start... (DB 작업 및 display)
 //=======================================================
 	// 넘오온값 체크
-	$table_player = "savers_secret.player";
+	$table_player = "player";
 	$table_cmletter	= "new21_board2_cmletter";
 	
 	// 해당 선수 정보

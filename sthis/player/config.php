@@ -14,7 +14,7 @@ $dbinfo	= array(
 			'title'				=>'회의록',
 			
 			// table
-			'table'				=>'savers_secret.new21_slist_totalgame_result',
+			'table'				=>'new21_slist_totalgame_result',
 			
 			// 스킨설정
 			'skin'				=>'basic',

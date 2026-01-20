@@ -39,7 +39,7 @@ $qs_basic = "db=" . ($_REQUEST['db'] ?? ($table ?? '')) .			//table 이름
 			"&goto=" . ($_REQUEST['goto'] ?? '').
 			"&page=" . ($_REQUEST['page'] ?? '');
 
-$table		= "`savers_secret`.season_rank";
+$table		= "season_rank";
 $dbinfo['table'] = $table;
 
 // 공통적으로 사용할 $qs
@@ -106,7 +106,7 @@ function write_ok($table,$qs){
 	$qs['sid'] = $_POST['season'] ?? '';
 	
 	// 값 추가
-	$qs['t_name'] = db_resultone("select t_name from `savers_secret`.team where tid='".db_escape($qs['tid']) . "'",0,'t_name');
+	$qs['t_name'] = db_resultone("select t_name from team where tid='".db_escape($qs['tid']) . "'",0,'t_name');
 	if(!$qs['t_name']) back('잘못된 요청입니다.');
 
 	// $sql 완성
@@ -152,7 +152,7 @@ function modify_ok($table,$qs,$field){
 	$qs=check_value($qs);
 
 	// 값 추가
-	$qs['t_name'] = db_resultone("select t_name from `savers_secret`.team where tid='".db_escape($qs['tid']) . "'",0,'t_name');
+	$qs['t_name'] = db_resultone("select t_name from team where tid='".db_escape($qs['tid']) . "'",0,'t_name');
 	if(!$qs['t_name']) back('잘못된 요청입니다.');
 
 	// 해당 데이터 읽기

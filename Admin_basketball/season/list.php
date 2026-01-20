@@ -94,7 +94,7 @@ body {
 			</tr>
 <?php
 	//팀이름 가져오기
-	$tsql = " select * from `savers_secret`.team order by tid ";
+	$tsql = " select * from team order by tid ";
 	$trs = db_query($tsql);
 	$tcnt = db_count($trs);
 	$tname = [];
@@ -106,7 +106,7 @@ body {
 	}
 
 	//시즌정보
-	$sql = " SELECT *, sid as s_id FROM `savers_secret`.season ORDER BY s_start DESC ";
+	$sql = " SELECT *, sid as s_id FROM season ORDER BY s_start DESC ";
 	$rs = db_query($sql);
 	$cnt = db_count($rs);
 	if($cnt)	{

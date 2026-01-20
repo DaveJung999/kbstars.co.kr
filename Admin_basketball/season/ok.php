@@ -76,7 +76,7 @@ function write_ok($s_name, $s_start, $s_end, $first, $second, $third, $fourth,$d
 		$fourth = 0;
 	}
 
-	$sql = " INSERT INTO `savers_secret`.season(s_name, s_start, s_end, `1st`, `2nd`, `3rd`, `4th`,dsp_plo,dsp_chp,pnt_race,s_hide, roundno, kpoint_hide)
+	$sql = " INSERT INTO season(s_name, s_start, s_end, `1st`, `2nd`, `3rd`, `4th`,dsp_plo,dsp_chp,pnt_race,s_hide, roundno, kpoint_hide)
 			values('{$s_name}', {$s_start}, {$s_end}, {$first}, {$second}, {$third}, {$fourth},{$dsp_plo},{$dsp_chp},{$pnt_race}, '{$s_hide}', {$roundno}, {$kpoint_hide}) ";
 	db_query($sql);
 	$goto = "/Admin_basketball/season/list.php";
@@ -93,7 +93,7 @@ function modify_ok($sid, $s_name, $s_start, $s_end, $first, $second, $third, $fo
 		$fourth = 0;
 	}
 
-	$sql = " UPDATE `savers_secret`.season
+	$sql = " UPDATE season
 				SET s_name = '{$s_name}', s_start = {$s_start}, s_end = {$s_end},
 					`1st` = {$first}, `2nd` = {$second}, `3rd` = {$third}, `4th` = {$fourth},
 					dsp_plo = {$dsp_plo}, dsp_chp = {$dsp_chp}, pnt_race = {$pnt_race},
@@ -107,7 +107,7 @@ function modify_ok($sid, $s_name, $s_start, $s_end, $first, $second, $third, $fo
 // delete_ok()
 //-----------------------------------------------------------
 function delete_ok($sid)	{
-	$sql = " DELETE FROM `savers_secret`.season WHERE sid = {$sid} ";
+	$sql = " DELETE FROM season WHERE sid = {$sid} ";
 	db_query($sql);
 	$goto = "/Admin_basketball/season/list.php";
 	back('',$goto);

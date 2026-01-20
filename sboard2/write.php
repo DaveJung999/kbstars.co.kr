@@ -92,7 +92,7 @@ if($dbinfo['enable_cate'] == 'Y'){
 	// $PlayerCateBoard  =>  /sinc/config.php 파일에 있음
 	if( in_array($dbinfo['db'], $PlayerCateBoard) ){
 //			if ($_SERVER['REMOTE_ADDR'] == '211.175.147.98') print_r( $PlayerCateBoard );
-		$dbinfo['table_cate']	= "`savers_secret`.player";
+		$dbinfo['table_cate']	= "player";
 	}
 	//============================================================================ 
 

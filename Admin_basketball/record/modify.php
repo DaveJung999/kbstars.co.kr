@@ -38,7 +38,7 @@ function sub(){
 	if($mode != "modify" || !$gid || !$rid)	back_close('필요한 정보가 없습니다.', "/Admin_basketball/game/list.php");
 	
 	//경기 기본정보 가져오기
-	$grs = db_query(" SELECT *, sid as s_id FROM `savers_secret`.game WHERE gid={$gid} ");
+	$grs = db_query(" SELECT *, sid as s_id FROM game WHERE gid={$gid} ");
 	$gct = db_count($grs);
 	if($gct) {	
 		$glist = db_array($grs);
@@ -48,13 +48,13 @@ function sub(){
 			$end	= date("Y.m.d H:i", $glist['g_end']);
 		
 		//시즌 정보 가져오기
-		$srs = db_query(" SELECT * FROM `savers_secret`.season WHERE sid={$glist['s_id']} ");
+		$srs = db_query(" SELECT * FROM season WHERE sid={$glist['s_id']} ");
 		$sct = db_count($srs);
 		if($sct)
 			$slist = db_array($srs);
 		
 		//선수 정보 가져오기
-		$prs = db_query(" SELECT * FROM `savers_secret`.player WHERE uid={$pid} ");
+		$prs = db_query(" SELECT * FROM player WHERE uid={$pid} ");
 		$pct = db_count($prs);
 		if($pct)	{
 			$plist = db_array($prs);
@@ -62,14 +62,14 @@ function sub(){
 		
 		
 		//팀 정보
-		$trs = db_query( " SELECT * from `savers_secret`.team WHERE tid={$plist['tid']} ");
+		$trs = db_query( " SELECT * from team WHERE tid={$plist['tid']} ");
 		$tct = db_count( $trs );
 		if($tct)	{
 			$tlist = db_array( $trs );
 		}
 	}
 	
-	$rsql = " SELECT * from `savers_secret`.record WHERE rid = {$rid} ";
+	$rsql = " SELECT * from record WHERE rid = {$rid} ";
 	$rrs = db_query( $rsql );
 	$rcnt = db_count( $rrs );
 	

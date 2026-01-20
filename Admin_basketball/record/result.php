@@ -83,7 +83,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 <object id=factory style="display:none;" classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814" viewastext codebase="http://www.meadroid.com/scriptx/ScriptX.cab#Version=6,1,429,14"></object>
 <?php
 //시즌정보
-$sql = " SELECT *, sid as s_id FROM `savers_secret`.season ORDER BY s_start DESC ";
+$sql = " SELECT *, sid as s_id FROM season ORDER BY s_start DESC ";
 $rs = db_query($sql);
 $cnt = db_count($rs);
 
@@ -97,7 +97,7 @@ if($cnt)	{
 	}		
 }	
 
-$t_rs = db_query(" select * from `savers_secret`.team order by tid");
+$t_rs = db_query(" select * from team order by tid");
 $t_cnt = db_count($t_rs);
 
 if($t_cnt)	{
@@ -155,7 +155,7 @@ if($t_cnt)	{
 <?php
 	
 	//경기 정보 가져오기
-	$gsql = " select * FROM `savers_secret`.game ";
+	$gsql = " select * FROM game ";
 	$sql_where = " where ";
 	if($season) 
 		$sql_where .= " sid = {$season} ";
@@ -178,7 +178,7 @@ if($t_cnt)	{
 			$glist['g_start'] = date("Y-m-d", $glist['g_start']);			
 			
 			//팀아이디를 팀이름으로 변경
-			$trs = db_query("select * from `savers_secret`.team order by tid");
+			$trs = db_query("select * from team order by tid");
 			$tcnt = db_count($trs);
 			for($j=0 ; $j < $tcnt ; $j++){
 				$tlist = db_array($trs);
@@ -194,7 +194,7 @@ if($t_cnt)	{
 				}
 			}
 			
-			$rrs = db_query(" select count(rid) as cnt from `savers_secret`.record where gid={$glist['gid']} ");
+			$rrs = db_query(" select count(rid) as cnt from record where gid={$glist['gid']} ");
 			$rcount = db_array($rrs);
 			if($rcount['cnt'] > 0){
 				$href_read = "<a href='/Admin_basketball/record/result_read.php?gid={$glist['gid']}'>{$glist['g_start']}</a>";
@@ -203,7 +203,7 @@ if($t_cnt)	{
 			}
 			
 			//홈팀 경기 결과
-			$home = "SELECT sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as sum from `savers_secret`.record WHERE gid = {$glist['gid']} and tid = {$glist['home_tid']}";			
+			$home = "SELECT sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as sum from record WHERE gid = {$glist['gid']} and tid = {$glist['home_tid']}";			
 			$home_rs = db_query($home);
 			$home_cnt = db_count($home_rs);
 			if($home_cnt)	{
@@ -212,7 +212,7 @@ if($t_cnt)	{
 			}
 			
 			//어웨이팀 경기결과
-			$away = "SELECT sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as sum from `savers_secret`.record WHERE gid = {$glist['gid']} and tid = {$glist['away_tid']}";			
+			$away = "SELECT sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as sum from record WHERE gid = {$glist['gid']} and tid = {$glist['away_tid']}";			
 			$away_rs = db_query($away);
 			$away_cnt = db_count($away_rs);
 			if($away_cnt)	{

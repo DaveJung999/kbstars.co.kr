@@ -34,7 +34,7 @@ function go1(){
 		</tr>
 <?php
 	if($_GET['season']){
-		$sql_view_a = " SELECT a.*,b.* FROM `savers_secret`.record_tmp2 as a,record_tmp3 as b where a.tid = b.tid ORDER BY a.t_name, a.score desc ";
+		$sql_view_a = " SELECT a.*,b.* FROM record_tmp2 as a,record_tmp3 as b where a.tid = b.tid ORDER BY a.t_name, a.score desc ";
 		$rs_view_a = db_query($sql_view_a);
 		$cnt_view_a = db_count($rs_view_a);
 
@@ -98,7 +98,7 @@ function go2(){
 		</tr>
 <?php
 	if($_GET['season']){
-		$sql_view_a = " SELECT a.*,b.* FROM `savers_secret`.record_tmp2 as a,record_tmp3 as b where a.tid = b.tid ORDER BY a.t_name, a.rea desc ";
+		$sql_view_a = " SELECT a.*,b.* FROM record_tmp2 as a,record_tmp3 as b where a.tid = b.tid ORDER BY a.t_name, a.rea desc ";
 		$rs_view_a = db_query($sql_view_a);
 		$cnt_view_a = db_count($rs_view_a);
 		
@@ -155,7 +155,7 @@ function go3(){
 		</tr>
 <?php
 	if($_GET['season']){
-		$sql_view_a = " SELECT a.*,b.* FROM `savers_secret`.record_tmp2 as a,record_tmp3 as b where a.tid = b.tid ORDER BY a.t_name, a.tov desc ";
+		$sql_view_a = " SELECT a.*,b.* FROM record_tmp2 as a,record_tmp3 as b where a.tid = b.tid ORDER BY a.t_name, a.tov desc ";
 		$rs_view_a = db_query($sql_view_a);
 		$cnt_view_a = db_count($rs_view_a);
 		
@@ -208,7 +208,7 @@ function go4(){
 		</tr>
 <?php
 	if($_GET['season']){
-		$sql_view_a = " SELECT a.*,b.* FROM `savers_secret`.record_tmp2 as a,record_tmp3 as b where a.tid = b.tid ORDER BY a.rea desc ";
+		$sql_view_a = " SELECT a.*,b.* FROM record_tmp2 as a,record_tmp3 as b where a.tid = b.tid ORDER BY a.rea desc ";
 		$rs_view_a = db_query($sql_view_a);
 		$cnt_view_a = db_count($rs_view_a);
 		

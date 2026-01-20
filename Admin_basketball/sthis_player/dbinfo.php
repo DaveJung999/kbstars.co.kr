@@ -7,7 +7,7 @@
 // -------- ------ --------------------------------------
 // 24/05/18 Gemini	PHP 7 마이그레이션 및 논리 오류 수정
 //=======================================================
-	$dbinfo['table']		= "`savers_secret`.player"; // new21_slist_event
+	$dbinfo['table']		= "player"; // new21_slist_event
 	$table		= $dbinfo['table'];
 	
 	$dbinfo['title']		= "선수 기본 정보";

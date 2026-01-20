@@ -33,7 +33,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 	// 기본 URL QueryString
 	$qs_basic = "";
 
-	$table_season = "`savers_secret`.season";
+	$table_season = "season";
 	
 	//2015-10-01
 	if(!$_GET['choSeason']) $_GET['choSeason'] = 40;
@@ -125,7 +125,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 //=======================================================
 // Start.. . (DB 작업 및 display)
 //=======================================================
-	$table_game = "`savers_secret`.game";
+	$table_game = "game";
 
 	$sql = "SELECT * from {$table_game} WHERE sid='{$season['sid']}' and (g_home=13 or g_away=13) ";
 	$result	= db_query($sql);
@@ -210,7 +210,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 			<span style="line-height:100%;">
 				<select name="choSeason" onchange="javascript: window.location='?choSeason='+this.value;" >
 <?php
-$sql = "select * from `savers_secret`.season where s_hide=0 order by s_start DESC";
+$sql = "select * from season where s_hide=0 order by s_start DESC";
 $rs_tmp = db_query($sql);
 while($ltmp = db_array($rs_tmp)){
 	if( $ltmp['sid'] == $season['sid'] ){

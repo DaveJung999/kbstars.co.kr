@@ -94,7 +94,7 @@ $thisUrl	= '/s'.$prefix.'/'; // 마지막이 '/'으로 끝나야함
 		//	07.10.04 davej............선수 테이블을 임시 카테고리 테이블로 사용...........
 		// $PlayerCateBoard  =>  /sin/config.php 파일에 있음
 		if( in_array($dbinfo['db'], $PlayerCateBoard) ){
-			$dbinfo['table_cate']	= "`savers_secret`.player";
+			$dbinfo['table_cate']	= "player";
 		}
 		//============================================================================ 
 

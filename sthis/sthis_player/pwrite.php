@@ -35,12 +35,12 @@ $tpl = new phemplate("","remove_nonjs");
 if( !is_file("{$thisPath}/stpl/yboard_album/pwrite.htm") ) $dbinfo['skin']="board_basic";
 $tpl->set_file('html',"{$thisPath}/stpl/yboard_album/pwrite.htm",TPL_BLOCK);
 if($_GET['mode'] == "modify" ){
-	$prs_list = db_query("SELECT * FROM `savers_secret`.player_league WHERE pid = '{$puid}' ORDER BY pid DESC");
+	$prs_list = db_query("SELECT * FROM player_league WHERE pid = '{$puid}' ORDER BY pid DESC");
 	$list = db_array($prs_list);
 	$tpl->set_var('list',$list);
 	
 	//팀정보
-	$sql = " SELECT * FROM `savers_secret`.team where 1 ORDER BY tid ";
+	$sql = " SELECT * FROM team where 1 ORDER BY tid ";
 	$rs = db_query($sql);
 	$cnt = db_count($rs);
 	

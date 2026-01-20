@@ -40,7 +40,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 	// 기본 URL QueryString
 	$qs_basic	= href_qs($qs_basic); // 해당값 초기화
 
-	$table_season = "`savers_secret`.season";
+	$table_season = "season";
 	
 	$sql = "select max(sid) as max_sid FROM {$table_season} where s_hide=0";
 	$max_sid = db_resultone($sql, 0, 'max_sid');
@@ -142,7 +142,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 //=======================================================
 // Start.. . (DB 작업 및 display)
 //=======================================================
-	$table_game = "`savers_secret`.game";
+	$table_game = "game";
 
 	$sql = "SELECT * from {$table_game} WHERE sid='{$season['sid']}' and (g_home=13 or g_away=13) ";
 	$result	= db_query($sql);
@@ -237,7 +237,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 			<span style="line-height:100%;">
 				<select name="choSeason" onchange="javascript: window.location='?mNum=<?php echo $_GET['mNum'] ; ?>&html_skin=<?php echo $_GET['html_skin'] ; ?>&choSeason='+this.value;" >
 <?php
-$sql = "select * from `savers_secret`.season where s_hide=0 order by s_start DESC";
+$sql = "select * from season where s_hide=0 order by s_start DESC";
 $rs_tmp = db_query($sql);
 while($ltmp = db_array($rs_tmp)){
 	if( $ltmp['sid'] == $season['sid'] ){

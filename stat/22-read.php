@@ -30,12 +30,12 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 // Ready.. . (변수 초기화 및 넘어온값 필터링)
 //=======================================================
 	// 넘오온값 체크
-	$table_season = "`savers_secret`.season";
-	$table_game = "`savers_secret`.game";
-	$table_team = "`savers_secret`.team";
-	$table_player = "`savers_secret`.player";
-	$table_player_teamhistory = "`savers_secret`.player_teamhistory";
-	$table_record = "`savers_secret`.record";
+	$table_season = "season";
+	$table_game = "game";
+	$table_team = "team";
+	$table_player = "player";
+	$table_player_teamhistory = "player_teamhistory";
+	$table_record = "record";
 	
 	$gid = $_GET['gid'] ?? null;
 	if(!$gid) {
@@ -145,7 +145,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 	
 	//홈팀 경기 기록 정보
 	$re_rs1 = db_query(" select * from {$table_record} where gid = '{$gid}' and tid = '{$htlist['tid']}' ");
-//	$re_rs1 = db_query(" select a.* from {$table_record} as a left join `savers_secret`.player as b on a.pid=b.uid where a.gid = {$gid} and a.tid = '{$htlist['tid']}' order by b.p_num");
+//	$re_rs1 = db_query(" select a.* from {$table_record} as a left join player as b on a.pid=b.uid where a.gid = {$gid} and a.tid = '{$htlist['tid']}' order by b.p_num");
 	$re_cnt1 = db_count($re_rs1);
 	if($re_cnt1)	{
 		for($i=0 ; $i<$re_cnt1 ; $i++)	{

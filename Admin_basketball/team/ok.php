@@ -77,12 +77,12 @@ switch($mode) {
 function write_ok($t_name)	{
 	$t_name_escaped = db_escape($t_name);
 
-	$sql = " INSERT INTO `savers_secret`.`team` (`t_name`) VALUES ('{$t_name_escaped}') ";
+	$sql = " INSERT INTO `team` (`t_name`) VALUES ('{$t_name_escaped}') ";
 	db_query($sql);
 	$last_id = db_insert_id();
 	
 	if ($last_id > 0) {
-		$sql = " INSERT INTO `savers_secret`.`player_cate` (`uid`, `title`, `comment`) VALUES (" . (int)$last_id . ", '{$t_name_escaped}', '{$t_name_escaped}') ";
+		$sql = " INSERT INTO `player_cate` (`uid`, `title`, `comment`) VALUES (" . (int)$last_id . ", '{$t_name_escaped}', '{$t_name_escaped}') ";
 		db_query($sql);
 	}
 	$goto = "list.php";
@@ -97,10 +97,10 @@ function modify_ok($tid, $t_name)	{
 	}
 	$t_name_escaped = db_escape($t_name);
 
-	$sql = " UPDATE `savers_secret`.`team` SET `t_name` = '{$t_name_escaped}' WHERE `tid` = " . (int)$tid;
+	$sql = " UPDATE `team` SET `t_name` = '{$t_name_escaped}' WHERE `tid` = " . (int)$tid;
 	db_query($sql);
 
-	$sql = " UPDATE `savers_secret`.`player_cate` SET `title` = '{$t_name_escaped}', `comment` = '{$t_name_escaped}'	WHERE `uid` = " . (int)$tid;
+	$sql = " UPDATE `player_cate` SET `title` = '{$t_name_escaped}', `comment` = '{$t_name_escaped}'	WHERE `uid` = " . (int)$tid;
 	db_query($sql);
 	$goto = "list.php";
 	go_url($goto);
@@ -112,10 +112,10 @@ function delete_ok($tid)	{
 	if ($tid <= 0) {
 		back("유효하지 않은 팀 ID입니다.");
 	}
-	$sql = " DELETE FROM `savers_secret`.`team` WHERE `tid` = " . (int)$tid;
+	$sql = " DELETE FROM `team` WHERE `tid` = " . (int)$tid;
 	db_query($sql);
 
-	$sql = " DELETE FROM `savers_secret`.`player_cate` WHERE `uid` = " . (int)$tid;
+	$sql = " DELETE FROM `player_cate` WHERE `uid` = " . (int)$tid;
 	db_query($sql);
 	$goto = "list.php";
 	go_url($goto);

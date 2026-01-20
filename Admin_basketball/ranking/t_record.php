@@ -51,7 +51,7 @@ if($html == "print")	$print = "";
 else $print = "<img src='/images/print_img.gif' border='0' onClick=\"window.open('t_record.php?html=print&season={$season}&mode={$mode}');\">";
 
 //시즌정보
-$sql = " SELECT *, sid as s_id FROM `savers_secret`.season ORDER BY s_start DESC ";
+$sql = " SELECT *, sid as s_id FROM season ORDER BY s_start DESC ";
 $rs = db_query($sql);
 $cnt = db_count($rs);
 
@@ -69,7 +69,7 @@ if($cnt)	{
 	}		
 }	
 
-$t_rs = db_query(" select * FROM `savers_secret`.team order by tid");
+$t_rs = db_query(" select * FROM team order by tid");
 $t_cnt = db_count($t_rs);
 
 if($t_cnt)	{
@@ -85,7 +85,7 @@ if($t_cnt)	{
 
 if($_GET['season']){
 	$tuid = time();
-	$sql_team = " SELECT * FROM `savers_secret`.team ORDER BY tid ";
+	$sql_team = " SELECT * FROM team ORDER BY tid ";
 	$rs_team = db_query($sql_team);
 	$cnt_team = db_count($rs_team);
 	
@@ -93,7 +93,7 @@ if($_GET['season']){
 		for($i=0 ; $i<$cnt_team ; $i++){
 			$list_team = db_array($rs_team);
 			
-			$sql_game_h = " SELECT * FROM `savers_secret`.game where g_home = {$list_team['tid']} ORDER BY gid ASC ";
+			$sql_game_h = " SELECT * FROM game where g_home = {$list_team['tid']} ORDER BY gid ASC ";
 			$rs_game_h = db_query($sql_game_h);
 			$cnt_game_h = db_count($rs_game_h);
 			
@@ -121,7 +121,7 @@ if($_GET['season']){
 						sum(w_ft + w_oft + tf) as pf,
 						sum(tover) as tov,
 						sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as score
-					FROM `savers_secret`.record
+					FROM record
 					WHERE sid = {$_GET['season']} and gid = {$list_game_h['gid']} and tid = {$list_team['tid']}";
 					
 					$rs_record_h = db_query($sql_record_h);
@@ -193,7 +193,7 @@ if($_GET['season']){
 
 						
 			
-			$sql_game_a = " SELECT * FROM `savers_secret`.game where g_away = {$list_team['tid']} ORDER BY gid ASC ";
+			$sql_game_a = " SELECT * FROM game where g_away = {$list_team['tid']} ORDER BY gid ASC ";
 			$rs_game_a = db_query($sql_game_a);
 			$cnt_game_a = db_count($rs_game_a);
 			
@@ -221,7 +221,7 @@ if($_GET['season']){
 						sum(w_ft + w_oft + tf) as pf,
 						sum(tover) as tov,
 						sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as score
-					FROM `savers_secret`.record
+					FROM record
 					WHERE sid = {$_GET['season']} and gid = {$list_game_a['gid']} and tid = {$list_team['tid']}";
 					
 					$rs_record_a = db_query($sql_record_a);
@@ -371,8 +371,8 @@ if($_GET['season']){
 			go1();
 	}
 
-	db_query("DELETE FROM `savers_secret`.record_tmp2 WHERE tuid = {$tuid}");
-	db_query("DELETE FROM `savers_secret`.record_tmp3 WHERE tuid2 = {$tuid}");
+	db_query("DELETE FROM record_tmp2 WHERE tuid = {$tuid}");
+	db_query("DELETE FROM record_tmp3 WHERE tuid2 = {$tuid}");
 }
 
 echo $SITE['tail']; 

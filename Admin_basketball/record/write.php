@@ -30,7 +30,7 @@ foreach ($params as $param) {
 if(!$mode || !$gid)	back_close('필요한 정보가 없습니다.', "/Admin_basketball/game/list.php?season=".$season);
 
 //경기 기본정보 가져오기
-$trs = db_query(" SELECT *, sid as s_id FROM `savers_secret`.game WHERE gid={$gid} ");
+$trs = db_query(" SELECT *, sid as s_id FROM game WHERE gid={$gid} ");
 $tct = db_count($trs);
 if($tct) {
 	$tlist = db_array($trs);
@@ -40,7 +40,7 @@ if($tct) {
 		$end	= date("Y.m.d H:i", $tlist['g_end']);
 
 	//시즌 정보 가져오기
-	$srs = db_query(" SELECT * FROM `savers_secret`.season WHERE sid={$tlist['s_id']} ");
+	$srs = db_query(" SELECT * FROM season WHERE sid={$tlist['s_id']} ");
 	$sct = db_count($srs);
 	$s_sel = "<option>선수선택</option>";
 	if($sct)
@@ -48,9 +48,9 @@ if($tct) {
 
 	//홈팀 선수 정보 가져오기
 	/*
-	$hprs = db_query(" SELECT * FROM `savers_secret`.player WHERE tid={$tlist['g_home']} ");
+	$hprs = db_query(" SELECT * FROM player WHERE tid={$tlist['g_home']} ");
 	*/
-	$hprs = db_query(" SELECT * FROM `savers_secret`.player_teamhistory WHERE tid={$tlist['g_home']} and sid = {$tlist['s_id']} ");
+	$hprs = db_query(" SELECT * FROM player_teamhistory WHERE tid={$tlist['g_home']} and sid = {$tlist['s_id']} ");
 	$hpct = db_count($hprs);
 	$hp_sel = "<option value=''>선수선택</option>";
 	if($hpct)	{
@@ -64,9 +64,9 @@ if($tct) {
 
 	//어웨이팀 선수 정보 가져오기
 	/*
-	$ayrs = db_query(" SELECT * FROM `savers_secret`.player WHERE tid={$tlist['g_away']} ");
+	$ayrs = db_query(" SELECT * FROM player WHERE tid={$tlist['g_away']} ");
 	*/
-	$ayrs = db_query(" SELECT * FROM `savers_secret`.player_teamhistory WHERE tid={$tlist['g_away']} and sid = {$tlist['s_id']} ");
+	$ayrs = db_query(" SELECT * FROM player_teamhistory WHERE tid={$tlist['g_away']} and sid = {$tlist['s_id']} ");
 	$ayct = db_count($ayrs);
 	$ay_sel = "<option value=''>선수선택</option>";
 	if($ayct)	{
@@ -79,14 +79,14 @@ if($tct) {
 	}
 
 	//홈팀 정보
-	$htrs = db_query( " SELECT * from `savers_secret`.team WHERE tid={$tlist['g_home']} ");
+	$htrs = db_query( " SELECT * from team WHERE tid={$tlist['g_home']} ");
 	$htct = db_count( $htrs );
 	if($htct)	{
 		$htlist = db_array( $htrs );
 	}
 
 	//어웨이팀 정보
-	$atrs = db_query( " SELECT * from `savers_secret`.team WHERE tid={$tlist['g_away']} ");
+	$atrs = db_query( " SELECT * from team WHERE tid={$tlist['g_away']} ");
 	$atct = db_count( $atrs );
 	if($atct)	{
 		$atlist = db_array( $atrs );
@@ -257,9 +257,9 @@ group[i]=new Array();
 
 <?php
 /*	변경			davej..................
-	$hprs = db_query(" SELECT * FROM `savers_secret`.player WHERE tid={$tlist['g_home']} ");
+	$hprs = db_query(" SELECT * FROM player WHERE tid={$tlist['g_home']} ");
 */
-	$hprs = db_query(" SELECT * FROM `savers_secret`.player_teamhistory WHERE tid={$tlist['g_home']}	and sid = {$tlist['s_id']} ");
+	$hprs = db_query(" SELECT * FROM player_teamhistory WHERE tid={$tlist['g_home']}	and sid = {$tlist['s_id']} ");
 	$hpct = db_count($hprs);
 	$hp_sel = "<option value=''>선수선택</option>";
 	if($hpct)	{
@@ -273,9 +273,9 @@ group[i]=new Array();
 	}
 
 	/*
-	$ayrs = db_query(" SELECT * FROM `savers_secret`.player WHERE tid={$tlist['g_away']} ");
+	$ayrs = db_query(" SELECT * FROM player WHERE tid={$tlist['g_away']} ");
 	*/
-	$ayrs = db_query(" SELECT * FROM `savers_secret`.player_teamhistory WHERE tid={$tlist['g_away']}	and sid = {$tlist['s_id']}");
+	$ayrs = db_query(" SELECT * FROM player_teamhistory WHERE tid={$tlist['g_away']}	and sid = {$tlist['s_id']}");
 	$ayct = db_count($ayrs);
 	$ay_sel = "<option value=''>선수선택</option>";
 	if($ayct)	{

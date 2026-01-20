@@ -132,7 +132,7 @@ $form_write .= substr(href_qs("mode={$mode}&uid=" . ($list['uid'] ?? '') . "&pri
 $href["list"] = "./list.php?" . href_qs("",$qs_basic);
 
 //팀명, 팀아이디 가져오기
-$tsql = " SELECT * FROM `savers_secret`.team ORDER BY tid ASC ";
+$tsql = " SELECT * FROM team ORDER BY tid ASC ";
 $trs = $mysqli->query($tsql);
 $tcnt = $trs ? $trs->num_rows : 0;
 $tselect = '';
@@ -155,7 +155,7 @@ if($tcnt){
 }
 
 //시즌 가져오기
-$sql_season = " SELECT * FROM `savers_secret`.season ORDER BY s_start desc ";
+$sql_season = " SELECT * FROM season ORDER BY s_start desc ";
 $rs_season = $mysqli->query($sql_season);
 $cnt_season = $rs_season ? $rs_season->num_rows : 0;
 $sname = '';

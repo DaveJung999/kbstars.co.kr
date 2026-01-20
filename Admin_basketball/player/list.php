@@ -28,7 +28,7 @@ foreach ($params as $param) {
 //===================================================
 
 //팀별로 보기
-$tsql = 'SELECT tid, t_name FROM `savers_secret`.team order by tid ';
+$tsql = 'SELECT tid, t_name FROM team order by tid ';
 $trs = db_query($tsql);
 $tcnt = db_count($trs);
 $tselect = "<option value=list.php>:::: 팀선택 ::::</option><option value=list.php>전체</option>";
@@ -120,7 +120,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 		$sql_where = " WHERE tid = {$team} ";
 	}
 
-	$sql = " SELECT * FROM `savers_secret`.player ".$sql_where."ORDER BY p_num ";
+	$sql = " SELECT * FROM player ".$sql_where."ORDER BY p_num ";
 
 	$rs = db_query($sql);
 	$cnt = db_count($rs);

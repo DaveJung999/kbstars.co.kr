@@ -42,7 +42,7 @@ if(isset($_GET['html']) && $_GET['html'] == "print")	$print = "&nbsp;";
 else $print = "<img src='/images/print_img.gif' border='0' onClick=\"window.open('list2.php?html=print&pid={$pid}&tid={$tid}');\">";
 
 //시즌정보
-$sql_season = " SELECT *, sid as s_id FROM `savers_secret`.season ORDER BY s_start DESC ";
+$sql_season = " SELECT *, sid as s_id FROM season ORDER BY s_start DESC ";
 $rs_season = db_query($sql_season);
 $cnt_season = db_count($rs_season);
 
@@ -62,7 +62,7 @@ if($cnt_season)	{
 	}
 }
 //상대팀 선택
-$tsql = " SELECT * FROM `savers_secret`.team WHERE tid != 6";
+$tsql = " SELECT * FROM team WHERE tid != 6";
 $trs = db_query($tsql);
 $tcnt = db_count($trs);
 if($tcnt)	{
@@ -81,7 +81,7 @@ if($tcnt)	{
 if(!$tid)	$tid = $t_id[0];
 
 //선수이름 선택
-$sql = " SELECT * FROM `savers_secret`.player_teamhistory WHERE tid = 6 and sid = {$session_id} ORDER BY length(pbackno), pbackno ASC";
+$sql = " SELECT * FROM player_teamhistory WHERE tid = 6 and sid = {$session_id} ORDER BY length(pbackno), pbackno ASC";
 $rs = db_query($sql);
 $cnt = db_count($rs);
 
@@ -188,7 +188,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 				<td>공헌도</td>
 			</tr>
 <?php
-$gsql = " SELECT * FROM `savers_secret`.game WHERE (g_home = 6	AND g_away = {$tid}) or (g_home = {$tid}	AND g_away = 6) and sid={$session_id} ";
+$gsql = " SELECT * FROM game WHERE (g_home = 6	AND g_away = {$tid}) or (g_home = {$tid}	AND g_away = 6) and sid={$session_id} ";
 $grs = db_query($gsql);
 $gcnt = db_count($grs);
 if($gcnt){
@@ -219,7 +219,7 @@ if($gcnt){
 		$glist = db_array($grs);
 		$gid[$j] = $glist['gid'];
 
-		$sql5 = " SELECT * FROM `savers_secret`.record WHERE pid={$pid} and gid={$gid[$j]} and sid={$session_id} ";
+		$sql5 = " SELECT * FROM record WHERE pid={$pid} and gid={$gid[$j]} and sid={$session_id} ";
 		$rs5 = db_query($sql5);
 		$cnt5 = db_count($rs5);
 
@@ -303,13 +303,13 @@ if($gcnt){
 	//최근 5경기 기록 시작
 	for($k=0 ; $k < count($gid) ; $k++)	{
 		$min=""; $a2=""; $f2=""; $p2=""; $a3=""; $f3=""; $p3=""; $aft=""; $fft=""; $pft=""; $re_off=""; $re_def=""; $ast=""; $stl=""; $bs=""; $tover=""; $w_oft=""; $score=""; $avg=""; $cont="";
-		$sqlg = " SELECT *	FROM `savers_secret`.record WHERE pid = {$pid} AND gid = {$gid[$k]} and sid={$session_id} ";
+		$sqlg = " SELECT *	FROM record WHERE pid = {$pid} AND gid = {$gid[$k]} and sid={$session_id} ";
 		$rsg = db_query($sqlg);
 		$cntg = db_count($rsg);
 		if($cntg){
 			$listg = db_array($rsg);
 		//상대팀명 팀아이디, 팀이름 - 국민은행제외(tid 6)===========================================================================================
-			$rst = db_query(" SELECT t_name FROM `savers_secret`.team A, `savers_secret`.game B WHERE (A.tid = B.g_home OR A.tid = B.g_away) AND B.gid = {$gid[$k]} AND A.tid != 6 ");
+			$rst = db_query(" SELECT t_name FROM team A, game B WHERE (A.tid = B.g_home OR A.tid = B.g_away) AND B.gid = {$gid[$k]} AND A.tid != 6 ");
 			$list_tname = db_array($rst);
 		//============================================================================================================================================
 			$min = $listg['min'];
@@ -344,7 +344,7 @@ if($gcnt){
 			$aa++;
 
 			//게임날짜
-			$grs = db_query(" select * FROM `savers_secret`.game where gid = {$gid[$k]} ");
+			$grs = db_query(" select * FROM game where gid = {$gid[$k]} ");
 			$glist = db_array($grs);
 			$glist['g_start'] = date("y/m/d", $glist['g_start']);
 ?>

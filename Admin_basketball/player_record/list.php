@@ -55,7 +55,7 @@ if(isset($_GET['html']) && $_GET['html'] == "print")	$print = "&nbsp;";
 	$game 	= isset($_REQUEST['game']) ? $_REQUEST['game'] : null;
 
 	//시즌
-	$s_sql = " SELECT *, sid as s_id FROM `savers_secret`.season ORDER BY s_start DESC ";
+	$s_sql = " SELECT *, sid as s_id FROM season ORDER BY s_start DESC ";
 	$s_rs	= db_query( $s_sql );
 	$s_cnt = db_count( $s_rs );
 	$s_select = "";
@@ -176,7 +176,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 			</tr>
 <?php
 //선수정보
-	$p_sql = " SELECT * FROM `savers_secret`.player_teamhistory WHERE tid = 13 and sid={$season} ORDER BY length(pbackno), pbackno ASC ";
+	$p_sql = " SELECT * FROM player_teamhistory WHERE tid = 13 and sid={$season} ORDER BY length(pbackno), pbackno ASC ";
 	$p_rs	= db_query( $p_sql );
 	$p_cnt = db_count( $p_rs );
 
@@ -206,7 +206,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 							sum(r.gd) as gd,
 							sum(r.tover) as tover,
 							sum(r.1qs) + sum(r.2qs) + sum(r.3qs) + sum(r.4qs) + sum(r.e1s) + sum(r.e2s) + sum(r.e3s) as score
-					FROM `savers_secret`.record r, `savers_secret`.game g
+					FROM record r, game g
 					WHERE r.gid=g.gid and r.pid={$p_list['pid']} and r.sid={$season} and g.g_division = '{$divison}' ";
 
 			$r_rs	= db_query( $r_sql );

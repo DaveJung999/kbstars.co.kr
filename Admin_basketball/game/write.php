@@ -37,7 +37,7 @@ foreach ($params as $param) {
 
 $list = [];
 if($mode == "modify" && $gid)	{
-	$sql = " SELECT *, sid as s_id FROM `savers_secret`.game WHERE gid = " . (int)$gid;
+	$sql = " SELECT *, sid as s_id FROM game WHERE gid = " . (int)$gid;
 	$rs = db_query($sql);
 	$cnt = db_count($rs);
 
@@ -63,7 +63,7 @@ if($mode == "modify" && $gid)	{
 	}
 } else {
 	$list['s_id'] = $_GET['season'] ?? null;
-	$sql = "select * from `savers_secret`.season where sid='" . db_escape($list['s_id']) . "'";
+	$sql = "select * from season where sid='" . db_escape($list['s_id']) . "'";
 	if($season_info = db_arrayone($sql)){
 		$list['g_start'] = $season_info['s_start'];
 		$list['g_end'] = $season_info['s_end'];
@@ -92,7 +92,7 @@ if($mode == "modify" && $gid)	{
 }
 
 //시즌 정보 가져오기
-$ssql = " select *, sid as s_id from `savers_secret`.season ";
+$ssql = " select *, sid as s_id from season ";
 $srs = db_query($ssql);
 $scnt = db_count($srs);
 
@@ -106,7 +106,7 @@ if($scnt)	{
 }
 
 //팀정보 가져오기
-$tsql = " select * from `savers_secret`.team order by tid ";
+$tsql = " select * from team order by tid ";
 $trs = db_query($tsql);
 $tcnt = db_count($trs);
 

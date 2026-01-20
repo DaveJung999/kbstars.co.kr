@@ -28,8 +28,8 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 // Ready.. . (변수 초기화 및 넘어온값 필터링)
 //=======================================================
 	// 넘오온값 체크
-	$table_player = "`savers_secret`.player";
-	$table_team = "`savers_secret`.team";
+	$table_player = "player";
+	$table_team = "team";
 	$table_cmletter	= "new21_board2_cmletter";
 	
 	// 해당 선수 정보
@@ -180,8 +180,8 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 		<tr>
 			<td><table border="0" width="100%" cellspacing="1" bgcolor="#e5e5e5">
 <?php
-//echo "SELECT * FROM `savers_secret`.player_league WHERE pid = '{$player['uid']}' ORDER BY uid DESC";
-$rs_league = db_query("SELECT * FROM `savers_secret`.player_league WHERE pid = '{$player['uid']}' ORDER BY uid DESC");
+//echo "SELECT * FROM player_league WHERE pid = '{$player['uid']}' ORDER BY uid DESC";
+$rs_league = db_query("SELECT * FROM player_league WHERE pid = '{$player['uid']}' ORDER BY uid DESC");
 $i=0;
 while($plist = db_array($rs_league)){
 	

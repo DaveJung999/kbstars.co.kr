@@ -42,7 +42,7 @@ if(isset($_GET['html']) && $_GET['html'] == "print")	$print = "";
 else $print = "<img src='/images/print_img.gif' border='0' onClick=\"window.open('list3.php?html=print&pid={$pid}&tid={$tid}');\">";
 
 //시즌정보
-$sql_season = " SELECT *, sid as s_id FROM `savers_secret`.season ORDER BY s_start DESC ";
+$sql_season = " SELECT *, sid as s_id FROM season ORDER BY s_start DESC ";
 $rs_season = db_query($sql_season);
 $cnt_season = db_count($rs_season);
 
@@ -60,7 +60,7 @@ if($cnt_season)	{
 }
 
 //선수이름 선택
-$sql = " SELECT * FROM `savers_secret`.player_teamhistory WHERE tid = {$tid} and sid = {$session_id} ORDER BY length(pbackno), pbackno ASC";
+$sql = " SELECT * FROM player_teamhistory WHERE tid = {$tid} and sid = {$session_id} ORDER BY length(pbackno), pbackno ASC";
 $rs = db_query($sql);
 $cnt = db_count($rs);
 
@@ -183,7 +183,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 				sum(w_oft) as w_oft,
 				sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as score,
 				count(pid) as cnt
-			FROM `savers_secret`.record
+			FROM record
 			WHERE pid = {$pid} and sid = {$session_id} ";
 	$rs = db_query($sql);
 	$cnt = db_count($rs);
@@ -266,7 +266,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 //최근 5경기 기록 시작
 	$sql5 = "SELECT *
-			FROM `savers_secret`.`record`
+			FROM `record`
 			WHERE pid={$pid} and tid={$tid} and sid = {$session_id}
 			ORDER BY rdate desc
 			";
@@ -317,7 +317,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 			$list5['contribute'] = number_format($con1 - $con2, 2);
 
 			//게임날짜
-			$grs = db_query(" select * FROM `savers_secret`.game where gid = {$list5['gid']} ");
+			$grs = db_query(" select * FROM game where gid = {$list5['gid']} ");
 			$glist = db_array($grs);
 			$list5['gday'] = $glist['g_start'];
 			$list5['gday'] = date("y/m/d", $list5['gday']);
@@ -325,7 +325,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 			if($tid == $glist['g_home'])	$other_tid = $glist['g_away'];
 			else						$other_tid = $glist['g_home'];
 
-			$trs = db_query(" select * FROM `savers_secret`.team where tid = {$other_tid} ");
+			$trs = db_query(" select * FROM team where tid = {$other_tid} ");
 			$tlist = db_array($trs);
 			$other_name = $tlist['t_name'];
 			//날짜-상대팀

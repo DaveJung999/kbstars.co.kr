@@ -6,14 +6,14 @@
 // 25/01/XX Auto 단축 태그 <?= → <?php echo 변경
 //=======================================================
 // 다음 경기일정......................
-$sql = "select * from `savers_secret`.game
+$sql = "select * from game
 		where (g_home=13 or g_away=13)
 		and from_unixtime(g_start, '%Y%m%d') > from_unixtime(UNIX_TIMESTAMP(), '%Y%m%d')
 		order by g_start LIMIT 1";
 
 /*
 // 테스트
-$sql = "select * from `savers_secret`.game
+$sql = "select * from game
 		where (g_home=13 or g_away=13)
 		and from_unixtime(g_start, '%Y%m%d') > '20210119'
 		order by g_start LIMIT 1";
@@ -34,7 +34,7 @@ if ($game_next != ""){
 	if($game_next['g_home'] == 13) $game_next['g_home_name'] = "KB스타즈";
 
 	//어웨이팀 정보
-	$sql = " SELECT t_name FROM `savers_secret`.team WHERE tid='{$game_next['g_away']}' ";
+	$sql = " SELECT t_name FROM team WHERE tid='{$game_next['g_away']}' ";
 	$game_next['g_away_name'] = db_resultone($sql,0,'t_name');
 
 	// 경기날짜 장소

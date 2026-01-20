@@ -51,7 +51,7 @@ $qs_basic = "db={$table}".			//table 이름
 			"&page={$page}"
 	;				//현재 페이지
 
-$table				= "`savers_secret`.player_league"; // new21_slist_event
+$table				= "player_league"; // new21_slist_event
 
 // 공통적으로 사용할 $qs
 $qs=array(
@@ -129,7 +129,7 @@ function write_ok($table, $qs){
 	$qs=check_value($qs);
 
 	//팀 정보
-	$team_name = db_resultone( " SELECT t_name from `savers_secret`.team WHERE tid='{$qs['tid']}' ", 0, 't_name');
+	$team_name = db_resultone( " SELECT t_name from team WHERE tid='{$qs['tid']}' ", 0, 't_name');
 
 	// sql문 완성
 	$sql_set_file = '';
@@ -340,7 +340,7 @@ function modify_ok($table,$qs,$field){
 	$qs=check_value($qs);
 
 	//팀 정보
-	$team_name = db_resultone( " SELECT t_name from `savers_secret`.team WHERE tid='{$qs['tid']}' ", 0, 't_name');
+	$team_name = db_resultone( " SELECT t_name from team WHERE tid='{$qs['tid']}' ", 0, 't_name');
 	
 /*	if($_SERVER['REMOTE_ADDR'] == '59.27.126.160'){
 		echo $team_name." ===";

@@ -38,7 +38,7 @@ $dbinfo = []; // Assuming $dbinfo is an array, it needs to be defined if it's us
 $upfiles = [];
 
 if($mode == "modify" && $pid)	{
-	$sql = " SELECT * FROM `savers_secret`.player WHERE uid = " . (int)$pid;
+	$sql = " SELECT * FROM player WHERE uid = " . (int)$pid;
 	$rs = db_query($sql);
 	$cnt = db_count($rs);
 
@@ -80,7 +80,7 @@ if($mode == "modify" && $pid)	{
 }
 
 //팀명, 팀아이디 가져오기
-$tsql = " SELECT * FROM `savers_secret`.team ORDER BY tid ASC ";
+$tsql = " SELECT * FROM team ORDER BY tid ASC ";
 $trs = db_query($tsql);
 $tcnt = db_count($trs);
 

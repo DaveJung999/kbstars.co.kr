@@ -14,8 +14,8 @@ $dbinfo	= array(
 			'title'				=>'세이버스  종합기록실 - 팀순위',
 			
 			// table
-			'table'				=>'savers_secret.totalgame_result',
-			'table_season'		=>'savers_secret.season',
+			'table'				=>'totalgame_result',
+			'table_season'		=>'season',
 			
 			// 스킨설정
 			'skin'				=>'basic',

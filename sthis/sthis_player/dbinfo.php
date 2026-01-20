@@ -1,6 +1,6 @@
 
 <?php
-	$table				= "`savers_secret`.player"; // new21_slist_event
+	$table				= "player"; // new21_slist_event
 
 	$dbinfo['title']		= "선수 기본 정보";
 	$dbinfo['skin']		= "sthis_player";

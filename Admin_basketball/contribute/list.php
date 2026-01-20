@@ -42,7 +42,7 @@ if(isset($_GET['html']) && $_GET['html'] == "print")	$print = "";
 else $print = "<img src='/images/print_img.gif' border='0' onClick=\"window.open('list.php?html=print&season={$s_list['s_id']}&tid={$tid}');\">";
 
 //시즌정보
-$sql = " SELECT *, sid as s_id FROM `savers_secret`.season ORDER BY s_start DESC ";
+$sql = " SELECT *, sid as s_id FROM season ORDER BY s_start DESC ";
 $rs = db_query($sql);
 $cnt = db_count($rs);
 $sselect = "";
@@ -60,7 +60,7 @@ if($cnt)	{
 	}
 }
 
-$t_rs = db_query(" select * FROM `savers_secret`.team ");
+$t_rs = db_query(" select * FROM team ");
 $t_cnt = db_count($t_rs);
 $t_select = "";
 
@@ -167,13 +167,13 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 <?php
 //선수정보
 /*	이전 자료 davej....................................2007-04-12
-	$psql = " SELECT * FROM `savers_secret`.player ";
+	$psql = " SELECT * FROM player ";
 	if($tid)
 		$sqlwhere = " WHERE tid = {$tid} ORDER BY p_num ASC";
 	$psql = $psql.$sqlwhere;
 */
 
-	$psql = " SELECT * FROM `savers_secret`.player_teamhistory ";
+	$psql = " SELECT * FROM player_teamhistory ";
 	if($tid)
 		$sqlwhere = " WHERE tid = {$tid} and sid = {$season} ORDER BY length(pbackno), pbackno ASC";
 	$psql = $psql.$sqlwhere;
@@ -207,7 +207,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 						sum(w_oft) as w_oft,
 						sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as score,
 						count(pid) as cnt
-						FROM `savers_secret`.record ";
+						FROM record ";
 			$con_where = " WHERE tid = {$tid} ";
 			if($season)		$con_where .= " AND sid = {$season} ";
 			$con_where .= " and pid = {$plist['pid']} ";

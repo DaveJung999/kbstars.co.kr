@@ -119,7 +119,7 @@ if($mode === "modify" || $mode === "reply"){
 }
 // 시즌정보 가져오기................2008-03-04.........davej...........
 // PHP 7+ 호환 및 사용자정의 DB함수(db_*) 사용을 위해 수정
-$sql = "SELECT * FROM `savers_secret`.season order by s_start desc, s_end desc ";
+$sql = "SELECT * FROM season order by s_start desc, s_end desc ";
 
 $s_rs = db_query($sql);
 $cnt = $s_rs ? db_count($s_rs) : 0; // db_count 함수 사용 (가정)

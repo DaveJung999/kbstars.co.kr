@@ -117,8 +117,8 @@ function userGetCountryOption(){
 // 현 국민은행 선수 가져오기.............davej...............2008-10-13
 function userGetPlayerList(){
 	
-	$table_player = "`savers_secret`.".'player';
-	$table_player_teamhistory = "`savers_secret`.".'player_teamhistory';
+	$table_player = "".'player';
+	$table_player_teamhistory = "".'player_teamhistory';
 	$strOption = '';
 	
 	$sql = "SELECT * from {$table_player} where tid = 13 order by p_name";

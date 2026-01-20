@@ -104,7 +104,7 @@ function board2Cateinfo(&$dbinfo, $cateuid=0, $sw_catelist=0, $catelist_view_fir
 	//	선수테이블 카테고리 화.......... davej....2007-10-06
 	//============================================================================
 	$app_where = '';
-	if (isset($dbinfo['table_cate']) && $dbinfo['table_cate'] == "`savers_secret`.player"){
+	if (isset($dbinfo['table_cate']) && $dbinfo['table_cate'] == "player"){
 		$app_where = " and tid = '13' and p_gubun = '현역' ";	
 		$sql_orderby = "	order by p_name ";
 	} else {
@@ -177,7 +177,7 @@ function board2Cateinfo(&$dbinfo, $cateuid=0, $sw_catelist=0, $catelist_view_fir
 		while($list_cate = db_array($rs_cate)){
 			///	davej..............
 			//============================================================================
-			if (isset($dbinfo['table_cate']) && $dbinfo['table_cate']	 == "`savers_secret`.player")	
+			if (isset($dbinfo['table_cate']) && $dbinfo['table_cate']	 == "player")	
 				$list_cate['p_name'] = $list_cate['p_name']." [".$list_cate['p_position']."]";
 			//============================================================================
 
@@ -266,7 +266,7 @@ function board2Cateinfo(&$dbinfo, $cateuid=0, $sw_catelist=0, $catelist_view_fir
 
 				///	davej..............
 				//============================================================================
-				if (isset($dbinfo['table_cate']) && $dbinfo['table_cate']	 == "`savers_secret`.player"){
+				if (isset($dbinfo['table_cate']) && $dbinfo['table_cate']	 == "player"){
 					$catelist_title = ($list_cate['title'] ?? '') . ($list_cate['p_name'] ?? '');
 					if(isset($list_cate['uid']) && $list_cate['uid'] == $cateuid)
 						$catelist[] = "\n<option value='".$list_cate['uid']."' selected>".db_escape($catelist_title)."</option>";		//davej.....$list_cate['p_name'] 추가

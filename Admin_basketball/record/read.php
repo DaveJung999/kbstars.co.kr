@@ -70,7 +70,7 @@ function del(){
 	else $print = "<img src='/images/print_img.gif' border='0' onClick=\"window.open('read.php?html=print&gid={$gid}');\">";
 	
 	//경기 기본정보 가져오기
-	$trs = db_query(" SELECT *, sid as s_id FROM `savers_secret`.game WHERE gid={$gid} ");
+	$trs = db_query(" SELECT *, sid as s_id FROM game WHERE gid={$gid} ");
 	$tct = db_count($trs);
 	if($tct) {	
 		$tlist = db_array($trs);
@@ -80,14 +80,14 @@ function del(){
 			$end	= date("Y.m.d H:i", $tlist['g_end']);
 		
 		//시즌 정보 가져오기
-		$srs = db_query(" SELECT * FROM `savers_secret`.season WHERE sid={$tlist['s_id']} ");
+		$srs = db_query(" SELECT * FROM season WHERE sid={$tlist['s_id']} ");
 		$sct = db_count($srs);
 		$s_sel = "<option>선수선택</option>";
 		if($sct)
 			$slist = db_array($srs);
 		
 		//홈팀 선수 정보 가져오기
-		$hprs = db_query(" SELECT * FROM `savers_secret`.player_teamhistory WHERE tid = {$tlist['g_home']} and sid = {$tlist['s_id']} order by length(pbackno), pbackno ");
+		$hprs = db_query(" SELECT * FROM player_teamhistory WHERE tid = {$tlist['g_home']} and sid = {$tlist['s_id']} order by length(pbackno), pbackno ");
 		$hpct = db_count($hprs);
 		$hp_sel = "<option value=''>선수선택</option>";
 		if($hpct)	{
@@ -101,7 +101,7 @@ function del(){
 		}
 		
 		//어웨이팀 선수 정보 가져오기
-		$ayrs = db_query(" SELECT * FROM `savers_secret`.player_teamhistory WHERE tid = {$tlist['g_away']} and sid = {$tlist['s_id']} order by length(pbackno), pbackno");
+		$ayrs = db_query(" SELECT * FROM player_teamhistory WHERE tid = {$tlist['g_away']} and sid = {$tlist['s_id']} order by length(pbackno), pbackno");
 		$ayct = db_count($ayrs);
 		$ay_sel = "<option value=''>선수선택</option>";
 		if($ayct)	{
@@ -115,14 +115,14 @@ function del(){
 		}
 		
 		//홈팀 정보
-		$htrs = db_query( " SELECT * from `savers_secret`.team WHERE tid = {$tlist['g_home']} ");
+		$htrs = db_query( " SELECT * from team WHERE tid = {$tlist['g_home']} ");
 		$htct = db_count( $htrs );
 		if($htct)	{
 			$htlist = db_array( $htrs );
 		}
 		
 		//어웨이팀 정보
-		$atrs = db_query( " SELECT * from `savers_secret`.team WHERE tid = {$tlist['g_away']} ");
+		$atrs = db_query( " SELECT * from team WHERE tid = {$tlist['g_away']} ");
 		$atct = db_count( $atrs );
 		if($atct)	{
 			$atlist = db_array( $atrs );
@@ -130,7 +130,7 @@ function del(){
 	}
 	
 	//홈팀 경기 기록 정보
-	$re_rs1 = db_query(" select * from `savers_secret`.record where gid = {$gid} and tid = {$htlist['tid']} ");
+	$re_rs1 = db_query(" select * from record where gid = {$gid} and tid = {$htlist['tid']} ");
 	$re_cnt1 = db_count($re_rs1);
 	if($re_cnt1)	{
 		for($i=0 ; $i<$re_cnt1 ; $i++)	{
@@ -244,7 +244,7 @@ function del(){
 		}
 	}
 	//어웨이팀 경기 기록 정보
-	$re_rs2 = db_query(" select * from `savers_secret`.record where gid = {$gid} and tid = {$atlist['tid']} ");
+	$re_rs2 = db_query(" select * from record where gid = {$gid} and tid = {$atlist['tid']} ");
 	$re_cnt2 = db_count($re_rs2);
 	if($re_cnt2)	{
 		for($i=0 ; $i<$re_cnt2 ; $i++)	{

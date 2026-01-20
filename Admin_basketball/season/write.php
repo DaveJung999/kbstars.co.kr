@@ -28,7 +28,7 @@ foreach ($params as $param) {
 //===================================================
 
 if($mode == "modify" && $s_id)	{
-	$sql = " SELECT * FROM `savers_secret`.season WHERE sid = {$s_id} ";
+	$sql = " SELECT * FROM season WHERE sid = {$s_id} ";
 	$rs = db_query($sql);
 	$cnt = db_count($rs);
 
@@ -74,7 +74,7 @@ $t_sel4 = "<option value=''>팀선택</option>";
 
 
 
-$sql_t = " select * from `savers_secret`.team order by tid asc ";
+$sql_t = " select * from team order by tid asc ";
 $rs_t = db_query($sql_t);
 $cnt_t = db_count($rs_t);
 

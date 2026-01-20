@@ -227,7 +227,7 @@ function write_ok($table, $qs){
 	$uid = db_insert_id();
 	
 	//선수테이블 수정........................davej..............2008-10-05
-	$sql_update = "update `savers_secret`.player set p_num = '{$qs['pbackno']}' where uid = {$qs['pid']} ";
+	$sql_update = "update player set p_num = '{$qs['pbackno']}' where uid = {$qs['pid']} ";
 	db_query($sql_update);
 	
 	
@@ -529,7 +529,7 @@ function modify_ok($table,$qs,$field){
 		";
 	db_query($sql);
 	//선수테이블 수정........................davej..............2008-10-05
-	$sql_update = "update `savers_secret`.player set p_num = '{$qs['pbackno']}' where uid = {$qs['pid']} ";
+	$sql_update = "update player set p_num = '{$qs['pbackno']}' where uid = {$qs['pid']} ";
 	db_query($sql_update);
 	
 

@@ -42,7 +42,7 @@ foreach ($params as $param) {
 //===================================================
 
 if($mode == "modify" && $tid)	{
-	$sql = " SELECT t_name FROM `savers_secret`.team WHERE tid = {$tid} ";
+	$sql = " SELECT t_name FROM team WHERE tid = {$tid} ";
 	$rs = db_query($sql);
 	$cnt = db_count($rs);
 	

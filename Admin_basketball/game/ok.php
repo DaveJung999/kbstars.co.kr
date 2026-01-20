@@ -151,7 +151,7 @@ function write_ok($s_id, $gameno, $g_start, $g_end, $g_ground, $g_home, $g_away,
 	$away_4q_esc = db_escape(intval($_REQUEST['away_4q'] ?? 0));
 	$away_eq_esc = db_escape(intval($_REQUEST['away_eq'] ?? 0));
 
-	$sql = " INSERT INTO `savers_secret`.game
+	$sql = " INSERT INTO game
 				(sid, gameno, g_start, g_end, g_ground, g_home, g_away, g_referee1, g_referee2, g_referee3, 
 				g_recorder1, g_recorder2, g_recorder3, g_recorder4, g_audience, g_division, 
 				away_tr, home_tr, away_bf, home_bf, away_score, home_score, g_ground_tv, etv_url, etv_width, etv_height, 
@@ -167,9 +167,9 @@ function write_ok($s_id, $gameno, $g_start, $g_end, $g_ground, $g_home, $g_away,
 	if(isset($_REQUEST['view_main']) && $_REQUEST['view_main'] == '1'){
 		$gid = db_insert_id();
 		if ($gid > 0) {
-			$sql = "update `savers_secret`.game set view_main=0 where view_main=1";
+			$sql = "update game set view_main=0 where view_main=1";
 			db_query($sql);
-			$sql = "update `savers_secret`.game set view_main=1 where gid={$gid}";
+			$sql = "update game set view_main=1 where gid={$gid}";
 			db_query($sql);
 		}
 	}
@@ -224,7 +224,7 @@ function modify_ok($gid, $s_id, $gameno, $g_start, $g_end, $g_ground, $g_home, $
 	$away_eq_esc = db_escape(intval($_REQUEST['away_eq'] ?? 0));
 	
 
-	$sql = " UPDATE `savers_secret`.game SET 
+	$sql = " UPDATE game SET 
 				sid={$s_id}, gameno='{$gameno_esc}', g_start={$g_start}, g_end={$g_end}, g_ground='{$g_ground_esc}', g_home={$g_home}, g_away={$g_away},
 				g_referee1='{$g_referee1_esc}', g_referee2='{$g_referee2_esc}', g_referee3='{$g_referee3_esc}', 
 				g_recorder1='{$g_recorder1_esc}', g_recorder2='{$g_recorder2_esc}',	g_recorder3='{$g_recorder3_esc}', 
@@ -240,10 +240,10 @@ function modify_ok($gid, $s_id, $gameno, $g_start, $g_end, $g_ground, $g_home, $
 	db_query($sql);
 
 	if(isset($_REQUEST['view_main']) && $_REQUEST['view_main'] == '1'){
-		$sql = "update `savers_secret`.game set view_main=0 where view_main=1";
+		$sql = "update game set view_main=0 where view_main=1";
 		db_query($sql);
 
-		$sql = "update `savers_secret`.game set view_main=1 where gid={$gid}";
+		$sql = "update game set view_main=1 where gid={$gid}";
 		db_query($sql);
 	}
 	$goto = "/Admin_basketball/game/list.php?season=" . (int)($_REQUEST['season'] ?? 0);
@@ -256,9 +256,9 @@ function delete_ok($gid)	{
 	if ($gid <= 0) {
 		back("유효하지 않은 게임 ID입니다.");
 	}
-	$sql = " DELETE FROM `savers_secret`.game WHERE gid = {$gid} ";
+	$sql = " DELETE FROM game WHERE gid = {$gid} ";
 	db_query($sql);
-	db_query(" DELETE FROM `savers_secret`.record WHERE gid = {$gid} ");
+	db_query(" DELETE FROM record WHERE gid = {$gid} ");
 	$goto = "/Admin_basketball/game/list.php";
 	back_close('',$goto);
 }

@@ -56,7 +56,7 @@ if($html == "print")	$print = "";
 else $print = "<img src='/images/print_img.gif' border='0' onClick=\"window.open('t_ranking.php?html=print&season');\">";
 
 //시즌정보
-$sql = " SELECT *, sid as s_id FROM `savers_secret`.season ORDER BY s_start DESC ";
+$sql = " SELECT *, sid as s_id FROM season ORDER BY s_start DESC ";
 $rs = db_query($sql);
 $cnt = db_count($rs);
 
@@ -80,7 +80,7 @@ if($cnt)	{
 	$s_id = $_GET['season'];
 	
 	//시즌정보
-	$s_sql = " SELECT *, sid as s_id FROM `savers_secret`.season where sid = {$s_id} ORDER BY s_start DESC ";
+	$s_sql = " SELECT *, sid as s_id FROM season where sid = {$s_id} ORDER BY s_start DESC ";
 	$s_rs	= db_query($s_sql);
 	$s_cnt = db_count($s_rs);
 	if($s_cnt)	{
@@ -92,7 +92,7 @@ if($cnt)	{
 	}
 
 	//팀정보
-	$t_sql = "SELECT * FROM `savers_secret`.team order by tid";
+	$t_sql = "SELECT * FROM team order by tid";
 	$t_rs	= db_query($t_sql);
 	$t_cnt = db_count($t_rs);
 	if($t_cnt)	{
@@ -106,7 +106,7 @@ if($cnt)	{
 	}
 	
 	//게임정보
-	$g_sql = " SELECT * FROM `savers_secret`.game WHERE sid = {$s_id} and g_division = '정규시즌' ORDER BY g_start DESC ";
+	$g_sql = " SELECT * FROM game WHERE sid = {$s_id} and g_division = '정규시즌' ORDER BY g_start DESC ";
 	$g_rs	= db_query($g_sql);
 	$g_cnt = db_count($g_rs);
 	$ah = 1;
@@ -120,7 +120,7 @@ if($cnt)	{
 			//홈팀 스코어
 			
 			$h_list['sum'] = $g_list['home_1q'] + $g_list['home_2q'] + $g_list['home_3q'] + $g_list['home_4q'] + $g_list['home_eq'];
-/*				$h_sql = " SELECT sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as sum FROM `savers_secret`.record WHERE gid = {$g_list['gid']} and tid = {$g_list['g_home']} ";
+/*				$h_sql = " SELECT sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as sum FROM record WHERE gid = {$g_list['gid']} and tid = {$g_list['g_home']} ";
 			$h_rs	= db_query($h_sql);
 			$h_cnt = db_count($h_rs);
 			if($h_cnt)	{
@@ -132,7 +132,7 @@ if($cnt)	{
 			$a_list['sum'] = $g_list['away_1q'] + $g_list['away_2q'] + $g_list['away_3q'] + $g_list['away_4q'] + $g_list['away_eq'];
 			
 			
-/*			$a_sql = " SELECT sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as sum FROM `savers_secret`.record WHERE gid = {$g_list['gid']} and tid = {$g_list['g_away']} ";
+/*			$a_sql = " SELECT sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as sum FROM record WHERE gid = {$g_list['gid']} and tid = {$g_list['g_away']} ";
 			$a_rs	= db_query($a_sql);
 			$a_cnt = db_count($a_rs);
 			if($a_cnt)	{
@@ -164,7 +164,7 @@ if($cnt)	{
 		}
 	}
 	
-	$sql_team = " SELECT * FROM `savers_secret`.team ORDER BY tid ";
+	$sql_team = " SELECT * FROM team ORDER BY tid ";
 	$rs_team = db_query($sql_team);
 	$cnt_team = db_count($rs_team);
 	
@@ -172,11 +172,11 @@ if($cnt)	{
 		for($i=0 ; $i<$cnt_team ; $i++){
 			$list_team = db_array($rs_team);
 			
-			$sql_game_h = " SELECT g_start FROM `savers_secret`.game where g_home = {$list_team['tid']} and g_division = '정규시즌' ORDER BY g_start ASC ";
+			$sql_game_h = " SELECT g_start FROM game where g_home = {$list_team['tid']} and g_division = '정규시즌' ORDER BY g_start ASC ";
 			
 			$list_start_home = db_arrayone($sql_game_h);
 			
-			$sql_game_a = " SELECT g_start FROM `savers_secret`.game where g_away = {$list_team['tid']} and g_division = '정규시즌' ORDER BY g_start ASC ";
+			$sql_game_a = " SELECT g_start FROM game where g_away = {$list_team['tid']} and g_division = '정규시즌' ORDER BY g_start ASC ";
 			$list_start_away = db_arrayone($sql_game_a);
 			
 			if($list_start_home['g_start'] < $list_start_away['g_start'])

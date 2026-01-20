@@ -17,8 +17,8 @@ require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 //=======================================================
 // Ready.. . (변수 초기화 및 넘어온값 필터링)
 //=======================================================
-	$table_season = "`savers_secret`.season";
-	$table_rank = "`savers_secret`.season_rank";
+	$table_season = "season";
+	$table_rank = "season_rank";
 	
 	// season 선택시에
 	if($_GET['choSeason']){

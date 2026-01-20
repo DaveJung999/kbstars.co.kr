@@ -81,7 +81,7 @@ foreach ($params as $param) {
 //===================================================
 
 //시즌정보
-$sql = " SELECT *, sid as s_id FROM `savers_secret`.season ORDER BY s_start DESC ";
+$sql = " SELECT *, sid as s_id FROM season ORDER BY s_start DESC ";
 $rs = db_query($sql);
 $cnt = db_count($rs);
 $sselect = "";
@@ -131,7 +131,7 @@ if($cnt)	{
 			</tr>
 <?php
 		//경기 정보 가져오기
-		$gsql = " SELECT * FROM `savers_secret`.season_rank	";
+		$gsql = " SELECT * FROM season_rank	";
 		$sql_where = " WHERE ";
 		$sql_where .= " sid = {$season} ";
 		$orderby = " ORDER BY rank ";

@@ -48,7 +48,7 @@ $pid		= db_escape($_REQUEST['pid'] ?? '');		//선수 아이디
 
 if(!isset($_REQUEST['pback'])){
 	// davej....................2008-10-06
-	$sql = "select pbackno FROM `savers_secret`.player_teamhistory where pid='" . $pid . "' and sid = " . $s_id;
+	$sql = "select pbackno FROM player_teamhistory where pid='" . $pid . "' and sid = " . $s_id;
 	$rs2 = db_query($sql);
 
 	$pback = db_result($rs2,0,'pbackno'); 
@@ -88,7 +88,7 @@ $goto = "read.php?gid=".$gid."&season=".$season."&tid=".$tid ;
 
 if($mode == "write"){
 	
-	$write_sql 	= " INSERT INTO `savers_secret`.record (
+	$write_sql 	= " INSERT INTO record (
 							gid, sid, pid, pback, tid, `1qs`, `2qs`, `3qs`, `4qs`, e1s, e2s, e3s, min, 
 							`3p_m`, `3p_a`, `2p_m`, `2p_a`, ft_m, ft_a, re_off, re_def, ast, stl, gd, 
 							bs, w_ft, w_oft, tover, ldf, tf, rdate,start 
@@ -103,7 +103,7 @@ if($mode == "write"){
 	
 }else if($mode == "modify"){
 	
-	$mod_sql = "UPDATE `savers_secret`.record SET
+	$mod_sql = "UPDATE record SET
 					pback='{$pback}',
 					`1qs`={$qs1}, `2qs`={$qs2}, `3qs`={$qs3}, `4qs`={$qs4}, e1s={$e1s}, e2s={$e2s}, e3s={$e3s},
 					min={$min}, `3p_m`={$m3}, `3p_a`={$a3}, `2p_m`={$m2}, `2p_a`={$a2}, ft_m={$mft}, ft_a={$aft}, re_off={$re_off}, re_def={$re_def}, ast={$ast}, stl={$stl},
@@ -152,7 +152,7 @@ function modify_ok($mod_sql)	{
 // delete_ok()
 //-----------------------------------------------------------
 function delete_ok($rid)	{
-	$sql = " DELETE from `savers_secret`.record WHERE rid = {$rid} ";
+	$sql = " DELETE from record WHERE rid = {$rid} ";
 	db_query($sql);
 }
 

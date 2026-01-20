@@ -58,7 +58,7 @@ else $print = "<img src='/images/print_img.gif' border='0' onClick=\"window.open
 if ($season) $season = $season;
 
 //시즌정보
-$sql = " SELECT *, sid as s_id FROM `savers_secret`.season ORDER BY s_start DESC ";
+$sql = " SELECT *, sid as s_id FROM season ORDER BY s_start DESC ";
 $rs = db_query($sql);
 $cnt = db_count($rs);
 
@@ -73,7 +73,7 @@ if($cnt)	{
 	}		
 }	
 
-$t_rs = db_query(" select * FROM `savers_secret`.team order by tid");
+$t_rs = db_query(" select * FROM team order by tid");
 $t_cnt = db_count($t_rs);
 
 if($t_cnt)	{
@@ -93,9 +93,9 @@ if($t_cnt)	{
 if($season){
 	$tuid = time();
 	/*				davej.......................
-	$sql_player = " SELECT * FROM `savers_secret`.player ORDER BY uid DESC ";
+	$sql_player = " SELECT * FROM player ORDER BY uid DESC ";
 	*/
-	$sql_player = " SELECT * FROM `savers_secret`.player_teamhistory where sid={$season} ORDER BY pid DESC ";
+	$sql_player = " SELECT * FROM player_teamhistory where sid={$season} ORDER BY pid DESC ";
 	
 	$rs_player = db_query($sql_player);
 	$cnt_player = db_count($rs_player);
@@ -127,16 +127,16 @@ if($season){
 					sum(w_oft) as w_oft,
 					sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as score,
 					count(pid) as cnt
-				FROM `savers_secret`.record
+				FROM record
 				WHERE pid = {$list_player['pid']} and sid = {$season} ";
 			$rs = db_query($sql);
 			$cnt = db_count($rs);
 			
-			$sql_tot = "SELECT * FROM `savers_secret`.record WHERE pid = {$list_player['pid']} and sid = {$season}";
+			$sql_tot = "SELECT * FROM record WHERE pid = {$list_player['pid']} and sid = {$season}";
 			$rs_tot = db_query($sql_tot);
 			$cnt_tot = db_count($rs_tot);
 			
-			$t_rs = db_arrayone(" select * FROM `savers_secret`.team where tid = {$list_player['tid']}");
+			$t_rs = db_arrayone(" select * FROM team where tid = {$list_player['tid']}");
 		
 			if($cnt){
 				$list = db_array($rs);
@@ -213,48 +213,48 @@ if($season){
 
 switch($_GET['mode']){
 	case '1':
-		$r_sql = " SELECT * FROM `savers_secret`.record_tmp where tuid = {$tuid} ORDER BY cont DESC limit 0, 30";
+		$r_sql = " SELECT * FROM record_tmp where tuid = {$tuid} ORDER BY cont DESC limit 0, 30";
 		$view_name = "공헌도";
 	break;
 	case '2':
-		$r_sql = " SELECT * FROM `savers_secret`.record_tmp where tuid = {$tuid} ORDER BY score DESC limit 0, 30";
+		$r_sql = " SELECT * FROM record_tmp where tuid = {$tuid} ORDER BY score DESC limit 0, 30";
 		$view_name = "득점";
 	break;
 	case '3':
-		$r_sql = " SELECT * FROM `savers_secret`.record_tmp where tuid = {$tuid} ORDER BY re DESC limit 0, 30";
+		$r_sql = " SELECT * FROM record_tmp where tuid = {$tuid} ORDER BY re DESC limit 0, 30";
 		$view_name = "리바운드";
 	break;
 	case '4':
-		$r_sql = " SELECT * FROM `savers_secret`.record_tmp where tuid = {$tuid} ORDER BY ast DESC limit 0, 30";
+		$r_sql = " SELECT * FROM record_tmp where tuid = {$tuid} ORDER BY ast DESC limit 0, 30";
 		$view_name = "어시스트";
 	break;
 	case '5':
-		$r_sql = " SELECT * FROM `savers_secret`.record_tmp where tuid = {$tuid} ORDER BY stl DESC limit 0, 30";
+		$r_sql = " SELECT * FROM record_tmp where tuid = {$tuid} ORDER BY stl DESC limit 0, 30";
 		$view_name = "스틸";
 	break;
 	case '6':
-		$r_sql = " SELECT * FROM `savers_secret`.record_tmp where tuid = {$tuid} ORDER BY bs DESC limit 0, 30";
+		$r_sql = " SELECT * FROM record_tmp where tuid = {$tuid} ORDER BY bs DESC limit 0, 30";
 		$view_name = "불록";
 	break;
 	case '7':
-		$r_sql = " SELECT * FROM `savers_secret`.record_tmp where tuid = {$tuid} ORDER BY 2pp DESC limit 0, 30";
+		$r_sql = " SELECT * FROM record_tmp where tuid = {$tuid} ORDER BY 2pp DESC limit 0, 30";
 		$view_name = "2점성공율";
 	break;
 	case '8':
-		$r_sql = " SELECT * FROM `savers_secret`.record_tmp where tuid = {$tuid} ORDER BY 3p DESC limit 0, 30";
+		$r_sql = " SELECT * FROM record_tmp where tuid = {$tuid} ORDER BY 3p DESC limit 0, 30";
 		$view_name = "3득점(개수)";
 	break;
 	case '9':
-		$r_sql = " SELECT * FROM `savers_secret`.record_tmp where tuid = {$tuid} ORDER BY 3pp DESC limit 0, 30";
+		$r_sql = " SELECT * FROM record_tmp where tuid = {$tuid} ORDER BY 3pp DESC limit 0, 30";
 		$view_name = "3득점성공율";
 	break;
 	case '10':
-		$r_sql = " SELECT * FROM `savers_secret`.record_tmp where tuid = {$tuid} ORDER BY fp DESC limit 0, 30";
+		$r_sql = " SELECT * FROM record_tmp where tuid = {$tuid} ORDER BY fp DESC limit 0, 30";
 		$view_name = "자유투성공율";
 	break;
 	default :
 		$_GET['mode'] = "1";
-		$r_sql = " SELECT * FROM `savers_secret`.record_tmp where tuid = {$tuid} ORDER BY cont DESC limit 0, 30";
+		$r_sql = " SELECT * FROM record_tmp where tuid = {$tuid} ORDER BY cont DESC limit 0, 30";
 		$view_name = "공헌도";
 }
 
@@ -381,7 +381,7 @@ if($season){
 			</tr>
 <?php
 	} 
-	db_query("DELETE FROM `savers_secret`.record_tmp WHERE tuid = {$tuid}");
+	db_query("DELETE FROM record_tmp WHERE tuid = {$tuid}");
 } 
 
 ?>

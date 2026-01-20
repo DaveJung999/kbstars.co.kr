@@ -28,8 +28,8 @@ foreach ($params as $param) {
 //===================================================
 
 // 넘오온값 체크
-$table_player = "`savers_secret`.player";
-$table_team = "`savers_secret`.team";
+$table_player = "player";
+$table_team = "team";
 
 if (!($_GET['pid'] ?? '')) {
 	// 해당 선수 정보
@@ -122,7 +122,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 			<td align="center" bgcolor="#D2BF7E"><strong>삭제</strong></td>
 		</tr>
 <?php
-$rs_league = db_query("SELECT * FROM `savers_secret`.player_league WHERE pid = '{$_GET['pid']}' ORDER BY uid DESC");
+$rs_league = db_query("SELECT * FROM player_league WHERE pid = '{$_GET['pid']}' ORDER BY uid DESC");
 $total = db_count($rs_league);
 
 $i=0;

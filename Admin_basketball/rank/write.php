@@ -28,7 +28,7 @@ foreach ($params as $param) {
 
 $list = [];
 if($mode == "modify" && $uid)	{
-	$sql = " SELECT *, sid as s_id FROM `savers_secret`.season_rank	WHERE uid = " . (int)$uid;
+	$sql = " SELECT *, sid as s_id FROM season_rank	WHERE uid = " . (int)$uid;
 	$rs = db_query($sql);
 	$cnt = db_count($rs);
 
@@ -41,11 +41,11 @@ if($mode == "modify" && $uid)	{
 
 //시즌 정보 가져오기
 //팀아이디를 팀이름으로 변경
-$list['season_name'] = db_resultone("select s_name FROM `savers_secret`.season where sid='" . db_escape($list['s_id']) . "'",0,'s_name');
+$list['season_name'] = db_resultone("select s_name FROM season where sid='" . db_escape($list['s_id']) . "'",0,'s_name');
 
 
 //팀정보 가져오기
-$tsql = " select * from `savers_secret`.team order by tid";
+$tsql = " select * from team order by tid";
 $trs = db_query($tsql);
 $tcnt = db_count($trs);
 

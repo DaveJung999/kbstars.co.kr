@@ -1,7 +1,7 @@
 <?php
-	$table_season		= "`savers_secret`.season"; // new21_slist_event
+	$table_season		= "season"; // new21_slist_event
 
-	$dbinfo['table']	= "`savers_secret`.totalgame_result"; // new21_slist_event
+	$dbinfo['table']	= "totalgame_result"; // new21_slist_event
 	$table		= $dbinfo['table'];
 	
 	$dbinfo['title']		= "전체 경기일정 및 결과";

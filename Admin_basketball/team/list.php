@@ -70,7 +70,7 @@ body {
 				<td width="12%" bgcolor="#D2BF7E"><strong><span class="style1">삭제</span></strong></td>
 			</tr>
 <?php
-	$sql = " SELECT * FROM `savers_secret`.team ORDER BY tid ASC ";
+	$sql = " SELECT * FROM team ORDER BY tid ASC ";
 	$rs = db_query($sql);
 	$cnt = db_count($rs);
 	if($cnt)	{

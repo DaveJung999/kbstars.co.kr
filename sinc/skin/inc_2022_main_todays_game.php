@@ -8,11 +8,11 @@
 // Start... (DB 작업 및 display)
 //=======================================================
 // 오늘 경기
-$sql = "select * from `savers_secret`.game
+$sql = "select * from game
 		 where from_unixtime(g_start, '%Y-%m-%d') = curdate()";
 
 /*// 테스트
-$sql = "select * from `savers_secret`.game
+$sql = "select * from game
 		 where from_unixtime(g_start, '%Y-%m-%d') = '2021-01-21'";
 */
 
@@ -40,7 +40,7 @@ if(!$td_game_value){
 	if($game['g_home'] == 13) $game['g_home_name'] = "KB스타즈";
 
 	//어웨이팀 정보
-	$sql = " SELECT t_name FROM `savers_secret`.team WHERE tid='{$game['g_away']}' ";
+	$sql = " SELECT t_name FROM team WHERE tid='{$game['g_away']}' ";
 	$game['g_away_name'] = db_resultone($sql,0,'t_name');
 
 	$game['g_start_date'] = date("Y. m. d.",$game['g_start']);

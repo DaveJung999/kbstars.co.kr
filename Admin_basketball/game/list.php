@@ -84,7 +84,7 @@ foreach ($params as $param) {
 //===================================================
 
 //시즌정보
-$sql = " SELECT *, sid as s_id FROM `savers_secret`.season ORDER BY s_start DESC ";
+$sql = " SELECT *, sid as s_id FROM season ORDER BY s_start DESC ";
 $rs = db_query($sql);
 $cnt = db_count($rs);
 $sselect = "";
@@ -103,7 +103,7 @@ if($cnt)	{
 	}
 }
 
-$t_rs = db_query(" select * from `savers_secret`.team order by tid ");
+$t_rs = db_query(" select * from team order by tid ");
 $t_cnt = db_count($t_rs);
 $t_select = "";
 
@@ -162,7 +162,7 @@ if($t_cnt)	{
 <?php
 
 	//경기 정보 가져오기
-	$gsql = " select * from `savers_secret`.game ";
+	$gsql = " select * from game ";
 	$sql_where = " where ";
 	if($season)
 		$sql_where .= " sid = {$season} ";
@@ -184,7 +184,7 @@ if($t_cnt)	{
 			$glist['g_start'] = date("Y-m-d", $glist['g_start']);
 
 			//팀아이디를 팀이름으로 변경
-			$trs = db_query("select * from `savers_secret`.team order by tid");
+			$trs = db_query("select * from team order by tid");
 			$tname_map = [];
 			while($tlist = db_array($trs)) {
 				$tname_map[$tlist['tid']] = $tlist['t_name'];
@@ -200,7 +200,7 @@ if($t_cnt)	{
 			if ($glist['g_away'] == '13') $glist['display_g_away'] = "<b>".$glist['display_g_away']."</b>";
 
 
-			$rrs = db_query(" select count(rid) as cnt from `savers_secret`.record where gid={$glist['gid']} ");
+			$rrs = db_query(" select count(rid) as cnt from record where gid={$glist['gid']} ");
 			$rcount = db_array($rrs);
 			if($rcount['cnt'] > 0){
 				$href_read = "<a href='/Admin_basketball/record/read.php?gid={$glist['gid']}'>{$glist['g_start']}</a>";
@@ -209,12 +209,12 @@ if($t_cnt)	{
 			}
 
 			//홈팀 경기 결과
-			$home_sql = "SELECT sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as sum FROM `savers_secret`.record WHERE gid = {$glist['gid']} and tid = {$glist['g_home']}";
+			$home_sql = "SELECT sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as sum FROM record WHERE gid = {$glist['gid']} and tid = {$glist['g_home']}";
 			$home_rs = db_query($home_sql);
 			$home_score = db_array($home_rs);
 
 			//어웨이팀 경기결과
-			$away_sql = "SELECT sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as sum FROM `savers_secret`.record WHERE gid = {$glist['gid']} and tid = {$glist['g_away']}";
+			$away_sql = "SELECT sum(1qs + 2qs + 3qs + 4qs + e1s + e2s + e3s) as sum FROM record WHERE gid = {$glist['gid']} and tid = {$glist['g_away']}";
 			$away_rs = db_query($away_sql);
 			$away_score = db_array($away_rs);
 
