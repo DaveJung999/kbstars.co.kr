@@ -310,6 +310,18 @@ else { // 이미지 파일 요청이면
 unset($dbinfo);
 unset($list);
 
+// 이미지 전송 전에 모든 출력 버퍼를 완전히 비워야 함
+// header.php 등에서 이미 출력이 시작되었을 수 있어서,
+// 이미지 바이너리 앞에 텍스트가 섞이면 브라우저가 이미지로 인식하지 못함
+if (function_exists('ob_get_level')) {
+	while (ob_get_level() > 0) {
+		@ob_end_clean();
+	}
+}
+// 추가로 출력 버퍼링을 완전히 비활성화
+@ini_set('output_buffering', 'off');
+@ini_set('zlib.output_compression', false);
+
 // mime-type 결정
 if(isset($mime_type)) header('Content-type: '.$mime_type);
 elseif(function_exists('mime_content_type')) header('Content-type: '.mime_content_type($filepath));
