@@ -70,12 +70,11 @@ $list = [];
 if($mode === "modify" || $mode === "reply"){
 	// WARNING: $sql_where 변수를 직접 쿼리에 포함하는 것은 SQL 인젝션에 매우 취약합니다.
 	//			이 변수는 신뢰할 수 있는 소스에서만 생성되어야 합니다.
-	$stmt = $mysqli->prepare("SELECT *, password(rdate) as private_key FROM {$table} WHERE $sql_where and uid=? and num=?");
-	$stmt->bind_param("is", $uid, $_GET['num']);
-	$stmt->execute();
-	$result = $stmt->get_result();
-	if(!($list = $result->fetch_assoc())) back("게시물의 정보가 없습니다");
-	$stmt->close();
+	$uid = db_escape($uid ?? '');
+	$num = db_escape($_GET['num'] ?? '');
+	$sql = "SELECT *, password(rdate) as private_key FROM {$table} WHERE $sql_where and uid='{$uid}' and num='{$num}'";
+	$list = db_arrayone($sql);
+	if(!$list) back("게시물의 정보가 없습니다");
 
 	// 비공개글 제외시킴
 	if(($dbinfo['enable_level'] ?? 'N') === 'Y' and !privAuth($list, "priv_level",1)){
@@ -133,13 +132,13 @@ $href["list"] = "./list.php?" . href_qs("",$qs_basic);
 
 //팀명, 팀아이디 가져오기
 $tsql = " SELECT * FROM team ORDER BY tid ASC ";
-$trs = $mysqli->query($tsql);
-$tcnt = $trs ? $trs->num_rows : 0;
+$trs = db_query($tsql);
+$tcnt = db_count($trs);
 $tselect = '';
 
 if($tcnt){
 	for($i = 0 ; $i < $tcnt ; $i++)	{
-		$tlist = $trs->fetch_assoc();
+		$tlist = db_array($trs);
 		$teamid = $tlist['tid'];
 		$t_name = $tlist['t_name'];
 		$tsel="";
@@ -151,18 +150,17 @@ if($tcnt){
 			$tselect .= "<option value='{$teamid}'>{$t_name}</option>";
 		}
 	}
-	$trs->free();
 }
 
 //시즌 가져오기
 $sql_season = " SELECT * FROM season ORDER BY s_start desc ";
-$rs_season = $mysqli->query($sql_season);
-$cnt_season = $rs_season ? $rs_season->num_rows : 0;
+$rs_season = db_query($sql_season);
+$cnt_season = db_count($rs_season);
 $sname = '';
 
 if($cnt_season){
 	for($i = 0 ; $i < $cnt_season ; $i++)	{
-		$list_season = $rs_season->fetch_assoc();
+		$list_season = db_array($rs_season);
 		$sel ="";
 
 		//저장된 항목 셀렉트
@@ -173,7 +171,6 @@ if($cnt_season){
 			$sname .= "<option value='{$list_season['sid']}'>{$list_season['s_name']}</option>";
 		}
 	}
-	$rs_season->free();
 }
 //선수 포지션 저장된 항목 셀렉트
 if (isset($list['pposition'])) {

@@ -230,9 +230,10 @@ $href["delete"]	= "{$thisUrl}/ok.php?" . href_qs("mode=delete&uid={$list['uid']}
 //=================================
 if(isset($dbinfo['enable_cate']) && $dbinfo['enable_cate'] == 'Y'){
 	$table_cate	= (isset($dbinfo['enable_type']) && $dbinfo['enable_type'] == 'Y') ? $table : $table . "_cate";
-
+	
 	// 카테고리정보구함 (dbinfo, table_cate, cateuid, $enable_catelist='Y', sw_topcatetitles, sw_notitems, sw_itemcount,string_firsttotal)
-	// highcate[], samecate[], subcate[], subsubcate[], subcateuid[], catelist
+	// highcate[], samecate[], subcate[], subsubcate[], subcateuid[], catelis
+	
 	$tmp_itemcount = trim($sc_string) ? 0 : 1;
 	$cateinfo=boardCateInfo($dbinfo, $table_cate, $list['cateuid'], 'N', 1,1,$tmp_itemcount,"(종합)");
 
@@ -261,8 +262,7 @@ if(!$total=db_count($re_readlist)) {	// 게시물이 하나도 없다면...
 	}
 	else // 게시물이 없다면..
 		$tpl->process('READLIST', 'nolist');
-}
-else{
+}else{
 	if(!isset($dbinfo['row_pern']) || $dbinfo['row_pern']<1) $dbinfo['row_pern']=1; // 한줄에 여러값 출력이 아닌 경우
 	for($i=0; $i<$total; $i+=$dbinfo['row_pern']){
 		if(isset($dbinfo['row_pern']) && $dbinfo['row_pern'] >= 1) $tpl->set_var('CELL',"");
