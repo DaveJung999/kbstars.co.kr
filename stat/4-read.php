@@ -156,7 +156,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 			</table></td>
 		</tr>
 		<tr>
-			<td align="center"><img src="http://savers-secret.kbstars.co.kr/sthis/sthis_player/download.php?uid=<?php echo $player['uid'] ?? ''; ?>&amp;upfile=upfile4&amp;mode=image&amp;notfound=any" height="220" /></td>
+			<td align="center"><img src="/sthis/sthis_player/download.php?uid=<?php echo $player['uid'] ?? ''; ?>&amp;upfile=upfile4&amp;mode=image&amp;notfound=any" height="220" /></td>
 		</tr>
 		<tr>
 			<td	height="42" bgcolor="#695F58"><table width="100%" border="0" cellspacing="0" cellpadding="0">
