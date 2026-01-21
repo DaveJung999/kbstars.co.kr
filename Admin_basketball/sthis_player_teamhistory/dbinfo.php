@@ -13,7 +13,7 @@
 	$table_season = "season";
 	
 	$dbinfo['title']		= "선수 기본 정보";
-	$dbinfo['skin']		= "board_monitoring";
+	$dbinfo['skin']		= "basic";
 	$dbinfo['pern']		= 160;
 	$dbinfo['row_pern']		= 1;	
 	$dbinfo['cut_length']	= 50;

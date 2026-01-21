@@ -101,7 +101,7 @@ if(!$sql_where) $sql_where= " 1 ";
 // pid 파라미터가 있으면 필터링
 if(isset($pid) && $pid) {
 	$pid = db_escape($pid);
-	$sql_where .= " and A.pid = '{$pid}' ";
+	$sql_where .= " and pid = '{$pid}' ";
 }
 
 //============================
@@ -121,13 +121,17 @@ switch(isset($_GET['sort']) ? $_GET['sort'] : ''){
 // misc
 //=====
 // 페이지 나눔등 각종 카운트 구하기
-$count['total']=db_resultone("SELECT count(*) FROM {$table} WHERE  $sql_where ", 0, "count(*)"); // 전체 게시물 수
+$sql_total = "SELECT count(*) FROM {$dbinfo['table']} WHERE  $sql_where ";
+$count['total']=db_resultone($sql_total, 0, "count(*)"); // 전체 게시물 수
+	
 // 게시물 일부만 본다면
 if(isset($_GET['limitrows'])) $dbinfo['pern'] = $count['total'];
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $count=board2Count($count['total'],$page,$dbinfo['pern'],$dbinfo['page_pern']); // 각종 카운트 구하기
-$count['today']=db_resultone("SELECT count(*) FROM {$table} WHERE (rdate > unix_timestamp(curdate())) and $sql_where " , 0, "count(*)");
 
+$sql_today = "SELECT count(*) FROM {$dbinfo['table']} WHERE (rdate > unix_timestamp(curdate())) and $sql_where ";
+$count['today']=db_resultone($sql_today , 0, "count(*)");
+	
 // 서치 폼의 hidden 필드 모두!!
 $form_search =" action='{$_SERVER['PHP_SELF']}' method='get'>";
 $form_search .= substr(href_qs("",$qs_basic,1),0,-1);
@@ -157,13 +161,12 @@ $href['nextblock']= ($count['totalpage'] > $count['lastpage'])? "{$_SERVER['PHP_
 //=======================================================
 // 템플릿 기반 웹 페이지 제작
 $tpl = new phemplate("","remove_nonjs");
-if( !is_file("{$thisPath}/stpl/{$dbinfo['skin']}/list.htm") ) $dbinfo['skin']="board_basic";
+if( !is_file("{$thisPath}/stpl/{$dbinfo['skin']}/list.htm") ) $dbinfo['skin']="basic";
 $tpl->set_file('html',"{$thisPath}/stpl/{$dbinfo['skin']}/list.htm",TPL_BLOCK);
 // Limit로 필요한 게시물만 읽음.
 $limitno	= isset($_GET['limitno']) ? $_GET['limitno'] : $count['firstno'];
 $limitrows	= isset($_GET['limitrows']) ? $_GET['limitrows'] : $count['pern'];
-$sql = "SELECT A.* FROM {$table} as A, {$table_season} as B WHERE $sql_where and A.sid = B.sid ORDER BY	B.s_start desc LIMIT {$limitno},{$limitrows}";
-
+$sql = "SELECT A.* FROM {$dbinfo['table']} as A, {$table_season} as B WHERE $sql_where and A.sid = B.sid ORDER BY	B.s_start desc LIMIT {$limitno},{$limitrows}";
 $rs_list = db_query($sql);
 
 if(!$total=db_count($rs_list)) {	// 게시물이 하나도 없다면...

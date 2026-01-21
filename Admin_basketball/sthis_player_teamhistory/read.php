@@ -26,7 +26,6 @@ require("{$_SERVER['DOCUMENT_ROOT']}/sinc/header.php");
 $thisPath		= dirname(__FILE__);
 $thisUrl	= "/Admin_basketball/sthis_player_teamhistory"; // 마지막 "/"이 빠져야함
 include_once("./dbinfo.php"); // $dbinfo, $table 값 정의
-
 //===================================================
 // REQUEST 값 대입......2025-09-10
 $params = ['db', 'table', 'cateuid', 'pern', 'cut_length', 'row_pern', 'sql_where', 'sc_column', 'sc_string', 'page', 'mode', 'sup_bid', 'modify_uid', 'uid', 'goto', 'game', 'pid', 'gid', 'sid', 's_id', 'season', 'session_id', 'tid', 'rid', 'num', 'name', 'pback', 'search_text'];
@@ -51,11 +50,11 @@ $qs_basic = "db={$db}".					//table 이름
 			"&page={$page}";				//현재 페이지
 
 $qs_basic		= href_qs($qs_basic); // 해당값 초기화
-			
+	
 //===================
 // 카테고리 정보 구함
 //===================
-if($dbinfo['enable_cate'] == 'Y'){
+if(($dbinfo['enable_cate'] ?? '') == 'Y'){
 	$table_cate	=	$table . "_cate";
 
 	// 카테고리정보구함 (dbinfo, table_cate, cateuid, $enable_catelist='Y', sw_topcatetitles, sw_notitems, sw_itemcount,string_firsttotal)
@@ -70,7 +69,7 @@ if($dbinfo['enable_cate'] == 'Y'){
 } // end if
 
 // 넘어온 값에 따라 $dbinfo값 변경
-if($dbinfo['enable_getinfo'] == 'Y'){
+if(($dbinfo['enable_getinfo'] ?? '') == 'Y'){
 	if(isset($_GET['cut_length']))	$dbinfo['cut_length']	= $_GET['cut_length'];
 	if(isset($_GET['pern']))		$dbinfo['pern']			= $_GET['pern'];
 	if(isset($_GET['row_pern']))	$dbinfo['row_pern']		= $_GET['row_pern'];
@@ -93,11 +92,17 @@ if($dbinfo['enable_getinfo'] == 'Y'){
 if(!isset($sql_where)) $sql_where= " 1 ";
 
 // 한 table에 여러 게시판 생성의 경우
-if($dbinfo['table_name'] != $dbinfo['db']) $sql_where .= " and db='{$dbinfo['db']}' "; // $sql_where 사용 시작
-if($dbinfo['enable_type'] == 'Y') $sql_where .= " and (type='docu' or type='info') ";
+if(isset($dbinfo['table_name']) && isset($dbinfo['db']) && $dbinfo['table_name'] != $dbinfo['db']) {
+	$sql_where .= " and db='{$dbinfo['db']}' "; // $sql_where 사용 시작
+}
+if(($dbinfo['enable_type'] ?? '') == 'Y') {
+	$sql_where .= " and (type='docu' or type='info') ";
+}
 
 // 해당 카테고리만 볼려면
-if(is_array($cateinfo['subcate_uid']) and sizeof($cateinfo['subcate_uid'])>0 ) $sql_where = isset($sql_where) ? $sql_where . " and ( cateuid in ( " . implode(",",$cateinfo['subcate_uid']) . ") ) " : " ( cateuid in ( " . implode(",",$cateinfo['subcate_uid']) . ") ) ";
+if(isset($cateinfo['subcate_uid']) && is_array($cateinfo['subcate_uid']) && sizeof($cateinfo['subcate_uid'])>0 ) {
+	$sql_where = isset($sql_where) ? $sql_where . " and ( cateuid in ( " . implode(",",$cateinfo['subcate_uid']) . ") ) " : " ( cateuid in ( " . implode(",",$cateinfo['subcate_uid']) . ") ) ";
+}
 
 $sql_orderby = isset($dbinfo['orderby']) ? $dbinfo['orderby'] : "	num DESC, re ";
 
@@ -106,7 +111,10 @@ if(!privAuth($dbinfo, "priv_list",1)) back("이용이 제한되었습니다.(레
 //=================
 // 해당 게시물 읽음
 //=================
-$sql = "SELECT * from {$table} WHERE uid='{$_GET['uid']}' and  $sql_where ";
+$uid = db_escape($_GET['uid'] ?? '');
+if(!$uid) back("게시물 정보가 없습니다.");
+
+$sql = "SELECT * from {$dbinfo['table']} WHERE uid='{$uid}' and  $sql_where ";
 if(!$list=db_arrayone($sql)) back("게시물이 존재하지 않습니다.");
 
 // 인증 체크(자기 글이면 무조건 보기)
@@ -123,7 +131,7 @@ if(!privAuth($dbinfo, "priv_read",1)){
 					$sql_where_privAuth .= " or re='" . substr($list['re'],0,$i+1) ."' ";
 				}
 				$sql_where_privAuth .= ") and bid='{$_SESSION['seUid']}' ";
-				$sql = "SELECT * from {$table} where {$sql_where_privAuth}";
+				$sql = "SELECT * from {$dbinfo['table']} where {$sql_where_privAuth}";
 				if(!db_arrayone($sql))
 					back("이용이 제한되었습니다.(레벨부족)");
 			} // end if..else..
@@ -171,18 +179,19 @@ if($dbinfo['enable_upload'] != 'N' and $list['upfiles']){
 			$upfiles[$key]['href']="{$thisUrl}/download.php?" . href_qs("uid={$list['uid']}&upfile={$key}",$qs_basic);
 
 			// $upfiles[$key][imagesize]를 width="xxx"(height는 설정 않함)로 저장
-			if( is_array($tmp_imagesize=@getimagesize($filename)) ){
-				if(strlen($dbinfo['imagesize_read'])>0 and $tmp_imagesize[2] == 4) { // 플래쉬(swf)이면
-					$list['content'] = "<object classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\" codebase=\"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0\" WIDTH=\"500\" HEIGHT=\"400\"> <param name=movie value=\"{$upfiles[{$key}]['href']}\"> <param name=quality value=high></object><br>" . $list['content'];
+			$tmp_imagesize = @getimagesize($filename);
+			if( is_array($tmp_imagesize) ){
+				if(strlen($dbinfo['imagesize_read'] ?? '')>0 && ($tmp_imagesize[2] ?? 0) == 4) { // 플래쉬(swf)이면
+					$list['content'] = "<object classid=\"clsid:D27CDB6E-AE6D-11cf-96B8-444553540000\" codebase=\"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0\" WIDTH=\"500\" HEIGHT=\"400\"> <param name=movie value=\"{$upfiles[$key]['href']}\"> <param name=quality value=high></object><br>" . $list['content'];
 				} else {
-					$upfiles[$key]['imagesize'] = " width=\"" . (($tmp_imagesize[0] > $thumbimagesize[0]) ? $thumbimagesize[0] : $tmp_imagesize[0]) . "\"";
+					$upfiles[$key]['imagesize'] = " width=\"" . ((($tmp_imagesize[0] ?? 0) > $thumbimagesize[0]) ? $thumbimagesize[0] : ($tmp_imagesize[0] ?? 0)) . "\"";
 
 					// 본문에 그림파일 삽입
-					if( strlen($dbinfo['imagesize_read'])>0 and $dbinfo['enable_upload'] != "image" )
-						$list['content'] = "<center><a href='{$upfiles[{$key}]['href']}' target=_blank><img src='{$upfiles[{$key}]['href']}' {$upfiles[{$key}]['imagesize']} border=0></a></center><br>" . $list['content'];
+					if( strlen($dbinfo['imagesize_read'] ?? '')>0 && ($dbinfo['enable_upload'] ?? '') != "image" )
+						$list['content'] = "<center><a href='{$upfiles[$key]['href']}' target=_blank><img src='{$upfiles[$key]['href']}' {$upfiles[$key]['imagesize']} border=0></a></center><br>" . $list['content'];
 				}
 			}
-			elseif( strlen($dbinfo['imagesize_read'])>0 and preg_match("/avi|asx|wax|m3u|wpl|wvx|mpeg|mpg|mp2|mp3|wav|au|wmv|asf|wm|wma|mid/i",substr(basename($value['name']), strrpos(basename($value['name']), ".") + 1)) ){
+			elseif( strlen($dbinfo['imagesize_read'] ?? '')>0 && preg_match("/avi|asx|wax|m3u|wpl|wvx|mpeg|mpg|mp2|mp3|wav|au|wmv|asf|wm|wma|mid/i",substr(basename($value['name']), strrpos(basename($value['name']), ".") + 1)) ){
 				// movie 파일이면
 				$list['content'] = "<center><object id='NSOPlay' width='{$thumbimagesize[0]}'	classid='clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95' codebase='http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,4,5,715' stanby='Loading Microsoft Windows Media Player Components..' type='application/x-oleobject'>
 					<param name='FileName' value='{$upfiles[$key]['href']}'>
@@ -209,7 +218,7 @@ if($dbinfo['enable_upload'] != 'N' and $list['upfiles']){
 				</object></center>" . $list['content'];
 
 			} else {
-				if($dbinfo['enable_upload'] == "image") unset($upfiles[$key]);
+				if(($dbinfo['enable_upload'] ?? '') == "image") unset($upfiles[$key]);
 			}
 		} // end if
 	} // end foreach
@@ -251,7 +260,7 @@ $tpl->set_file('html',"{$thisPath}/stpl/{$dbinfo['skin']}/read.htm",TPL_BLOCK);
 //====================================
 // 현재 게시물과 관련된 글 List 뿌리기
 //====================================
-$sql = "SELECT * from {$table} WHERE $sql_where ORDER BY {$sql_orderby} ";
+$sql = "SELECT * from {$dbinfo['table']} WHERE $sql_where ORDER BY {$sql_orderby} ";
 $re_readlist	= db_query($sql);
 
 if(!$total=db_count($re_readlist)) {	// 게시물이 하나도 없다면...
