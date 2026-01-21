@@ -246,44 +246,13 @@ elseif($_GET['mode'] == "watermark"){
 	} // end if
 } // end if
 else { // 이미지 파일 요청이면
-	// 특정 케이스(선수 이미지 등)에서 getimagesize()가 실패하면서도
-	// 실제 브라우저에서는 이미지를 정상적으로 보여줄 수 있는 경우가 있어,
-	// mode=image 이고 리사이즈 파라미터가 없으면 가장 단순한 방식으로 바로 전송한다.
-	if ($_GET['mode'] === 'image' && (empty($_GET['imagewidth']) && empty($_GET['imageheight']))) {
-		if (function_exists('ob_get_level')) {
-			while (ob_get_level() > 0) {
-				@ob_end_clean();
-			}
-		}
-		// Content-Type
-		if (isset($mime_type) && $mime_type) {
-			header('Content-Type: '.$mime_type);
-		} else {
-			header('Content-Type: image/jpeg');
-		}
-		// 안전하게 Content-Length 설정
-		if (is_file($filepath)) {
-			$size = @filesize($filepath);
-			if ($size > 0) {
-				header('Content-Length: '.$size);
-			}
-		}
-		header('Content-Disposition: inline; filename="'.basename($filepath).'"');
-		header('Cache-Control: no-cache, must-revalidate');
-		header('Pragma: no-cache');
-		header('Expires: 0');
-		@readfile($filepath);
-		exit;
-	}
 
 	// 이미지 사이즈 구함
-	// - 과거에는 getimagesize() 실패 시 무조건 noimage.gif로 리다이렉트했지만,
+	// - 과거에는 getimagesize() 실패 시 noimage.gif로 리다이렉트했지만,
 	//   실제 파일이 존재하면서도 getimagesize()가 false를 반환하는 경우가 있어
-	//   (특정 JPEG 포맷, 손상/특수 메타 등) 원본 이미지를 그대로 보내도록 완화한다.
+	//   실패하더라도 리다이렉트하지 않고, 리사이즈 판단용으로만 사용한다.
 	$imagesize = @getimagesize($filepath);
 	if(!is_array($imagesize)){
-		// 리사이즈/썸네일 계산에만 쓰이므로 0,0 기본값으로 두고,
-		// 아래 로직에서 추가 축소가 필요 없으면 fpassthru()로 원본 전송.
 		$imagesize = array(0, 0);
 	}
 
