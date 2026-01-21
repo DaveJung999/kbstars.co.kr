@@ -12,13 +12,14 @@
 // 03/12/08	박선민		bugfix - replay 부분
 //=======================================================
 $HEADER=array(
-		'priv' =>	"운영자,뉴스관리자", // 인증유무 (0:모두에게 허용, 숫자가 높을 수록 레벨업)
+		'priv' =>	'운영자,뉴스관리자', // 인증유무 (0:모두에게 허용, 숫자가 높을 수록 레벨업)
 		'usedb2' => 1, // DB 커넥션 사용 (0:미사용, 1:사용)
 		'useSkin' =>	1, // 템플릿 사용
 		'useBoard2' => 1, // 보드관련 함수 포함
-		'useApp' => 1,
+		'useApp' => 1
 	);
 require("{$_SERVER['DOCUMENT_ROOT']}/sinc/header.php");
+	
 //page_security("", $_SERVER['HTTP_HOST'] ?? '');
 //=======================================================
 // Ready... (변수 초기화 및 넘어온값 필터링)
@@ -216,15 +217,15 @@ if(($dbinfo['enable_getinfo'] ?? 'N') === 'Y'){
 // 템플릿 기반 웹 페이지 제작
 $tpl = new phemplate("","remove_nonjs");
 $dbinfo['skin'] = isset($dbinfo['skin']) ? $dbinfo['skin'] : 'basic';
-if( !is_file("{$thisPath}/stpl/{$dbinfo['skin']}/write.htm") ) $dbinfo['skin']="board_basic";
+if( !is_file("{$thisPath}/stpl/{$dbinfo['skin']}/write.htm") ) $dbinfo['skin']="basic";
 $tpl->set_file('html',"{$thisPath}/stpl/{$dbinfo['skin']}/write.htm",TPL_BLOCK);
 
 // 템플릿 마무리 할당
-if( !($mode === "modify" and ($list['bid'] ?? null) != ($_SESSION['seUid'] ?? null)) ){
+if( !($mode == "modify" and ($list['bid'] ?? null) != ($_SESSION['seUid'] ?? null)) ){
 	switch($dbinfo['enable_userid'] ?? ''){
-		case 'name'		: {$list['userid']} = $_SESSION['seName'] ?? ''; break;
-		case 'nickname'	: {$list['userid']} = $_SESSION['seNickname'] ?? ''; break;
-		default			: {$list['userid']} = $_SESSION['seUserid'] ?? ''; break;
+		case 'name'		: $list['userid'] = $_SESSION['seName'] ?? ''; break;
+		case 'nickname'	: $list['userid'] = $_SESSION['seNickname'] ?? ''; break;
+		default			: $list['userid'] = $_SESSION['seUserid'] ?? ''; break;
 	}
 	$list['email']	= ($_SESSION['seEmail'] ?? null) ? $_SESSION['seEmail'] : ($email ?? '');
 }
@@ -235,6 +236,7 @@ $tpl->set_var('href',$href);
 $tpl->set_var('form_write',$form_write);
 $tpl->set_var('tselect',$tselect);
 $tpl->set_var('sname',$sname);
+
 if (isset($list['pposition'])) {
 	$tpl->set_var("{$list['pposition']}_selected", ${"{$list['pposition']}_selected"});
 }

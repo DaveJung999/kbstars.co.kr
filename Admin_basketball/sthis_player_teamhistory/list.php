@@ -30,7 +30,7 @@ include_once("./dbinfo.php"); // $dbinfo, $table 값 정의
 
 //===================================================
 // REQUEST 값 대입......2025-09-10
-$params = ['db', 'table', 'cateuid', 'pern', 'cut_length', 'row_pern', 'sql_where', 'sc_column', 'sc_string', 'page', 'mode', 'sup_bid', 'modify_uid', 'uid', 'goto', 'game', 'pid', 'gid', 'sid', 's_id', 'season', 'session_id', 'tid', 'rid', 'num', 'name', 'pback', 'search_text'];
+$params = ['db', 'table', 'cateuid', 'pern', 'cut_length', 'row_pern', 'sql_where', 'sc_column', 'sc_string', 'page', 'mode', 'sup_bid', 'modify_uid', 'uid', 'goto', 'game', 'pid', 'pname', 'gid', 'sid', 's_id', 'season', 'session_id', 'tid', 'rid', 'num', 'name', 'pback', 'search_text'];
 foreach ($params as $param) {
 	$$param = $_REQUEST[$param] ?? $$param ?? null;
 }
@@ -45,6 +45,8 @@ $qs_basic = "db={$db}".					//table 이름
 			"&pern={$pern}" .	// 페이지당 표시될 게시물 수
 			"&sc_column={$sc_column}".	//search column
 			"&sc_string=" . urlencode(stripslashes($sc_string)). //search string
+			"&pid=".($pid ?? '').
+			"&pname=".urlencode($pname ?? '').
 			"&page={$page}";				//현재 페이지
 
 if(isset($_GET['skin']) && $_GET['skin'] == ""){	
@@ -54,7 +56,6 @@ if(isset($_GET['skin']) && $_GET['skin'] == ""){
 	$dbinfo['skin'] = isset($_GET['skin']) ? $_GET['skin'] : '';
 	$dbinfo['orderby'] = "win_go ";	
 }
-
 
 $totla_result=array(
 		"tr_game" =>	"0",
