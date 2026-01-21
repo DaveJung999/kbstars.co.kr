@@ -374,8 +374,43 @@ while(!feof($fd)){
 }
 fclose($fd);
 */
-$fd=fopen($filepath,'rb');
-fpassthru($fd);
+
+//==================================
+// JPEG 파일 앞에 개행(0x0A) 등 불필요한 바이트가 붙어 있는
+// 예전 데이터가 존재하여, 브라우저에서 X박스로 보이는 문제가 있어
+// 실제 전송 시에는 파일 내에서 JPEG SOI(0xFF 0xD8)를 찾아
+// 그 이전 바이트는 모두 무시하고 이후만 전송한다.
+// - 디스크의 원본 파일은 변경하지 않는다.
+//==================================
+$fd = fopen($filepath, 'rb');
+if ($fd) {
+	// 앞부분 버퍼를 읽어서 SOI 위치를 찾는다 (최대 4KB 내에서)
+	$buffer = '';
+	while (!feof($fd) && strlen($buffer) < 4096) {
+		$chunk = fread($fd, 512);
+		if ($chunk === false || $chunk === '') break;
+		$buffer .= $chunk;
+		// SOI를 찾으면 더 이상 읽지 않음
+		if (strpos($buffer, "\xFF\xD8") !== false) break;
+	}
+
+	$pos = strpos($buffer, "\xFF\xD8");
+	if ($pos === false) {
+		// SOI를 찾지 못하면 원본 그대로 전송
+		rewind($fd);
+		fpassthru($fd);
+	} else {
+		// SOI 이후부터 출력
+		echo substr($buffer, $pos);
+		// 나머지 전체 전송
+		while (!feof($fd)) {
+			$out = fread($fd, 8192);
+			if ($out === false || $out === '') break;
+			echo $out;
+		}
+	}
+	fclose($fd);
+}
 
 // hitdownload 증가
 if($_GET['mode'] == "download"){
