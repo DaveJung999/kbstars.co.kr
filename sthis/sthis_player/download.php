@@ -42,6 +42,11 @@
 //		mode=watermark	: 워터마크 처리함
 //		mode=allimages	: 이미지들을 html문서로 모두 보여줌
 //						="download.php?mode=allimages&db={$db}&uid=$uid";
+// 이미지 모드일 때는 출력 버퍼를 먼저 시작하여 header.php의 출력을 캡처
+if (isset($_GET['mode']) && ($_GET['mode'] == 'image' || $_GET['mode'] == 'thumbnail' || $_GET['mode'] == 'watermark' || $_GET['mode'] == 'mainimage')) {
+	@ob_start();
+}
+
 $HEADER=array(
 		'priv' => '', // 인증유무 (0:모두에게 허용, 숫자가 높을 수록 레벨업)
 		'usedb2' => 1, // DB 커넥션 사용 (0:미사용, 1:사용)
@@ -314,6 +319,7 @@ unset($list);
 // header.php 등에서 이미 출력이 시작되었을 수 있어서,
 // 이미지 바이너리 앞에 텍스트가 섞이면 브라우저가 이미지로 인식하지 못함
 if (function_exists('ob_get_level')) {
+	// 모든 출력 버퍼를 완전히 비움
 	while (ob_get_level() > 0) {
 		@ob_end_clean();
 	}
@@ -321,6 +327,11 @@ if (function_exists('ob_get_level')) {
 // 추가로 출력 버퍼링을 완전히 비활성화
 @ini_set('output_buffering', 'off');
 @ini_set('zlib.output_compression', false);
+
+// 헤더 전송 전에 출력이 있는지 확인하고 완전히 제거
+if (ob_get_level() > 0) {
+	@ob_end_clean();
+}
 
 // mime-type 결정
 if(isset($mime_type)) header('Content-type: '.$mime_type);
