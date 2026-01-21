@@ -28,4 +28,5 @@
 	$dbinfo['enable_getinfo'] = "Y";
 	$dbinfo['enable_level'] = "Y";
 	$dbinfo['default_docu_type'] = "text";
+	$dbinfo['enable_userid'] = "";
 ?>

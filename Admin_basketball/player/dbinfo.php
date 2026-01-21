@@ -23,5 +23,6 @@ $dbinfo = array(
 	"enable_getinfo" => "Y",
 	"enable_level" => "Y",
 	"default_docu_type" => "text"
+	$dbinfo['enable_userid'] = "";
 );
 ?>

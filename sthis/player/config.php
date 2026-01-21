@@ -51,5 +51,6 @@ $dbinfo	= array(
 			'goto_write'		=>'',
 			'goto_modify'		=>'',
 			'goto_delete'		=>'',
+			'enable_userid'		=>''
 		);
 ?>

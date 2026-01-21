@@ -14,4 +14,5 @@
 	$dbinfo['html_headpattern'] = "ht";
 	$dbinfo['html_headtpl'] = "infogame";
 	$dbinfo['orderby'] = "tr_season "; 
+	$dbinfo['enable_userid'] = "";
 ?>

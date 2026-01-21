@@ -15,4 +15,5 @@
 	$dbinfo['enable_upload']="multi"; // 업로드지원 
 	$dbinfo['html_headpattern'] = "no";
 	$dbinfo['orderby'] = "tr_season "; 
+	$dbinfo['enable_userid'] = "";
 ?>
