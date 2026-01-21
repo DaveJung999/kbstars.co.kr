@@ -16,7 +16,7 @@ $HEADER=array(
 		'useBoard2' => 1,
 		'html_echo' => ''	// html header, tail 삽입(tail은 파일 마지막에 echo $SITE['tail'])
 	);
-require("{$_SERVER['DOCUMENT_ROOT']}/sin/header.php");
+require("{$_SERVER['DOCUMENT_ROOT']}/sinc/header.php");
 //page_security("", $HTTP_HOST);
 
 //=======================================================

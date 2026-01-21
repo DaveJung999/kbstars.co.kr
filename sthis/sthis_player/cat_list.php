@@ -61,7 +61,9 @@ if($dbinfo['enable_cate'] == 'Y'){
 	// 카테고리정보구함 (dbinfo, table_cate, cateuid, $enable_catelist='Y', sw_topcatetitles, sw_notitems, sw_itemcount,string_firsttotal)
 	// highcate[], samecate[], subcate[], subsubcate[], subcateuid[], catelist
 	$tmp_itemcount = trim(isset($_REQUEST['sc_string']) ? $_REQUEST['sc_string'] : '') ? 0 : 1;
-	$cateinfo=boardCateInfo($dbinfo, $table_cate, (isset($_REQUEST['cateuid']) ? $_REQUEST['cateuid'] : ''), 'Y', 1,1,$tmp_itemcount,"(종합)");
+	$sw_catelist = CATELIST_VIEW | CATELIST_VIEW_TOPCATE_TITLE | CATELIST_NOVIEW_NODATA;
+	if($tmp_itemcount) $sw_catelist |= CATELIST_VIEW_DATACOUNT;
+	$cateinfo=board2CateInfo($dbinfo, (isset($_REQUEST['cateuid']) ? $_REQUEST['cateuid'] : ''), $sw_catelist, "(종합)");
 
 	if(!isset($_GET['cateuid'])){
 		$cateinfo['uid']		= $_SERVER['PHP_SELF']."?" . href_qs("",$qs_basic);

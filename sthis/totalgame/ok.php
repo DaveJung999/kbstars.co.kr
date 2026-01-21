@@ -14,7 +14,8 @@ $HEADER = array(
 	'usedb2' => 1, // DB 커넥션 사용
 	'useSkin' => 1, // 템플릿 사용
 	'useCheck' => 1, // check_value()
-	'useApp' => 1 // remote_addr()
+	'useApp' => 1, // remote_addr()
+	'useBoard2' => 1 // 보드관련 함수 포함
 );
 require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 

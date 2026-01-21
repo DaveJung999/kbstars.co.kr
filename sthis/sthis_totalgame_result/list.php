@@ -18,7 +18,7 @@ $HEADER=array(
 	'useBoard2' => 1, // boardAuth()
 	'useApp' => 1
 );
-require("{$_SERVER['DOCUMENT_ROOT']}/sin/header.php");
+require("{$_SERVER['DOCUMENT_ROOT']}/sinc/header.php");
 //page_security("", $_SERVER['HTTP_HOST']); // PHP 7에서 $HTTP_HOST 대신 $_SERVER['HTTP_HOST'] 사용
 
 //=======================================================
@@ -75,7 +75,9 @@ require("{$_SERVER['DOCUMENT_ROOT']}/sin/header.php");
 		// 카테고리정보구함 (dbinfo, table_cate, cateuid, $enable_catelist='Y', sw_topcatetitles, sw_notitems, sw_itemcount,string_firsttotal)
 		// highcate[], samecate[], subcate[], subsubcate[], subcateuid[], catelist
 		$tmp_itemcount = trim($_GET['sc_string']) ? 0 : 1;
-		$cateinfo=boardCateInfo($dbinfo, $table_cate, $_GET['cateuid'], 'Y', 1,1,$tmp_itemcount,"(종합)");
+		$sw_catelist = CATELIST_VIEW | CATELIST_VIEW_TOPCATE_TITLE | CATELIST_NOVIEW_NODATA;
+		if($tmp_itemcount) $sw_catelist |= CATELIST_VIEW_DATACOUNT;
+		$cateinfo=board2CateInfo($dbinfo, $_GET['cateuid'], $sw_catelist, "(종합)");
 
 		if(!$_GET['cateuid']){
 			$cateinfo['uid']		= "{$_SERVER['PHP_SELF']}?" . href_qs("",$qs_basic);

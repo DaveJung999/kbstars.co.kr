@@ -15,7 +15,7 @@ $HEADER=array(
 		'useBoard2' => 1, // 보드관련 함수 포함
 		'html_echo' => ''	// 게시판은 무조건 '0', (boardinfo[html_headtpl]에서 템플릿 설정함
 	);
-require("{$_SERVER['DOCUMENT_ROOT']}/sin/header.php");
+require("{$_SERVER['DOCUMENT_ROOT']}/sinc/header.php");
 //page_security("", $HTTP_HOST);
 
 //=======================================================

@@ -62,11 +62,13 @@ if(!privAuth($dbinfo, "priv_list",1)) back("이용이 제한되었습니다.(레
 if(($dbinfo['enable_cate'] ?? null) == 'Y'){
 	$table_cate	=	($table ?? '') . "_cate";
 
-	// 카테고리정보구함 (dbinfo, table_cate, cateuid, $enable_catelist='Y', sw_topcatetitles, sw_notitems, sw_itemcount,string_firsttotal)
+	// 카테고리정보구함 (dbinfo, cateuid, sw_catelist, string_view_firsttotal)
 	// highcate[], samecate[], subcate[], subsubcate[], subcateuid[], catelist
 	$sc_string = $_GET['sc_string'] ?? '';
 	$tmp_itemcount = trim($sc_string) ? 0 : 1;
-	$cateinfo=boardCateInfo(($dbinfo ?? null), $table_cate, $_GET['cateuid'] ?? null, 'Y', 1,1,$tmp_itemcount,"(종합)");
+	$sw_catelist = CATELIST_VIEW | CATELIST_VIEW_TOPCATE_TITLE | CATELIST_NOVIEW_NODATA;
+	if($tmp_itemcount) $sw_catelist |= CATELIST_VIEW_DATACOUNT;
+	$cateinfo=board2CateInfo(($dbinfo ?? null), $_GET['cateuid'] ?? null, $sw_catelist, "(종합)");
 
 	if(!($cateuid ?? null)){
 		$cateinfo['uid']		= "{$_SERVER['PHP_SELF']}?" . href_qs("",$qs_basic);

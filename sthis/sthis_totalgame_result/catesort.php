@@ -13,7 +13,7 @@ $HEADER=array(
 		'usedb2' => 1, // DB 커넥션 사용 (0:미사용, 1:사용)
 		'useBoard2' => 1, // boardAuth
 	);
-require("{$_SERVER['DOCUMENT_ROOT']}/sin/header.php");
+require("{$_SERVER['DOCUMENT_ROOT']}/sinc/header.php");
 //page_security("", $HTTP_HOST);
 
 //=======================================================

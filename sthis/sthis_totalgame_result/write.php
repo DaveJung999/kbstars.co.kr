@@ -132,12 +132,14 @@ $href["list"] = "./list.php?" . href_qs("",$qs_basic);
 if(($dbinfo['enable_cate'] ?? 'N') === 'Y' and empty($list['re'])){
 	$table_cate	= (($dbinfo['enable_type'] ?? 'N') === 'Y') ? $table : $table	. "_cate";
 
-	// 카테고리정보구함 (dbinfo, table_cate, cateuid, $enable_catelist='Y', sw_topcatetitles, sw_notitems, sw_itemcount,string_firsttotal)
+	// 카테고리정보구함 (dbinfo, cateuid, sw_catelist, string_view_firsttotal)
 	// highcate[], samecate[], subcate[], subsubcate[], subcateuid[], catelist
 	$tmp_itemcount		= trim($sc_string) ? 0 : 1;
 	$string_firsttotal	= isset($dbinfo['cate_depth']) ? 0 : "(전체)";
 	$tmp_cateuid		= $list['cateuid'] ?? ($_GET['cateuid'] ?? null);
-	$cateinfo			= boardCateInfo($dbinfo, $table_cate, $tmp_cateuid, 'Y', 1,1,$tmp_itemcount,$string_firsttotal);
+	$sw_catelist = CATELIST_VIEW | CATELIST_VIEW_TOPCATE_TITLE | CATELIST_VIEW_CATE_DEPTH | CATELIST_NOVIEW_NODATA;
+	if($tmp_itemcount) $sw_catelist |= CATELIST_VIEW_DATACOUNT;
+	$cateinfo			= board2CateInfo($dbinfo, $tmp_cateuid, $sw_catelist, $string_firsttotal);
 	$list['catelist']		= $cateinfo['catelist'];
 	unset($cateinfo);
 } // end if

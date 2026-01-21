@@ -15,7 +15,7 @@
 /*
 	포함함수
 		board2count( $total, $nowpage, $pern = 5, $page_pern=5);
-		board2Cateinfo(&$dbinfo, $cateuid=0,$enable_catelist='Y', $tmp_sw_view_topcatetitles=1, $tmp_sw_view_cate_notitems=1, $tmp_sw_view_cate_itemcount=1, $catelist_view_firsttop_str='(전체)')
+		board2Cateinfo(&$dbinfo, $cateuid=0, $sw_catelist=0, $catelist_view_firsttop_str='(전체)')
 		board2SqlSort($table,$sort) // order by ..
 		//inputfield($table,$list_uid=NULL)
 */

@@ -3,10 +3,11 @@
 $HEADER=array(
 		'priv' => '운영자', // 인증유무 (0:모두에게 허용, 숫자가 logon테이블 Level)
 		'usedb2' => 1, // DB 커넥션 사용 (0:미사용, 1:사용)
-		header => 1, // html header, tail 삽입(tail은 파일 마지막에 echo $SITE['tail'])
-		useUtil => 1,
-		html => "contribution", // html header 파일(/stpl/basic/index_$HEADER['html'].php 파일을 읽음)
-		log => '' // log_site 테이블에 지정한 키워드로 로그 남김
+		'header' => 1, // html header, tail 삽입(tail은 파일 마지막에 echo $SITE['tail'])
+		'useUtil' => 1,
+		'html' => "contribution", // html header 파일(/stpl/basic/index_$HEADER['html'].php 파일을 읽음)
+		'log' => '', // log_site 테이블에 지정한 키워드로 로그 남김
+		'useBoard2' => 1 // 보드관련 함수 포함
 	);
 require("{$_SERVER['DOCUMENT_ROOT']}/sinc/header.php");
 //page_security("", $HTTP_HOST);

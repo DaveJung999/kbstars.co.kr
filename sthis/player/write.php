@@ -14,6 +14,7 @@ $HEADER = array(
 	'priv' => '', // 인증유무 (비회원,회원,운영자,서버관리자)
 	'usedb2' => 1, // DB 커넥션 사용
 	'useSkin' => 1, // 템플릿 사용
+	'useBoard2' => 1, // 보드관련 함수 포함
 );
 require($_SERVER['DOCUMENT_ROOT'].'/sinc/header.php');
 

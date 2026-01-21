@@ -14,10 +14,10 @@ $HEADER=array(
 		'usedb2' => 1, // DB 커넥션 사용 (0:미사용, 1:사용)
 		'useCheck' => 1,
 		'useBoard2' => 1,
-		version => 1,
+		'version' => 1,
 		'html_echo' => ''	// html header, tail 삽입(tail은 파일 마지막에 echo $SITE['tail'])
 	);
-require("{$_SERVER['DOCUMENT_ROOT']}/sin/header.php");
+require("{$_SERVER['DOCUMENT_ROOT']}/sinc/header.php");
 page_security("", $_SERVER['HTTP_HOST']);
 
 //=======================================================
