@@ -352,7 +352,7 @@ body {
 			<br />
 			<table width="90%"	border="0" align="center" cellpadding="0" cellspacing="0">
 			<tr>
-				<td align="center"><input name="Submit" type="submit" class="CCbox04" value=" 입 력 " />
+				<td align="center"><input name="Submit" type="submit" class="CCbox04" value=" 등 록 " />
 				&nbsp;
 				<input name="Submit2" type="button" class="CCbox04" value=" 뒤 로 " onclick="javascript:history.back();" /></td>
 			</tr>
