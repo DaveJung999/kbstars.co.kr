@@ -31,6 +31,11 @@ try {
         define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
     }
     
+    // Define PHPMYADMIN constant before loading constants.php
+    if (! defined('PHPMYADMIN')) {
+        define('PHPMYADMIN', true);
+    }
+    
     // Create tmp directory if it doesn't exist
     $tmpDir = ROOT_PATH . 'tmp';
     if (!file_exists($tmpDir)) {
@@ -48,9 +53,17 @@ try {
     echo "File path: $constantsFile<br>";
     echo "File exists: " . (file_exists($constantsFile) ? "Yes" : "No") . "<br>";
     echo "File readable: " . (is_readable($constantsFile) ? "Yes" : "No") . "<br>";
+    echo "PHPMYADMIN defined: " . (defined('PHPMYADMIN') ? "Yes" : "No") . "<br>";
     
     require_once $constantsFile;
     echo "✓ constants.php loaded<br>";
+    
+    // Check if constants were defined
+    if (defined('AUTOLOAD_FILE')) {
+        echo "AUTOLOAD_FILE: " . AUTOLOAD_FILE . "<br>";
+    } else {
+        throw new Exception("AUTOLOAD_FILE not defined after loading constants.php");
+    }
     
     echo "<h2>Step 2: Loading autoload</h2>";
     if (defined('AUTOLOAD_FILE') && file_exists(AUTOLOAD_FILE)) {
