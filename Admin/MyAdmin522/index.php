@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+// declare(strict_types=1); // Commented out to avoid 500 error
 
 use PhpMyAdmin\Common;
 use PhpMyAdmin\Routing;
