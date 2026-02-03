@@ -17,14 +17,16 @@ $sql = "select * from game
 */
 
 $game = db_arrayone($sql);
-$td_game_value = isset($game); // 경기가 있는지 boolean 값으로 확인
+// db_arrayone() 이 false 를 반환할 수 있으므로, 실제로 "유효한 배열"인지 여부를 체크
+$td_game_value = (is_array($game) && !empty($game));
 
 if(!$td_game_value){
-	$game = []; // $game 변수를 배열로 초기화하여 오류 방지
+	// 오늘 경기 정보가 없을 때: 기본 링크만 설정
+	$game = [];
 	$game['href'] = "/stat/index.php?mNum=0301&getinfo=cont&html_skin=2022_d03";
 } else {
 	// 국민은행이면 순서 뒤집기
-	if($game['g_away'] == 13){
+	if(isset($game['g_away']) && $game['g_away'] == 13){
 		$tmp 					= $game['g_away'];
 		$game['g_away']			= $game['g_home'];
 		$game['g_home']			= $tmp;
@@ -37,15 +39,26 @@ if(!$td_game_value){
 	//print_r($game);
 
 	//홈팀 정보
-	if($game['g_home'] == 13) $game['g_home_name'] = "KB스타즈";
+	if(isset($game['g_home']) && $game['g_home'] == 13) {
+		$game['g_home_name'] = "KB스타즈";
+	}
 
 	//어웨이팀 정보
-	$sql = " SELECT t_name FROM team WHERE tid='{$game['g_away']}' ";
-	$game['g_away_name'] = db_resultone($sql,0,'t_name');
+	if(isset($game['g_away'])){
+		$sql = " SELECT t_name FROM team WHERE tid='{$game['g_away']}' ";
+		$game['g_away_name'] = db_resultone($sql,0,'t_name');
+	}
 
-	$game['g_start_date'] = date("Y. m. d.",$game['g_start']);
-	$game['g_start_time'] = date("H : i",$game['g_start']);
-	$game['href'] = "/stat/2-read.php?gid={$game['gid']}&mNum=0301&getinfo=cont&html_skin=2022_d03";
+	// 경기 시작 시간이 있을 때만 포맷팅
+	if(isset($game['g_start']) && $game['g_start']){
+		$game['g_start_date'] = date("Y. m. d.",$game['g_start']);
+		$game['g_start_time'] = date("H : i",$game['g_start']);
+	}
+
+	// gid 가 있을 때만 상세 페이지 링크 생성
+	if(isset($game['gid'])){
+		$game['href'] = "/stat/2-read.php?gid={$game['gid']}&mNum=0301&getinfo=cont&html_skin=2022_d03";
+	}
 
 	// 이겼는지 졌는지
 	if(isset($game['home_score']) && isset($game['away_score'])){
